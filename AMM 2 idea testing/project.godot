@@ -24,6 +24,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/MASHLOG/resources/iconResource.gd"
 }, {
+"base": "Resource",
+"class": &"itemContents",
+"language": &"GDScript",
+"path": "res://addons/word/resources/itemContents.gd"
+}, {
 "base": "Position2D",
 "class": &"itemResource",
 "language": &"GDScript",
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "dialogueResource": "",
 "eventResource": "",
 "iconSet": "",
+"itemContents": "",
 "itemResource": "",
 "wordLabel": ""
 }

@@ -2,23 +2,21 @@
 extends Position2D
 class_name itemResource
 
-#sets up conditionals and states that an object can have on itself
-@export var Name:String
-@export var Sprites:Dictionary:
-	set(value):
-		if value.size()>0&&!value.values()[value.size()-1] is CompressedTexture2D:
-			value[value.keys()[value.size()-1]]=Texture2D.new()
-		Sprites=value
-	get:return Sprites
+
+@export var HeldResource:Resource=itemContents.new()
+
 @export var Status:PackedStringArray
 var sprite=Sprite2D.new()
 var descriptives=HBoxContainer.new()
+var size=Vector2.ZERO
 #prepares basic setup for items
 func _ready():
-	sprite.texture=Sprites["default"]
+	sprite.texture=HeldResource.Sprites["default"]
+	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
 	sprite.centered=false
 	add_child(sprite)
 	add_child(descriptives)
+	updateDescriptives()
 
 
 
@@ -32,4 +30,8 @@ func updateDescriptives():
 
 #will either change sprite if it has one for the descriptive, elsewise is just adds the icon above to show it
 func applyDescriptive(descriptive):
-	pass
+	#if sprite changes with descriptive, it will show it here
+	if HeldResource.has_sprite(descriptive):
+		pass
+	#applies basic descriptive icons as well
+	descriptives.add_child(HeldResource.make_descriptive_icon(descriptive))
