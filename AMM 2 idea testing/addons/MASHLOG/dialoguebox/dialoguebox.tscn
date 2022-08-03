@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckfxvsft6eu53"]
+
+[ext_resource type="Script" path="res://addons/MASHLOG/dialoguebox/dialoguebox.gd" id="1_sihhg"]
+[ext_resource type="Shader" path="res://addons/MASHLOG/shaders/icon.gdshader" id="2_w7lo7"]
+[ext_resource type="Texture2D" uid="uid://c84qoc1tpn1fo" path="res://icon.png" id="3_s3hvl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_byr37"]
+shader = ExtResource("2_w7lo7")
+
+[node name="dialoguelayer" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_sihhg")
+
+[node name="dialoguebox" type="Panel" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(1024, 150)
+offset_top = 450.0
+offset_right = 1024.0
+offset_bottom = 600.0
+size_flags_vertical = 8
+
+[node name="contents" type="HBoxContainer" parent="dialoguebox"]
+custom_minimum_size = Vector2(1024, 150)
+offset_right = 1024.0
+offset_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="speech" type="RichTextLabel" parent="dialoguebox/contents"]
+offset_right = 874.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+bbcode_enabled = true
+visible_characters_behavior = 1
+metadata/_edit_layout_mode = 1
+
+[node name="iconpanel" type="PanelContainer" parent="dialoguebox/contents"]
+custom_minimum_size = Vector2(150, 0)
+offset_left = 874.0
+offset_right = 1024.0
+offset_bottom = 150.0
+size_flags_horizontal = 10
+
+[node name="icon" type="TextureRect" parent="dialoguebox/contents/iconpanel"]
+material = SubResource("ShaderMaterial_byr37")
+custom_minimum_size = Vector2(128, 128)
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 139.0
+offset_bottom = 139.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_s3hvl")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="nextChar" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="nextSet" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

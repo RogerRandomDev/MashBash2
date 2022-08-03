@@ -1,0 +1,11 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://1n3uhupg7o3n"]
+
+[sub_resource type="Sky" id="1"]
+
+[resource]
+background_mode = 3
+sky = SubResource("1")
+ambient_light_source = 1
+reflected_light_source = 1
+adjustment_enabled = true
+adjustment_contrast = 0.01

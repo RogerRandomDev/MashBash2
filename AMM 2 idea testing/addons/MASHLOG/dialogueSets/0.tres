@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://d12xydl3l0mcg"]
+
+[ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_pngwn"]
+[ext_resource type="Script" path="res://addons/MASHLOG/resources/eventResource.gd" id="1_yp716"]
+
+[sub_resource type="Resource" id="Resource_hc2gu"]
+script = ExtResource("1_yp716")
+Actions = PackedInt32Array(4)
+ActionValues = ["MASH2"]
+
+[resource]
+script = ExtResource("1_pngwn")
+dialogue = PackedStringArray("IT WORKED!", "Are you Sure about that\?")
+dialogueFaces = [1, 0]
+dialogueActions = [null, SubResource("Resource_hc2gu")]
