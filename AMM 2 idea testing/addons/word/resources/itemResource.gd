@@ -8,6 +8,7 @@ class_name itemResource
 @export var Status:PackedStringArray
 var sprite=Sprite2D.new()
 var descriptives=HBoxContainer.new()
+var descriptiveLabel=Label.new()
 var size=Vector2.ZERO
 #prepares basic setup for items
 func _ready():
@@ -16,17 +17,25 @@ func _ready():
 	sprite.centered=false
 	add_child(sprite)
 	add_child(descriptives)
+	add_child(descriptiveLabel)
+	descriptiveLabel.position.y=-16
 	updateDescriptives()
 
 
 
 #removes and loads the new descriptives
 func updateDescriptives():
+	descriptiveLabel.text=""
 	for child in descriptives.get_children():child.queue_free()
 	for descriptive in Status:applyDescriptive(descriptive)
+	descriptiveLabel.text+=HeldResource.Name
 
 
-
+func removeDescriptive(id):
+	var out = descriptives[id]
+	descriptives.remove_at(id)
+	updateDescriptives()
+	return out
 
 #will either change sprite if it has one for the descriptive, elsewise is just adds the icon above to show it
 func applyDescriptive(descriptive):
@@ -35,3 +44,4 @@ func applyDescriptive(descriptive):
 		pass
 	#applies basic descriptive icons as well
 	descriptives.add_child(HeldResource.make_descriptive_icon(descriptive))
+	descriptiveLabel.text+="%s "%descriptive

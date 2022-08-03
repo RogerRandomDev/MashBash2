@@ -58,6 +58,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Mashlogue="*res://addons/MASHLOG/mashlogue.gd"
+Word="*res://addons/word/wordSystem.gd"
 
 [editor_plugins]
 

@@ -19,7 +19,7 @@ position = Vector2(76, 29)
 gizmo_extents = 16.0
 script = ExtResource("1_p2ln2")
 HeldResource = SubResource("Resource_pwylu")
-Status = PackedStringArray("unlocked")
+Status = PackedStringArray("locked")
 
 [node name="Player" parent="." instance=ExtResource("4_bk1q5")]
 motion_mode = 1

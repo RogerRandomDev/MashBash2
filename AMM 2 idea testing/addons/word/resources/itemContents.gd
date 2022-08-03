@@ -22,6 +22,6 @@ func make_descriptive_icon(descriptive):
 	icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	icon.ignore_texture_size=true
 	icon.size=Vector2(32,32)
-	icon.custom_minimum_size=Vector2(12,12)
+	icon.custom_minimum_size=Vector2(16,16)
 	icon.position=Vector2(32,32)
 	return icon
