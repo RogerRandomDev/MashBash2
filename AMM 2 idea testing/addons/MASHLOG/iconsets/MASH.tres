@@ -1,21 +1,31 @@
-[gd_resource type="Resource" load_steps=8 format=3 uid="uid://c0wrq00f6822x"]
+[gd_resource type="Resource" load_steps=13 format=3 uid="uid://duxf70dxonbdo"]
 
-[ext_resource type="Texture2D" uid="uid://bfauvph0ynjh8" path="res://addons/MASHLOG/Textures/Mashicons/0.png" id="1_earvn"]
-[ext_resource type="Texture2D" uid="uid://6ci634jsykc8" path="res://addons/MASHLOG/Textures/Mashicons/1.png" id="2_yf4vv"]
-[ext_resource type="Script" path="res://addons/MASHLOG/resources/iconResource.gd" id="2_ytsq5"]
-[ext_resource type="Texture2D" uid="uid://68fcmtqq70jl" path="res://addons/MASHLOG/Textures/Mashicons/2.png" id="3_nxvwq"]
-[ext_resource type="Texture2D" uid="uid://bsodcjwtpmwux" path="res://addons/MASHLOG/Textures/Mashicons/3.png" id="4_xmfoh"]
-[ext_resource type="Texture2D" uid="uid://hvig46o2nlji" path="res://addons/MASHLOG/Textures/Mashicons/4.png" id="5_r4xtf"]
-[ext_resource type="Texture2D" uid="uid://cwcar4c78g2sc" path="res://addons/MASHLOG/Textures/Mashicons/5.png" id="6_hawty"]
+[ext_resource type="Texture2D" uid="uid://bfauvph0ynjh8" path="res://addons/MASHLOG/Textures/Mashicons/0.png" id="1_8jfru"]
+[ext_resource type="Script" path="res://addons/MASHLOG/resources/iconResource.gd" id="1_quqj0"]
+[ext_resource type="Texture2D" uid="uid://6ci634jsykc8" path="res://addons/MASHLOG/Textures/Mashicons/1.png" id="2_oiujv"]
+[ext_resource type="Texture2D" uid="uid://68fcmtqq70jl" path="res://addons/MASHLOG/Textures/Mashicons/2.png" id="3_a2n0r"]
+[ext_resource type="Texture2D" uid="uid://bsodcjwtpmwux" path="res://addons/MASHLOG/Textures/Mashicons/3.png" id="4_arprc"]
+[ext_resource type="Texture2D" uid="uid://hvig46o2nlji" path="res://addons/MASHLOG/Textures/Mashicons/4.png" id="5_ict6d"]
+[ext_resource type="Texture2D" uid="uid://cwcar4c78g2sc" path="res://addons/MASHLOG/Textures/Mashicons/5.png" id="6_k01dp"]
+[ext_resource type="Texture2D" uid="uid://devklyl2jhacr" path="res://addons/MASHLOG/Textures/Mashicons/8.png" id="7_qqudh"]
+[ext_resource type="Texture2D" uid="uid://bf1bdrmh6vwv8" path="res://addons/MASHLOG/Textures/Mashicons/7.png" id="8_lv5io"]
+[ext_resource type="Texture2D" uid="uid://dwrpv4jq84uvv" path="res://addons/MASHLOG/Textures/Mashicons/6.png" id="9_bcklb"]
+[ext_resource type="Texture2D" uid="uid://jnd388e3q6ac" path="res://addons/MASHLOG/Textures/Mashicons/9.png" id="10_oa8ws"]
+[ext_resource type="Texture2D" uid="uid://cy72vsgmhhhyx" path="res://addons/MASHLOG/Textures/Mashicons/10.png" id="11_do3bn"]
 
 [resource]
-script = ExtResource("2_ytsq5")
-modulate = Color(0, 0.745098, 0, 1)
+script = ExtResource("1_quqj0")
+modulate = Color(0.0980392, 0.482353, 0, 1)
 icon_set = {
-"Default": ExtResource("1_earvn"),
-"Frown": ExtResource("3_nxvwq"),
-"MadDefault": ExtResource("4_xmfoh"),
-"MadFrown": ExtResource("6_hawty"),
-"MadSmile": ExtResource("5_r4xtf"),
-"Smile": ExtResource("2_yf4vv")
+"Default": ExtResource("1_8jfru"),
+"Frown": ExtResource("3_a2n0r"),
+"GrinSquint": ExtResource("10_oa8ws"),
+"MadDefault": ExtResource("4_arprc"),
+"MadFrown": ExtResource("6_k01dp"),
+"MadSmile": ExtResource("5_ict6d"),
+"Smile": ExtResource("2_oiujv"),
+"SquintFrown": ExtResource("9_bcklb"),
+"SquintNeutral": ExtResource("7_qqudh"),
+"SquintSmallFrown": ExtResource("11_do3bn"),
+"SquintSmile": ExtResource("8_lv5io")
 }

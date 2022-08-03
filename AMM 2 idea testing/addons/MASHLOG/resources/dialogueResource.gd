@@ -17,7 +17,8 @@ class_name dialogueResource
 		dialogueFaces=value
 		if(value!=lastSet):
 			show_chosen_faces()
-		lastSet=value.duplicate()
+		lastSet=value.duplicate(true)
+		
 	get:return dialogueFaces
 @export var dialogueActions:Array:
 	set(value):dialogueActions=value
@@ -56,4 +57,5 @@ func triggerActions(actionLine):
 #honestly just a quality of life for me so i dont have to remember
 #the int to face conversion
 func show_chosen_faces():
-	for val in dialogueFaces:print(Mashlogue.Faces.keys()[val])
+#	for val in dialogueFaces:print(Mashlogue.Faces.keys()[val])
+	pass

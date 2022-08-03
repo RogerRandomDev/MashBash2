@@ -23,11 +23,23 @@ _global_script_classes=[{
 "class": &"iconSet",
 "language": &"GDScript",
 "path": "res://addons/MASHLOG/resources/iconResource.gd"
+}, {
+"base": "Position2D",
+"class": &"itemResource",
+"language": &"GDScript",
+"path": "res://addons/word/resources/itemResource.gd"
+}, {
+"base": "HBoxContainer",
+"class": &"wordLabel",
+"language": &"GDScript",
+"path": "res://addons/word/wordlabel/label.gd"
 }]
 _global_script_class_icons={
 "dialogueResource": "",
 "eventResource": "",
-"iconSet": ""
+"iconSet": "",
+"itemResource": "",
+"wordLabel": ""
 }
 
 [application]
@@ -43,7 +55,7 @@ Mashlogue="*res://addons/MASHLOG/mashlogue.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/MASHLOG/plugin.cfg", "res://addons/CustomEffects/plugin.cfg")
+enabled=PackedStringArray("res://addons/MASHLOG/plugin.cfg", "res://addons/word/plugin.cfg")
 
 [filesystem]
 

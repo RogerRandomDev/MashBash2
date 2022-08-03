@@ -2,7 +2,7 @@ extends Node
 
 
 #the list of available faces that can be made
-enum Faces {Default,Smile,Frown,MadDefault,MadSmile,MadFrown}
+enum Faces {Default,Smile,Frown,MadDefault,MadSmile,MadFrown,SquintNeutral,SquintSmile,SquintFrown,GrinSquint,SquintSmallFrown}
 #possible actions for eventResource
 enum Actions{SetCell,ShakeCamera,MoveCamera,ResetCamera,ChangeSpeaker}
 #stores the typeof as the value so it can be used in the event system
