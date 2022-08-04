@@ -65,11 +65,11 @@ config/icon="res://icon.png"
 
 Mashlogue="*res://addons/MASHLOG/mashlogue.gd"
 Word="*res://addons/word/wordSystem.gd"
-Settings="*res://addons/settings/settingsBase.gd"
+Sound="*res://addons/Sound/Sound.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/MASHLOG/plugin.cfg", "res://addons/word/plugin.cfg", "res://addons/settings/plugin.cfg")
+enabled=PackedStringArray("res://addons/MASHLOG/plugin.cfg", "res://addons/word/plugin.cfg")
 
 [filesystem]
 

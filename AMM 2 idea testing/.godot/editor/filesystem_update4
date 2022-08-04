@@ -1,5 +1,6 @@
 res://addons/word/wordswapper/wordSwap.tscn
 res://addons/word/resources/pull.tres
-res://addons/word/wordswapper/wordSwap.gd
+res://addons/Sound/Sound.gd
 res://test.tscn
 res://entities/player/player.tscn
+res://addons/word/wordswapper/wordSwap.gd
