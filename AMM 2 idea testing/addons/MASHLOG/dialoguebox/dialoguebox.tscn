@@ -10,6 +10,8 @@ shader = ExtResource("2_w7lo7")
 [node name="dialoguelayer" type="CanvasLayer"]
 layer = 10
 script = ExtResource("1_sihhg")
+charDelay = 0.067
+setDelay = 2.5
 
 [node name="dialoguebox" type="Panel" parent="."]
 texture_filter = 1

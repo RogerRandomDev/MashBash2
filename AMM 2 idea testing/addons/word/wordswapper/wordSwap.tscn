@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dap82rqd03mbk"]
+
+[ext_resource type="Script" path="res://addons/word/wordswapper/wordSwap.gd" id="1_iothb"]
+[ext_resource type="RichTextEffect" uid="uid://otft4qkjls43" path="res://addons/word/resources/pull.tres" id="2_34jdx"]
+
+[node name="wordswap" type="Panel"]
+custom_minimum_size = Vector2(512, 384)
+offset_left = 256.0
+offset_top = 52.0
+offset_right = 768.0
+offset_bottom = 436.0
+script = ExtResource("1_iothb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 508.0
+offset_bottom = 184.0
+bbcode_enabled = true
+text = "testing testing 1 2 3"
+custom_effects = [ExtResource("2_34jdx")]
+
+[node name="Owned" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 4.0
+offset_top = 200.0
+offset_right = 508.0
+offset_bottom = 380.0
+bbcode_enabled = true
+custom_effects = [ExtResource("2_34jdx")]

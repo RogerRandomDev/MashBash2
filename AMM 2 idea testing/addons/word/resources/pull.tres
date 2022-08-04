@@ -1,0 +1,6 @@
+[gd_resource type="RichTextEffect" load_steps=2 format=3 uid="uid://otft4qkjls43"]
+
+[ext_resource type="Script" path="res://addons/word/resources/pull.gd" id="1_ag8f3"]
+
+[resource]
+script = ExtResource("1_ag8f3")

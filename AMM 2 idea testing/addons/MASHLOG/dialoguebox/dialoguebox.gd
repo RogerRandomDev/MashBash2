@@ -5,6 +5,8 @@ var curContents=""
 var _contentProgress=-1
 var icon_set:iconSet
 var _contentLength=0
+@export var charDelay:float=0.05
+@export var setDelay:float=2.0
 @onready var icon=$dialoguebox/contents/iconpanel/icon
 @onready var textContent=$dialoguebox/contents/speech
 #signals for when an action occurs
@@ -16,6 +18,8 @@ signal finishedSet
 func _ready():
 	$nextChar.connect('timeout',loadNextCharacter)
 	$nextSet.connect('timeout',loadNextSet)
+	$nextChar.wait_time=charDelay
+	$nextSet.wait_time=setDelay
 	loadNewSet(load("res://addons/MASHLOG/dialogueSets/0.tres"),preload("res://addons/MASHLOG/iconsets/MASH.tres"))
 
 

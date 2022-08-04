@@ -29,6 +29,11 @@ func updateDescriptives():
 	for child in descriptives.get_children():child.queue_free()
 	for descriptive in Status:applyDescriptive(descriptive)
 	descriptiveLabel.text+=HeldResource.Name
+	call_deferred("update_label")
+
+#called with deffered so that it has a frame to update the size first
+func update_label():
+	descriptiveLabel.position.x=-descriptiveLabel.size.x/2+size.x/2
 
 
 func removeDescriptive(id):
