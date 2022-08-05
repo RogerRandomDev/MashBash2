@@ -3,7 +3,11 @@
 [ext_resource type="Script" path="res://addons/word/wordswapper/wordSwap.gd" id="1_iothb"]
 [ext_resource type="RichTextEffect" uid="uid://otft4qkjls43" path="res://addons/word/resources/pull.tres" id="2_34jdx"]
 
-[node name="wordswap" type="Panel"]
+[node name="wordswaplevel" type="CanvasLayer"]
+process_mode = 3
+layer = 9
+
+[node name="wordswap" type="Panel" parent="."]
 custom_minimum_size = Vector2(512, 384)
 offset_left = 256.0
 offset_top = 52.0
@@ -11,21 +15,35 @@ offset_right = 768.0
 offset_bottom = 436.0
 script = ExtResource("1_iothb")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="labels" type="VBoxContainer" parent="wordswap"]
+offset_right = 512.0
+offset_bottom = 384.0
+
+[node name="Label2" type="Label" parent="wordswap/labels"]
+offset_right = 512.0
+offset_bottom = 23.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="wordswap/labels"]
 clip_contents = false
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 508.0
-offset_bottom = 184.0
+offset_top = 27.0
+offset_right = 512.0
+offset_bottom = 188.0
+size_flags_vertical = 3
 bbcode_enabled = true
 text = "testing testing 1 2 3"
 custom_effects = [ExtResource("2_34jdx")]
 
-[node name="Owned" type="RichTextLabel" parent="."]
+[node name="Label" type="Label" parent="wordswap/labels"]
+offset_top = 192.0
+offset_right = 512.0
+offset_bottom = 218.0
+text = "Inventory"
+
+[node name="Owned" type="RichTextLabel" parent="wordswap/labels"]
 clip_contents = false
-offset_left = 4.0
-offset_top = 200.0
-offset_right = 508.0
-offset_bottom = 380.0
+offset_top = 222.0
+offset_right = 512.0
+offset_bottom = 384.0
+size_flags_vertical = 3
 bbcode_enabled = true
 custom_effects = [ExtResource("2_34jdx")]

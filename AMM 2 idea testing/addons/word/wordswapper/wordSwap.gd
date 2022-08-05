@@ -2,13 +2,15 @@ extends Panel
 
 var Words
 var Owned
+var nameLabel
 var BaseText=""
 var selectedWord=0
 var activeSet=0
 var activeObject
 func _ready():
-	Owned=$Owned
-	Words=$RichTextLabel
+	Owned=$labels/Owned
+	Words=$labels/RichTextLabel
+	nameLabel=$labels/Label2
 	BaseText=Words.text
 	updateSelectedWord()
 
@@ -19,6 +21,7 @@ func _input(_event):
 	if Input.is_action_just_pressed("up")||Input.is_action_just_pressed("down"):
 		activeSet=1-activeSet
 		if activeSet==1&&Word.storedWords.size()<1:activeSet=0
+		if activeSet==0&&BaseText.length()<2:activeSet=1
 		selectedWord=0
 		updateOwned()
 		updateSelectedWord()
@@ -37,8 +40,7 @@ func _input(_event):
 			selectedWord=0
 			
 		updateOwned()
-		
-	if dir==0:return
+	if activeSet==0&&BaseText.split(" ").size()<2:activeSet=1
 	#clamps the chosen words to the size of words you can choose
 	if activeSet==0:selectedWord=clamp(selectedWord-dir,0,BaseText.split(" ").size()-2)
 	if activeSet==1:selectedWord=clamp(selectedWord-dir,0,Word.storedWords.size()-1)
@@ -60,9 +62,11 @@ func removeWord(id):
 	var out=_splitWords[id]
 	_splitWords.remove_at(id)
 	selectedWord=0
+	
 	buildPhrase(_splitWords,false)
 	BaseText=Words.text
 	buildPhrase(_splitWords)
+	
 	return out
 	
 
@@ -84,6 +88,7 @@ func buildPhrase(_splitWords,withEffect=true):
 
 #updates the owned words
 func updateOwned():
+	
 	Owned.text=""
 	for word in Word.storedWords.size():
 		if selectedWord==word&&activeSet==1:
@@ -92,7 +97,7 @@ func updateOwned():
 			Owned.text+="[/pull] "
 			continue
 		Owned.text+=Word.storedWords[word]+" "
-
+	
 
 #inserts word into current phrase
 func insertWord(_word):

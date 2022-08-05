@@ -1,7 +1,11 @@
+Label
+VBoxContainer
+CollisionShape2D
+Area2D
+CanvasLayer
 RichTextLabel
 Panel
 Sprite2D
-CollisionShape2D
 CharacterBody2D
 TextureRect
 itemResource (itemResource.gd)

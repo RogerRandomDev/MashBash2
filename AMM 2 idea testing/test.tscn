@@ -15,7 +15,7 @@ Sprites = {
 [node name="Node2D" type="Node2D"]
 
 [node name="itemResource" type="Position2D" parent="."]
-position = Vector2(31, 38)
+position = Vector2(288, 144)
 gizmo_extents = 16.0
 script = ExtResource("1_p2ln2")
 HeldResource = SubResource("Resource_pwylu")

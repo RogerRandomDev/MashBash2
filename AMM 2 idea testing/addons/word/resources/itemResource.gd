@@ -15,11 +15,25 @@ func _ready():
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
 	sprite.centered=false
+	z_index+=1
+	sprite.z_index=-1
 	add_child(sprite)
 	add_child(descriptives)
 	add_child(descriptiveLabel)
 	descriptiveLabel.position.y=-16
 	updateDescriptives()
+	#loads the area check around itself
+	var check=CollisionShape2D.new()
+	var hold=StaticBody2D.new()
+	hold.add_child(check)
+	add_child(hold)
+	check.shape=CircleShape2D.new()
+	check.shape.radius=32
+	hold.collision_layer=4
+	hold.collision_mask=4
+	descriptiveLabel.visible=false
+	hold.position+=size/2.
+	
 
 
 
@@ -29,11 +43,12 @@ func updateDescriptives():
 	for child in descriptives.get_children():child.queue_free()
 	for descriptive in Status:applyDescriptive(descriptive)
 	descriptiveLabel.text+=HeldResource.Name
+	descriptiveLabel.size.x=0
 	call_deferred("update_label")
 
-#called with deffered so that it has a frame to update the size first
 func update_label():
-	descriptiveLabel.position.x=-descriptiveLabel.size.x/2+size.x/2
+	await("idle_frame")
+	descriptiveLabel.position.x=-descriptiveLabel.size.x/2+size.x/2.
 
 
 func removeDescriptive(id):
@@ -50,3 +65,30 @@ func applyDescriptive(descriptive):
 	#applies basic descriptive icons as well
 	descriptives.add_child(HeldResource.make_descriptive_icon(descriptive))
 	descriptiveLabel.text+="%s "%descriptive
+
+
+
+#shows and hides the name and descriptives when you are near or away from it
+func showName():
+	descriptiveLabel.visible=true
+	Word.hoveringObject=self
+func hideName():
+	descriptiveLabel.visible=false
+	if Word.hoveringObject==self:Word.hoveringObject=null
+
+
+#gets the name and descriptives as their phrase
+func getText():
+	var text=""
+	for item in Status:
+		text+="%s "%item
+	return text+getName().replace(" "," ")
+#returns its name
+func getName():
+	return HeldResource.Name
+
+#modifies to match the changed descriptives
+func modifyTo(_descriptives):
+	_descriptives.resize(_descriptives.size()-1)
+	Status=_descriptives
+	updateDescriptives()
