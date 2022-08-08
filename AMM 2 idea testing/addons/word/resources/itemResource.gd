@@ -10,7 +10,7 @@ var sprite=Sprite2D.new()
 var descriptives=HBoxContainer.new()
 var descriptiveLabel=Label.new()
 var size=Vector2.ZERO
-var descriptiveScript=Node.new()
+var descriptiveScript=Node2D.new()
 
 
 #prepares basic setup for items
@@ -102,15 +102,23 @@ func modifyTo(_descriptives):
 	applyScripts(_descriptives)
 
 
+
 #applies the scripts it can to current object so long as it has the relevant words
 func applyScripts(_descriptives):
 	var last=descriptiveScript.get_script()
+	descriptiveScript.set_script(null)
 	for stat in _descriptives:
 		if HeldResource.Scripts.has(stat):
 			descriptiveScript.set_script(HeldResource.Scripts[stat])
 	var current=descriptiveScript.get_script()
 	if current==null:
-		descriptiveScript.set_script(HeldResource.Scripts["default"])
-		current=HeldResource.Scripts["default"]
+		#defaults to the default script when it has no descriptives
+		if HeldResource.Scripts["default"]!=null:
+			descriptiveScript.set_script(HeldResource.Scripts["default"])
+			current=HeldResource.Scripts["default"]
+		else:
+		#when you have a descriptive but none are valid
+			descriptiveScript.set_script(load("res://addons/word/resources/DescriptiveScriptBase.gd"))
+			current=load("res://addons/word/resources/DescriptiveScriptBase.gd")
 	if current!=null&&current!=last:descriptiveScript._ready()
 	

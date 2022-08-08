@@ -1,9 +1,9 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1659991533
+::res://::1659995262
 default_env.tres::Environment::1853483036317541565::1659555046::0::1::::<><>::
 icon.png::CompressedTexture2D::7149936781403410648::1659555046::1659555046::1::::<><>::
 README.md::TextFile::-1::1659555046::0::1::::<><>::
-test.tscn::PackedScene::3179824918327527361::1659989155::0::1::::<><>::res://addons/word/resources/itemResource.gd<>res://entities/items/Scripts/GodotLogo.gd<>uid://c84qoc1tpn1fo<>res://addons/word/resources/itemContents.gd<>uid://lsni7bco1t7t
+test.tscn::PackedScene::3179824918327527361::1659993840::0::1::::<><>::res://addons/word/resources/itemResource.gd<>res://entities/items/Scripts/GodotLogo.gd<>uid://c84qoc1tpn1fo<>res://addons/word/resources/itemContents.gd<>uid://lsni7bco1t7t
 ::res://addons/::1659641404
 ::res://addons/MASHLOG/::1659639105
 mashlogue.gd::GDScript::-1::1659639105::0::1::::<>Node<>::
@@ -54,9 +54,9 @@ wordSystem.gd::GDScript::-1::1659735291::0::1::::<>Node<>::
 ::res://addons/word/descriptiveIcons/::1659557187
 locked.png::CompressedTexture2D::5986381852204478517::1659557176::1659557184::1::::<><>::
 unlocked.png::CompressedTexture2D::1968268883907817941::1659557176::1659557187::1::::<><>::
-::res://addons/word/resources/::1659988890
+::res://addons/word/resources/::1659992886
 itemContents.gd::GDScript::-1::1659988032::0::1::::itemContents<>Resource<>::
-itemResource.gd::GDScript::-1::1659988890::0::1::::itemResource<>Position2D<>::
+itemResource.gd::GDScript::-1::1659992886::0::1::::itemResource<>Position2D<>::
 pull.gd::GDScript::-1::1659639105::0::1::::pull<>RichTextEffect<>::
 pull.tres::RichTextEffect::1022206051668474726::1659641458::0::1::::<><>::res://addons/word/resources/pull.gd
 ::res://addons/word/wordlabel/::1659639104
@@ -69,6 +69,6 @@ wordSwap.tscn::PackedScene::7192280512371577516::1659735291::0::1::::<><>::res:/
 ::res://entities/items/resources/::1659988543
 ::res://entities/items/Scripts/::1659988838
 GodotLogo.gd::GDScript::-1::1659988838::0::1::::<>Node<>::
-::res://entities/player/::1659988792
+::res://entities/player/::1659991610
 player.gd::GDScript::-1::1659735291::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::810041369251268943::1659988792::0::1::::<><>::res://entities/player/player.gd<>uid://c84qoc1tpn1fo
+player.tscn::PackedScene::810041369251268943::1659991610::0::1::::<><>::res://entities/player/player.gd<>uid://c84qoc1tpn1fo

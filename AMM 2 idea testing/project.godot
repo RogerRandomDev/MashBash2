@@ -34,6 +34,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/word/resources/itemResource.gd"
 }, {
+"base": "Node2D",
+"class": &"itemStatus",
+"language": &"GDScript",
+"path": "res://addons/word/resources/DescriptiveScriptBase.gd"
+}, {
 "base": "RichTextEffect",
 "class": &"pull",
 "language": &"GDScript",
@@ -50,6 +55,7 @@ _global_script_class_icons={
 "iconSet": "",
 "itemContents": "",
 "itemResource": "",
+"itemStatus": "",
 "pull": "",
 "wordLabel": ""
 }

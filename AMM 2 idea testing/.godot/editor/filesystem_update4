@@ -1,3 +1,5 @@
-res://entities/player/player.tscn
 res://test.tscn
 res://addons/word/resources/itemResource.gd
+res://entities/items/Scripts/GodotLogo.gd
+res://addons/word/resources/DescriptiveScriptBase.gd
+res://entities/player/player.tscn

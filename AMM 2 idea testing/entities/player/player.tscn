@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://c84qoc1tpn1fo" path="res://icon.png" id="2_5l4gu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erwm1"]
+size = Vector2(64, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_scft4"]
-radius = 16.0
+radius = 48.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 3

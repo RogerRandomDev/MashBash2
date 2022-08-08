@@ -20,7 +20,7 @@ Scripts = {
 
 [node name="itemResource" type="Position2D" parent="."]
 position = Vector2(288, 144)
-z_index = 5
+z_index = 6
 gizmo_extents = 16.0
 script = ExtResource("1_p2ln2")
 HeldResource = SubResource("Resource_pwylu")
