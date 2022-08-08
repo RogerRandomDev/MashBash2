@@ -9,6 +9,7 @@
 radius = 16.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 3
 script = ExtResource("1_g1pj2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

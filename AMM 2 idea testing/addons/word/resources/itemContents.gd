@@ -9,7 +9,7 @@ class_name itemContents
 			value[value.keys()[value.size()-1]]=Texture2D.new()
 		Sprites=value
 	get:return Sprites
-
+@export var Scripts:Dictionary={"default":null}
 
 #checks if it has a valid sprite for the given descriptive
 func has_sprite(descriptive):

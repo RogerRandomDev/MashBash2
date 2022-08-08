@@ -10,30 +10,37 @@ var sprite=Sprite2D.new()
 var descriptives=HBoxContainer.new()
 var descriptiveLabel=Label.new()
 var size=Vector2.ZERO
+var descriptiveScript=Node.new()
+
+
 #prepares basic setup for items
 func _ready():
+	z_index+=1
+	
+	
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
 	sprite.centered=false
-	z_index+=1
 	sprite.z_index=-1
+	sprite.add_child(descriptives)
 	add_child(sprite)
-	add_child(descriptives)
+	descriptiveLabel.visible=false
 	add_child(descriptiveLabel)
 	descriptiveLabel.position.y=-16
 	updateDescriptives()
 	#loads the area check around itself
 	var check=CollisionShape2D.new()
 	var hold=StaticBody2D.new()
-	hold.add_child(check)
-	add_child(hold)
+	
 	check.shape=CircleShape2D.new()
 	check.shape.radius=32
 	hold.collision_layer=4
 	hold.collision_mask=4
-	descriptiveLabel.visible=false
 	hold.position+=size/2.
-	
+	hold.add_child(check)
+	add_child(hold)
+	add_child(descriptiveScript)
+	applyScripts(Status)
 
 
 
@@ -92,3 +99,18 @@ func modifyTo(_descriptives):
 	_descriptives.resize(_descriptives.size()-1)
 	Status=_descriptives
 	updateDescriptives()
+	applyScripts(_descriptives)
+
+
+#applies the scripts it can to current object so long as it has the relevant words
+func applyScripts(_descriptives):
+	var last=descriptiveScript.get_script()
+	for stat in _descriptives:
+		if HeldResource.Scripts.has(stat):
+			descriptiveScript.set_script(HeldResource.Scripts[stat])
+	var current=descriptiveScript.get_script()
+	if current==null:
+		descriptiveScript.set_script(HeldResource.Scripts["default"])
+		current=HeldResource.Scripts["default"]
+	if current!=null&&current!=last:descriptiveScript._ready()
+	
