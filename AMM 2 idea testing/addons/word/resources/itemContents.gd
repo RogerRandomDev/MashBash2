@@ -9,7 +9,9 @@ class_name itemContents
 			value[value.keys()[value.size()-1]]=Texture2D.new()
 		Sprites=value
 	get:return Sprites
-
+@export var customScripts={
+	"default":Script
+}
 
 #checks if it has a valid sprite for the given descriptive
 func has_sprite(descriptive):
@@ -25,3 +27,4 @@ func make_descriptive_icon(descriptive):
 	icon.custom_minimum_size=Vector2(16,16)
 	icon.position=Vector2(32,32)
 	return icon
+
