@@ -1,3 +1,6 @@
+TileMap
+Camera2D
+AnimatedSprite2D
 Label
 VBoxContainer
 CollisionShape2D

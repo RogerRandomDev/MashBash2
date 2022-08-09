@@ -19,7 +19,7 @@ func _ready():
 	
 	
 	sprite.texture=HeldResource.Sprites["default"]
-	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
+	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())
 	sprite.centered=false
 	sprite.z_index=-1
 	sprite.add_child(descriptives)

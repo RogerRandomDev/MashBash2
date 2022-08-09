@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://lsni7bco1t7t"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_g1pj2"]
-[ext_resource type="Texture2D" uid="uid://c84qoc1tpn1fo" path="res://icon.png" id="2_5l4gu"]
+[ext_resource type="SpriteFrames" uid="uid://ctya4j2o6fv7b" path="res://entities/player/playerAnim.tres" id="2_ib2wq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erwm1"]
-size = Vector2(64, 64)
+size = Vector2(8, 12)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_scft4"]
-radius = 48.0
+radius = 12.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 3
@@ -16,8 +16,11 @@ script = ExtResource("1_g1pj2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_erwm1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_5l4gu")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+frames = ExtResource("2_ib2wq")
+animation = &"walk"
+frame = 3
+playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

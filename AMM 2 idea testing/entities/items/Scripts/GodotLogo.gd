@@ -4,6 +4,7 @@ extends itemStatus
 
 func _ready():
 	super._ready()
+	emptyScript()
 	#builds collision
 	var collision=StaticBody2D.new()
 	var shape=CollisionShape2D.new()

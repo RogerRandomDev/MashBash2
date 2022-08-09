@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 75.0
 
 
 
@@ -14,7 +14,7 @@ func _physics_process(_delta):
 	else:
 		velocity.x = move_toward(velocity.x,0, SPEED)
 		velocity.y = move_toward(velocity.y,0, SPEED)
-	
+	updateAnimations()
 	move_and_slide()
 
 
@@ -28,3 +28,12 @@ func _intersect_object(body):
 
 func _left_object(body):
 	body.get_parent().hideName()
+
+
+#deals with animating the player
+func updateAnimations():
+	var chosenAnimation="idle"
+	if velocity.x!=0:
+		$Sprite2D.flip_h=velocity.x<0
+	if velocity!=Vector2.ZERO:chosenAnimation="walk"
+	$Sprite2D.animation=chosenAnimation
