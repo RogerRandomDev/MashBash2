@@ -1,10 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://lsni7bco1t7t"]
+[gd_scene load_steps=7 format=3 uid="uid://lsni7bco1t7t"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_g1pj2"]
-[ext_resource type="SpriteFrames" uid="uid://ctya4j2o6fv7b" path="res://entities/player/playerAnim.tres" id="2_ib2wq"]
+[ext_resource type="SpriteFrames" uid="uid://cyieakjirycc2" path="res://entities/player/playerAnim.tres" id="2_ib2wq"]
+[ext_resource type="Shader" path="res://entities/player/player.gdshader" id="2_xfmht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erwm1"]
 size = Vector2(8, 12)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbhjj"]
+shader = ExtResource("2_xfmht")
+alpha = null
+frequency = null
+light_offset = null
+line_scale = 0.875
+rainbow = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_scft4"]
 radius = 12.0
@@ -17,9 +26,10 @@ script = ExtResource("1_g1pj2")
 shape = SubResource("RectangleShape2D_erwm1")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_jbhjj")
 frames = ExtResource("2_ib2wq")
 animation = &"walk"
-frame = 3
+frame = 6
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -28,6 +38,10 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_scft4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(4, 4)
 
 [connection signal="body_entered" from="Area2D" to="." method="_intersect_object"]
 [connection signal="body_exited" from="Area2D" to="." method="_left_object"]

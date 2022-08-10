@@ -20,7 +20,6 @@ func _ready():
 	$nextSet.connect('timeout',loadNextSet)
 	$nextChar.wait_time=charDelay
 	$nextSet.wait_time=setDelay
-	loadNewSet(load("res://addons/MASHLOG/dialogueSets/0.tres"),preload("res://addons/MASHLOG/iconsets/MASH.tres"))
 
 
 #prepares a new set of text to show to you

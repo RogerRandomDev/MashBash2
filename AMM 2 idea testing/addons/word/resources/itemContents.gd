@@ -13,7 +13,7 @@ class_name itemContents
 
 #checks if it has a valid sprite for the given descriptive
 func has_sprite(descriptive):
-	return Sprites.has(descriptive)&& not Sprites[descriptive] is Texture2D
+	return Sprites.has(descriptive)
 
 #makes icon for descriptives
 func make_descriptive_icon(descriptive):
@@ -21,7 +21,7 @@ func make_descriptive_icon(descriptive):
 	icon.texture=load("res://addons/word/descriptiveIcons/%s.png"%descriptive)
 	icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	icon.ignore_texture_size=true
-	icon.size=Vector2(32,32)
-	icon.custom_minimum_size=Vector2(16,16)
-	icon.position=Vector2(32,32)
+	icon.size=Vector2(4,4)
+	icon.custom_minimum_size=Vector2(4,4)
+	icon.position=Vector2(0,0)
 	return icon

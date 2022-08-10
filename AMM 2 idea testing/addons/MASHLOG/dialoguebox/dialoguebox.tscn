@@ -62,7 +62,6 @@ stretch_mode = 5
 
 [node name="nextChar" type="Timer" parent="."]
 wait_time = 0.05
-autostart = true
 
 [node name="nextSet" type="Timer" parent="."]
 wait_time = 2.0

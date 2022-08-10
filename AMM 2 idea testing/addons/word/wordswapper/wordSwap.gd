@@ -26,11 +26,15 @@ func _input(_event):
 		updateOwned()
 		updateSelectedWord()
 	if Input.is_action_just_pressed("confirm"):
-		if activeSet==0:
+		if activeSet==0&&Word.swapsLeft>0:
 			if BaseText.split(" ").size()<=1:return
 			var removed=removeWord(selectedWord)
+			Word.swapsLeft-=1
+			Word.swapped=true
 			if removed!=null:Word.storedWords.push_back(removed)
-			
+		elif Word.swapsLeft<=0&&activeSet==0:
+			get_parent().get_node("AnimationPlayer").stop()
+			get_parent().get_node("AnimationPlayer").play("pulseRed",0.0)
 		if activeSet==1:
 			var added=Word.storedWords[selectedWord]
 			insertWord(added)
@@ -38,7 +42,7 @@ func _input(_event):
 			if Word.storedWords.size()==0:activeSet=0
 			updateSelectedWord()
 			selectedWord=0
-			
+			Word.swapped=true
 		updateOwned()
 	if activeSet==0&&BaseText.split(" ").size()<2:activeSet=1
 	#clamps the chosen words to the size of words you can choose
@@ -52,6 +56,7 @@ func _input(_event):
 func updateSelectedWord():
 	var _splitWords=BaseText.split(" ")
 	Words.text=buildPhrase(_splitWords)
+	$labels/Label2/swapsleft.text="ALTERCATIONS REMAINING: %s"%Word.swapsLeft
 
 
 #removes currently chosen word and returns it for you

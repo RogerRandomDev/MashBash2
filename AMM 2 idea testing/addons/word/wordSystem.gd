@@ -4,6 +4,8 @@ var storedWords=[]
 var wordSwap
 var hoveringObject=null
 var lastStored=[]
+var swapped=false
+var swapsLeft=3
 func _ready():
 	wordSwap=load("res://addons/word/wordswapper/wordSwap.tscn").instantiate()
 	add_child(wordSwap)
@@ -27,6 +29,7 @@ func _input(event):
 		swapVisible(false)
 #updates the wordswapper layer
 func updateSwapper():
+	swapped=false
 	wordSwap.BaseText=hoveringObject.getText()
 	wordSwap.nameLabel.text=hoveringObject.getName()
 	swapVisible(true)
@@ -46,3 +49,7 @@ func swapVisible(show):
 	wordSwap.set_process_unhandled_input(show)
 	wordSwap.get_parent().visible=show
 	get_tree().paused=show
+	if !show&&swapped:
+		var anim=wordSwap.get_parent().get_node("alteredLabel/AnimationPlayer")
+		anim.stop()
+		anim.play("alter",0.)

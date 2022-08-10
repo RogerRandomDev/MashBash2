@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bu1c7cl2ckuj4"]
+
+[ext_resource type="Texture2D" uid="uid://cyg1mpykq4aa6" path="res://entities/items/door/closed.png" id="1_072fw"]
+[ext_resource type="Script" path="res://entities/items/door/defaultDoor.gd" id="1_tlvmq"]
+[ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_ufcie"]
+[ext_resource type="Texture2D" uid="uid://ckkl1d35dcscr" path="res://entities/items/door/open.png" id="2_q1d8q"]
+[ext_resource type="Script" path="res://entities/items/door/openDoor.gd" id="2_vrbgh"]
+
+[resource]
+script = ExtResource("1_ufcie")
+Name = "Door"
+Sprites = {
+"default": ExtResource("1_072fw"),
+"open": ExtResource("2_q1d8q")
+}
+Scripts = {
+"default": ExtResource("1_tlvmq"),
+"open": ExtResource("2_vrbgh")
+}

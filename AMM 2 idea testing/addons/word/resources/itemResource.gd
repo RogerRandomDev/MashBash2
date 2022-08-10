@@ -16,7 +16,7 @@ var descriptiveScript=Node2D.new()
 #prepares basic setup for items
 func _ready():
 	z_index+=1
-	
+	descriptiveLabel.theme=load("res://themes/worldtheme.tres")
 	
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())
@@ -26,14 +26,15 @@ func _ready():
 	add_child(sprite)
 	descriptiveLabel.visible=false
 	add_child(descriptiveLabel)
-	descriptiveLabel.position.y=-16
+	descriptiveLabel.position.y=-8
+	descriptiveLabel.scale*=0.5
 	updateDescriptives()
 	#loads the area check around itself
 	var check=CollisionShape2D.new()
 	var hold=StaticBody2D.new()
 	
 	check.shape=CircleShape2D.new()
-	check.shape.radius=32
+	check.shape.radius=max(size.x,size.y)
 	hold.collision_layer=4
 	hold.collision_mask=4
 	hold.position+=size/2.
@@ -47,6 +48,7 @@ func _ready():
 #removes and loads the new descriptives
 func updateDescriptives():
 	descriptiveLabel.text=""
+	sprite.texture=HeldResource.Sprites["default"]
 	for child in descriptives.get_children():child.queue_free()
 	for descriptive in Status:applyDescriptive(descriptive)
 	descriptiveLabel.text+=HeldResource.Name
@@ -55,7 +57,7 @@ func updateDescriptives():
 
 func update_label():
 	await("idle_frame")
-	descriptiveLabel.position.x=-descriptiveLabel.size.x/2+size.x/2.
+	descriptiveLabel.position.x=-(descriptiveLabel.size.x*descriptiveLabel.scale.x)/2+size.x/2.
 
 
 func removeDescriptive(id):
@@ -68,7 +70,7 @@ func removeDescriptive(id):
 func applyDescriptive(descriptive):
 	#if sprite changes with descriptive, it will show it here
 	if HeldResource.has_sprite(descriptive):
-		pass
+		sprite.texture=HeldResource.Sprites[descriptive]
 	#applies basic descriptive icons as well
 	descriptives.add_child(HeldResource.make_descriptive_icon(descriptive))
 	descriptiveLabel.text+="%s "%descriptive
