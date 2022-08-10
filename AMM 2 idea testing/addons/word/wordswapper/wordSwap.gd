@@ -35,6 +35,7 @@ func _input(_event):
 		elif Word.swapsLeft<=0&&activeSet==0:
 			get_parent().get_node("AnimationPlayer").stop()
 			get_parent().get_node("AnimationPlayer").play("pulseRed",0.0)
+			Sound.play("cant")
 		if activeSet==1:
 			var added=Word.storedWords[selectedWord]
 			insertWord(added)

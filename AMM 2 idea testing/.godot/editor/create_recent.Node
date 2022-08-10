@@ -1,3 +1,7 @@
+ColorRect
+SubViewport
+SubViewportContainer
+WorldEnvironment
 AnimationPlayer
 AnimationTree
 Label

@@ -1,5 +1,23 @@
-[gd_scene format=3 uid="uid://8cca7xbnit4g"]
+[gd_scene load_steps=2 format=3 uid="uid://8cca7xbnit4g"]
+
+[ext_resource type="Texture2D" uid="uid://b0lkld2gwv0d0" path="res://entities/player/playerSheet.png" id="1_h453r"]
 
 [node name="title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(512, 512)
+offset_right = 40.0
+offset_bottom = 40.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+screen_space_aa = 1
+canvas_item_default_texture_filter = 0
+render_target_update_mode = 4
+
+[node name="PlayerSheet" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(44, 11)
+texture = ExtResource("1_h453r")

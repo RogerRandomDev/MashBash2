@@ -53,3 +53,4 @@ func swapVisible(show):
 		var anim=wordSwap.get_parent().get_node("alteredLabel/AnimationPlayer")
 		anim.stop()
 		anim.play("alter",0.)
+		Sound.play("worldchanged")
