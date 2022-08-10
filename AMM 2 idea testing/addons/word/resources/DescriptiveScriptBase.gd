@@ -18,3 +18,29 @@ func addCollision(scaled:float=1.0):
 	shape.shape.extents=get_parent().size*scaled
 	collision.add_child(shape)
 	add_child(collision)
+	pushPlayer()
+
+
+
+#moves player out of the way when the collision is made
+#keeps you from getting stuck
+func pushPlayer():
+	
+	if (Word.player.global_position-global_position).length_squared() >=25:return
+	var check=PhysicsShapeQueryParameters2D.new()
+	check.shape=RectangleShape2D.new()
+	check.shape.extents=Vector2(3,5)
+	check.collision_mask=1
+	var space = get_world_2d().direct_space_state
+	var myCell=Word.tiles.world_to_map(global_position)
+	#checks surroundings first
+	#prioritizes top left
+	for x in 3:for y in 3:
+		if((abs(x-1)!=0&&abs(y-1)!=0)):continue
+		
+		check.transform=Transform2D(0.,Word.tiles.map_to_world(myCell+Vector2i(x-1,y-1))-Vector2(2,2))
+		#moves to first available spot it can
+		if space.intersect_shape(check).size()<=1:
+			Word.player.global_position=check.transform.origin
+			break
+	

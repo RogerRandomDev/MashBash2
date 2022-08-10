@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 
-const SPEED = 75.0
+const SPEED = 37.5
 
+func _ready():
+	Word.player=self
+	Word.tiles=get_parent().get_node("TileMap")
 
 
 

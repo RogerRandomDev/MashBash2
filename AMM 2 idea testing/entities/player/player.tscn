@@ -17,11 +17,9 @@ radius = 12.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ld5a2"]
 shader = ExtResource("5_m0qxn")
-background_color = Quaternion(0, 0, 0, 1)
 height = 0.485
-line_color = Quaternion(0, 1, 1, 1)
 line_freq = 3.0
-scale = Vector2(0.001, 0.007)
+scale = Vector2(0.004, 0.012)
 speed = 0.375
 
 [node name="Player" type="CharacterBody2D"]
@@ -35,7 +33,7 @@ shape = SubResource("RectangleShape2D_erwm1")
 material = SubResource("ShaderMaterial_oy8eb")
 frames = ExtResource("2_ib2wq")
 animation = &"walk"
-frame = 7
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

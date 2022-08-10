@@ -11,6 +11,7 @@ script = ExtResource("1_ufcie")
 Name = "Door"
 Sprites = {
 "default": ExtResource("1_072fw"),
+"locked": ExtResource("1_072fw"),
 "open": ExtResource("2_q1d8q")
 }
 Scripts = {

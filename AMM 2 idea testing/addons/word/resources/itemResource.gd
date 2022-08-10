@@ -17,7 +17,6 @@ var descriptiveScript=Node2D.new()
 func _ready():
 	z_index+=1
 	descriptiveLabel.theme=load("res://themes/worldtheme.tres")
-	
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())
 	sprite.centered=false
@@ -42,6 +41,7 @@ func _ready():
 	add_child(hold)
 	add_child(descriptiveScript)
 	applyScripts(Status)
+	descriptives.add_theme_constant_override("separation",0)
 
 
 
@@ -72,7 +72,8 @@ func applyDescriptive(descriptive):
 	if HeldResource.has_sprite(descriptive):
 		sprite.texture=HeldResource.Sprites[descriptive]
 	#applies basic descriptive icons as well
-	descriptives.add_child(HeldResource.make_descriptive_icon(descriptive))
+	var added=HeldResource.make_descriptive_icon(descriptive)
+	if added!=null:descriptives.add_child(added)
 	descriptiveLabel.text+="%s "%descriptive
 
 
@@ -122,5 +123,5 @@ func applyScripts(_descriptives):
 		#when you have a descriptive but none are valid
 			descriptiveScript.set_script(load("res://addons/word/resources/DescriptiveScriptBase.gd"))
 			current=load("res://addons/word/resources/DescriptiveScriptBase.gd")
-	if current!=null&&current!=last:descriptiveScript._ready()
+	if Word.swapped:descriptiveScript._ready()
 	

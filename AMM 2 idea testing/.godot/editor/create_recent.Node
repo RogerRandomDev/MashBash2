@@ -1,4 +1,5 @@
 ColorRect
+HBoxContainer
 SubViewport
 SubViewportContainer
 WorldEnvironment

@@ -4,8 +4,13 @@ var storedWords=[]
 var wordSwap
 var hoveringObject=null
 var lastStored=[]
-var swapped=false
+var swapped=true
 var swapsLeft=3
+var tiles
+var player
+
+
+
 func _ready():
 	wordSwap=load("res://addons/word/wordswapper/wordSwap.tscn").instantiate()
 	add_child(wordSwap)
