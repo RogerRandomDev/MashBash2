@@ -19,7 +19,7 @@ layer_0/tile_data = PackedInt32Array(65537, 131072, 0, 1, 65536, 0, 65538, 45875
 
 [node name="itemResource" type="Position2D" parent="."]
 position = Vector2(176, 32)
-z_index = 41
+z_index = 42
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("4_b4gcv")
 Status = PackedStringArray("locked", "open")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://j0gj572sjtlt"]
+
+[ext_resource type="Script" path="res://addons/UI/UI.gd" id="1_aixl8"]
+
+[node name="UI" type="CanvasLayer"]
+layer = 12
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+script = ExtResource("1_aixl8")

@@ -1,3 +1,7 @@
+ProgressBar
+TextureProgressBar
+Sprite2D
+CanvasLayer
 VSplitContainer
 ColorRect
 HBoxContainer
@@ -7,7 +11,6 @@ WorldEnvironment
 AnimationPlayer
 AnimationTree
 Label
-CanvasLayer
 itemResource (itemResource.gd)
 TileMap
 Camera2D
@@ -17,6 +20,5 @@ CollisionShape2D
 Area2D
 RichTextLabel
 Panel
-Sprite2D
 CharacterBody2D
 TextureRect

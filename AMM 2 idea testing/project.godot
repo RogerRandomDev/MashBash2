@@ -72,6 +72,7 @@ config/icon="res://icon.png"
 Mashlogue="*res://addons/MASHLOG/mashlogue.gd"
 Word="*res://addons/word/wordSystem.gd"
 Sound="*res://addons/Sound/Sound.gd"
+UI="*res://addons/UI/UI.tscn"
 
 [display]
 
