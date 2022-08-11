@@ -1,17 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://dap82rqd03mbk"]
+[gd_scene load_steps=10 format=3 uid="uid://dap82rqd03mbk"]
 
 [ext_resource type="Script" path="res://addons/word/wordswapper/wordSwap.gd" id="1_iothb"]
 [ext_resource type="Theme" uid="uid://68lfx3gkstmd" path="res://themes/worldtheme.tres" id="1_itcld"]
 [ext_resource type="RichTextEffect" uid="uid://otft4qkjls43" path="res://addons/word/resources/pull.tres" id="2_34jdx"]
+[ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="4_r5edk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4for"]
-bg_color = Color(0, 0.105882, 0, 1)
+bg_color = Color(0.305882, 0.145098, 0.341176, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(0.18, 0.25, 2, 1)
-border_blend = true
+border_color = Color(0.227451, 0.133333, 0.309804, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -117,41 +117,42 @@ script = ExtResource("1_iothb")
 
 [node name="labels" type="VBoxContainer" parent="wordswap"]
 offset_left = 12.0
+offset_top = 4.0
 offset_right = 500.0
-offset_bottom = 384.0
+offset_bottom = 380.0
 
 [node name="Label2" type="Label" parent="wordswap/labels"]
 offset_right = 488.0
-offset_bottom = 24.0
+offset_bottom = 29.0
 text = "Door"
 
 [node name="swapsleft" type="Label" parent="wordswap/labels/Label2"]
-offset_right = 486.0
-offset_bottom = 24.0
+offset_right = 488.0
+offset_bottom = 29.0
 text = "Swaps Left: 3"
 horizontal_alignment = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="wordswap/labels"]
 clip_contents = false
-offset_top = 28.0
+offset_top = 33.0
 offset_right = 488.0
-offset_bottom = 190.0
+offset_bottom = 186.0
 size_flags_vertical = 3
 bbcode_enabled = true
 text = "testing testing 1 2 3"
 custom_effects = [ExtResource("2_34jdx")]
 
 [node name="Label" type="Label" parent="wordswap/labels"]
-offset_top = 194.0
+offset_top = 190.0
 offset_right = 488.0
-offset_bottom = 218.0
+offset_bottom = 219.0
 text = "Inventory"
 
 [node name="Owned" type="RichTextLabel" parent="wordswap/labels"]
 clip_contents = false
-offset_top = 222.0
+offset_top = 223.0
 offset_right = 488.0
-offset_bottom = 384.0
+offset_bottom = 376.0
 size_flags_vertical = 3
 bbcode_enabled = true
 custom_effects = [ExtResource("2_34jdx")]
@@ -159,12 +160,12 @@ custom_effects = [ExtResource("2_34jdx")]
 [node name="alteredLabel" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="alteredLabel"]
-modulate = Color(1, 1, 1, 0)
 offset_right = 40.0
 offset_bottom = 23.0
-theme = ExtResource("1_itcld")
+theme = ExtResource("4_r5edk")
 text = "World Altered"
-visible_characters = 13
+visible_characters = 0
+percent_visible = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="alteredLabel"]
 libraries = {

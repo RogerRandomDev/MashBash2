@@ -4,7 +4,7 @@ var storedWords=[]
 var wordSwap
 var hoveringObject=null
 var lastStored=[]
-var swapped=true
+var swapped=false
 var swapsLeft=3
 var tiles
 var player
@@ -30,7 +30,7 @@ func _input(event):
 		updateSwapper()
 	#closes the swapper and updates the item to match it
 	if Input.is_action_just_pressed("misc")&&wordSwap.get_parent().visible:
-		hoveringObject.modifyTo(wordSwap.BaseText.split(" "))
+		if swapped:hoveringObject.modifyTo(wordSwap.BaseText.split(" "))
 		swapVisible(false)
 #updates the wordswapper layer
 func updateSwapper():
@@ -58,4 +58,4 @@ func swapVisible(show):
 		var anim=wordSwap.get_parent().get_node("alteredLabel/AnimationPlayer")
 		anim.stop()
 		anim.play("alter",0.)
-		Sound.play("worldchanged")
+		Sound.play("worldchanged",-5.)

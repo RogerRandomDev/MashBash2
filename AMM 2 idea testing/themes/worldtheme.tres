@@ -1,7 +1,68 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://68lfx3gkstmd"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://68lfx3gkstmd"]
 
 [ext_resource type="FontFile" uid="uid://bv5bowfcrj3mo" path="res://fonts/Retro Gaming.ttf" id="1_x6a0k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45j21"]
+draw_center = false
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color(0.231373, 0.129412, 0.309804, 1)
+border_blend = true
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+corner_detail = 1
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 2
+anti_aliasing = false
+anti_aliasing_size = 0.802
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajoyi"]
+bg_color = Color(0.227451, 0.133333, 0.309804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.32, 0.42, 1)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 1
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+shadow_color = Color(0.0823529, 0.0666667, 0.0862745, 1)
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
 
 [resource]
 default_font = ExtResource("1_x6a0k")
 default_font_size = 16
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_x6a0k")
+Label/styles/normal = SubResource("StyleBoxFlat_45j21")
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 4
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_italics_font_size = 16
+RichTextLabel/font_sizes/italics_font_size = 16
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_ajoyi")

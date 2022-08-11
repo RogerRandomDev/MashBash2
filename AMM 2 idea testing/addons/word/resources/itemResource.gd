@@ -16,7 +16,7 @@ var descriptiveScript=Node2D.new()
 #prepares basic setup for items
 func _ready():
 	z_index+=1
-	descriptiveLabel.theme=load("res://themes/worldtheme.tres")
+	descriptiveLabel.theme=load("res://themes/basetheme.tres")
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())
 	sprite.centered=false
@@ -40,7 +40,7 @@ func _ready():
 	hold.add_child(check)
 	add_child(hold)
 	add_child(descriptiveScript)
-	applyScripts(Status)
+	applyScripts(Status,true)
 	descriptives.add_theme_constant_override("separation",0)
 
 
@@ -107,7 +107,7 @@ func modifyTo(_descriptives):
 
 
 #applies the scripts it can to current object so long as it has the relevant words
-func applyScripts(_descriptives):
+func applyScripts(_descriptives,ignore=false):
 	var last=descriptiveScript.get_script()
 	descriptiveScript.set_script(null)
 	for stat in _descriptives:
@@ -123,5 +123,5 @@ func applyScripts(_descriptives):
 		#when you have a descriptive but none are valid
 			descriptiveScript.set_script(load("res://addons/word/resources/DescriptiveScriptBase.gd"))
 			current=load("res://addons/word/resources/DescriptiveScriptBase.gd")
-	if Word.swapped:descriptiveScript._ready()
+	if Word.swapped||ignore:descriptiveScript._ready()
 	

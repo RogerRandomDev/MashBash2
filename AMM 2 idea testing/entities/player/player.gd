@@ -38,5 +38,6 @@ func updateAnimations():
 	var chosenAnimation="idle"
 	if velocity.x!=0:
 		$Sprite2D.flip_h=velocity.x<0
-	if velocity!=Vector2.ZERO:chosenAnimation="walk"
+	if velocity!=Vector2.ZERO:
+		chosenAnimation="walk"
 	$Sprite2D.animation=chosenAnimation

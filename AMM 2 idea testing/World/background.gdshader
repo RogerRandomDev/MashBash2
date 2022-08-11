@@ -17,12 +17,14 @@ void vertex(){
 void fragment( )
 {
 	vec2 uv = (UV+(world_pos*20.)) * scale;
-	uv.x=round(uv.x/scale.x)*scale.x/4.;
-	uv.y=round(uv.y/scale.y)*scale.y/4.;
+	uv.x=round(round(uv.x/scale.x)*scale.x)/32.;
+	uv.y=round(round(uv.y/scale.y)*scale.y)/32.;
 	float shift = cos( floor( uv.y ) );
 	uv.x += shift;
 	
 	float freq = clamp( cos((uv.x * line_freq)) * 3.0, 0.0, 1.0 ) * height;
 	float line = 1.0 - clamp( abs( freq - mod( uv.y, 1. ) ) * 11.0, 0.0, 1.0 );
-	COLOR = mix(vec4(0.,0.,0.,0.5), vec4(0.,1.,0.,0.375), line * mod( (uv.x) - TIME * speed * abs( shift ), 1.0 ) /*  * mod( TIME + shift, 1.0 ) */ );
+	vec4 ncol=mix(vec4(0.,0.,0.,0.5), vec4(0.,1.,0.,0.5), line * mod( (uv.x) - TIME * speed * abs( shift ), 1.0 ) /*  * mod( TIME + shift, 1.0 ) */ );
+	COLOR=ncol;
+	
 }

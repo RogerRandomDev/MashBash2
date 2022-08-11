@@ -17,6 +17,7 @@ func _ready():
 
 
 func _input(_event):
+	if ! _event is InputEventKey:return
 	var dir=int(Input.is_action_just_pressed("left"))-int(Input.is_action_just_pressed("right"))
 	if Input.is_action_just_pressed("up")||Input.is_action_just_pressed("down"):
 		activeSet=1-activeSet
