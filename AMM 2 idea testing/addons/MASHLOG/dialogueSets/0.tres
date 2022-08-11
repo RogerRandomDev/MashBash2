@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_hc2gu"]
 script = ExtResource("1_yp716")
 Actions = PackedInt32Array(4)
-ActionValues = ["MASH2"]
+ActionValues = ["GEN"]
 
 [resource]
 script = ExtResource("1_pngwn")

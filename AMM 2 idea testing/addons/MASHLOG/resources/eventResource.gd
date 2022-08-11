@@ -10,9 +10,13 @@ class_name eventResource
 	get:return Actions
 @export var ActionValues:Array
 
-
+var ActionVariableType:Array=[
+	10,"Vector3i(0,0,0)",
+	1,"true",
+	5,"Vector2(0.,0.)",
+	0,"null",
+	4,"MASH",]
 func updateValues():
-	
 	#resizes
 	if Actions.size()!=ActionValues.size():ActionValues.resize(Actions.size())
 	#makes the value valid for what we want
@@ -20,7 +24,8 @@ func updateValues():
 	#makes sure all actions have the right corresponding input type
 	for _action in Actions.size():
 		var act=Actions[_action]
-		if Mashlogue.ActionVariableType[act*2]==typeof(ActionValues[_action]):continue
+		
+		if ActionVariableType[act*2]==typeof(ActionValues[_action]):continue
 		ActionValues[_action]=getActionVar(act)
 		
 
@@ -32,7 +37,7 @@ func trigger():
 #returns variable type from string reference
 #very useful for the purpose I gave it
 func getActionVar(_actionId):
-	var inp=Mashlogue.ActionVariableType[_actionId*2+1]
+	var inp=ActionVariableType[_actionId*2+1]
 	var out=str2var(inp)
 	if out==null&&inp!="null":return inp
 	return out

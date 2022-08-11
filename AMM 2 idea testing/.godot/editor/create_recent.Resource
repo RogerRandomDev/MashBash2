@@ -1,3 +1,4 @@
+dialogueResource (dialogueResource.gd)
 Theme
 itemContents (itemContents.gd)
 TileSet

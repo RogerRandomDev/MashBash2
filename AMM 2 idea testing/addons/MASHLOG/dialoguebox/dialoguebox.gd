@@ -5,7 +5,7 @@ var curContents=""
 var _contentProgress=-1
 var icon_set:iconSet
 var _contentLength=0
-@export var charDelay:float=0.05
+@export var charDelay:float=0.0375
 @export var setDelay:float=2.0
 @onready var icon=$dialoguebox/contents/iconpanel/icon
 @onready var textContent=$dialoguebox/contents/speech
@@ -26,6 +26,7 @@ func _ready():
 func loadNewSet(setContent,icons=null):
 	if icons==null:icons=load("res://addons/MASHLOG/iconsets/MASH.tres")
 	icon_set=icons
+	visible=true
 	icon.modulate=icons.modulate
 	fullContents=setContent
 	_contentProgress=-1

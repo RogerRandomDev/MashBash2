@@ -8,9 +8,9 @@
 shader = ExtResource("2_w7lo7")
 
 [node name="dialoguelayer" type="CanvasLayer"]
-layer = 10
+layer = 14
 script = ExtResource("1_sihhg")
-charDelay = 0.067
+charDelay = 0.025
 setDelay = 2.5
 
 [node name="dialoguebox" type="Panel" parent="."]
