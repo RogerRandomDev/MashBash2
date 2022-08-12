@@ -1,6 +1,6 @@
 extends Node
 
-var storedWords=[]
+var storedWords=["KEY"]
 var wordSwap
 var hoveringObject=null
 var lastStored=[]
@@ -30,7 +30,9 @@ func _input(event):
 		updateSwapper()
 	#closes the swapper and updates the item to match it
 	if Input.is_action_just_pressed("misc")&&wordSwap.get_parent().visible:
-		if swapped:hoveringObject.modifyTo(wordSwap.BaseText.split(" "))
+		if swapped:
+			hoveringObject.Status=(wordSwap.BaseText.split(" "))
+			hoveringObject.updateWordsFromOthers()
 		swapVisible(false)
 #updates the wordswapper layer
 func updateSwapper():

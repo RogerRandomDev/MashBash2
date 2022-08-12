@@ -1,6 +1,6 @@
+itemContents (itemContents.gd)
 dialogueResource (dialogueResource.gd)
 Theme
-itemContents (itemContents.gd)
 TileSet
 RichTextEffect
 iconSet (iconResource.gd)

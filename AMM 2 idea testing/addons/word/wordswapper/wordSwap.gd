@@ -13,6 +13,7 @@ func _ready():
 	nameLabel=$labels/Label2
 	BaseText=Words.text
 	updateSelectedWord()
+	$labels/Label2/swapsleft.self_modulate=Color.WHITE
 
 
 
@@ -38,6 +39,11 @@ func _input(_event):
 			get_parent().get_node("AnimationPlayer").play("pulseRed",0.0)
 			Sound.play("cant")
 		if activeSet==1:
+			#makes sure words don't clash
+			if !Word.hoveringObject.checkWordInput(Word.storedWords[selectedWord]):
+				get_parent().get_node("AnimationPlayer").play("cantDo",0.0)
+				Sound.play("cant")
+				return
 			var added=Word.storedWords[selectedWord]
 			insertWord(added)
 			Word.storedWords.remove_at(selectedWord)

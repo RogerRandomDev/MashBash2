@@ -65,7 +65,15 @@ func loadNextSet():
 	textContent.text=fullContents.text_for(_contentProgress)
 	#loads needed icon
 	icon.texture=icon_set.get_face(fullContents.face_for(_contentProgress))
+	updateEndWait(textContent.get_selected_text().length())
 	
 	icon.modulate=icon_set.modulate
 	#at end to make sure it knows how many characters it will show for you
 	_contentLength=textContent.get_total_character_count()
+
+
+#updates the wait time for the timer before next set
+#this is done so it is not a set number and insteal gives you varying levels of waiting
+#makes reading smoother and nicer
+func updateEndWait(charCount):
+	$nextSet.wait_time=pow(max(charCount-8,0),0.75)/12+setDelay

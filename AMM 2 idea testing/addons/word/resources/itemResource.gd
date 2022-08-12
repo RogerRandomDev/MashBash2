@@ -11,44 +11,41 @@ var descriptives=HBoxContainer.new()
 var descriptiveLabel=Label.new()
 var size=Vector2.ZERO
 var descriptiveScript=Node2D.new()
-
-
 #prepares basic setup for items
 func _ready():
-	z_index+=1
-	descriptiveLabel.theme=load("res://themes/basetheme.tres")
 	sprite.texture=HeldResource.Sprites["default"]
-	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())
+	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
 	sprite.centered=false
+	z_index+=1
 	sprite.z_index=-1
-	sprite.add_child(descriptives)
 	add_child(sprite)
-	descriptiveLabel.visible=false
+	add_child(descriptives)
 	add_child(descriptiveLabel)
-	descriptiveLabel.position.y=-8
-	descriptiveLabel.scale*=0.5
+	
+	descriptiveLabel.theme=load("res://themes/basetheme.tres")
+	descriptives.theme=descriptiveLabel.theme
+	descriptiveLabel.position.y=-16
 	updateDescriptives()
 	#loads the area check around itself
 	var check=CollisionShape2D.new()
 	var hold=StaticBody2D.new()
-	
-	check.shape=CircleShape2D.new()
-	check.shape.radius=max(size.x,size.y)
-	hold.collision_layer=4
-	hold.collision_mask=4
-	hold.position+=size/2.
 	hold.add_child(check)
 	add_child(hold)
 	add_child(descriptiveScript)
+	check.shape=CircleShape2D.new()
+	check.shape.radius=32
+	hold.collision_layer=4
+	hold.collision_mask=4
+	descriptiveLabel.visible=false
+	hold.position+=size/2.
 	applyScripts(Status,true)
-	descriptives.add_theme_constant_override("separation",0)
 
 
 
 #removes and loads the new descriptives
 func updateDescriptives():
+	sprite.texture=HeldResource.Sprites['default']
 	descriptiveLabel.text=""
-	sprite.texture=HeldResource.Sprites["default"]
 	for child in descriptives.get_children():child.queue_free()
 	for descriptive in Status:applyDescriptive(descriptive)
 	descriptiveLabel.text+=HeldResource.Name
@@ -57,7 +54,7 @@ func updateDescriptives():
 
 func update_label():
 	await("idle_frame")
-	descriptiveLabel.position.x=-(descriptiveLabel.size.x*descriptiveLabel.scale.x)/2+size.x/2.
+	descriptiveLabel.position.x=-descriptiveLabel.size.x/2+size.x/2.
 
 
 func removeDescriptive(id):
@@ -68,13 +65,14 @@ func removeDescriptive(id):
 
 #will either change sprite if it has one for the descriptive, elsewise is just adds the icon above to show it
 func applyDescriptive(descriptive):
+	
 	#if sprite changes with descriptive, it will show it here
 	if HeldResource.has_sprite(descriptive):
 		sprite.texture=HeldResource.Sprites[descriptive]
 	#applies basic descriptive icons as well
-	var added=HeldResource.make_descriptive_icon(descriptive)
-	if added!=null:descriptives.add_child(added)
-	descriptiveLabel.text+="%s "%descriptive
+	var des=HeldResource.make_descriptive_icon(descriptive)
+	if des!=null:descriptives.add_child(des)
+	descriptiveLabel.text+="%s "%(descriptive[0].to_upper() + descriptive.substr(1,-1))
 
 
 
@@ -102,9 +100,45 @@ func modifyTo(_descriptives):
 	_descriptives.resize(_descriptives.size()-1)
 	Status=_descriptives
 	updateDescriptives()
-	applyScripts(_descriptives)
+	applyScripts(Status)
+
+const opposites=[
+	"open",
+	"locked",
+	"broken",
+	"weak"
+]
+
+#checks if you can put in the current word
+func checkWordInput(inWord):
+	var id=opposites.find(inWord)
+	if(id==-1):return true
+	var checkSide=int(id%2==0)*2-1
+	if(inWord=="KEY"&&!Status.has("locked")):return false
+	return !Word.wordSwap.BaseText.contains(opposites[id+checkSide])
 
 
+
+
+
+
+
+
+
+
+
+
+
+#checks words on the item and deals with the changes they cause on one another
+func updateWordsFromOthers():
+	#opens locked if there is a key
+	if(Status.has("KEY")&&Status.has("locked")):
+		Status.remove_at(Status.find("KEY"))
+		Status[Status.find("locked")]="open"
+	
+	
+	#checks if it changed anything
+	modifyTo(Status)
 
 #applies the scripts it can to current object so long as it has the relevant words
 func applyScripts(_descriptives,ignore=false):
@@ -124,4 +158,3 @@ func applyScripts(_descriptives,ignore=false):
 			descriptiveScript.set_script(load("res://addons/word/resources/DescriptiveScriptBase.gd"))
 			current=load("res://addons/word/resources/DescriptiveScriptBase.gd")
 	if Word.swapped||ignore:descriptiveScript._ready()
-	

@@ -52,7 +52,7 @@ void fragment( )
 	
 	float freq = clamp( cos((uv.x * line_freq)) * 3.0, 0.0, 1.0 ) * height;
 	float line = 1.0 - clamp( abs( freq - mod( uv.y, 1. ) ) * 11.0, 0.0, 1.0 );
-	vec4 ncol=mix(vec4(0.,0.,0.,0.5), vec4(0.,1.,0.,0.5), line * mod( (uv.x) - TIME * speed * abs( shift ), 1.0 ) /*  * mod( TIME + shift, 1.0 ) */ );
+	vec4 ncol=mix(vec4(0.,0.,0.,0.5), vec4(0.,1.,0.625,0.5), line * mod( (uv.x) - TIME * speed * abs( shift ), 1.0 ) /*  * mod( TIME + shift, 1.0 ) */ );
 	COLOR=ncol;
 	if(doInput){
 	float pulse = pulseColor();

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg6suvfty6r86"]
+
+[ext_resource type="Script" path="res://addons/word/resources/itemResource.gd" id="1_p2ln2"]
+[ext_resource type="Texture2D" uid="uid://c84qoc1tpn1fo" path="res://icon.png" id="2_btbha"]
+[ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="2_wd4of"]
+[ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="4_bk1q5"]
+
+[sub_resource type="Resource" id="Resource_pwylu"]
+script = ExtResource("2_wd4of")
+Name = "Godot Logo"
+Sprites = {
+"default": ExtResource("2_btbha")
+}
+customScripts = {
+"default": null
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="itemResource" type="Position2D" parent="."]
+position = Vector2(288, 144)
+z_index = 4
+gizmo_extents = 16.0
+script = ExtResource("1_p2ln2")
+HeldResource = SubResource("Resource_pwylu")
+Status = PackedStringArray("locked")
+
+[node name="Player" parent="." instance=ExtResource("4_bk1q5")]
+motion_mode = 1

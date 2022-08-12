@@ -10,7 +10,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4m5i"]
 shader = ExtResource("2_ult1y")
 aspect = 8.0
-basePulse = 1.0
+basePulse = 2.0
 color1 = Quaternion(0, 0.3, 0.6, 1)
 color2 = Quaternion(0.6, 0, 0.3, 1)
 dataspeed = 0.375
@@ -148,12 +148,11 @@ theme = ExtResource("4_cd6e5")
 offset_left = -256.0
 offset_top = -250.0
 offset_right = 256.0
-offset_bottom = -168.0
+offset_bottom = -86.0
 theme_override_fonts/normal_font = ExtResource("3_iy4j3")
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
-text = "[center][shake level=4 rate=10]WOR D  SWAP[/shake][/center]
-      [shake level=32 rate=10](L)[/shake]"
+text = "[center][shake level=8 rate=10]WOR(L)D  SWAP[/shake][/center]"
 fit_content_height = true
 
 [node name="play" type="Button" parent="Menu"]
