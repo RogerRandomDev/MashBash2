@@ -1,20 +1,9 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bbdi8ctaq37oi"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bbdi8ctaq37oi"]
 
-[ext_resource type="Script" path="res://addons/MASHLOG/resources/eventResource.gd" id="1_1nq34"]
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_5gnij"]
-
-[sub_resource type="Resource" id="Resource_m0mld"]
-script = ExtResource("1_1nq34")
-Actions = PackedInt32Array(4)
-ActionValues = ["GEN"]
-
-[sub_resource type="Resource" id="Resource_h3brx"]
-script = ExtResource("1_1nq34")
-Actions = PackedInt32Array(4)
-ActionValues = ["MASH"]
 
 [resource]
 script = ExtResource("1_5gnij")
-dialogue = PackedStringArray("Well, this is strange.", "One second I am closing the game with you and next thing i know we\'re here.", "At least I THINK it\'s still you... I know we\'re still in a game, since I can see the assets.", "Strange thing is, I didn\'t make these at all.", "Either way, that doesn\'t matter, I just want to know where we are, and why you look like a CCTV recording", "Well, maybe you shouldn\'t hack into the cameras then. Mind Explaining\?", "First can you explain who you are\?")
-dialogueFaces = [2, 2, 2, 2, 5, 0, 0]
-dialogueActions = [null, null, null, null, null, SubResource("Resource_m0mld"), SubResource("Resource_h3brx")]
+dialogue = PackedStringArray("Hello there!", "You must be the new PLAYER!", "I\'d love to play with you, considering I recently recovered my corrupt files,", "but currently am facing some [i]minor[/i] issues...", "Namely the fact that this is NOT the game I made.", "and the least of the problems is that this shouldn\'t even run given my hardware", "but Anyways, [b]ON WITH THE GAME![/b] We can figure it out TOGETHER!", "", "Ah, right. You still need the [b]CONTROLS[/b]!", "These should hopefully still work, given the person behind this is NOT a psychopath...", "Try WASD to move. Most devs keep inputs in that corner of the keyboard.", "You do have a keyboard, right\?", "If not, how did you even get this far\? I\'m impressed.", "Also go get it now.")
+dialogueFaces = [1, 1, 1, 2, 5, 5, 1, 0, 2, 1, 1, 6, 2, 2]
+dialogueActions = [null, null, null, null, null, null, null, null, null, null, null, null, null, null]

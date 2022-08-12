@@ -1,21 +1,211 @@
-[gd_scene load_steps=4 format=3 uid="uid://8cca7xbnit4g"]
+[gd_scene load_steps=14 format=3 uid="uid://8cca7xbnit4g"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_ffxdt"]
+[ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_hk07f"]
 [ext_resource type="Shader" path="res://World/background.gdshader" id="2_ult1y"]
+[ext_resource type="FontFile" uid="uid://bv5bowfcrj3mo" path="res://fonts/Retro Gaming.ttf" id="3_iy4j3"]
+[ext_resource type="Theme" uid="uid://2rdsr31cvlso" path="res://title/titleTheme.tres" id="4_cd6e5"]
+[ext_resource type="Shader" path="res://title/buttonHover.gdshader" id="5_d5uk3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4m5i"]
 shader = ExtResource("2_ult1y")
+aspect = 8.0
+basePulse = 1.0
+color1 = Quaternion(0, 0.3, 0.6, 1)
+color2 = Quaternion(0.6, 0, 0.3, 1)
+dataspeed = 0.375
+doInput = true
 height = 0.5
 line_freq = 3.0
+numBlocks = 32
 scale = Vector2(0.013, 0.025)
+size = null
 speed = 0.375
+ySpread = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vfos6"]
+shader = ExtResource("5_d5uk3")
+shake_block_size = 30.5
+shake_color_rate = 0.025
+shake_power = 0.013
+shake_rate = 0.25
+shake_speed = 5.0
+
+[sub_resource type="Animation" id="Animation_k2yn3"]
+resource_name = "load"
+length = 2.0
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("itemsAnimations")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("main", "buttons"),
+"times": PackedFloat32Array(0, 1.6)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_olfib"]
+_data = {
+"load": SubResource("Animation_k2yn3")
+}
+
+[sub_resource type="Animation" id="Animation_cimj8"]
+resource_name = "buttons"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/play:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 0.6),
+"transitions": PackedFloat32Array(0.25, 2.2974, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/settings:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.6, 0.7),
+"transitions": PackedFloat32Array(0.25, 2.2974, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/quit:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 0.8),
+"transitions": PackedFloat32Array(0.25, 2.2974, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu/play")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"grab_focus"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gjeep"]
+resource_name = "main"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.378929, 2.37841, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vwvg1"]
+_data = {
+"buttons": SubResource("Animation_cimj8"),
+"main": SubResource("Animation_gjeep")
+}
 
 [node name="title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource("1_hk07f")
 script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
 offset_right = 1024.0
 offset_bottom = 600.0
+
+[node name="Menu" type="Control" parent="."]
+offset_left = 512.0
+offset_top = 300.0
+offset_right = 512.0
+offset_bottom = 300.0
+theme = ExtResource("4_cd6e5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+offset_left = -256.0
+offset_top = -250.0
+offset_right = 256.0
+offset_bottom = -168.0
+theme_override_fonts/normal_font = ExtResource("3_iy4j3")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][shake level=4 rate=10]WOR D  SWAP[/shake][/center]
+      [shake level=32 rate=10](L)[/shake]"
+fit_content_height = true
+
+[node name="play" type="Button" parent="Menu"]
+offset_left = -64.0
+offset_top = -44.0
+offset_right = 64.0
+offset_bottom = 10.0
+pivot_offset = Vector2(64, 27)
+theme_override_font_sizes/font_size = 36
+text = "PLAY"
+
+[node name="settings" type="Button" parent="Menu"]
+offset_left = -116.0
+offset_top = 34.0
+offset_right = 116.0
+offset_bottom = 88.0
+pivot_offset = Vector2(116, 26)
+theme_override_font_sizes/font_size = 36
+text = "SETTINGS"
+
+[node name="quit" type="Button" parent="Menu"]
+offset_left = -64.0
+offset_top = 112.0
+offset_right = 64.0
+offset_bottom = 166.0
+pivot_offset = Vector2(64, 27)
+theme_override_font_sizes/font_size = 36
+text = "QUIT"
+
+[node name="hoveredShader" type="ColorRect" parent="Menu"]
+visible = false
+material = SubResource("ShaderMaterial_vfos6")
+offset_left = -64.0
+offset_top = -44.0
+offset_right = 64.0
+offset_bottom = 10.0
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_olfib")
+}
+
+[node name="itemsAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vwvg1")
+}
+
+[connection signal="focus_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
+[connection signal="mouse_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
+[connection signal="pressed" from="Menu/play" to="." method="pressPlay"]
+[connection signal="focus_entered" from="Menu/settings" to="." method="play_focus" binds= ["settings"]]
+[connection signal="mouse_entered" from="Menu/settings" to="." method="play_focus" binds= ["settings"]]
+[connection signal="focus_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
+[connection signal="mouse_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]

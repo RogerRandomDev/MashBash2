@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://j0gj572sjtlt"]
+[gd_scene load_steps=2 format=3 uid="uid://j0gj572sjtlt"]
 
 [ext_resource type="Script" path="res://addons/UI/UI.gd" id="1_aixl8"]
-[ext_resource type="Theme" uid="uid://bnsyncusoghwn" path="res://addons/UI/UItheme.tres" id="2_gvyld"]
 
 [node name="UI" type="CanvasLayer"]
 layer = 12
@@ -20,16 +19,3 @@ size = Vector2i(1024, 600)
 size_2d_override = Vector2i(256, 150)
 size_2d_override_stretch = true
 render_target_update_mode = 4
-
-[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport"]
-offset_left = -1.0
-offset_top = 8.0
-offset_right = 47.0
-offset_bottom = 40.0
-theme = ExtResource("2_gvyld")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/PanelContainer"]
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 46.0
-offset_bottom = 30.0

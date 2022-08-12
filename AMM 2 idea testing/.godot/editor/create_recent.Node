@@ -1,4 +1,9 @@
+ColorRect
+Button
+AnimationPlayer
+AnimationTree
 RichTextLabel
+Control
 SubViewport
 VehicleWheel3D
 SubViewportContainer
@@ -8,11 +13,8 @@ TextureProgressBar
 Sprite2D
 CanvasLayer
 VSplitContainer
-ColorRect
 HBoxContainer
 WorldEnvironment
-AnimationPlayer
-AnimationTree
 Label
 itemResource (itemResource.gd)
 TileMap

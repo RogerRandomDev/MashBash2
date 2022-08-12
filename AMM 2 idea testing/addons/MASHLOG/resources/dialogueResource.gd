@@ -33,7 +33,7 @@ func updateFormat():
 	if dialogue.size()!=dialogueActions.size():dialogueActions.resize(dialogue.size())
 	#makes sure you have the action resource set automatically
 	if addActions:
-		dialogueActions[dialogueActions.size()-1]=eventResource.new()
+		dialogueActions[dialogueActions.size()-1]=null
 		dialogueFaces[dialogueFaces.size()-1]=0
 	
 
