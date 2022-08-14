@@ -38,7 +38,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
-theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "testing testing"
 visible_characters_behavior = 1

@@ -36,6 +36,7 @@ func _input(event):
 		swapVisible(false)
 #updates the wordswapper layer
 func updateSwapper():
+	Input.action_release("confirm")
 	swapped=false
 	wordSwap.BaseText=hoveringObject.getText()
 	wordSwap.nameLabel.text=hoveringObject.getName()

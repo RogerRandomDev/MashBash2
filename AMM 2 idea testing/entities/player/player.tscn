@@ -42,7 +42,7 @@ shape = SubResource("RectangleShape2D_erwm1")
 material = SubResource("ShaderMaterial_oy8eb")
 frames = ExtResource("2_ib2wq")
 animation = &"walk"
-frame = 5
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -60,10 +60,10 @@ zoom = Vector2(4, 4)
 [node name="background" type="ColorRect" parent="Camera2D"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_ld5a2")
-offset_left = -128.0
-offset_top = -75.0
-offset_right = 128.0
-offset_bottom = 75.0
+offset_left = -132.0
+offset_top = -79.0
+offset_right = 132.0
+offset_bottom = 79.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_intersect_object"]
 [connection signal="body_exited" from="Area2D" to="." method="_left_object"]

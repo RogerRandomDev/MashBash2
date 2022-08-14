@@ -65,7 +65,7 @@ func removeDescriptive(id):
 
 #will either change sprite if it has one for the descriptive, elsewise is just adds the icon above to show it
 func applyDescriptive(descriptive):
-	
+	if descriptive=="":return
 	#if sprite changes with descriptive, it will show it here
 	if HeldResource.has_sprite(descriptive):
 		sprite.texture=HeldResource.Sprites[descriptive]
@@ -111,13 +111,11 @@ const opposites=[
 
 #checks if you can put in the current word
 func checkWordInput(inWord):
+	if(inWord=="KEY"&&!Word.wordSwap.BaseText.contains("locked")):return false
 	var id=opposites.find(inWord)
 	if(id==-1):return true
 	var checkSide=int(id%2==0)*2-1
-	if(inWord=="KEY"&&!Status.has("locked")):return false
 	return !Word.wordSwap.BaseText.contains(opposites[id+checkSide])
-
-
 
 
 

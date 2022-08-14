@@ -18,8 +18,9 @@ func _ready():
 
 
 func _input(_event):
-	if ! _event is InputEventKey:return
+	
 	var dir=int(Input.is_action_just_pressed("left"))-int(Input.is_action_just_pressed("right"))
+	print(dir)
 	if Input.is_action_just_pressed("up")||Input.is_action_just_pressed("down"):
 		activeSet=1-activeSet
 		if activeSet==1&&Word.storedWords.size()<1:activeSet=0
@@ -28,9 +29,11 @@ func _input(_event):
 		updateOwned()
 		updateSelectedWord()
 	if Input.is_action_just_pressed("confirm"):
+		Input.action_release("confirm")
 		if activeSet==0&&Word.swapsLeft>0:
 			if BaseText.split(" ").size()<=1:return
 			var removed=removeWord(selectedWord)
+			
 			Word.swapsLeft-=1
 			Word.swapped=true
 			if removed!=null:Word.storedWords.push_back(removed)
@@ -44,10 +47,13 @@ func _input(_event):
 				get_parent().get_node("AnimationPlayer").play("cantDo",0.0)
 				Sound.play("cant")
 				return
+			
 			var added=Word.storedWords[selectedWord]
 			insertWord(added)
+			
 			Word.storedWords.remove_at(selectedWord)
 			if Word.storedWords.size()==0:activeSet=0
+			updateFromInput(added)
 			updateSelectedWord()
 			selectedWord=0
 			Word.swapped=true
@@ -118,5 +124,9 @@ func insertWord(_word):
 	_splitWords.insert(_splitWords.size()-1,_word)
 	BaseText=buildPhrase(_splitWords,false)
 	buildPhrase(_splitWords)
-	
-	
+
+
+#input word checker for the items
+func updateFromInput(inWord):
+	if(inWord=="KEY"&&Word.hoveringObject.Status.has("locked")):
+		BaseText=BaseText.replace("locked","open").replace("KEY","")
