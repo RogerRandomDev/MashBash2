@@ -19,7 +19,20 @@ func addCollision(scaled:float=1.0):
 	collision.add_child(shape)
 	add_child(collision)
 	pushPlayer()
-
+	return collision
+#builds an areacheck
+func addArea(scaled:float=1.0,circle:bool=false):
+	var collision=Area2D.new()
+	var shape=CollisionShape2D.new()
+	if !circle:
+		shape.shape=RectangleShape2D.new()
+		shape.shape.extents=get_parent().size*scaled
+	else:
+		shape.shape=CircleShape2D.new()
+		shape.shape.radius=max(get_parent().size.x,get_parent().size.y)*scaled
+	collision.add_child(shape)
+	add_child(collision)
+	return collision
 
 
 #moves player out of the way when the collision is made

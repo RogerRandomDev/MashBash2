@@ -33,12 +33,13 @@ func _ready():
 	add_child(hold)
 	add_child(descriptiveScript)
 	check.shape=CircleShape2D.new()
-	check.shape.radius=32
+	check.shape.radius=max(size.x,size.y)
 	hold.collision_layer=4
 	hold.collision_mask=4
 	descriptiveLabel.visible=false
 	hold.position+=size/2.
 	applyScripts(Status,true)
+	descriptiveScript.name="ScriptHolder"
 
 
 

@@ -7,7 +7,13 @@ res://addons/word/resources/pull.tres
 res://title/title.tscn
 res://entities/player/player.tscn
 res://addons/MASHLOG/dialoguebox/dialoguebox.tscn
-res://addons/word/wordSystem.gd
-res://World/background.gdshader
+res://World/level0.tscn
+res://TileMap/Map.tres
+res://entities/items/door/door.tres
+res://addons/word/resources/itemResource.gd
+res://entities/items/teleporter/teleporter.tres
+res://entities/items/teleporter/teleporter.gd
+res://addons/word/resources/DescriptiveScriptBase.gd
 res://addons/word/wordswapper/wordSwap.gd
-res://addons/MASHLOG/dialogueSets/tutorialLevel.tres
+res://entities/items/teleporter/teleporterArrow.gdshader
+res://entities/player/player.gd

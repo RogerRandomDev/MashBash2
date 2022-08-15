@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8ipxqarlsdj6"]
+[gd_scene load_steps=7 format=3 uid="uid://c8ipxqarlsdj6"]
 
 [ext_resource type="Script" path="res://World/levelmain.gd" id="1_0ho5g"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
 [ext_resource type="TileSet" uid="uid://c7huttqab6ohr" path="res://TileMap/Map.tres" id="2_bptuw"]
 [ext_resource type="Script" path="res://addons/word/resources/itemResource.gd" id="3_n54hw"]
 [ext_resource type="Resource" uid="uid://bu1c7cl2ckuj4" path="res://entities/items/door/door.tres" id="4_b4gcv"]
+[ext_resource type="Resource" uid="uid://dyf68rtkwm0h7" path="res://entities/items/teleporter/teleporter.tres" id="6_ho341"]
 
 [node name="level0" type="Node2D"]
 script = ExtResource("1_0ho5g")
 
 [node name="Player" parent="." instance=ExtResource("1_hyipm")]
-position = Vector2(87, 43)
+position = Vector2(88, 44)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_bptuw")
@@ -19,7 +20,21 @@ layer_0/tile_data = PackedInt32Array(65537, 131072, 0, 1, 65536, 0, 65538, 45875
 
 [node name="itemResource" type="Position2D" parent="."]
 position = Vector2(176, 32)
-z_index = 59
+z_index = 62
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("4_b4gcv")
 Status = PackedStringArray("locked")
+
+[node name="itemResource2" type="Position2D" parent="." groups=["TeleporterA"]]
+position = Vector2(133, 28)
+z_index = 63
+script = ExtResource("3_n54hw")
+HeldResource = ExtResource("6_ho341")
+Status = PackedStringArray()
+
+[node name="itemResource3" type="Position2D" parent="." groups=["TeleporterB"]]
+position = Vector2(233, 28)
+z_index = 64
+script = ExtResource("3_n54hw")
+HeldResource = ExtResource("6_ho341")
+Status = PackedStringArray()

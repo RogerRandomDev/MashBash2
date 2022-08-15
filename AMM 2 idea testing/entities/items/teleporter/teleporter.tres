@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dyf68rtkwm0h7"]
+
+[ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_8ccrl"]
+[ext_resource type="Script" path="res://entities/items/teleporter/teleporter.gd" id="1_f0ulu"]
+[ext_resource type="Texture2D" uid="uid://cyg1mpykq4aa6" path="res://entities/items/door/closed.png" id="1_sfkmm"]
+
+[resource]
+script = ExtResource("1_8ccrl")
+Name = "Teleporter"
+Sprites = {
+"default": ExtResource("1_sfkmm")
+}
+Scripts = {
+"default": ExtResource("1_f0ulu")
+}

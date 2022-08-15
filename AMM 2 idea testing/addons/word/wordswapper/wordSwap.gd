@@ -20,7 +20,6 @@ func _ready():
 func _input(_event):
 	
 	var dir=int(Input.is_action_just_pressed("left"))-int(Input.is_action_just_pressed("right"))
-	print(dir)
 	if Input.is_action_just_pressed("up")||Input.is_action_just_pressed("down"):
 		activeSet=1-activeSet
 		if activeSet==1&&Word.storedWords.size()<1:activeSet=0

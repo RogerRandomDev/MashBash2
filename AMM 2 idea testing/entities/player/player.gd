@@ -6,6 +6,7 @@ const SPEED = 37.5
 func _ready():
 	Word.player=self
 	Word.tiles=get_parent().get_node("TileMap")
+	position.y+=0.6
 
 
 
