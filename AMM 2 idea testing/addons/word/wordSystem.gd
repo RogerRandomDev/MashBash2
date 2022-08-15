@@ -20,6 +20,7 @@ func _ready():
 
 
 func _input(event):
+	if player==null||player.locked:return
 	#opens the hovered item
 	if Input.is_action_just_pressed("confirm")&&hoveringObject!=null&&!wordSwap.get_parent().visible:
 		updateSwapper()

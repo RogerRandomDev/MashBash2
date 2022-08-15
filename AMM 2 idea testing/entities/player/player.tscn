@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://lsni7bco1t7t"]
+[gd_scene load_steps=10 format=3 uid="uid://lsni7bco1t7t"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_g1pj2"]
 [ext_resource type="SpriteFrames" uid="uid://dmxhvlqnqi4em" path="res://entities/player/playerAnim.tres" id="2_ib2wq"]
@@ -13,7 +13,7 @@ shader = ExtResource("2_xfmht")
 line_scale = 0.875
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_scft4"]
-radius = 12.0
+radius = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ld5a2"]
 shader = ExtResource("5_m0qxn")
@@ -31,6 +31,9 @@ size = Vector2(0.3, 0.3)
 speed = 0.375
 ySpread = null
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ih6p0"]
+radius = 2.0
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 3
 script = ExtResource("1_g1pj2")
@@ -42,7 +45,7 @@ shape = SubResource("RectangleShape2D_erwm1")
 material = SubResource("ShaderMaterial_oy8eb")
 frames = ExtResource("2_ib2wq")
 animation = &"walk"
-frame = 5
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -60,10 +63,16 @@ zoom = Vector2(4, 4)
 [node name="background" type="ColorRect" parent="Camera2D"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_ld5a2")
-offset_left = -132.0
-offset_top = -79.0
-offset_right = 132.0
-offset_bottom = 79.0
+offset_left = -140.0
+offset_top = -87.0
+offset_right = 140.0
+offset_bottom = 87.0
+
+[node name="playerchest" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="collision" type="CollisionShape2D" parent="playerchest"]
+shape = SubResource("CircleShape2D_ih6p0")
 
 [connection signal="body_entered" from="Area2D" to="." method="_intersect_object"]
 [connection signal="body_exited" from="Area2D" to="." method="_left_object"]

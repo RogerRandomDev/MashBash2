@@ -1,4 +1,6 @@
 Area2D
+StaticBody2D
+CollisionShape2D
 ColorRect
 Button
 AnimationPlayer
@@ -22,7 +24,6 @@ TileMap
 Camera2D
 VBoxContainer
 AnimatedSprite2D
-CollisionShape2D
 Panel
 CharacterBody2D
 TextureRect

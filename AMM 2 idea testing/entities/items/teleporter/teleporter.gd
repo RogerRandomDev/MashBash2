@@ -4,11 +4,15 @@ var linkTo=""
 var linked=null
 var arrow=null
 var triggerNow=true
+var teleporting=null
 func _ready():
 	super._ready()
 	emptyScript()
-	var area=addArea(0.25,true)
-	area.connect("body_entered",checkTeleport)
+	triggerNow=false
+	if (Word.player.global_position-global_position).length_squared()>16:triggerNow=true
+	var area=addArea(0.25,true);
+	area.connect("area_entered",checkTeleport)
+	area.position.y-=4
 	#links to the connected teleporter
 	for group in get_parent().get_groups():
 		group=String(group)
@@ -34,10 +38,40 @@ func makeArrow():
 
 #checks if the new object to enter is the player, and if so, it teleports it
 func checkTeleport(body):
-
-	if body.name=="Player":
+	if body.name=="playerchest":
+		
 		#checks if you were just teleported to it
 		if !triggerNow:
 			triggerNow=true;return
-		linked.get_node("ScriptHolder").triggerNow=false
-		body.position+=linked.position-get_parent().position
+		animateTeleport(body.get_parent())
+
+#the teleporter animation
+#using an animation player would honestly be nicer, but a pain still
+#since this is loaded and not able to see the player in an absolute path at all times
+func animateTeleport(body):
+	var tween:Tween=create_tween()
+	linked.get_node("ScriptHolder").triggerNow=false
+	teleporting=body
+	body.locked=true
+	body.position=global_position-Vector2(0,2.4)
+	#hides player
+	tween.tween_method(tweenColor,0.,1.,0.5)
+	tween.tween_interval(0.25)
+	tween.tween_callback(teleportobject)
+	#tweens camera back to player after locking to previous teleporter
+	tween.tween_property(body.get_node("Camera2D"),"position",Vector2.ZERO,0.25)
+	#returns player
+	tween.tween_interval(0.25)
+	tween.tween_method(tweenColor,1.,0.,0.5)
+	tween.tween_property(body,"locked",false,0.0)
+	
+#tweens the player color when teleporting
+func tweenColor(col):
+	var sprite=teleporting.get_node("Sprite2D")
+	sprite.modulate=Color(1.-col,1.-col/2.,1.,1.-col)
+#teleports the object
+func teleportobject(object=teleporting):
+	#if its a player, moves the camera so it stays on the previous teleporter before moving to the new one
+	if(object.name=="Player"):object.get_node("Camera2D").position+=(global_position-linked.global_position)
+	object.position=linked.global_position+linked.size/2
+	object.position.y=round(object.position.y)-2.4

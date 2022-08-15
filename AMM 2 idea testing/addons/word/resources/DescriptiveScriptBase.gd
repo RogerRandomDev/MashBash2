@@ -31,6 +31,7 @@ func addArea(scaled:float=1.0,circle:bool=false):
 		shape.shape=CircleShape2D.new()
 		shape.shape.radius=max(get_parent().size.x,get_parent().size.y)*scaled
 	collision.add_child(shape)
+	
 	add_child(collision)
 	return collision
 

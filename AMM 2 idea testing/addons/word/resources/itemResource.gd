@@ -16,7 +16,7 @@ func _ready():
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
 	sprite.centered=false
-	z_index+=1
+	if !Engine.is_editor_hint():z_index+=1
 	sprite.z_index=-1
 	add_child(sprite)
 	add_child(descriptives)
@@ -24,6 +24,7 @@ func _ready():
 	
 	descriptiveLabel.theme=load("res://themes/basetheme.tres")
 	descriptives.theme=descriptiveLabel.theme
+	descriptives.position-=Vector2(2,2)
 	descriptiveLabel.position.y=-16
 	updateDescriptives()
 	#loads the area check around itself

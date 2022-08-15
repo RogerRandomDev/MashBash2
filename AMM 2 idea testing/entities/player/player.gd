@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 
 const SPEED = 37.5
+var locked=false
+
 
 func _ready():
 	Word.player=self
@@ -11,6 +13,7 @@ func _ready():
 
 
 func _physics_process(_delta):
+	if locked:return
 	var direction = Vector2(Input.get_axis("left", "right"),Input.get_axis("up", "down"))
 	
 	if direction:
