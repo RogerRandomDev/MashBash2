@@ -4,8 +4,6 @@ res://entities/player/playerAnim.tres
 res://TileMap/Map.tres
 res://entities/items/door/door.tres
 res://entities/items/teleporter/teleporter.tres
+res://entities/items/toy/toy.tres
 res://title/title.tscn
 res://entities/player/player.tscn
-res://entities/items/teleporter/teleporter.gd
-res://entities/items/toy/toy.tres
-res://addons/word/resources/itemResource.gd

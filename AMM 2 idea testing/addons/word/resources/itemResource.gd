@@ -11,8 +11,14 @@ var descriptives=HBoxContainer.new()
 var descriptiveLabel=Label.new()
 var size=Vector2.ZERO
 var descriptiveScript=Node2D.new()
+@export var makeRigid:bool=false
 #prepares basic setup for items
 func _ready():
+	#makes it a rigidbody
+	if makeRigid:
+		if Engine.is_editor_hint():return
+		call_deferred("makeMeRigid")
+		
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
 	sprite.centered=false
@@ -39,11 +45,18 @@ func _ready():
 	hold.collision_mask=4
 	descriptiveLabel.visible=false
 	hold.position+=size/2.
-	applyScripts(Status,true)
+	if !makeRigid:applyScripts(Status,true)
 	descriptiveScript.name="ScriptHolder"
 
 
-
+func makeMeRigid():
+	var body=RigidDynamicBody2D.new()
+	get_parent().add_child(body)
+	get_parent().remove_child(self);body.add_child(self)
+	applyScripts(Status,true)
+	body.position=position+size/2;position=-size/2;body.can_sleep=false;body.lock_rotation=true
+	body.continuous_cd=RigidDynamicBody2D.CCD_MODE_CAST_SHAPE
+	body.linear_damp=50
 #removes and loads the new descriptives
 func updateDescriptives():
 	sprite.texture=HeldResource.Sprites['default']
@@ -157,4 +170,7 @@ func applyScripts(_descriptives,ignore=false):
 		#when you have a descriptive but none are valid
 			descriptiveScript.set_script(load("res://addons/word/resources/DescriptiveScriptBase.gd"))
 			current=load("res://addons/word/resources/DescriptiveScriptBase.gd")
-	if Word.swapped||ignore:descriptiveScript._ready()
+	if Word.swapped||ignore:
+		descriptiveScript._ready()
+		if makeRigid:descriptiveScript.addCollision(0.5)
+	

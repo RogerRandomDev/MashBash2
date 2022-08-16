@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 37.5
 var locked=false
-
+@export_range(0,100) var push:int=100
 
 func _ready():
 	Word.player=self
@@ -23,8 +23,18 @@ func _physics_process(_delta):
 		velocity.y = move_toward(velocity.y,0, SPEED)
 	updateAnimations()
 	move_and_slide()
-
-
+	# after calling move_and_slide()
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index);var col=collision.get_collider()
+		
+		if col.get_class()=="RigidDynamicBody2D":
+			col.linear_velocity= -collision.get_normal()*Vector2(abs(direction.x),abs(direction.y))*SPEED
+	if(velocity!=Vector2.ZERO):
+		$holdingItem.look_at(velocity+$holdingItem.global_position)
+	for object in $holdingItem/vaccuum.get_overlapping_bodies():
+		if object.get_class()!="RigidDynamicBody2D":continue
+		var moveDir=($holdingItem/vaccuum.global_position-object.global_position)
+		object.apply_central_impulse((moveDir.normalized()*push)*(moveDir.length_squared()/128))
 
 
 

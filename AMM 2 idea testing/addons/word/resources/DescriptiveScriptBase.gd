@@ -8,6 +8,7 @@ func _ready():
 #empties added objects
 func emptyScript():
 	for child in get_children():child.queue_free()
+	if get_parent().makeRigid:for child in get_parent().get_parent().get_children():if child.get_class()=="CollisionShape2D":child.queue_free()
 
 
 #builds collision for shape
@@ -16,8 +17,10 @@ func addCollision(scaled:float=1.0):
 	var shape=CollisionShape2D.new()
 	shape.shape=RectangleShape2D.new()
 	shape.shape.extents=get_parent().size*scaled
-	collision.add_child(shape)
-	add_child(collision)
+	if !get_parent().makeRigid:
+		collision.add_child(shape)
+		add_child(collision)
+	else:get_parent().get_parent().add_child(shape)
 	pushPlayer()
 	return collision
 #builds an areacheck

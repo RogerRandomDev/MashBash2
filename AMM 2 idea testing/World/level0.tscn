@@ -46,3 +46,11 @@ z_index = 2
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("6_ho341")
 Status = PackedStringArray()
+
+[node name="itemResource5" type="Position2D" parent="." groups=["TeleporterB"]]
+position = Vector2(119, 23)
+z_index = 2
+script = ExtResource("3_n54hw")
+HeldResource = ExtResource("7_daakj")
+Status = PackedStringArray()
+makeRigid = true
