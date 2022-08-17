@@ -18,7 +18,7 @@ func _ready():
 	if makeRigid:
 		if Engine.is_editor_hint():return
 		call_deferred("makeMeRigid")
-		
+		Status.append("moveable")
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
 	sprite.centered=false
@@ -27,7 +27,7 @@ func _ready():
 	add_child(sprite)
 	add_child(descriptives)
 	add_child(descriptiveLabel)
-	
+	sprite.name="Sprite2D"
 	descriptiveLabel.theme=load("res://themes/basetheme.tres")
 	descriptives.theme=descriptiveLabel.theme
 	descriptives.position-=Vector2(2,2)
@@ -94,10 +94,17 @@ func applyDescriptive(descriptive):
 #shows and hides the name and descriptives when you are near or away from it
 func showName():
 	descriptiveLabel.visible=true
-	Word.hoveringObject=self
-func hideName():
+	if !Word.hoveringObjects.has(self):
+		for object in Word.hoveringObjects:object.hideName(false)
+		Word.hoveringObjects.append(self)
+func hideName(removed=true):
 	descriptiveLabel.visible=false
-	if Word.hoveringObject==self:Word.hoveringObject=null
+	if Word.hoveringObject==self:
+		Word.hoveringObject=null
+	if removed:
+		Word.hoveringObjects.erase(self)
+		if Word.hoveringObjects.size()==0:return
+		Word.hoveringObjects[Word.hoveringObjects.size()-1].showName()
 
 
 #gets the name and descriptives as their phrase

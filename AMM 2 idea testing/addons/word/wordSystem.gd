@@ -8,7 +8,7 @@ var swapped=false
 var swapsLeft=3
 var tiles
 var player
-
+var hoveringObjects=[]
 
 
 func _ready():
@@ -22,7 +22,7 @@ func _ready():
 func _input(event):
 	if player==null||player.locked:return
 	#opens the hovered item
-	if Input.is_action_just_pressed("confirm")&&hoveringObject!=null&&!wordSwap.get_parent().visible:
+	if Input.is_action_just_pressed("confirm")&&hoveringObjects!=[]&&!wordSwap.get_parent().visible:
 		updateSwapper()
 		lastStored=storedWords.duplicate(true)
 	#resets the words to what it was when you opened the current item
@@ -39,6 +39,7 @@ func _input(event):
 func updateSwapper():
 	Input.action_release("confirm")
 	swapped=false
+	hoveringObject=hoveringObjects[hoveringObjects.size()-1]
 	wordSwap.BaseText=hoveringObject.getText()
 	wordSwap.nameLabel.text=hoveringObject.getName()
 	swapVisible(true)

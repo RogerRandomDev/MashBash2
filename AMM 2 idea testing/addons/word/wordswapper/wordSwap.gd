@@ -7,6 +7,7 @@ var BaseText=""
 var selectedWord=0
 var activeSet=0
 var activeObject
+
 func _ready():
 	Owned=$labels/Owned
 	Words=$labels/RichTextLabel
@@ -28,22 +29,25 @@ func _input(_event):
 		updateOwned()
 		updateSelectedWord()
 	if Input.is_action_just_pressed("confirm"):
+		
 		Input.action_release("confirm")
+		if selectedWord==-1:return
 		if activeSet==0&&Word.swapsLeft>0:
 			if BaseText.split(" ").size()<=1:return
 			var removed=removeWord(selectedWord)
-			
+			if removed==null:
+				cantAnim();return
 			Word.swapsLeft-=1
 			Word.swapped=true
 			if removed!=null:Word.storedWords.push_back(removed)
-		elif Word.swapsLeft<=0&&activeSet==0:
-			get_parent().get_node("AnimationPlayer").stop()
-			get_parent().get_node("AnimationPlayer").play("pulseRed",0.0)
-			Sound.play("cant")
+		elif Word.swapsLeft<=0&&activeSet==0:cantAnim()
 		if activeSet==1:
 			#makes sure words don't clash
 			if !Word.hoveringObject.checkWordInput(Word.storedWords[selectedWord]):
-				get_parent().get_node("AnimationPlayer").play("cantDo",0.0)
+				var a = get_parent().get_node("AnimationPlayer")
+				a.advance(a.current_animation_length-a.current_animation_position)
+				a.stop()
+				a.play("cantDo",0.0)
 				Sound.play("cant")
 				return
 			
@@ -63,7 +67,12 @@ func _input(_event):
 	if activeSet==1:selectedWord=clamp(selectedWord-dir,0,Word.storedWords.size()-1)
 	
 	updateSelectedWord()
-
+#anim for cant
+func cantAnim():
+	var a = get_parent().get_node("AnimationPlayer")
+	a.advance(a.current_animation_length-a.current_animation_position)
+	a.stop();a.play("pulseRed",0.0)
+	Sound.play("cant")
 
 #updates the current chosen word
 func updateSelectedWord():
@@ -80,7 +89,8 @@ func removeWord(id):
 	var out=_splitWords[id]
 	_splitWords.remove_at(id)
 	selectedWord=0
-	
+	#can not remove moveable from items
+	if out=="moveable":return null
 	buildPhrase(_splitWords,false)
 	BaseText=Words.text
 	buildPhrase(_splitWords)

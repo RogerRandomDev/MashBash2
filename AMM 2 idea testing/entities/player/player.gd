@@ -41,10 +41,15 @@ func doVacuum(_delta):
 	for object in $holdingItem/vaccuum.get_overlapping_bodies():
 		if object.get_class()!="RigidDynamicBody2D":continue
 		var moveDir=($holdingItem/vaccuum.global_position-object.global_position)
-		object.apply_central_impulse((moveDir.normalized()*push))
+		var imp=(moveDir.normalized()*push)*(1/max(pow(48-max(moveDir.length(),1),0.125),1))
+		#makes sure you dont apply force when so far it just yeets it into oblivion
+		#not a real fan of bethesda suing me for sending a random pixelart item
+		#into their games
+		if imp.length_squared()<10240:object.apply_central_impulse(imp)
 
 
 func _input(_event):
+	if locked:return
 	vacuum = Input.is_action_pressed("lMouse")
 	$holdingItem/vaccuum/GPUParticles2D.emitting=vacuum
 
