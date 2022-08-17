@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://lsni7bco1t7t"]
+[gd_scene load_steps=15 format=3 uid="uid://lsni7bco1t7t"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_g1pj2"]
 [ext_resource type="SpriteFrames" uid="uid://dmxhvlqnqi4em" path="res://entities/player/playerAnim.tres" id="2_ib2wq"]
 [ext_resource type="Shader" path="res://entities/player/player.gdshader" id="2_xfmht"]
+[ext_resource type="Material" uid="uid://j0arxukiivtu" path="res://entities/player/vacuum.tres" id="5_2t5cb"]
 [ext_resource type="Shader" path="res://World/background.gdshader" id="5_m0qxn"]
+[ext_resource type="Texture2D" uid="uid://igajlkjrdxur" path="res://entities/player/dust.png" id="6_pggit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erwm1"]
 size = Vector2(8, 12)
@@ -37,6 +39,38 @@ radius = 2.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwjad"]
 size = Vector2(32, 16)
 
+[sub_resource type="Animation" id="Animation_yfk6d"]
+resource_name = "startVacuum"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("vaccuum/CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("vaccuum/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(16, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nkrkp"]
+_data = {
+"startVacuum": SubResource("Animation_yfk6d")
+}
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 3
 script = ExtResource("1_g1pj2")
@@ -48,7 +82,7 @@ shape = SubResource("RectangleShape2D_erwm1")
 material = SubResource("ShaderMaterial_oy8eb")
 frames = ExtResource("2_ib2wq")
 animation = &"walk"
-frame = 2
+frame = 5
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -80,7 +114,7 @@ shape = SubResource("CircleShape2D_ih6p0")
 [node name="holdingItem" type="Position2D" parent="."]
 
 [node name="vaccuum" type="Area2D" parent="holdingItem"]
-position = Vector2(12, 0)
+position = Vector2(16, 0)
 gravity = 1024.0
 linear_damp_space_override = 3
 linear_damp = 0.0
@@ -88,6 +122,18 @@ linear_damp = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="holdingItem/vaccuum"]
 position = Vector2(16, 0)
 shape = SubResource("RectangleShape2D_iwjad")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="holdingItem/vaccuum"]
+position = Vector2(32, 0)
+amount = 32
+lifetime = 1.1
+process_material = ExtResource("5_2t5cb")
+texture = ExtResource("6_pggit")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="holdingItem"]
+libraries = {
+"": SubResource("AnimationLibrary_nkrkp")
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_intersect_object"]
 [connection signal="body_exited" from="Area2D" to="." method="_left_object"]
