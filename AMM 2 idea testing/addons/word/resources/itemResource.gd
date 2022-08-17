@@ -1,7 +1,13 @@
 @tool
 extends Position2D
 class_name itemResource
-
+#signals for the node to emit
+#mainly just used for the tutorial and events
+#but is fairly helpful outside as well for debugging
+signal showingName(me)
+signal swappedWord(start,end)
+signal changedStatus(status)
+signal use_item(usedBy,action)
 
 @export var HeldResource:Resource=itemContents.new()
 
@@ -14,10 +20,11 @@ var descriptiveScript=Node2D.new()
 @export var makeRigid:bool=false
 #prepares basic setup for items
 func _ready():
+	
 	#makes it a rigidbody
-	if makeRigid:
-		if Engine.is_editor_hint():return
-		call_deferred("makeMeRigid")
+	
+	if makeRigid&&!Engine.is_editor_hint():
+		call_deferred('makeMeRigid')
 		Status.append("moveable")
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
@@ -57,6 +64,8 @@ func makeMeRigid():
 	body.position=position+size/2;position=-size/2;body.can_sleep=false;body.lock_rotation=true
 	body.continuous_cd=RigidDynamicBody2D.CCD_MODE_CAST_SHAPE
 	body.linear_damp=50
+	body.freeze_mode=RigidDynamicBody2D.FREEZE_MODE_STATIC
+	body.freeze=!makeRigid
 #removes and loads the new descriptives
 func updateDescriptives():
 	sprite.texture=HeldResource.Sprites['default']
@@ -93,6 +102,7 @@ func applyDescriptive(descriptive):
 
 #shows and hides the name and descriptives when you are near or away from it
 func showName():
+	emit_signal("showingName",self)
 	descriptiveLabel.visible=true
 	if !Word.hoveringObjects.has(self):
 		for object in Word.hoveringObjects:object.hideName(false)
@@ -123,12 +133,15 @@ func modifyTo(_descriptives):
 	Status=_descriptives
 	updateDescriptives()
 	applyScripts(Status)
+	emit_signal("changedStatus",Status)
 
 const opposites=[
 	"open",
 	"locked",
 	"broken",
-	"weak"
+	"weak",
+	"light",
+	"heavy"
 ]
 
 #checks if you can put in the current word
@@ -155,7 +168,7 @@ func updateWordsFromOthers():
 	if(Status.has("KEY")&&Status.has("locked")):
 		Status.remove_at(Status.find("KEY"))
 		Status[Status.find("locked")]="open"
-	
+		emit_signal("swappedWord","locked","open")
 	
 	#checks if it changed anything
 	modifyTo(Status)

@@ -1,3 +1,5 @@
+nextLevel (nextlevel.gd)
+itemResource (itemResource.gd)
 AnimationPlayer
 GPUParticles2D
 RigidDynamicBody2D
@@ -22,7 +24,6 @@ VSplitContainer
 HBoxContainer
 WorldEnvironment
 Label
-itemResource (itemResource.gd)
 TileMap
 Camera2D
 VBoxContainer

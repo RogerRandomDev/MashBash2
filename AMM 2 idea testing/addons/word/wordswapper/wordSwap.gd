@@ -69,8 +69,9 @@ func _input(_event):
 	updateSelectedWord()
 #anim for cant
 func cantAnim():
+	
 	var a = get_parent().get_node("AnimationPlayer")
-	a.advance(a.current_animation_length-a.current_animation_position)
+	if a.current_animation!="":a.advance(a.current_animation_length-a.current_animation_position)
 	a.stop();a.play("pulseRed",0.0)
 	Sound.play("cant")
 

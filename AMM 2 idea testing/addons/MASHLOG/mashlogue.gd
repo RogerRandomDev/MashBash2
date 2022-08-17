@@ -4,14 +4,15 @@ extends Node
 #the list of available faces that can be made
 enum Faces {Default,Smile,Frown,MadDefault,MadSmile,MadFrown,SquintNeutral,SquintSmile,SquintFrown,GrinSquint,SquintSmallFrown}
 #possible actions for eventResource
-enum Actions{SetCell,ShakeCamera,MoveCamera,ResetCamera,ChangeSpeaker}
+enum Actions{SetCell,ShakeCamera,MoveCamera,ResetCamera,ChangeSpeaker,toggleplayerlock,toggleEditor,changeScene}
 #stores the typeof as the value so it can be used in the event system
 var ActionVariableType:Array=[
 	10,"Vector3i(0,0,0)",
 	1,"true",
 	5,"Vector2(0.,0.)",
 	0,"null",
-	4,"MASH",]
+	4,"MASH",
+	1,"false"]
 
 #variables used outside resources goes here
 var _dialogueBox=null

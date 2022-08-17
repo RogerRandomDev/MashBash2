@@ -15,7 +15,11 @@ var ActionVariableType:Array=[
 	1,"true",
 	5,"Vector2(0.,0.)",
 	0,"null",
-	4,"MASH",]
+	4,"MASH",
+	1,"false",
+	1,"true",
+	4,"level0"]
+func _ready():ActionVariableType=Mashlogue.ActionVariableType
 func updateValues():
 	#resizes
 	if Actions.size()!=ActionValues.size():ActionValues.resize(Actions.size())
@@ -57,3 +61,11 @@ func ResetCamera(_null):pass
 #changes current talker in dialogue
 func ChangeSpeaker(_speaker):
 	Mashlogue.swapIcons(load("res://addons/MASHLOG/iconsets/%s.tres"%_speaker))
+
+func toggleplayerlock(_null):
+	Word.player.locked=_null
+
+func toggleEditor(_null):
+	Word.canChange=_null
+func changeScene(_path):
+	Word.get_tree().change_scene("res://World/%s.tscn"%_path)

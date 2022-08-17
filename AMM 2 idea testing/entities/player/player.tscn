@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://lsni7bco1t7t"]
+[gd_scene load_steps=16 format=3 uid="uid://lsni7bco1t7t"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_g1pj2"]
 [ext_resource type="SpriteFrames" uid="uid://dmxhvlqnqi4em" path="res://entities/player/playerAnim.tres" id="2_ib2wq"]
 [ext_resource type="Shader" path="res://entities/player/player.gdshader" id="2_xfmht"]
 [ext_resource type="Material" uid="uid://j0arxukiivtu" path="res://entities/player/vacuum.tres" id="5_2t5cb"]
+[ext_resource type="Script" path="res://entities/player/vaccuum.gd" id="5_bfok5"]
 [ext_resource type="Shader" path="res://World/background.gdshader" id="5_m0qxn"]
 [ext_resource type="Texture2D" uid="uid://igajlkjrdxur" path="res://entities/player/dust.png" id="6_pggit"]
 
@@ -83,7 +84,7 @@ shape = SubResource("RectangleShape2D_erwm1")
 material = SubResource("ShaderMaterial_oy8eb")
 frames = ExtResource("2_ib2wq")
 animation = &"walk"
-frame = 4
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -115,10 +116,11 @@ shape = SubResource("CircleShape2D_ih6p0")
 [node name="holdingItem" type="Position2D" parent="."]
 
 [node name="vaccuum" type="Area2D" parent="holdingItem"]
-position = Vector2(16, 0)
+position = Vector2(17, 0)
 gravity = 1024.0
 linear_damp_space_override = 3
 linear_damp = 0.0
+script = ExtResource("5_bfok5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="holdingItem/vaccuum"]
 position = Vector2(16, 0)
@@ -126,6 +128,7 @@ shape = SubResource("RectangleShape2D_iwjad")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="holdingItem/vaccuum"]
 position = Vector2(32, 0)
+emitting = false
 amount = 32
 lifetime = 1.1
 speed_scale = 4.0

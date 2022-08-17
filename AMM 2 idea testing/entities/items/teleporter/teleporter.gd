@@ -5,19 +5,20 @@ var linked=null
 var arrow=null
 var triggerNow=true
 var teleporting=null
+var area=null
 func _ready():
 	super._ready()
 	emptyScript()
 	triggerNow=false
 	if (Word.player.global_position-global_position).length_squared()>16:triggerNow=true
-	var area=addArea(0.25,true);
+	area=addArea(0.25,true);
 	area.connect("area_entered",checkTeleport)
 	area.connect("body_entered",checkTeleport)
 	area.position.y-=4
 	#links to the connected teleporter
 	for group in get_parent().get_groups():
 		group=String(group)
-		if group.contains("Teleporter"):
+		if group.contains("teleporter"):
 			var let="AB"[int(group.contains("A"))]
 			linkTo=group.left(group.length()-1)+let
 			break
@@ -39,6 +40,8 @@ func makeArrow():
 
 #checks if the new object to enter is the player, and if so, it teleports it
 func checkTeleport(body):
+	if get_parent().Status.has("broken")||linked.Status.has("broken"):return
+	if teleporting!=null:return
 	if body.name=="playerchest":
 		#checks if you were just teleported to it
 		if !triggerNow:
@@ -60,7 +63,7 @@ func animateTeleport(body):
 	if body.name=="Player":
 		body.locked=true
 	else:togglebodyPhysics(false)
-	body.position=global_position-Vector2(0,2.4)
+	body.position=global_position-Vector2(0,2.4*int(body.name=="Player"))
 	#hides player
 	tween.tween_method(tweenColor,0.,1.,0.5)
 	tween.tween_interval(0.25)
@@ -76,17 +79,42 @@ func animateTeleport(body):
 	
 	if body.name=="Player":tween.tween_property(body,"locked",false,0.0)
 	else:tween.tween_callback(togglebodyPhysics)
+	tween.tween_interval(0.25)
+	tween.tween_callback(finishTeleport)
+
+
+#finishes the teleport
+func finishTeleport():
+	get_parent().emit_signal("use_item",teleporting,"teleporter")
+	updateStatus()
+	linked.get_node("ScriptHolder").updateStatus()
+	teleporting=null
+	for object in area.get_overlapping_bodies():
+		if object.name=="Player":checkTeleport(object.get_node("playerchest"))
+		else:checkTeleport(object)
+	
+
 #toggles rigidbody physics
 func togglebodyPhysics(do=true):teleporting.set_deferred('freeze',!do)
+
 #tweens the player color when teleporting
 func tweenColor(col):
 	var sprite=null
 	if teleporting.name=="Player":sprite=teleporting.get_node("Sprite2D")
 	else:sprite=teleporting.get_child(0).get_node("Sprite2D")
 	sprite.modulate=Color(1.-col,1.-col/2.,1.,1.-col)
+
 #teleports the object
 func teleportobject(object=teleporting):
 	#if its a player, moves the camera so it stays on the previous teleporter before moving to the new one
 	if(object.name=="Player"):object.get_node("Camera2D").position+=(global_position-linked.global_position)
 	object.position=linked.global_position+linked.size/2
-	object.position.y=round(object.position.y)-2.4
+	object.position.y=round(object.position.y)-2.4*int(object.name=="Player")
+
+#replaces weak with broken if it is weak
+func updateStatus():
+	var status=get_parent().Status
+	if status.has("weak"):
+		get_parent().Status.remove_at(status.find("weak"))
+		get_parent().Status.append("broken")
+		get_parent().updateDescriptives()

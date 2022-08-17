@@ -66,6 +66,7 @@ func loadNextSet():
 	#loads needed icon
 	icon.texture=icon_set.get_face(fullContents.face_for(_contentProgress))
 	updateEndWait(textContent.get_parsed_text().length())
+	if textContent.text==""&&fullContents.count_sets()+1>=_contentProgress:visible=false
 	
 	icon.modulate=icon_set.modulate
 	#at end to make sure it knows how many characters it will show for you

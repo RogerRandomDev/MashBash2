@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cinrtebl0xppf"]
+
+[ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_hhd1v"]
+[ext_resource type="Script" path="res://addons/MASHLOG/resources/eventResource.gd" id="1_wb0rj"]
+
+[sub_resource type="Resource" id="Resource_r4fy1"]
+script = ExtResource("1_wb0rj")
+Actions = PackedInt32Array(7)
+ActionValues = ["level1"]
+
+[resource]
+script = ExtResource("1_hhd1v")
+dialogue = PackedStringArray("Okay so that...", "Was very self explanatory.", "It\'s a teleporter. It teleports you.", "It \"Supposedly\" can teleport moveable objects too.", "though, if it becomes \"[color=#f00]weak[/color]\", it will break after one use.", "and when [color=#f00]broken[/color], you can\'t use it, which is what happened to the one you just used", "I can read the code, It\'s well commented, but also WELL beyond my own Design skill.", "Anyway, I found the location of the levels on the disk, so I\'ll change to the next level for us!", "")
+dialogueFaces = [0, 0, 0, 0, 2, 2, 2, 0, 0]
+dialogueActions = [null, null, null, null, null, null, null, null, SubResource("Resource_r4fy1")]

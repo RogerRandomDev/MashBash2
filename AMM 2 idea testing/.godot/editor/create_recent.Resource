@@ -1,5 +1,5 @@
-itemContents (itemContents.gd)
 dialogueResource (dialogueResource.gd)
+itemContents (itemContents.gd)
 Theme
 TileSet
 RichTextEffect

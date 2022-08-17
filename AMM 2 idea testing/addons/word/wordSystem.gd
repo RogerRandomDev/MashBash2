@@ -9,7 +9,7 @@ var swapsLeft=3
 var tiles
 var player
 var hoveringObjects=[]
-
+var canChange=false
 
 func _ready():
 	wordSwap=load("res://addons/word/wordswapper/wordSwap.tscn").instantiate()
@@ -20,6 +20,7 @@ func _ready():
 
 
 func _input(event):
+	if !canChange:return
 	if player==null||player.locked:return
 	#opens the hovered item
 	if Input.is_action_just_pressed("confirm")&&hoveringObjects!=[]&&!wordSwap.get_parent().visible:
