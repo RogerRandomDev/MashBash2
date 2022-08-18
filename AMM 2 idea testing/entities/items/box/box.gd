@@ -6,5 +6,5 @@ func _ready():
 	root=get_parent().get_parent()
 	root.freeze=false
 	super._ready()
-	emptyScript();addCollision(0.5)
+	emptyScript()
 	if get_parent().Status.has("heavy"):root.freeze=true

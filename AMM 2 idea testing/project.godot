@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Sprite2D",
+"class": &"Button2D",
+"language": &"GDScript",
+"path": "res://entities/items/button/button.gd"
+}, {
 "base": "Resource",
 "class": &"dialogueResource",
 "language": &"GDScript",
@@ -55,6 +60,7 @@ _global_script_classes=[{
 "path": "res://addons/word/wordlabel/label.gd"
 }]
 _global_script_class_icons={
+"Button2D": "",
 "dialogueResource": "",
 "eventResource": "",
 "iconSet": "",

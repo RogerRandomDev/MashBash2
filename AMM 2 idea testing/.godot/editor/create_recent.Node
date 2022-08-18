@@ -1,5 +1,6 @@
-nextLevel (nextlevel.gd)
+Button2D (button.gd)
 itemResource (itemResource.gd)
+nextLevel (nextlevel.gd)
 AnimationPlayer
 GPUParticles2D
 RigidDynamicBody2D
@@ -29,5 +30,3 @@ Camera2D
 VBoxContainer
 AnimatedSprite2D
 Panel
-CharacterBody2D
-TextureRect
