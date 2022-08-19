@@ -44,6 +44,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://addons/word/resources/DescriptiveScriptBase.gd"
 }, {
+"base": "CharacterBody2D",
+"class": &"movingBody2D",
+"language": &"GDScript",
+"path": "res://addons/word/resources/movingBody.gd"
+}, {
 "base": "Position2D",
 "class": &"nextLevel",
 "language": &"GDScript",
@@ -67,6 +72,7 @@ _global_script_class_icons={
 "itemContents": "",
 "itemResource": "",
 "itemStatus": "",
+"movingBody2D": "",
 "nextLevel": "",
 "pull": "",
 "wordLabel": ""

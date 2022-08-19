@@ -1,3 +1,4 @@
+PhysicsMaterial
 dialogueResource (dialogueResource.gd)
 itemContents (itemContents.gd)
 Theme

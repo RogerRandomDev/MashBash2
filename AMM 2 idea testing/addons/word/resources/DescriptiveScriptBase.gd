@@ -12,15 +12,15 @@ func emptyScript():
 
 
 #builds collision for shape
-func addCollision(scaled:float=1.0):
+func addCollision(scaled:float=1.0,ignore=true):
 	var collision=StaticBody2D.new()
 	var shape=CollisionShape2D.new()
 	shape.shape=RectangleShape2D.new()
 	shape.shape.extents=get_parent().size*scaled
-	if !get_parent().makeRigid:
+	if !get_parent().makeRigid||ignore:
 		collision.add_child(shape)
 		add_child(collision)
-	else:get_parent().get_parent().add_child(shape)
+	else:collision=shape
 	pushPlayer()
 	return collision
 #builds an areacheck

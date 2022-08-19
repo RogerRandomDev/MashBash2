@@ -55,15 +55,14 @@ func _ready():
 
 
 func makeMeRigid():
-	var body=RigidDynamicBody2D.new()
+	var body=movingBody2D.new()
+	body.collision_layer=9
+	body.collision_mask=9
 	get_parent().add_child(body)
 	get_parent().remove_child(self);body.add_child(self)
-	
-	body.position=position+size/2;position=-size/2;body.can_sleep=false;body.lock_rotation=true
-	body.continuous_cd=RigidDynamicBody2D.CCD_MODE_CAST_SHAPE
-	body.linear_damp=50
-	body.freeze_mode=RigidDynamicBody2D.FREEZE_MODE_STATIC
+	body.position=position+size/2;position=-size/2;
 	body.freeze=!makeRigid
+	self.name="ItemResource"
 	applyScripts(Status,true)
 #removes and loads the new descriptives
 func updateDescriptives():
@@ -191,5 +190,7 @@ func applyScripts(_descriptives,ignore=false):
 			current=load("res://addons/word/resources/DescriptiveScriptBase.gd")
 	if Word.swapped||ignore:
 		descriptiveScript._ready()
-		if makeRigid:descriptiveScript.addCollision(0.475)
+		if makeRigid:
+			var col=descriptiveScript.addCollision(0.49,false)
+			get_parent().add_child(col)
 	

@@ -7,7 +7,7 @@ var locked=false
 var lastDir=Vector2.ZERO
 var vacuum:bool=false
 @export var canVacuum:bool=false
-
+const freeze=false
 func _ready():
 	Word.player=self
 	Word.tiles=get_parent().get_node("TileMap")
@@ -27,10 +27,15 @@ func _physics_process(_delta):
 	updateAnimations()
 	move_and_slide()
 	# after calling move_and_slide()
+	var vel=direction*SPEED*0.5
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index);var col=collision.get_collider()
-		if col.get_class()=="RigidDynamicBody2D":
-			col.linear_velocity= -collision.get_normal()*Vector2(abs(direction.x),abs(direction.y))*SPEED
+		if col.get_class()=="CharacterBody2D":
+			if !col.freeze:
+				col.velocity+=vel
+			else:position-=vel*0.25*_delta
+			
+	
 	if vacuum:$holdingItem/vaccuum.doVacuum(_delta)
 
 

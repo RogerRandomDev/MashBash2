@@ -8,8 +8,8 @@
 [ext_resource type="Shader" path="res://World/background.gdshader" id="5_m0qxn"]
 [ext_resource type="Texture2D" uid="uid://igajlkjrdxur" path="res://entities/player/dust.png" id="6_pggit"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_erwm1"]
-size = Vector2(7.5, 12)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yocgs"]
+size = Vector2(7.475, 6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oy8eb"]
 shader = ExtResource("2_xfmht")
@@ -77,14 +77,15 @@ _data = {
 z_index = 3
 script = ExtResource("1_g1pj2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_erwm1")
+[node name="boxbody" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_yocgs")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_oy8eb")
 frames = ExtResource("2_ib2wq")
 animation = &"walk"
-frame = 2
+frame = 7
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -116,7 +117,7 @@ shape = SubResource("CircleShape2D_ih6p0")
 [node name="holdingItem" type="Position2D" parent="."]
 
 [node name="vaccuum" type="Area2D" parent="holdingItem"]
-position = Vector2(17, 0)
+position = Vector2(14, 0)
 gravity = 1024.0
 linear_damp_space_override = 3
 linear_damp = 0.0

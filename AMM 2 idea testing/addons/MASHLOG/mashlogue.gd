@@ -14,6 +14,8 @@ var ActionVariableType:Array=[
 	4,"MASH",
 	1,"false"]
 
+var boxphysics=preload("res://entities/items/box/boxphysics.tres")
+
 #variables used outside resources goes here
 var _dialogueBox=null
 

@@ -13,6 +13,8 @@ script = ExtResource("1_elp54")
 
 [node name="Player" parent="." instance=ExtResource("1_hyipm")]
 position = Vector2(92, 44)
+push = 75.0
+canVacuum = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_bptuw")

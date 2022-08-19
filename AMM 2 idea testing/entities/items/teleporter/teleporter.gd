@@ -57,38 +57,35 @@ func checkTeleport(body):
 #using an animation player would honestly be nicer, but a pain still
 #since this is loaded and not able to see the player in an absolute path at all times
 func animateTeleport(body):
+	if body.get_class()=="TileMap":return
+	#prepares the animations
 	var tween:Tween=create_tween()
+	
 	linked.get_node("ScriptHolder").triggerNow=false
 	teleporting=body
-	if body.name=="Player":
-		body.locked=true
+	if body.name=="Player":body.locked=true
 	else:togglebodyPhysics(false)
 	body.position=global_position-Vector2(0,2.4*int(body.name=="Player"))
 	#hides player
 	tween.tween_method(tweenColor,0.,1.,0.5)
 	tween.tween_interval(0.25)
 	tween.tween_callback(teleportobject)
-	if body.name=="Player":
 	#tweens camera back to player after locking to previous teleporter
-		tween.tween_property(body.get_node("Camera2D"),"position",Vector2.ZERO,0.25)
-	else:
-		tween.tween_interval(0.25)
+	if body.name=="Player":tween.tween_property(body.get_node("Camera2D"),"position",Vector2.ZERO,0.25)
+	else:tween.tween_interval(0.25)
 	#returns player
-	tween.tween_interval(0.25)
-	tween.tween_method(tweenColor,1.,0.,0.5)
-	
+	tween.tween_interval(0.25);tween.tween_method(tweenColor,1.,0.,0.5)
 	if body.name=="Player":tween.tween_property(body,"locked",false,0.0)
 	else:tween.tween_callback(togglebodyPhysics)
-	tween.tween_interval(0.25)
-	tween.tween_callback(finishTeleport)
+	
+	tween.tween_interval(0.25);tween.tween_callback(finishTeleport)
 
 
 #finishes the teleport
 func finishTeleport():
 	get_parent().emit_signal("use_item",teleporting,"teleporter")
 	updateStatus()
-	linked.get_node("ScriptHolder").updateStatus()
-	teleporting=null
+	linked.get_node("ScriptHolder").updateStatus();teleporting=null
 	for object in area.get_overlapping_bodies():
 		if object.name=="Player":checkTeleport(object.get_node("playerchest"))
 		else:checkTeleport(object)

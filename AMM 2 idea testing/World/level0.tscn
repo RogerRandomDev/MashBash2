@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8ipxqarlsdj6"]
+[gd_scene load_steps=7 format=3 uid="uid://c8ipxqarlsdj6"]
 
 [ext_resource type="Script" path="res://World/levelmain.gd" id="1_0ho5g"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://addons/word/resources/itemResource.gd" id="3_n54hw"]
 [ext_resource type="Resource" uid="uid://bu1c7cl2ckuj4" path="res://entities/items/door/door.tres" id="4_b4gcv"]
 [ext_resource type="Resource" uid="uid://dyf68rtkwm0h7" path="res://entities/items/teleporter/teleporter.tres" id="6_ho341"]
-[ext_resource type="Script" path="res://entities/items/button/button.gd" id="7_w2h8v"]
 
 [node name="level0" type="Node2D"]
 script = ExtResource("1_0ho5g")
@@ -48,7 +47,3 @@ position = Vector2(248, -64)
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("6_ho341")
 Status = PackedStringArray()
-
-[node name="Button2D" type="Sprite2D" parent="."]
-position = Vector2(72, 40)
-script = ExtResource("7_w2h8v")

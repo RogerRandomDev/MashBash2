@@ -1,9 +1,9 @@
+RigidDynamicBody2D
 Button2D (button.gd)
 itemResource (itemResource.gd)
 nextLevel (nextlevel.gd)
 AnimationPlayer
 GPUParticles2D
-RigidDynamicBody2D
 Position2D
 CollisionShape2D
 Area2D
