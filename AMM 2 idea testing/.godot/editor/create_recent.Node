@@ -1,6 +1,7 @@
-logicGate2D (logicGate2D.gd)
-RigidDynamicBody2D
 Button2D (button.gd)
+logicGate2D (logicGate2D.gd)
+Node2D
+RigidDynamicBody2D
 itemResource (itemResource.gd)
 nextLevel (nextlevel.gd)
 AnimationPlayer
@@ -29,5 +30,3 @@ Label
 TileMap
 Camera2D
 VBoxContainer
-AnimatedSprite2D
-Panel

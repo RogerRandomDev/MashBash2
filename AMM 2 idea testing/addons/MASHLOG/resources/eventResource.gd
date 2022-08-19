@@ -63,7 +63,9 @@ func ChangeSpeaker(_speaker):
 	Mashlogue.swapIcons(load("res://addons/MASHLOG/iconsets/%s.tres"%_speaker))
 
 func toggleplayerlock(_null):
+	if !_null&&!Word.player.locked:Word.player.canVacuum=true
 	Word.player.locked=_null
+	
 
 func toggleEditor(_null):
 	Word.canChange=_null

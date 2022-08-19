@@ -1,4 +1,4 @@
-res://entities/items/box/
+res://TileMap
 res://addons/MASHLOG/dialogueSets
 res://entities/items/box
 res://entities/player
@@ -11,7 +11,6 @@ res://themes/
 res://
 res://entities/items/door/
 C:/Users/rgrang816/Documents/MashBash2/AMM 2 idea testing
-res://TileMap
 res://addons/Sound
 res://addons/word/resources
 res://addons/word/resources/

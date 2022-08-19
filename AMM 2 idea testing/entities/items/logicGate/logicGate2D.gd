@@ -15,23 +15,39 @@ const states={"OFF":preload("res://entities/items/logicGate/off.png"),"ON":prelo
 @export var outputs:Array:
 	set(value):
 		if value.size()==0:return
+		
+		if Engine.is_editor_hint():
+			if(typeof(value[value.size()-1])!=TYPE_NODE_PATH):value[value.size()-1]=NodePath()
 		outputs=value
-		if(typeof(outputs[outputs.size()-1])!=TYPE_NODE_PATH):outputs[outputs.size()-1]=NodePath("/")
 	get:return outputs
 var activeInputs=[]
 var active=false
+var gates=["and","nand","or","nor","xor","xnor"]
+var logicSymbol=Sprite2D.new()
+var logicName=Label.new()
+	
 #connects the logic gate to the inputs
 func _ready():
+	
+	logicName.theme=load("res://themes/basetheme.tres")
+	add_child(logicName);logicName.text=gates[logic]
 	centered=false
 	texture=states.OFF
+	add_child(logicSymbol)
+	logicSymbol.texture=load("res://entities/items/logicGate/%s.png"%gates[logic])
+	logicSymbol.position=Vector2(4,4.5);logicSymbol.scale=Vector2(0.4375,0.5)
+	logicSymbol.self_modulate=Color(0.,1.,1.)
+	logicName.scale=Vector2(0.5,0.5)
+	call_deferred('update_label')
 	if Engine.is_editor_hint():return
+	for output in outputs.size():outputs[output]=get_node(outputs[output])
 	connect("buttonPressed",updateSelf,[true])
 	connect("buttonReleased",updateSelf,[false])
 	for input in inputs:
 		var _input=get_node(input)
 		_input.connect("buttonPressed",activateInput,[_input])
 		_input.connect("buttonReleased",releaseInput,[_input])
-
+	checkLogic(activeInputs.size(),inputs.size())
 
 
 
@@ -50,7 +66,11 @@ func updateSelf(isPressed):
 
 #deals with output handling
 func updateOutputs():
-	pass
+	for output in outputs:
+		if(output.get_class()=="Position2D")&& !output.Status.has("locked"):
+			if texture==states.ON:output.Status.append("open")
+			else:if output.Status.has("open"):output.Status.remove_at(output.Status.find("open"))
+			output.updateDescriptives()
 
 #checsk based on logic gates
 func checkLogic(_in,_allIn):
@@ -68,3 +88,10 @@ func checkLogic(_in,_allIn):
 		emit_signal("buttonPressed");updateOutputs();active=true
 	else:if !checked&&active:
 		emit_signal("buttonReleased");updateOutputs();active=false
+
+
+	call_deferred("update_label")
+
+func update_label():
+	await("idle_frame")
+	logicName.position=-logicName.size/4+Vector2(4,-3)

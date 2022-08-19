@@ -24,7 +24,9 @@ func _ready():
 			break
 	linked=get_tree().get_nodes_in_group(linkTo)[0]
 	makeArrow()
-	arrow.look_at(linked.position);arrow.rotation+=PI/2
+	await "idle_frame"
+	arrow.look_at(linked.global_position);arrow.rotation+=PI/2
+	
 
 
 
@@ -85,7 +87,7 @@ func animateTeleport(body):
 func finishTeleport():
 	get_parent().emit_signal("use_item",teleporting,"teleporter")
 	updateStatus()
-	linked.get_node("ScriptHolder").updateStatus();teleporting=null
+	teleporting=null
 	for object in area.get_overlapping_bodies():
 		if object.name=="Player":checkTeleport(object.get_node("playerchest"))
 		else:checkTeleport(object)

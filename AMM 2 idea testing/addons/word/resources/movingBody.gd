@@ -2,15 +2,15 @@ extends CharacterBody2D
 class_name movingBody2D
 var freeze=false
 
-func _ready():
-	motion_mode=CharacterBody2D.MOTION_MODE_FLOATING
+func _ready():motion_mode=CharacterBody2D.MOTION_MODE_FLOATING
 
 func _physics_process(_delta):
-	
+	#locks in place
 	if freeze:
 		velocity=Vector2.ZERO
 		return
-	velocity/=4
+	if get_node("ItemResource").Status.has("light"):velocity*=1.5
+	velocity/=3
 	move_and_slide()
 	# after calling move_and_slide()
 	for index in get_slide_collision_count():
@@ -22,3 +22,4 @@ func _physics_process(_delta):
 				position+=vel
 				col.velocity+=vel
 			else:position+=collision.get_normal()
+
