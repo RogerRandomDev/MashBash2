@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://entities/items/box/box.gd" id="1_8kr3y"]
 [ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_spta7"]
-[ext_resource type="Texture2D" uid="uid://cyg1mpykq4aa6" path="res://entities/items/door/closed.png" id="2_gca2a"]
+[ext_resource type="Texture2D" uid="uid://c0pwvktau78fq" path="res://entities/items/box/box.png" id="2_4a4xu"]
 
 [resource]
 script = ExtResource("1_spta7")
 Name = "Box"
 Sprites = {
-"default": ExtResource("2_gca2a")
+"default": ExtResource("2_4a4xu")
 }
 Scripts = {
 "default": ExtResource("1_8kr3y")

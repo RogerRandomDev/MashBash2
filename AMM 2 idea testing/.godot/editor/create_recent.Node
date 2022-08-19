@@ -1,3 +1,4 @@
+logicGate2D (logicGate2D.gd)
 RigidDynamicBody2D
 Button2D (button.gd)
 itemResource (itemResource.gd)

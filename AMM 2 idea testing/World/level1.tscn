@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://duvqn61wbe7gx"]
+[gd_scene load_steps=9 format=3 uid="uid://duvqn61wbe7gx"]
 
 [ext_resource type="Script" path="res://World/level1.gd" id="1_elp54"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
@@ -7,12 +7,14 @@
 [ext_resource type="Resource" uid="uid://cqtvfyhgopyfr" path="res://entities/items/box/box.tres" id="5_kxv5y"]
 [ext_resource type="Texture2D" uid="uid://chotn2rg25pyk" path="res://entities/items/button/released.png" id="6_cfkf3"]
 [ext_resource type="Script" path="res://entities/items/button/button.gd" id="7_l3v2w"]
+[ext_resource type="Script" path="res://entities/items/logicGate/logicGate2D.gd" id="8_0xm6l"]
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_elp54")
 
 [node name="Player" parent="." instance=ExtResource("1_hyipm")]
 position = Vector2(92, 44)
+collision_layer = 9
 push = 75.0
 canVacuum = true
 
@@ -66,3 +68,10 @@ position = Vector2(112, 16)
 texture = ExtResource("6_cfkf3")
 centered = false
 script = ExtResource("7_l3v2w")
+
+[node name="logicGate2D" type="Sprite2D" parent="."]
+position = Vector2(8, 16)
+script = ExtResource("8_0xm6l")
+logic = 1
+inputs = [NodePath("../Button2D"), NodePath("../Button2D2")]
+outputs = []
