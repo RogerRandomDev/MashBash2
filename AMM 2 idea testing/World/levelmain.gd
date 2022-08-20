@@ -3,7 +3,7 @@ extends Node2D
 
 var alreadyTeleported=0
 func _ready():
-	Sound.playSong("song0",-5)
+#	Sound.playSong("song0",-5);Pausemenu.get_node("logic").visible=false
 #	Mashlogue.load_dialogue(
 #		load("res://addons/MASHLOG/dialogueSets/tutorialLevel.tres"),
 #		load("res://addons/MASHLOG/iconsets/MASH.tres"))

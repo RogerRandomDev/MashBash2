@@ -74,6 +74,7 @@ func updateOutputs():
 				if output.Status.has("open"):output.Status.remove_at(output.Status.find("open"))
 				else:output.Status.append("locked")
 			output.updateDescriptives()
+			output.applyScripts(output.Status)
 
 #checsk based on logic gates
 func checkLogic(_in,_allIn):

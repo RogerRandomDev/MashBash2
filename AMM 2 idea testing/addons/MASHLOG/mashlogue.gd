@@ -4,7 +4,7 @@ extends Node
 #the list of available faces that can be made
 enum Faces {Default,Smile,Frown,MadDefault,MadSmile,MadFrown,SquintNeutral,SquintSmile,SquintFrown,GrinSquint,SquintSmallFrown}
 #possible actions for eventResource
-enum Actions{SetCell,ShakeCamera,MoveCamera,ResetCamera,ChangeSpeaker,toggleplayerlock,toggleEditor,changeScene}
+enum Actions{SetCell,ShakeCamera,MoveCamera,ResetCamera,ChangeSpeaker,toggleplayerlock,toggleEditor,changeScene,showLogic}
 #stores the typeof as the value so it can be used in the event system
 var ActionVariableType:Array=[
 	10,"Vector3i(0,0,0)",
@@ -12,7 +12,11 @@ var ActionVariableType:Array=[
 	5,"Vector2(0.,0.)",
 	0,"null",
 	4,"MASH",
-	1,"false"]
+	1,"false",
+	1,"false",
+	0,"level0",
+	0,"null"
+]
 
 var boxphysics=preload("res://entities/items/box/boxphysics.tres")
 

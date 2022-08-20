@@ -5,3 +5,12 @@ res://entities/player/vacuum.tres
 res://TileMap/MapGame.tres
 res://entities/items/door/door.tres
 res://entities/items/teleporter/teleporter.tres
+res://addons/MASHLOG/dialogueSets/buttonsnboxes.tres
+res://title/title.tscn
+res://entities/player/player.tscn
+res://addons/MASHLOG/dialogueSets/firstTeleport.tres
+res://addons/pauseMenu/pausemenu.tscn
+res://entities/items/box/box.tres
+res://World/levelmain.gd
+res://entities/player/player.gd
+res://entities/items/logicGate/logicGate2D.gd

@@ -12,8 +12,11 @@ func _ready():
 	Word.player=self
 	Word.tiles=get_parent().get_node("TileMap")
 	position.y+=0.6
-
-
+#keeps pushing linear and prevents janky physics
+const dir={'90':Vector2(1,0),'180':Vector2(0,1),'0':Vector2(0,1)}
+#the janky wheels of my integration go square and square
+#all through the town
+#but i altered the laws of the universe so squares roll now
 
 func _physics_process(_delta):
 	if locked:return
@@ -30,9 +33,10 @@ func _physics_process(_delta):
 	var vel=direction*SPEED*0.5
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index);var col=collision.get_collider()
+		var vel2=dir[str(round(rad2deg(collision.get_angle())))]*vel
 		if col.get_class()=="CharacterBody2D":
 			if !col.freeze:
-				col.velocity+=vel
+				col.velocity+=vel2
 			else:position-=vel*0.25*_delta
 			
 	

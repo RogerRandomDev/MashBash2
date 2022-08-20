@@ -17,8 +17,10 @@ var ActionVariableType:Array=[
 	0,"null",
 	4,"MASH",
 	1,"false",
-	1,"true",
-	4,"level0"]
+	1,"false",
+	0,"level0",
+	0,"null"
+]
 func _ready():ActionVariableType=Mashlogue.ActionVariableType
 func updateValues():
 	#resizes
@@ -28,7 +30,6 @@ func updateValues():
 	#makes sure all actions have the right corresponding input type
 	for _action in Actions.size():
 		var act=Actions[_action]
-		
 		if ActionVariableType[act*2]==typeof(ActionValues[_action]):continue
 		ActionValues[_action]=getActionVar(act)
 		
@@ -65,7 +66,7 @@ func ChangeSpeaker(_speaker):
 func toggleplayerlock(_null):
 	if !_null&&!Word.player.locked:Word.player.canVacuum=true
 	Word.player.locked=_null
-	
+func showLogic(_null):Pausemenu.get_node("logic").visible=true
 
 func toggleEditor(_null):
 	Word.canChange=_null

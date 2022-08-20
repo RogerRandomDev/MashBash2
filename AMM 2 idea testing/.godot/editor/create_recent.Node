@@ -1,3 +1,11 @@
+Button
+ColorPicker
+Label
+ItemList
+VBoxContainer
+PanelContainer
+CanvasLayer
+CanvasGroup
 Button2D (button.gd)
 logicGate2D (logicGate2D.gd)
 Node2D
@@ -11,22 +19,14 @@ CollisionShape2D
 Area2D
 StaticBody2D
 ColorRect
-Button
 AnimationTree
 RichTextLabel
 Control
 SubViewport
 VehicleWheel3D
 SubViewportContainer
-PanelContainer
 ProgressBar
 TextureProgressBar
 Sprite2D
-CanvasLayer
 VSplitContainer
 HBoxContainer
-WorldEnvironment
-Label
-TileMap
-Camera2D
-VBoxContainer
