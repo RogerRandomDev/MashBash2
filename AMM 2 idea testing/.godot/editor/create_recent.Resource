@@ -1,6 +1,6 @@
+dialogueResource (dialogueResource.gd)
 TileSet
 PhysicsMaterial
-dialogueResource (dialogueResource.gd)
 itemContents (itemContents.gd)
 Theme
 RichTextEffect

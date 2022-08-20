@@ -69,7 +69,10 @@ func updateOutputs():
 	for output in outputs:
 		if(output.get_class()=="Position2D")&& !output.Status.has("locked"):
 			if texture==states.ON:output.Status.append("open")
-			else:if output.Status.has("open"):output.Status.remove_at(output.Status.find("open"))
+			else:
+				#this stops you from farming one door for open and prevents you from pulling stuff i dont like
+				if output.Status.has("open"):output.Status.remove_at(output.Status.find("open"))
+				else:output.Status.append("locked")
 			output.updateDescriptives()
 
 #checsk based on logic gates

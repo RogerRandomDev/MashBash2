@@ -77,4 +77,4 @@ func loadNextSet():
 #this is done so it is not a set number and insteal gives you varying levels of waiting
 #makes reading smoother and nicer
 func updateEndWait(charCount):
-	$nextSet.wait_time=pow(max(charCount-8,0)/12,0.75)+setDelay
+	$nextSet.wait_time=pow(max(charCount-8,0)/18,0.5)+setDelay
