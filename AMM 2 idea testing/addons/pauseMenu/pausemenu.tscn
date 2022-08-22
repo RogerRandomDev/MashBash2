@@ -111,3 +111,10 @@ item_10/text = "Xnor"
 item_10/icon = ExtResource("6_4sf38")
 item_11/text = "0 or All inputs are ON"
 script = SubResource("GDScript_j2l6o")
+
+[node name="showgates" type="CheckButton" parent="logic"]
+offset_top = 490.0
+offset_right = 192.0
+offset_bottom = 514.0
+button_pressed = true
+text = "Show Gate Names"

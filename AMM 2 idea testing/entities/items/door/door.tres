@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bu1c7cl2ckuj4"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://tjgcx51yrthv"]
 
 [ext_resource type="Texture2D" uid="uid://cyg1mpykq4aa6" path="res://entities/items/door/closed.png" id="1_072fw"]
 [ext_resource type="Script" path="res://entities/items/door/defaultDoor.gd" id="1_tlvmq"]

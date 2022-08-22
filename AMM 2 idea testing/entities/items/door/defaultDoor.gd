@@ -3,4 +3,4 @@ extends itemStatus
 func _ready():
 	super._ready()
 	emptyScript()
-	addCollision(0.5)
+	call_deferred('addCollision',0.5)

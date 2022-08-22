@@ -1,6 +1,6 @@
 extends Node2D
 class_name itemStatus
-
+var justSwap=true
 #called when first loaded
 func _ready():
 	position=get_parent().size/2

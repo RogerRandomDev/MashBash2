@@ -1,6 +1,6 @@
 extends Node
 
-var storedWords=["KEY"]
+var storedWords=["KEY","light"]
 var wordSwap
 var hoveringObject=null
 var lastStored=[]
@@ -9,7 +9,7 @@ var swapsLeft=3
 var tiles
 var player
 var hoveringObjects=[]
-var canChange=false
+var canChange=true
 
 func _ready():
 	wordSwap=load("res://addons/word/wordswapper/wordSwap.tscn").instantiate()

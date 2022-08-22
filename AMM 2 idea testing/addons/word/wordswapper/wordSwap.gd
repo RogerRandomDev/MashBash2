@@ -45,8 +45,9 @@ func _input(_event):
 			#makes sure words don't clash
 			if !Word.hoveringObject.checkWordInput(Word.storedWords[selectedWord]):
 				var a = get_parent().get_node("AnimationPlayer")
-				a.advance(a.current_animation_length-a.current_animation_position)
-				a.stop()
+				if a.current_animation!="":
+					a.advance(a.current_animation_length-a.current_animation_position)
+					a.stop()
 				a.play("cantDo",0.0)
 				Sound.play("cant")
 				return
@@ -84,7 +85,7 @@ func updateSelectedWord():
 
 #removes currently chosen word and returns it for you
 func removeWord(id):
-	
+	if !Word.hoveringObject.canPull():return null
 	var _splitWords=BaseText.split(" ")
 	
 	var out=_splitWords[id]

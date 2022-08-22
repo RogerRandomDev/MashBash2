@@ -1,3 +1,5 @@
+itemResource (itemResource.gd)
+CheckButton
 Button
 ColorPicker
 Label
@@ -10,7 +12,6 @@ Button2D (button.gd)
 logicGate2D (logicGate2D.gd)
 Node2D
 RigidDynamicBody2D
-itemResource (itemResource.gd)
 nextLevel (nextlevel.gd)
 AnimationPlayer
 GPUParticles2D
@@ -29,4 +30,3 @@ ProgressBar
 TextureProgressBar
 Sprite2D
 VSplitContainer
-HBoxContainer

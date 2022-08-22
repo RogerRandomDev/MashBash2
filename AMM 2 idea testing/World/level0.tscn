@@ -1,16 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8ipxqarlsdj6"]
+[gd_scene load_steps=10 format=3 uid="uid://rmixql5wbq8s"]
 
 [ext_resource type="Script" path="res://World/levelmain.gd" id="1_0ho5g"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
-[ext_resource type="TileSet" uid="uid://cwcergcohuvav" path="res://TileMap/MapGame.tres" id="3_cebt2"]
+[ext_resource type="TileSet" uid="uid://berok1m7cgn75" path="res://TileMap/MapGame.tres" id="3_cebt2"]
 [ext_resource type="Script" path="res://addons/word/resources/itemResource.gd" id="3_n54hw"]
-[ext_resource type="Texture2D" uid="uid://vl56dknhj1gt" path="res://entities/items/logicGate/off.png" id="4_1nhl4"]
-[ext_resource type="Resource" uid="uid://bu1c7cl2ckuj4" path="res://entities/items/door/door.tres" id="4_b4gcv"]
-[ext_resource type="Resource" uid="uid://dyf68rtkwm0h7" path="res://entities/items/teleporter/teleporter.tres" id="6_ho341"]
-[ext_resource type="Script" path="res://entities/items/logicGate/logicGate2D.gd" id="7_u14et"]
-[ext_resource type="Texture2D" uid="uid://chotn2rg25pyk" path="res://entities/items/button/released.png" id="8_o7cf8"]
-[ext_resource type="Script" path="res://entities/items/button/button.gd" id="9_28ei4"]
-[ext_resource type="Resource" uid="uid://cqtvfyhgopyfr" path="res://entities/items/box/box.tres" id="10_avjfs"]
+[ext_resource type="Resource" uid="uid://tjgcx51yrthv" path="res://entities/items/door/door.tres" id="4_b4gcv"]
+[ext_resource type="Resource" uid="uid://bbgx4p42i6pqh" path="res://entities/items/teleporter/teleporter.tres" id="6_ho341"]
+[ext_resource type="Resource" uid="uid://dxmu6bmob77dy" path="res://entities/items/box/box.tres" id="10_avjfs"]
+[ext_resource type="Resource" path="res://entities/items/button/button.tres" id="12_lmhi6"]
+[ext_resource type="Resource" path="res://entities/items/logicGate/iitemLogic.tres" id="13_4pdc5"]
 
 [node name="level0" type="Node2D"]
 script = ExtResource("1_0ho5g")
@@ -31,27 +29,7 @@ layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(393241, 2, 0, 393242, 2, 0, 393243, 2, 0, 393244, 524290, 0, 327708, 65538, 0, 262172, 65538, 0, 196636, 65538, 0, 131100, 131074, 0, 131099, 2, 0, 131098, 2, 0, 131097, 458754, 0, 196633, 524290, 0, 65564, 196610, 0, 28, 65538, 0, 65565, 2, 0, 65566, 2, 0, 65567, 524290, 0, 131102, 655362, 0, 131101, 2, 0, 196638, 65538, 0, 262174, 65538, 0, 327710, 65538, 0, 393246, 65538, 0, 458782, 65538, 0, 524318, 65538, 0, 589854, 589826, 0, 1376260, 2, 0, 1376259, 2, 0, 1376258, 2, 0, 1376261, 655362, 0, 1376257, 458754, 0, 589855, 2, 0, 589856, 2, 0, 589857, 2, 0, 589858, 524290, 0, 589864, 589826, 0, 589865, 2, 0, 589866, 2, 0, 589867, 2, 0, 524324, 524290, 0, 327717, 524290, 0, 393255, 589826, 0, 458786, 589826, 0, 327718, 589826, 0, 327719, 655362, 0, 262182, 655362, 0, 458787, 655362, 0, 524322, 655362, 0, 262178, 655362, 0, 327714, 65538, 0, 393250, 65538, 0, 262176, 458754, 0, 262177, 2, 0, 327712, 65538, 0, 393248, 65538, 0, 458784, 65538, 0, 524320, 589826, 0, 524321, 2, 0, 524323, 589826, 0, 458788, 65538, 0, 393252, 65538, 0, 327716, 458754, 0, 262181, 458754, 0, 393256, 655362, 0, 458792, 65538, 0, 524328, 65538, 0)
 
 [node name="items" type="Node2D" parent="."]
-
-[node name="logicGate2D" type="Sprite2D" parent="items"]
-position = Vector2(8, 176)
-texture = ExtResource("4_1nhl4")
-centered = false
-script = ExtResource("7_u14et")
-logic = 0
-inputs = [NodePath("../Button2D")]
-outputs = [NodePath("../itemResource11")]
-
-[node name="Button2D" type="Sprite2D" parent="items"]
-position = Vector2(40, 176)
-texture = ExtResource("8_o7cf8")
-centered = false
-script = ExtResource("9_28ei4")
-
-[node name="Button2D2" type="Sprite2D" parent="items"]
-position = Vector2(56, 176)
-texture = ExtResource("8_o7cf8")
-centered = false
-script = ExtResource("9_28ei4")
+z_index = 1
 
 [node name="itemResource" type="Position2D" parent="items"]
 position = Vector2(184, 32)
@@ -92,7 +70,21 @@ Status = PackedStringArray()
 makeRigid = true
 
 [node name="itemResource14" type="Position2D" parent="items"]
-position = Vector2(136, 184)
+position = Vector2(152, 176)
+script = ExtResource("3_n54hw")
+HeldResource = ExtResource("10_avjfs")
+Status = PackedStringArray("heavy")
+makeRigid = true
+
+[node name="itemResource16" type="Position2D" parent="items"]
+position = Vector2(152, 184)
+script = ExtResource("3_n54hw")
+HeldResource = ExtResource("10_avjfs")
+Status = PackedStringArray("heavy")
+makeRigid = true
+
+[node name="itemResource17" type="Position2D" parent="items"]
+position = Vector2(152, 192)
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("10_avjfs")
 Status = PackedStringArray("heavy")
@@ -133,3 +125,15 @@ position = Vector2(168, 176)
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("6_ho341")
 Status = PackedStringArray()
+
+[node name="itemResource7" type="Position2D" parent="items"]
+position = Vector2(40, 176)
+script = ExtResource("3_n54hw")
+HeldResource = ExtResource("12_lmhi6")
+Status = PackedStringArray()
+
+[node name="itemResource15" type="Position2D" parent="items" groups=["INP_itemResource7", "OUT_itemResource11"]]
+position = Vector2(8, 176)
+script = ExtResource("3_n54hw")
+HeldResource = ExtResource("13_4pdc5")
+Status = PackedStringArray("nand")

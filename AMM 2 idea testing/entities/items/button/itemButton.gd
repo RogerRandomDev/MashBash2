@@ -1,20 +1,21 @@
-@tool
-extends Sprite2D
-class_name Button2D
-@export var toggle:bool=false
+extends itemStatus
+var root=null
+var toggle:bool=false
 var check=Area2D.new()
-var justPressed=false
-var pressed=false
+var justPressed=false;var pressed=false
 var lastMode=false
 signal buttonPressed()
 signal buttonReleased()
-#sets the texture
-func _init():
-	texture=load("res://entities/items/button/released.png")
-	centered=false
-#preps the check and other neccessities
 func _ready():
 	if Engine.is_editor_hint():return
+	root=get_parent()
+	var groups=root.get_groups()
+	toggle=groups.has("toggle");
+	
+	
+	if get_child_count()!=0:
+		for body in check.get_overlapping_bodies():checkEntered(body)
+		return
 	var area=CollisionShape2D.new();area.shape=RectangleShape2D.new();area.shape.extents=Vector2(4,2)
 	area.position+=Vector2(4,1);check.collision_mask=8
 	check.add_child(area);add_child(check);
@@ -26,7 +27,6 @@ func _ready():
 	var col=CollisionShape2D.new();var hold=StaticBody2D.new()
 	hold.add_child(col);col.shape=RectangleShape2D.new();col.shape.extents=Vector2(4,2)
 	hold.position+=Vector2(4,0);add_child(hold)
-
 
 func checkExited(body):
 	var checked=checkValidBody(body,false)
@@ -40,10 +40,11 @@ func checkValidBody(body,entering=true):
 	if body.get_class()=="TileMap":return null
 	var itemStat=body.get_node_or_null("ItemResource")
 	if itemStat==null:return checked
-	if itemStat.get_class()=="Position2D"&&itemStat.Status.has("light"):checked=!entering
-	
+	if itemStat.get_class()=="Position2D"&&(
+itemStat.Status.has("light")&&!root.Status.has("light"))||(
+!itemStat.Status.has("heavy")&&root.Status.has("heavy")):checked=!entering
 	return checked
-	
+func forceUpdate():for body in check.get_overlapping_bodies():checkEntered(body)
 
 
 func triggerPressed(isPressed):
@@ -58,8 +59,11 @@ func triggerPressed(isPressed):
 
 
 func onPress():
-	texture=load("res://entities/items/button/pressed.png")
+	root.sprite.texture=load("res://entities/items/button/pressed.png")
 
 func onRelease():
-	texture=load("res://entities/items/button/released.png")
+	root.sprite.texture=load("res://entities/items/button/released.png")
+
+
+
 

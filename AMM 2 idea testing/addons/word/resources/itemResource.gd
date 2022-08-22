@@ -22,14 +22,14 @@ var descriptiveScript=Node2D.new()
 func _ready():
 	add_to_group("item")
 	#makes it a rigidbody
-	
 	if !Engine.is_editor_hint():
 		call_deferred('makeMeRigid')
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
 	sprite.centered=false
-	if !Engine.is_editor_hint():z_index+=1
-	sprite.z_index=-1
+	if !Engine.is_editor_hint():z_index+=2
+	
+	sprite.z_index=z_index-3
 	add_child(sprite)
 	add_child(descriptives)
 	add_child(descriptiveLabel)
@@ -45,8 +45,8 @@ func _ready():
 	hold.add_child(check)
 	add_child(hold)
 	add_child(descriptiveScript)
-	check.shape=CircleShape2D.new()
-	check.shape.radius=max(size.x,size.y)
+	check.shape=RectangleShape2D.new()
+	check.shape.extents=Vector2(size.x,size.y)/1.75
 	hold.collision_layer=4
 	hold.collision_mask=4
 	descriptiveLabel.visible=false
@@ -62,6 +62,7 @@ func makeMeRigid():
 	get_parent().remove_child(self);body.add_child(self)
 	body.position=position+size/2;position=-size/2;
 	body.freeze=!makeRigid
+	body.name=name
 	self.name="ItemResource"
 	applyScripts(Status,true)
 #removes and loads the new descriptives
@@ -174,23 +175,28 @@ func updateWordsFromOthers():
 #applies the scripts it can to current object so long as it has the relevant words
 func applyScripts(_descriptives,ignore=false):
 	var last=descriptiveScript.get_script()
-	descriptiveScript.set_script(null)
+	var new = null
+	
 	for stat in _descriptives:
-		if HeldResource.Scripts.has(stat):
-			descriptiveScript.set_script(HeldResource.Scripts[stat])
-	var current=descriptiveScript.get_script()
-	if current==null:
+		if HeldResource.Scripts.has(stat):new = HeldResource.Scripts[stat]
+	if new==null:
 		#defaults to the default script when it has no descriptives
 		if HeldResource.Scripts["default"]!=null:
 			descriptiveScript.set_script(HeldResource.Scripts["default"])
-			current=HeldResource.Scripts["default"]
+			new=HeldResource.Scripts["default"]
 		else:
 		#when you have a descriptive but none are valid
 			descriptiveScript.set_script(load("res://addons/word/resources/DescriptiveScriptBase.gd"))
-			current=load("res://addons/word/resources/DescriptiveScriptBase.gd")
+			new=load("res://addons/word/resources/DescriptiveScriptBase.gd")
 	if Word.swapped||ignore:
+		descriptiveScript.set_script(new)
 		descriptiveScript._ready()
 		if makeRigid:
 			var col=descriptiveScript.addCollision(0.49,false)
 			get_parent().add_child(col)
+	if descriptiveScript.has_method("checkButtons"):
+		descriptiveScript.checkButtons()
 	
+func canPull():
+	if !descriptiveScript.has_method("canPull"):return true
+	return descriptiveScript.canPull()

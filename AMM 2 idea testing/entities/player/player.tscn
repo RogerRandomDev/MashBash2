@@ -15,9 +15,8 @@ size = Vector2(7.475, 6)
 shader = ExtResource("2_xfmht")
 line_scale = 0.875
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k00h1"]
-radius = 1.0
-height = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2ue7"]
+size = Vector2(2, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ld5a2"]
 shader = ExtResource("5_m0qxn")
@@ -76,6 +75,8 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 z_index = 3
 collision_layer = 9
+motion_mode = 1
+wall_min_slide_angle = 3.14159
 script = ExtResource("1_g1pj2")
 
 [node name="boxbody" type="CollisionShape2D" parent="."]
@@ -86,7 +87,6 @@ shape = SubResource("RectangleShape2D_yocgs")
 material = SubResource("ShaderMaterial_oy8eb")
 frames = ExtResource("2_ib2wq")
 animation = &"idle"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -94,7 +94,8 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_k00h1")
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_s2ue7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = -50

@@ -33,7 +33,7 @@ func _physics_process(_delta):
 	var vel=direction*SPEED*0.5
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index);var col=collision.get_collider()
-		var vel2=dir[str(round(rad2deg(collision.get_angle())))]*vel
+		var vel2=dir[str(closestAngle(round(rad2deg(collision.get_angle()))))]*vel
 		if col.get_class()=="CharacterBody2D":
 			if !col.freeze:
 				col.velocity+=vel2
@@ -52,6 +52,9 @@ func _input(_event):
 		vacuum = Input.is_action_pressed("lMouse")
 		$holdingItem/vaccuum/GPUParticles2D.emitting=vacuum
 
+
+#gets angle closest to current
+func closestAngle(angle):return int(abs(angle-90)<min(abs(angle-180),abs(angle)))*90
 
 
 func _intersect_object(body):
