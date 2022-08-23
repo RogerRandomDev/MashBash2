@@ -10,7 +10,7 @@ func _physics_process(_delta):
 		velocity=Vector2.ZERO
 		return
 	if get_node("ItemResource").Status.has("light"):velocity*=1.5
-	velocity/=3
+	velocity/=2
 	move_and_slide()
 	# after calling move_and_slide()
 	for index in get_slide_collision_count():

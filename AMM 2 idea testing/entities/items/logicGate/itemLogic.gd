@@ -84,8 +84,11 @@ func updateSelf(isPressed):
 func updateOutputs():
 	Word.swapped=true
 	for output in outputs:
-		if(output.get_class()=="Position2D")&& !output.Status.has("locked"):
-			if root.sprite.texture==states.ON:output.Status.append("open")
+		if(output.get_class()=="Position2D"):
+			
+			if root.sprite.texture==states.ON:
+				if !output.Status.has("locked"):output.Status.append("open")
+				else:output.Status.remove_at(output.Status.find("locked"))
 			else:
 				#this stops you from farming one door for open and prevents you from pulling stuff i dont like
 				if output.Status.has("open"):output.Status.remove_at(output.Status.find("open"))
@@ -116,7 +119,6 @@ func checkLogic(_in,_allIn):
 	call_deferred("update_label")
 
 func update_label():
-	await("idle_frame")
 	logicName.position=-logicName.size/4+Vector2(4,-3)
 
 

@@ -10,7 +10,7 @@ var pressedBy=[]
 func _ready():
 	if Engine.is_editor_hint():return
 	root=get_parent();var groups=root.get_groups()
-	toggle=groups.has("toggle");
+	toggle=root.Status.has("toggle")
 	
 	
 	if get_child_count()!=0:
@@ -23,18 +23,17 @@ func _ready():
 	#button collision area
 	var col=CollisionShape2D.new();var hold=StaticBody2D.new()
 	hold.add_child(col);col.shape=RectangleShape2D.new();col.shape.extents=Vector2(4,2)
-	hold.position+=Vector2(4,0);add_child(hold)
+	hold.position+=Vector2(4,int(root.scale.y<0)*-4);add_child(hold)
 
 
 #checks if entered or exited and updates accordingly
 func checkExited(body):
-	var checked=checkValidBody(body,false)
 	if pressedBy.has(body):pressedBy.erase(body)
-	if checked!=null:triggerPressed()
+	triggerPressed()
 func checkEntered(body):
 	var checked=checkValidBody(body)
-	if checked:pressedBy.push_back(body)
-	if checked!=null:triggerPressed()
+	if checked&&!pressedBy.has(body):pressedBy.push_back(body)
+	triggerPressed()
 
 #makes sure body is valid and is pressing it
 func checkValidBody(body,entering=true):
@@ -59,7 +58,6 @@ func triggerPressed():
 	if toggle&&!justPressed:pressed=!pressed
 	if !toggle:pressed=isPressed
 	if !isPressed&&!toggle&&!justPressed:pressed=false
-		
 	
 	if pressed&&!justPressed:emit_signal('buttonPressed')
 	if lastMode!=isPressed&&!pressed:emit_signal('buttonReleased')

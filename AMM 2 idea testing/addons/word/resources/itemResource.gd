@@ -29,14 +29,17 @@ func _ready():
 	sprite.centered=false
 	z_index=2
 	sprite.z_index=-3
+	
+	descriptiveLabel.rotation=-rotation
+	descriptives.rotation=-rotation
 	add_child(sprite)
 	add_child(descriptives)
 	add_child(descriptiveLabel)
 	sprite.name="Sprite2D"
 	descriptiveLabel.theme=load("res://themes/basetheme.tres")
 	descriptives.theme=descriptiveLabel.theme
-	descriptives.position-=Vector2(2,2)
-	descriptiveLabel.position.y=-16
+	descriptives.position=Vector2(4,4)
+	descriptives.position-=(size+Vector2(4,4)).rotated(rotation)*0.5
 	updateDescriptives()
 	#loads the area check around itself
 	var check=CollisionShape2D.new()
@@ -76,7 +79,8 @@ func updateDescriptives():
 
 func update_label():
 	await("idle_frame")
-	descriptiveLabel.position.x=-descriptiveLabel.size.x/2+size.x/2.
+	descriptiveLabel.position.x=-(descriptiveLabel.size.x/2)*cos(rotation)+size.x/2.
+	descriptiveLabel.position.y=-16*cos(rotation)
 
 
 func removeDescriptive(id):

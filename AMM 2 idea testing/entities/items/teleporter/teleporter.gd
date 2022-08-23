@@ -24,7 +24,6 @@ func _ready():
 			break
 	linked=get_tree().get_nodes_in_group(linkTo)[0]
 	makeArrow()
-	await "idle_frame"
 	arrow.look_at(linked.global_position);arrow.rotation+=PI/2
 	
 

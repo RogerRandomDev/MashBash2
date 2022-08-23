@@ -16,7 +16,7 @@ shader = ExtResource("2_xfmht")
 line_scale = 0.875
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2ue7"]
-size = Vector2(2, 8)
+size = Vector2(7, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ld5a2"]
 shader = ExtResource("5_m0qxn")
@@ -94,6 +94,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_s2ue7")
 
