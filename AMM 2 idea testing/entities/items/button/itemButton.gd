@@ -28,11 +28,14 @@ func _ready():
 
 #checks if entered or exited and updates accordingly
 func checkExited(body):
+	var checked=checkValidBody(body,false)
 	if pressedBy.has(body):pressedBy.erase(body)
+	if !checked:return
 	triggerPressed()
 func checkEntered(body):
 	var checked=checkValidBody(body)
 	if checked&&!pressedBy.has(body):pressedBy.push_back(body)
+	if !checked:return
 	triggerPressed()
 
 #makes sure body is valid and is pressing it
@@ -48,12 +51,15 @@ itemStat.Status.has("light")&&!root.Status.has("light"))||(
 
 func forceUpdate():for body in check.get_overlapping_bodies():checkEntered(body)
 
-
 func triggerPressed():
 	#this set is to make sure that it stays pressed as long as something is still there to do so
 	var isPressed=false
 	if pressedBy.size()==0:isPressed=false
-	else:for body in pressedBy:isPressed=checkValidBody(body)||isPressed
+	else:for body in pressedBy:
+		print(checkValidBody(body))
+		if !checkValidBody(body):continue
+		isPressed=true
+	
 	#pressed logic
 	if toggle&&!justPressed:pressed=!pressed
 	if !toggle:pressed=isPressed
@@ -62,7 +68,6 @@ func triggerPressed():
 	if pressed&&!justPressed:emit_signal('buttonPressed')
 	if lastMode!=isPressed&&!pressed:emit_signal('buttonReleased')
 	justPressed=isPressed;lastMode=isPressed
-
 
 func onPress():root.sprite.texture=load("res://entities/items/button/pressed.png")
 

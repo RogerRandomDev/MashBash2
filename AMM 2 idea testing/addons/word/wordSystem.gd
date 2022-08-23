@@ -1,6 +1,6 @@
 extends Node
 
-var storedWords=["KEY","light"]
+var storedWords=[]
 var wordSwap
 var hoveringObject=null
 var lastStored=[]

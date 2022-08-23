@@ -1,4 +1,4 @@
-res://World/level0.tscn
+res://title/title.tscn
 res://title/titleTheme.tres
 res://entities/player/playerAnim.tres
 res://entities/player/vacuum.tres
@@ -6,5 +6,9 @@ res://TileMap/MapGame.tres
 res://entities/items/door/door.tres
 res://entities/items/teleporter/teleporter.tres
 res://entities/items/box/box.tres
-res://title/title.tscn
 res://entities/player/player.tscn
+res://World/level0.tscn
+res://addons/word/resources/itemResource.gd
+res://addons/word/wordSystem.gd
+res://entities/items/button/itemButton.gd
+res://entities/items/logicGate/itemLogic.gd

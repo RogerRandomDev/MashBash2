@@ -39,7 +39,7 @@ func _ready():
 	descriptiveLabel.theme=load("res://themes/basetheme.tres")
 	descriptives.theme=descriptiveLabel.theme
 	descriptives.position=Vector2(4,4)
-	descriptives.position-=(size+Vector2(4,4)).rotated(rotation)*0.5
+	descriptives.position-=(size+Vector2(4,4)).rotated(-rotation)*0.5
 	updateDescriptives()
 	#loads the area check around itself
 	var check=CollisionShape2D.new()
@@ -67,6 +67,7 @@ func makeMeRigid():
 	body.name=name
 	self.name="ItemResource"
 	applyScripts(Status,true)
+
 #removes and loads the new descriptives
 func updateDescriptives():
 	sprite.texture=HeldResource.Sprites['default']
@@ -79,8 +80,9 @@ func updateDescriptives():
 
 func update_label():
 	await("idle_frame")
-	descriptiveLabel.position.x=-(descriptiveLabel.size.x/2)*cos(rotation)+size.x/2.
-	descriptiveLabel.position.y=-16*cos(rotation)
+	descriptiveLabel.size.y=0
+	descriptiveLabel.position=Vector2(4,4);
+	descriptiveLabel.position-=(descriptiveLabel.size/2.+Vector2(0,8)).rotated(-rotation)
 
 
 func removeDescriptive(id):

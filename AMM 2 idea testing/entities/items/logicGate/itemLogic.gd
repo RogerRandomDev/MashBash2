@@ -68,6 +68,7 @@ func connectInputs():
 
 
 func activateInput(_input):
+	if activeInputs.has(_input):return
 	activeInputs.append(_input)
 	checkLogic(activeInputs.size(),inputs.size())
 func releaseInput(_input):
