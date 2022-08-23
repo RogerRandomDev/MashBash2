@@ -27,9 +27,8 @@ func _ready():
 	sprite.texture=HeldResource.Sprites["default"]
 	size=Vector2(sprite.texture.get_width(),sprite.texture.get_height())*scale
 	sprite.centered=false
-	if !Engine.is_editor_hint():z_index+=2
-	
-	sprite.z_index=z_index-3
+	z_index=2
+	sprite.z_index=-3
 	add_child(sprite)
 	add_child(descriptives)
 	add_child(descriptiveLabel)
