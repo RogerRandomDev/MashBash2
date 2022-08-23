@@ -8,8 +8,3 @@ res://entities/items/teleporter/teleporter.tres
 res://entities/items/box/box.tres
 res://title/title.tscn
 res://entities/player/player.tscn
-res://addons/word/resources/movingBody.gd
-res://entities/items/button/itemButton.gd
-res://addons/word/resources/itemResource.gd
-res://entities/items/teleporter/teleporter.gd
-res://entities/items/logicGate/itemLogic.gd
