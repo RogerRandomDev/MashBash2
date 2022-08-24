@@ -1,5 +1,5 @@
 extends itemStatus
-
+class_name box
 var root=null
 #preps crate
 func _ready():

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://6qr0sgssb658"]
+
+[ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_iofin"]
+[ext_resource type="Script" path="res://entities/items/laserShooter/laserShooter.gd" id="1_qkeqm"]
+
+[sub_resource type="Texture2D" id="Texture2D_w4t0b"]
+resource_local_to_scene = false
+resource_name = ""
+
+[resource]
+script = ExtResource("1_iofin")
+Name = "Laser"
+Sprites = {
+"default": SubResource("Texture2D_w4t0b")
+}
+Scripts = {
+"default": ExtResource("1_qkeqm")
+}

@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://wr3bclros51v"]
+
+[ext_resource type="Shader" path="res://entities/items/laserShooter/LaserShader.gdshader" id="1_5rg72"]
+
+[resource]
+shader = ExtResource("1_5rg72")
+y_offset = 0.0
+thickness = 0.2
+speed = 1.827
+roughness = 10
+progress = 0.652
+outline_thickness = 0.048
+outline_glow = 0.585
+outline_color = null
+noise_scale = Vector2(0.5, 0.5)
+glow = 0.0
+frequency = 2
+fixed_edge_size = 0.0
+energy = 10.0
+color = null
+beams = 2
+beam_difference = 0.0

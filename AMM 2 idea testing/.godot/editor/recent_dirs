@@ -1,5 +1,4 @@
-res://entities/items/itemLogic
-res://entities/items/itemButton
+res://entities/items/laserShooter
 res://addons/pauseMenu
 res://addons/MASHLOG/dialogueSets/
 res://TileMap

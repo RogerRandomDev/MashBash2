@@ -58,12 +58,14 @@ func _ready():
 
 func makeMeRigid():
 	var body=movingBody2D.new()
-	body.collision_layer=9
+	body.collision_layer=17
 	body.collision_mask=9
+	if makeRigid:body.rotation=rotation
 	get_parent().add_child(body)
 	get_parent().remove_child(self);body.add_child(self)
 	body.position=position+size/2;position=-size/2;
 	body.freeze=!makeRigid
+	if makeRigid:rotation=0
 	body.name=name
 	self.name="ItemResource"
 	applyScripts(Status,true)

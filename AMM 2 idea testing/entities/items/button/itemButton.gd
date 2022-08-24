@@ -56,7 +56,6 @@ func triggerPressed():
 	var isPressed=false
 	if pressedBy.size()==0:isPressed=false
 	else:for body in pressedBy:
-		print(checkValidBody(body))
 		if !checkValidBody(body):continue
 		isPressed=true
 	

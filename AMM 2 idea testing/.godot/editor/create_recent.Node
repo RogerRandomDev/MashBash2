@@ -1,3 +1,9 @@
+Line2D
+AudioListener2D
+itemShooter (laserShooter.gd)
+CollisionShape2D
+StaticBody2D
+MultiplayerSpawner
 itemResource (itemResource.gd)
 CheckButton
 Button
@@ -16,9 +22,7 @@ nextLevel (nextlevel.gd)
 AnimationPlayer
 GPUParticles2D
 Position2D
-CollisionShape2D
 Area2D
-StaticBody2D
 ColorRect
 AnimationTree
 RichTextLabel
@@ -26,7 +30,3 @@ Control
 SubViewport
 VehicleWheel3D
 SubViewportContainer
-ProgressBar
-TextureProgressBar
-Sprite2D
-VSplitContainer
