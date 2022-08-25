@@ -58,7 +58,7 @@ func _ready():
 
 func makeMeRigid():
 	var body=movingBody2D.new()
-	body.collision_layer=17
+	body.collision_layer=25
 	body.collision_mask=9
 	if makeRigid:body.rotation=rotation
 	get_parent().add_child(body)

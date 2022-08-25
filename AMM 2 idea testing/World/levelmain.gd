@@ -10,6 +10,7 @@ func _ready():
 	#checks if it was the player teleporting
 	$items/itemResource2.connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportFirst())
 	$items/itemResource6.connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportSecond())
+	$items/itemResource11.connect("use_item",func(ent,action):if(action=="openDoor"):doorFirst())
 
 func teleportFirst():
 	if alreadyTeleported>0:return
@@ -23,4 +24,11 @@ func teleportSecond():
 	alreadyTeleported+=1
 	Mashlogue.load_dialogue(
 		load("res://addons/MASHLOG/dialogueSets/buttonsnboxes.tres"),
+		load("res://addons/MASHLOG/iconsets/MASH.tres"))
+
+func doorFirst():
+	if alreadyTeleported>2:return
+	alreadyTeleported+=1
+	Mashlogue.load_dialogue(
+		load("res://addons/MASHLOG/dialogueSets/lasers.tres"),
 		load("res://addons/MASHLOG/iconsets/MASH.tres"))

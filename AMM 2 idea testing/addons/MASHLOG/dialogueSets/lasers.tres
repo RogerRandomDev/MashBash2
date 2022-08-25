@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ihi1swaq6nc7"]
+
+[ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_ct4ki"]
+
+[resource]
+script = ExtResource("1_ct4ki")
+dialogue = PackedStringArray("Alright! So now we have [color=#f00]LASERS[/color]!", "You can\'t walk through a [color=#f00]LASERS[/color], but object can be used to block them.", "And finally, a [color=#0ff]REFLECTIVE[/color] object will bounce the laser off of it!", "Though the programmer only made boxes bounce it away from where it came...")
+dialogueFaces = [1, 1, 1, 2]
+dialogueActions = [null, null, null, null]

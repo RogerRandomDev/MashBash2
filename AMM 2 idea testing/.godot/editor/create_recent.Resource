@@ -1,6 +1,6 @@
+dialogueResource (dialogueResource.gd)
 itemContents (itemContents.gd)
 AudioStreamMicrophone
-dialogueResource (dialogueResource.gd)
 TileSet
 PhysicsMaterial
 Theme

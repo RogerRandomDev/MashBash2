@@ -1,7 +1,7 @@
-Line2D
-AudioListener2D
 itemShooter (laserShooter.gd)
 CollisionShape2D
+Line2D
+AudioListener2D
 StaticBody2D
 MultiplayerSpawner
 itemResource (itemResource.gd)

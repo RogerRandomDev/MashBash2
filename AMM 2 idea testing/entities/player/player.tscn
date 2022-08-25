@@ -87,7 +87,6 @@ shape = SubResource("RectangleShape2D_yocgs")
 material = SubResource("ShaderMaterial_oy8eb")
 frames = ExtResource("2_ib2wq")
 animation = &"idle"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

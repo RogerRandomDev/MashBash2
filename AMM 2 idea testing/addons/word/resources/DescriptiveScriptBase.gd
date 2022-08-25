@@ -17,6 +17,7 @@ func addCollision(scaled:float=1.0,ignore=true):
 	var shape=CollisionShape2D.new()
 	shape.shape=RectangleShape2D.new()
 	shape.shape.extents=get_parent().size*scaled
+	collision.collision_layer=17
 	if !get_parent().makeRigid||ignore:
 		collision.add_child(shape)
 		add_child(collision)

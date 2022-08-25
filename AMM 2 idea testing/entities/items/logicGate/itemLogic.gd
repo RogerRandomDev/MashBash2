@@ -27,8 +27,10 @@ func _ready():
 	if logic!=-1:logicName.text=gates[logic]
 	logicName.visible=logic!=-1
 	logicSymbol.visible=logic!=-1
-	call_deferred('checkLogic',activeInputs.size(),inputs.size())
-	if get_child_count()!=0:return
+	
+	if get_child_count()!=0:
+		call_deferred('checkLogic',activeInputs.size(),inputs.size())
+		return
 	logicName.theme=load("res://themes/basetheme.tres")
 	add_child(logicName);
 	root.sprite.centered=false
@@ -43,7 +45,7 @@ func _ready():
 		var node=root.get_parent().get_parent().get_node(mod).get_child(0)
 		if group.begins_with("INP_"):inputs.append(node)
 		else:outputs.append(node)
-	
+	call_deferred('checkLogic',activeInputs.size(),inputs.size())
 	
 	
 	logicSymbol.texture=load("res://entities/items/logicGate/%s.png"%gates[logic])

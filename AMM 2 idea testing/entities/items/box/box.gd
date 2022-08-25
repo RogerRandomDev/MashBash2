@@ -9,6 +9,20 @@ func _ready():
 	emptyScript()
 	checkButtons()
 	if get_parent().Status.has("heavy"):root.freeze=true
+	
+	#deals with making the item reflective
+	for child in root.get_children():if child.get_class()=="StaticBody2D":child.queue_free()
+	if get_parent().Status.has("reflective"):
+		#removes from the check for lasers so it can check just the mirror below
+		root.collision_layer=9
+		var reflect = StaticBody2D.new()
+		var shape=RectangleShape2D.new();var col=CollisionShape2D.new()
+		reflect.add_child(col);col.shape=shape;shape.extents=Vector2(3,3)
+		reflect.collision_layer=16;reflect.collision_mask=0;
+		root.add_child(reflect);reflect.rotation=PI/4
+		reflect.add_to_group("mirror")
+	else:
+		root.collision_layer=25
 
 
 func checkButtons():
