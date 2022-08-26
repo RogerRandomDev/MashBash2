@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://di350a3t2nt7y"]
+
+[ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_mf0to"]
+[ext_resource type="Script" path="res://entities/items/laserButton/laserButton.gd" id="1_od20h"]
+[ext_resource type="Texture2D" uid="uid://bimm2ydeqla7u" path="res://entities/items/laserButton/laserbuttonoff.png" id="2_nljcv"]
+
+[resource]
+script = ExtResource("1_mf0to")
+Name = "Receiver"
+Sprites = {
+"default": ExtResource("2_nljcv")
+}
+Scripts = {
+"default": ExtResource("1_od20h")
+}

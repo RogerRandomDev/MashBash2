@@ -16,19 +16,19 @@ func teleportFirst():
 	if alreadyTeleported>0:return
 	alreadyTeleported+=1
 	Mashlogue.load_dialogue(
-		load("res://addons/MASHLOG/dialogueSets/firstTeleport.tres"),
-		load("res://addons/MASHLOG/iconsets/MASH.tres"))
+		preload("res://addons/MASHLOG/dialogueSets/firstTeleport.tres"),
+		preload("res://addons/MASHLOG/iconsets/MASH.tres"))
 
 func teleportSecond():
 	if alreadyTeleported>1:return
 	alreadyTeleported+=1
 	Mashlogue.load_dialogue(
-		load("res://addons/MASHLOG/dialogueSets/buttonsnboxes.tres"),
-		load("res://addons/MASHLOG/iconsets/MASH.tres"))
+		preload("res://addons/MASHLOG/dialogueSets/buttonsnboxes.tres"),
+		preload("res://addons/MASHLOG/iconsets/MASH.tres"))
 
 func doorFirst():
 	if alreadyTeleported>2:return
 	alreadyTeleported+=1
 	Mashlogue.load_dialogue(
-		load("res://addons/MASHLOG/dialogueSets/lasers.tres"),
-		load("res://addons/MASHLOG/iconsets/MASH.tres"))
+		preload("res://addons/MASHLOG/dialogueSets/lasers.tres"),
+		preload("res://addons/MASHLOG/iconsets/MASH.tres"))

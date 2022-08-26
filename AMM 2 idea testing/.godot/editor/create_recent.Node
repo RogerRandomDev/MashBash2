@@ -1,4 +1,5 @@
 itemResource (itemResource.gd)
+itemStatus (DescriptiveScriptBase.gd)
 itemShooter (laserShooter.gd)
 CollisionShape2D
 Line2D
@@ -29,4 +30,3 @@ RichTextLabel
 Control
 SubViewport
 VehicleWheel3D
-SubViewportContainer

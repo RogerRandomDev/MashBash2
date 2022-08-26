@@ -1,4 +1,4 @@
-res://World/level0.tscn
+res://entities/player/player.tscn
 res://title/titleTheme.tres
 res://entities/player/playerAnim.tres
 res://entities/player/vacuum.tres
@@ -7,6 +7,16 @@ res://entities/items/door/door.tres
 res://entities/items/teleporter/teleporter.tres
 res://entities/items/box/box.tres
 res://entities/items/laserShooter/lasershader.tres
+res://World/level0.tscn
+res://entities/items/laserButton/LaserButton.tres
+res://entities/items/laserButton/laserButton.gd
 res://entities/items/laserShooter/laserShooter.gd
-res://entities/items/laserShooter/laserShooter.tres
 res://title/title.tscn
+res://entities/items/button/itemButton.gd
+res://entities/items/laserShooter/laserShooter.tres
+res://addons/MASHLOG/resources/dialogueResource.gd
+res://addons/MASHLOG/dialogueSets/lasers.tres
+res://World/levelmain.gd
+res://addons/MASHLOG/dialogueSets/firstTeleport.tres
+res://addons/MASHLOG/dialogueSets/buttonsnboxes.tres
+res://addons/MASHLOG/dialogueSets/explainWordSwap.tres

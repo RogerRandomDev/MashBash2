@@ -1,15 +1,9 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bp7tm22dabh7s"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bp7tm22dabh7s"]
 
-[ext_resource type="Script" path="res://addons/MASHLOG/resources/eventResource.gd" id="1_3wnt7"]
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_jbh6i"]
-
-[sub_resource type="Resource" id="Resource_3xb8t"]
-script = ExtResource("1_3wnt7")
-Actions = PackedInt32Array()
-ActionValues = []
 
 [resource]
 script = ExtResource("1_jbh6i")
-dialogue = PackedStringArray("Okay, great news!", "I found the main mechanic of the game!", "Either that or some really crazy cheat.", "Both cases, you win, so no complaints here!", "When walking up to something,", "Pressing E will allow you to \"alter\" the describing words of it!", "then pressing Q will return you out and accomplish the changes", "However you can only pull so many off. I don\'t see a limit for putting on though.", "Finally, some words interact. a KEY opens a LOCKED item, but you can\'t put OPEN on something that is LOCKED.", "I\'ll open the menu for you now!")
-dialogueFaces = [1, 1, 1, 1, 0, 1, 1, 0, 0, 0]
-dialogueActions = [null, null, null, null, null, null, null, null, null, SubResource("Resource_3xb8t")]
+dialogue = PackedStringArray("Alright I found a new Interface for you!", "If you approach an item and press [color=#f00]E[/color], it opens the [color=#0ff]WordSwap Interface[/color]", "you can then change descriptive words on objects", "and it alters the world around to match, following the rules I\'ve stated before", "and finally, you press [color=#f00]Q[/color] to close the menu.", "This should prove helpful, but there is a limit to how many you can pull.", "And although some things will give you extra word pulls, make sure to [color=#f00]BE CAREFUL[/color]!")
+dialogueFaces = [0, 0, 0, 0, 0, 0, 0]
+dialogueActions = [null, null, null, null, null, null, null]
