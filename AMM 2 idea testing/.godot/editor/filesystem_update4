@@ -1,4 +1,4 @@
-res://test.tscn
+res://World/level0.tscn
 res://title/titleTheme.tres
 res://entities/player/playerAnim.tres
 res://entities/player/vacuum.tres
@@ -6,18 +6,7 @@ res://TileMap/MapGame.tres
 res://entities/items/door/door.tres
 res://entities/items/teleporter/teleporter.tres
 res://entities/items/box/box.tres
-res://entities/items/laserShooter/LaserShader.gdshader
 res://entities/items/laserShooter/lasershader.tres
-res://title/title.tscn
-res://World/level0.tscn
 res://entities/items/laserShooter/laserShooter.gd
-res://entities/items/box/box.gd
-res://entities/player/player.tscn
-res://addons/word/resources/itemResource.gd
-res://addons/word/resources/DescriptiveScriptBase.gd
-res://entities/items/door/openDoor.gd
-res://World/levelmain.gd
-res://addons/MASHLOG/dialogueSets/lasers.tres
-res://addons/MASHLOG/dialogueSets/firstTeleport.tres
-res://addons/MASHLOG/dialogueSets/buttonsnboxes.tres
-res://entities/items/logicGate/itemLogic.gd
+res://entities/items/laserShooter/laserShooter.tres
+res://title/title.tscn

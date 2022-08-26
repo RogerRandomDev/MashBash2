@@ -4,25 +4,29 @@ var beam=Line2D.new()
 var beamLine=PhysicsRayQueryParameters2D.new()
 var t=0;
 var active:bool=true
-var sprite=Sprite2D.new()
 var col=StaticBody2D.new()
 var lineCol=Position2D.new()
 func _ready():
+	active=!get_parent().Status.has("broken")
+	
+	if get_child_count()!=0:return
 	if get_child_count()==0:prepBeam()
+	var sprite=get_parent().get_node("Sprite2D")
 	updateBeam()
-	add_child(sprite);add_child(col);add_child(lineCol)
-	var shape=CollisionShape2D.new();lineCol.global_position=Vector2.ZERO
+	add_child(col);add_child(lineCol)
+	var shape=CollisionShape2D.new();lineCol.global_position=Vector2(0,0)
 	col.add_child(shape)
 	shape.shape=RectangleShape2D.new()
-	shape.shape.extents=Vector2(2,4);shape.position.x=2
+	shape.shape.extents=Vector2(2,4);shape.position.x=0
 	sprite.texture=load("res://entities/items/laserShooter/laserShooter.png")
-	sprite.centered=false
-	sprite.offset.y=-4;sprite.z_index+=1
+	get_parent().get_parent().collision_layer=9
+	var timer=Timer.new();timer.wait_time=0.033;add_child(timer)
+	timer.connect("timeout",physics_process);timer.start()
 
 
 
-
-func _physics_process(_delta):
+func physics_process():
+	print("a")
 	if !active:return;
 	updateBeam()
 
@@ -31,11 +35,11 @@ func _physics_process(_delta):
 #deals with the laser line
 func updateBeam():
 	var lastBeam=beam.points
-	var _trans=global_position;var hitWall=false;var _transNormal=Vector2(1,0)
+	var _trans=global_position+Vector2(0,4);var hitWall=false;var _transNormal=Vector2(1,0)
 	beam.points=PackedVector2Array();var bouncedAngle=0
 	if !active:return
 	var loopCount=0
-	beam.add_point(global_position)
+	beam.add_point(global_position+Vector2(0,4))
 	while !hitWall&&_transNormal!=Vector2.ZERO&&loopCount<15:
 		beamLine.from=_trans;loopCount+=1
 		beamLine.to=_trans+(Vector2(2048,0).rotated(bouncedAngle))
@@ -69,8 +73,6 @@ func prepBeam():
 	
 	beam.texture_mode=Line2D.LINE_TEXTURE_TILE
 	beam.top_level=true;beam.width=8;beam.default_color=Color.RED
-	beam.add_point(global_position)
-	beam.add_point(global_position+Vector2(8,8))
 	add_child(beam)
 	beam.material=preload("res://entities/items/laserShooter/lasershader.tres")
 

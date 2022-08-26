@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://tjgcx51yrthv" path="res://entities/items/door/door.tres" id="4_b4gcv"]
 [ext_resource type="Resource" uid="uid://bbgx4p42i6pqh" path="res://entities/items/teleporter/teleporter.tres" id="6_ho341"]
 [ext_resource type="Resource" uid="uid://dxmu6bmob77dy" path="res://entities/items/box/box.tres" id="10_avjfs"]
-[ext_resource type="Script" path="res://entities/items/laserShooter/laserShooter.gd" id="10_n5gf4"]
+[ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="10_t8r86"]
 [ext_resource type="Resource" path="res://entities/items/button/button.tres" id="12_lmhi6"]
 [ext_resource type="Resource" path="res://entities/items/logicGate/iitemLogic.tres" id="13_4pdc5"]
 
@@ -81,7 +81,7 @@ Status = PackedStringArray()
 makeRigid = true
 
 [node name="itemResource18" type="Position2D" parent="items"]
-position = Vector2(40, 282)
+position = Vector2(39, 286)
 z_index = 2
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("10_avjfs")
@@ -200,6 +200,8 @@ script = ExtResource("3_n54hw")
 HeldResource = ExtResource("13_4pdc5")
 Status = PackedStringArray("and")
 
-[node name="itemShooter" type="Node2D" parent="items"]
+[node name="itemResource23" type="Position2D" parent="items"]
 position = Vector2(8, 284)
-script = ExtResource("10_n5gf4")
+script = ExtResource("3_n54hw")
+HeldResource = ExtResource("10_t8r86")
+Status = PackedStringArray()
