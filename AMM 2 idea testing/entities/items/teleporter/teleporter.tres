@@ -1,14 +1,18 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bbgx4p42i6pqh"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bbgx4p42i6pqh"]
 
 [ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_8ccrl"]
 [ext_resource type="Script" path="res://entities/items/teleporter/teleporter.gd" id="1_f0ulu"]
-[ext_resource type="Texture2D" uid="uid://cyg1mpykq4aa6" path="res://entities/items/door/closed.png" id="1_sfkmm"]
+[ext_resource type="Texture2D" uid="uid://bgpnncomj2yss" path="res://entities/items/teleporter/teleporter.png" id="2_8sq2m"]
+[ext_resource type="Texture2D" uid="uid://kf8hd1dlash4" path="res://entities/items/teleporter/teleporterweak.png" id="3_jpeyn"]
+[ext_resource type="Texture2D" uid="uid://hv6xhsvxestu" path="res://entities/items/teleporter/teleporterbroken.png" id="4_8tw38"]
 
 [resource]
 script = ExtResource("1_8ccrl")
 Name = "Teleporter"
 Sprites = {
-"default": ExtResource("1_sfkmm")
+"broken": ExtResource("4_8tw38"),
+"default": ExtResource("2_8sq2m"),
+"weak": ExtResource("3_jpeyn")
 }
 Scripts = {
 "default": ExtResource("1_f0ulu")

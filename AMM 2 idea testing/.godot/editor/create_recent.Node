@@ -1,3 +1,7 @@
+Sprite2D
+GPUParticles2D
+Node2D
+AnimationPlayer
 itemResource (itemResource.gd)
 itemStatus (DescriptiveScriptBase.gd)
 itemShooter (laserShooter.gd)
@@ -17,11 +21,8 @@ CanvasLayer
 CanvasGroup
 Button2D (button.gd)
 logicGate2D (logicGate2D.gd)
-Node2D
 RigidDynamicBody2D
 nextLevel (nextlevel.gd)
-AnimationPlayer
-GPUParticles2D
 Position2D
 Area2D
 ColorRect
@@ -29,4 +30,3 @@ AnimationTree
 RichTextLabel
 Control
 SubViewport
-VehicleWheel3D

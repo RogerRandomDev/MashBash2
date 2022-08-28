@@ -33,6 +33,7 @@ func _ready():
 	descriptiveLabel.rotation=-rotation
 	descriptives.rotation=-rotation
 	add_child(sprite)
+	
 	add_child(descriptives)
 	add_child(descriptiveLabel)
 	sprite.name="Sprite2D"
@@ -41,18 +42,19 @@ func _ready():
 	descriptives.position=Vector2(4,4)
 	descriptives.position-=(size+Vector2(4,4)).rotated(-rotation)*0.5
 	updateDescriptives()
-	#loads the area check around itself
-	var check=CollisionShape2D.new()
-	var hold=StaticBody2D.new()
-	hold.add_child(check)
-	add_child(hold)
-	add_child(descriptiveScript)
-	check.shape=RectangleShape2D.new()
-	check.shape.extents=Vector2(size.x,size.y)/1.75
-	hold.collision_layer=4
-	hold.collision_mask=4
+	if !Engine.is_editor_hint():
+		#loads the area check around itself
+		var check=CollisionShape2D.new()
+		var hold=StaticBody2D.new()
+		hold.add_child(check)
+		add_child(hold)
+		add_child(descriptiveScript)
+		check.shape=RectangleShape2D.new()
+		check.shape.extents=Vector2(size.x,size.y)/1.75
+		hold.collision_layer=4
+		hold.collision_mask=4
+		hold.position+=size/2.
 	descriptiveLabel.visible=false
-	hold.position+=size/2.
 	descriptiveScript.name="ScriptHolder"
 
 

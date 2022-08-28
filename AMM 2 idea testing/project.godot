@@ -120,6 +120,8 @@ Pausemenu="*res://addons/pauseMenu/pausemenu.tscn"
 
 shapes/collision/shape_color=Color(1, 1, 1, 0.113725)
 shapes/collision/draw_2d_outlines=false
+shapes/solver/solver_iterations=16
+shapes/canvas_textures/default_texture_repeat=0
 
 [display]
 
@@ -232,10 +234,13 @@ lMouse={
 
 [physics]
 
+2d/solver/solver_iterations=8
 2d/default_gravity=0.0
 
 [rendering]
 
+textures/default_filters/anisotropic_filtering_level=0
 environment/defaults/default_clear_color=Color(0.321569, 0.290196, 0.427451, 1)
-2d/snap/snap_2d_vertices_to_pixel=true
+2d/snap/snap_2d_transforms_to_pixel=true
 textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
