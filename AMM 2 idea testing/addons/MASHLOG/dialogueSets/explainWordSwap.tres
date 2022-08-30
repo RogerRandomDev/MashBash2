@@ -1,9 +1,15 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bp7tm22dabh7s"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bp7tm22dabh7s"]
 
+[ext_resource type="Script" path="res://addons/MASHLOG/resources/eventResource.gd" id="1_1phxm"]
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_jbh6i"]
+
+[sub_resource type="Resource" id="Resource_lj3ui"]
+script = ExtResource("1_1phxm")
+Actions = PackedInt32Array(6)
+ActionValues = [true]
 
 [resource]
 script = ExtResource("1_jbh6i")
-dialogue = PackedStringArray("Alright I found a new Interface for you!", "If you approach an item and press [color=#f00]E[/color], it opens the [color=#0ff]WordSwap Interface[/color]", "you can then change descriptive words on objects", "and it alters the world around to match, following the rules I\'ve stated before", "and finally, you press [color=#f00]Q[/color] to close the menu.", "This should prove helpful, but there is a limit to how many you can pull.", "And although some things will give you extra word pulls, make sure to [color=#f00]BE CAREFUL[/color]!")
-dialogueFaces = [0, 0, 0, 0, 0, 0, 0]
-dialogueActions = [null, null, null, null, null, null, null]
+dialogue = PackedStringArray("Alright I found a new Interface for you!", "If you approach an item and press [color=#f00]E[/color], it opens the [color=#0ff]WordSwap Interface[/color]", "you can then change descriptive words on objects", "and it alters the world around to match, following the rules I\'ve stated before", "and finally, you press [color=#f00]Q[/color] to close the menu.", "This should prove helpful, but there is a limit to how many you can pull.", "And although some things will give you extra word pulls, make sure to [color=#f00]BE CAREFUL[/color]!", "Alright, I\'m activating it now! try using it to remove [color=#f00]HEAVY[/color] from the [color=#0ff]BOX[/color] that\'s blocking you!")
+dialogueFaces = [1, 1, 1, 1, 1, 1, 2, 1]
+dialogueActions = [null, null, null, null, null, null, SubResource("Resource_lj3ui"), null]

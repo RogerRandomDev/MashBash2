@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgulw6rk4pwjb"]
+
+[ext_resource type="Script" path="res://addons/achievements/achievements.gd" id="1_54e6e"]
+[ext_resource type="Theme" uid="uid://c16cj52vb5751" path="res://addons/achievements/achievementTheme.tres" id="2_nejeu"]
+
+[node name="achievementLayer" type="CanvasLayer"]
+layer = 100
+visible = false
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+script = ExtResource("1_54e6e")
+
+[node name="achievements" type="GridContainer" parent="."]
+offset_top = 5.0
+offset_right = 192.0
+offset_bottom = 110.0
+theme = ExtResource("2_nejeu")
+theme_override_constants/h_separation = 38
+theme_override_constants/v_separation = 50
+columns = 4

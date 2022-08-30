@@ -14,6 +14,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://entities/items/button/button.gd"
 }, {
+"base": "Resource",
+"class": &"achievementItem",
+"language": &"GDScript",
+"path": "res://addons/achievements/achievementResource.gd"
+}, {
 "base": "itemStatus",
 "class": &"box",
 "language": &"GDScript",
@@ -86,6 +91,7 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "Button2D": "",
+"achievementItem": "",
 "box": "",
 "dialogueResource": "",
 "eventResource": "",
@@ -115,6 +121,7 @@ Mashlogue="*res://addons/MASHLOG/mashlogue.gd"
 Word="*res://addons/word/wordSystem.gd"
 Sound="*res://addons/Sound/Sound.gd"
 Pausemenu="*res://addons/pauseMenu/pausemenu.tscn"
+achievements="*res://addons/achievements/achievementScene.tscn"
 
 [debug]
 
@@ -129,7 +136,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/MASHLOG/plugin.cfg", "res://addons/word/plugin.cfg")
+enabled=PackedStringArray("res://addons/MASHLOG/plugin.cfg", "res://addons/word/plugin.cfg", "res://addons/achievements/plugin.cfg")
 
 [filesystem]
 

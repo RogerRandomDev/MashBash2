@@ -1,3 +1,5 @@
+res://addons/achievements/achievementList
+res://addons/achievements
 res://addons/MASHLOG/dialogueSets
 res://entities/items/laserShooter
 res://addons/pauseMenu
@@ -18,4 +20,3 @@ res://addons/Sound
 res://addons/word/resources
 res://addons/word/resources/
 res://addons/settings
-res://addons/word

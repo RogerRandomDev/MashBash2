@@ -7,3 +7,5 @@ func _input(_event):
 	if !canPause||get_tree().current_scene.name=="title":return
 	if Input.is_action_just_pressed("exit"):
 		visible=!visible;get_tree().paused=visible
+		if visible:Mashlogue._dialogueBox.process_mode=Node.PROCESS_MODE_PAUSABLE
+		else:Mashlogue._dialogueBox.process_mode=Node.PROCESS_MODE_ALWAYS

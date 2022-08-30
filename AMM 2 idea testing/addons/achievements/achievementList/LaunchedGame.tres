@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c76fsbq4luayk"]
+
+[ext_resource type="Script" path="res://addons/achievements/achievementResource.gd" id="1_7ilyf"]
+[ext_resource type="Texture2D" uid="uid://buxh66y7svutp" path="res://TileMap/wallcomputer.png" id="2_kwfkr"]
+
+[resource]
+script = ExtResource("1_7ilyf")
+name = "Game: START"
+texture = ExtResource("2_kwfkr")
+description = "test"

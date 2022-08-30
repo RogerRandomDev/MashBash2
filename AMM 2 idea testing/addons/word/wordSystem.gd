@@ -60,6 +60,7 @@ func swapVisible(show):
 	wordSwap.set_process_unhandled_input(show)
 	wordSwap.get_parent().visible=show
 	get_tree().paused=show
+	
 	if !show&&swapped:
 		var anim=wordSwap.get_parent().get_node("alteredLabel/AnimationPlayer")
 		anim.stop()

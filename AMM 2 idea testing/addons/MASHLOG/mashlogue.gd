@@ -27,6 +27,7 @@ var _dialogueBox=null
 func _ready():
 	_dialogueBox=load("res://addons/MASHLOG/dialoguebox/dialoguebox.tscn").instantiate()
 	add_child(_dialogueBox)
+	_dialogueBox.process_mode=Node.PROCESS_MODE_ALWAYS
 	_dialogueBox.visible=false
 
 

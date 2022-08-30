@@ -1,4 +1,5 @@
-res://entities/flyingBot/flyingBot.tscn
+res://entities/player/player.tscn
+res://addons/achievements/achievementTheme.tres
 res://entities/player/playerAnim.tres
 res://entities/player/vacuum.tres
 res://title/titleTheme.tres
@@ -11,6 +12,12 @@ res://entities/items/box/box.tres
 res://entities/items/laserShooter/lasershader.tres
 res://entities/items/laserShooter/laserShooter.tres
 res://entities/items/laserButton/LaserButton.tres
-res://entities/player/player.tscn
 res://title/title.tscn
 res://World/level0.tscn
+res://addons/achievements/achievementScene.tscn
+res://addons/achievements/achievements.gd
+res://World/levelmain.gd
+res://addons/MASHLOG/dialogueSets/explainWordSwap.tres
+res://addons/achievements/achievementList/GRAMMAR.tres
+res://addons/MASHLOG/dialogueSets/tutorialLevel.tres
+res://addons/achievements/achievementResource.gd

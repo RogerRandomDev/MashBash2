@@ -1,3 +1,6 @@
+Label
+GridContainer
+CanvasLayer
 Sprite2D
 GPUParticles2D
 Node2D
@@ -13,11 +16,9 @@ MultiplayerSpawner
 CheckButton
 Button
 ColorPicker
-Label
 ItemList
 VBoxContainer
 PanelContainer
-CanvasLayer
 CanvasGroup
 Button2D (button.gd)
 logicGate2D (logicGate2D.gd)
@@ -29,4 +30,3 @@ ColorRect
 AnimationTree
 RichTextLabel
 Control
-SubViewport
