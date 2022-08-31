@@ -42,7 +42,8 @@ func _ready():
 	for group in root.get_groups():
 		group=String(group);var mod=group.replace("INP_","").replace("OUT_","")
 		if mod==group:continue
-		var node=root.get_parent().get_parent().get_node(mod).get_child(0)
+		var node=root.get_parent().get_parent().get_node(mod)
+		if(node.get_class()!="Position2D"):node=node.get_child(0)
 		if group.begins_with("INP_"):inputs.append(node)
 		else:outputs.append(node)
 	call_deferred('checkLogic',activeInputs.size(),inputs.size())

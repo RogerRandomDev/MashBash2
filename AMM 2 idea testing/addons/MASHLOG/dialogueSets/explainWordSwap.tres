@@ -10,6 +10,6 @@ ActionValues = [true]
 
 [resource]
 script = ExtResource("1_jbh6i")
-dialogue = PackedStringArray("Alright I found a new Interface for you!", "If you approach an item and press [color=#f00]E[/color], it opens the [color=#0ff]WordSwap Interface[/color]", "you can then change descriptive words on objects", "and it alters the world around to match, following the rules I\'ve stated before", "and finally, you press [color=#f00]Q[/color] to close the menu.", "This should prove helpful, but there is a limit to how many you can pull.", "And although some things will give you extra word pulls, make sure to [color=#f00]BE CAREFUL[/color]!", "Alright, I\'m activating it now! try using it to remove [color=#f00]HEAVY[/color] from the [color=#0ff]BOX[/color] that\'s blocking you!")
-dialogueFaces = [1, 1, 1, 1, 1, 1, 2, 1]
-dialogueActions = [null, null, null, null, null, null, SubResource("Resource_lj3ui"), null]
+dialogue = PackedStringArray("Alright I found a new Interface for you!", "If you approach an item and press [color=#f00]E[/color], it opens the [color=#0ff]WordSwap Interface[/color]", "you can then change descriptive words on objects", "and it alters the world around to match, following the rules I\'ve stated before", "and finally, you press [color=#f00]Q[/color] to close the menu.", "This should prove helpful, but there is a limit to how many you can pull.", "And although some things will give you extra word pulls, make sure to [color=#f00]BE CAREFUL[/color]!", "Alright, I\'m activating it now! try using it to remove [color=#f00]HEAVY[/color] from the [color=#0ff]BOX[/color] that\'s blocking you!", "Though, they REALLY went hard for the first puzzle, so I\'ll give you som help", "For just this level, you get unlimited word swaps! Don\'t waste it!")
+dialogueFaces = [1, 1, 1, 1, 1, 1, 2, 1, 0, 0]
+dialogueActions = [null, null, null, null, null, null, SubResource("Resource_lj3ui"), null, null, null]
