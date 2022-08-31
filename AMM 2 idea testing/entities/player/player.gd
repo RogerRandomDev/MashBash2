@@ -49,6 +49,8 @@ func _input(_event):
 	
 	if locked:return
 	if canVacuum:
+		if vacuum!=Input.is_action_pressed("lMouse"):
+			$holdingItem.rotation=$holdingItem.global_position.angle_to_point(get_global_mouse_position())
 		vacuum = Input.is_action_pressed("lMouse")
 		$holdingItem/vaccuum/GPUParticles2D.emitting=vacuum
 

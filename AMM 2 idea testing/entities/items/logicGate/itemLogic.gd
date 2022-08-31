@@ -10,6 +10,7 @@ var inputs:Array=[]
 var outputs:Array=[]
 var activeInputs=[]
 var active=false
+
 var gates=["and","nand","or","nor","xor","xnor"]
 var logicSymbol=Sprite2D.new()
 var logicName=Label.new()
@@ -43,12 +44,11 @@ func _ready():
 		group=String(group);var mod=group.replace("INP_","").replace("OUT_","")
 		if mod==group:continue
 		var node=root.get_parent().get_parent().get_node(mod)
-		if(node.get_class()!="Position2D"):node=node.get_child(0)
+		if(node.get_class()!="Position2D"):node=node.get_node("ItemResource")
 		if group.begins_with("INP_"):inputs.append(node)
 		else:outputs.append(node)
-	call_deferred('checkLogic',activeInputs.size(),inputs.size())
 	
-	
+	#sets up the symbol
 	logicSymbol.texture=load("res://entities/items/logicGate/%s.png"%gates[logic])
 	logicSymbol.position=Vector2(4,4.5);logicSymbol.scale=Vector2(0.4375,0.5)
 	logicSymbol.self_modulate=Color(0.,1.,1.)
@@ -59,19 +59,22 @@ func _ready():
 	connect("buttonPressed",updateSelf,[true])
 	connect("buttonReleased",updateSelf,[false])
 	
-	call_deferred("connectInputs")
+	call_deferred('connectInputs')
 #connects to the inputs
 func connectInputs():
 	for _input in inputs:
 		var inp=_input.get_node_or_null("ScriptHolder")
 		inp.connect("buttonPressed",activateInput,[_input])
 		inp.connect("buttonReleased",releaseInput,[_input])
-	checkLogic(activeInputs.size(),inputs.size())
+		if inp.get("pressed"):activateInput(inp)
+		else:if inp.get("active"):activateInput(inp)
+		else:if activeInputs.has(inp):releaseInput(inp)
+	call_deferred('checkLogic',activeInputs.size(),inputs.size())
 
 
 
 func activateInput(_input):
-	if activeInputs.has(_input):return
+	if activeInputs.has(_input)||_input.get_class()!="Position2D":return
 	activeInputs.append(_input)
 	checkLogic(activeInputs.size(),inputs.size())
 func releaseInput(_input):
@@ -104,6 +107,7 @@ func updateOutputs():
 #checsk based on logic gates
 func checkLogic(_in,_allIn):
 	var checked=false
+	
 	#the gate types
 	match logic:
 		-1:checked=false
@@ -113,7 +117,6 @@ func checkLogic(_in,_allIn):
 		3:checked = _in==0
 		4:checked = _in>0&&_in<_allIn
 		5:checked = !(_in>0&&_in<_allIn)
-	
 	if checked&&!active:
 		emit_signal("buttonPressed");updateOutputs();active=true
 	else:if !checked&&active:

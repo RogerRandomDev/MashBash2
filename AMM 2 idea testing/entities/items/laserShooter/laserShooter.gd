@@ -8,15 +8,15 @@ var sprite
 var col=StaticBody2D.new()
 var lineCol=Position2D.new()
 func _ready():
-	if get_child_count()==0:prepBeam()
-	updateBeam()
-	add_child(col);add_child(lineCol)
-	sprite=get_parent().get_node("Sprite2D")
 	if get_child_count()==0:
 		var shape=CollisionShape2D.new();lineCol.global_position=Vector2.ZERO
 		col.add_child(shape)
 		shape.shape=RectangleShape2D.new()
-		shape.shape.extents=Vector2(2,4);shape.position.x=2
+		shape.shape.extents=Vector2(2,4);shape.position.x=2;shape.position.y=4
+		prepBeam()
+	updateBeam()
+	add_child(col);add_child(lineCol)
+	sprite=get_parent().get_node("Sprite2D")
 	sprite.texture=load("res://entities/items/laserShooter/laserShooter.png")
 	sprite.centered=false;sprite.z_index+=1;lineCol.top_level=true
 	var timer=Timer.new();timer.wait_time=0.033;add_child(timer)

@@ -12,6 +12,7 @@ const textures=[preload("res://entities/items/laserButton/laserbuttonon.png"),pr
 func _ready():
 	super._ready()
 	root=get_parent()
+	toggle=get_parent().Status.has("toggle")
 	sprite=root.get_node("Sprite2D")
 	if get_child_count()>0:return
 	var col=StaticBody2D.new()
@@ -24,13 +25,19 @@ func _ready():
 	col.add_to_group("receiver");col.collision_layer=16
 	connect("buttonPressed",updateMode)
 	connect("buttonReleased",updateMode)
-
-
-func toggleActive(active):
-	if _active==active:return
-	_active=active;
-	if(active):emit_signal("buttonPressed")
-	else:emit_signal("buttonReleased")
+var toggle=false
+var justPressed=false
+var lastMode=false
+func toggleActive(isPressed):
+	if lastMode==isPressed:return
+	#pressed logic
+	if toggle&&!justPressed:_active=!_active
+	if !toggle:_active=isPressed
+	if !isPressed&&!toggle&&!justPressed:_active=false
+	
+	if _active&&!justPressed:emit_signal('buttonPressed')
+	if lastMode!=isPressed&&!_active:emit_signal('buttonReleased')
+	justPressed=isPressed;lastMode=isPressed
 
 
 func updateMode():sprite.texture=textures[int(!_active)]
