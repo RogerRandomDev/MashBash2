@@ -13,3 +13,4 @@ res://entities/items/box/box.tres
 res://entities/items/laserShooter/lasershader.tres
 res://entities/items/laserShooter/laserShooter.tres
 res://entities/items/laserButton/LaserButton.tres
+res://entities/shaderBased/buttonOrder.gdshader

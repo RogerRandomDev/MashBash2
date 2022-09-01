@@ -1,3 +1,4 @@
+ColorRect
 Label
 GridContainer
 CanvasLayer
@@ -26,7 +27,6 @@ RigidDynamicBody2D
 nextLevel (nextlevel.gd)
 Position2D
 Area2D
-ColorRect
 AnimationTree
 RichTextLabel
 Control

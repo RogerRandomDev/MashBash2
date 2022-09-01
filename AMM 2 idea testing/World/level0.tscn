@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://rmixql5wbq8s"]
+[gd_scene load_steps=15 format=3 uid="uid://rmixql5wbq8s"]
 
 [ext_resource type="Script" path="res://World/levelmain.gd" id="1_0ho5g"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
@@ -11,7 +11,16 @@
 [ext_resource type="Resource" uid="uid://di350a3t2nt7y" path="res://entities/items/laserButton/LaserButton.tres" id="11_igfsw"]
 [ext_resource type="PackedScene" uid="uid://df40v44mkahwy" path="res://entities/flyingBot/flyingBot.tscn" id="12_bwq0a"]
 [ext_resource type="Resource" path="res://entities/items/button/button.tres" id="12_lmhi6"]
+[ext_resource type="Shader" path="res://entities/shaderBased/buttonOrder.gdshader" id="12_mlhf0"]
 [ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="13_4pdc5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppx3k"]
+shader = ExtResource("12_mlhf0")
+alphaVal = 0.5
+binaryUsed = 14
+color = Vector3(0.25, 1, 0.25)
+columns = 3
+rows = 2
 
 [node name="level0" type="Node2D"]
 process_priority = -1
@@ -310,6 +319,13 @@ z_index = 2
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("13_4pdc5")
 Status = PackedStringArray("nand")
+
+[node name="ColorRect" type="ColorRect" parent="items"]
+material = SubResource("ShaderMaterial_ppx3k")
+offset_left = 32.0
+offset_top = 504.0
+offset_right = 56.0
+offset_bottom = 520.0
 
 [node name="flyingBotPosition" parent="." instance=ExtResource("12_bwq0a")]
 position = Vector2(64, 208)
