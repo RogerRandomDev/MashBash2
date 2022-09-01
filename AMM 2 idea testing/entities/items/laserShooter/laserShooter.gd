@@ -7,8 +7,11 @@ var active:bool=true
 var sprite
 var col=StaticBody2D.new()
 var lineCol=Position2D.new()
+var rot=0
 func _ready():
+	
 	if get_child_count()==0:
+		rot=get_parent().rotation
 		var shape=CollisionShape2D.new();lineCol.global_position=Vector2.ZERO
 		col.add_child(shape)
 		shape.shape=RectangleShape2D.new()
@@ -33,11 +36,13 @@ func physics_process():
 #deals with the laser line
 func updateBeam():
 	var lastBeam=beam.points
-	var _trans=global_position+Vector2(0,4);var hitWall=false;var _transNormal=Vector2(1,0)
-	beam.points=PackedVector2Array();var bouncedAngle=0
+	var _trans=global_position+Vector2(0,4).rotated(rot);
+	var hitWall=false;var _transNormal=Vector2(1,0)
+	beam.points=PackedVector2Array();var bouncedAngle=rot
+	
 	if !active:return
 	var loopCount=0
-	beam.add_point(global_position+Vector2(0,4));newHits=[]
+	beam.add_point(global_position+Vector2(0,4).rotated(rot));newHits=[]
 	while !hitWall&&_transNormal!=Vector2.ZERO&&loopCount<15:
 		beamLine.from=_trans;loopCount+=1
 		beamLine.to=_trans+(Vector2(2048,0).rotated(bouncedAngle))
@@ -70,7 +75,6 @@ func getbouncedBeam(laser_coll_point,laser_coll_normal):
 #builds the beam base
 func prepBeam():
 	beamLine.collision_mask=16
-	
 	beam.texture_mode=Line2D.LINE_TEXTURE_TILE
 	beam.top_level=true;beam.width=8;beam.default_color=Color.RED
 	beam.add_point(global_position)

@@ -12,11 +12,14 @@ signal use_item(usedBy,action)
 @export var HeldResource:Resource=itemContents.new()
 
 @export var Status:PackedStringArray
+@export var glow:bool=false
 var sprite=Sprite2D.new()
 var descriptives=HBoxContainer.new()
 var descriptiveLabel=Label.new()
 var size=Vector2.ZERO
 var descriptiveScript=Node2D.new()
+const glowShader=preload("res://entities/shaderBased/itemglow.tres")
+
 @export var makeRigid:bool=false
 #prepares basic setup for items
 func _ready():
@@ -29,7 +32,7 @@ func _ready():
 	sprite.centered=false
 	z_index=2
 	sprite.z_index=-3
-	
+	if glow:sprite.material=glowShader
 	descriptiveLabel.rotation=-rotation
 	descriptives.rotation=-rotation
 	add_child(sprite)

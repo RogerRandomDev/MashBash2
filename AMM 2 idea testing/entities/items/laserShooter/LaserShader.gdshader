@@ -99,7 +99,6 @@ vec4 bolt(vec2 uv, float time, float i)
 	// Merge the beam and the outline and return to the fragment function
 	return (beam * (color + vec4(glow, glow, glow, 0.))) + (beam_outline * (outline_color + vec4(outline_glow, outline_glow, outline_glow, 0.)));
 }
-
 void fragment()
 {	
 	vec4 beam = vec4(0.0);
@@ -108,4 +107,5 @@ void fragment()
 	}
 	
 	COLOR = beam;
+	
 }

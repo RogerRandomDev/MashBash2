@@ -1,3 +1,4 @@
+ShaderMaterial
 achievementItem (achievementResource.gd)
 dialogueResource (dialogueResource.gd)
 itemContents (itemContents.gd)

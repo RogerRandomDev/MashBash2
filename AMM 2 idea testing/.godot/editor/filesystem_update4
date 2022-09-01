@@ -1,4 +1,4 @@
-res://World/level0.tscn
+res://World/level1.tscn
 res://addons/achievements/achievementTheme.tres
 res://entities/player/playerAnim.tres
 res://entities/player/vacuum.tres
@@ -7,10 +7,13 @@ res://addons/MASHLOG/dialogueSets/firstTeleport.tres
 res://addons/MASHLOG/dialogueSets/buttonsnboxes.tres
 res://addons/MASHLOG/dialogueSets/explainWordSwap.tres
 res://TileMap/MapGame.tres
+res://entities/shaderBased/itemglow.tres
 res://entities/items/door/door.tres
 res://entities/items/teleporter/teleporter.tres
 res://entities/items/box/box.tres
 res://entities/items/laserShooter/lasershader.tres
 res://entities/items/laserShooter/laserShooter.tres
 res://entities/items/laserButton/LaserButton.tres
-res://entities/shaderBased/buttonOrder.gdshader
+res://entities/player/player.tscn
+res://title/title.tscn
+res://World/level0.tscn

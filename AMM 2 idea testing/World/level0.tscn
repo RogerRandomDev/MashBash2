@@ -29,7 +29,6 @@ script = ExtResource("1_0ho5g")
 [node name="Player" parent="." instance=ExtResource("1_hyipm")]
 position = Vector2(136, 520)
 z_index = 4
-collision_mask = 33
 canVacuum = true
 
 [node name="TileMap" type="TileMap" parent="."]

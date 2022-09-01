@@ -1,12 +1,12 @@
+itemResource (itemResource.gd)
+Node2D
 ColorRect
 Label
 GridContainer
 CanvasLayer
 Sprite2D
 GPUParticles2D
-Node2D
 AnimationPlayer
-itemResource (itemResource.gd)
 itemStatus (DescriptiveScriptBase.gd)
 itemShooter (laserShooter.gd)
 CollisionShape2D

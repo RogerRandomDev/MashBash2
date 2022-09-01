@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cnko4h4dwnluc"]
+
+[ext_resource type="Shader" path="res://entities/shaderBased/glowItem.gdshader" id="1_4dayn"]
+
+[resource]
+shader = ExtResource("1_4dayn")
+bloomIntensity = 0.9
+bloomRadius = 0.884
+bloomThreshold = 0.119
