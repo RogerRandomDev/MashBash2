@@ -1,12 +1,13 @@
+WordSwapCharger (swapCharger.gd)
+AnimationPlayer
+Label
 itemResource (itemResource.gd)
 Node2D
 ColorRect
-Label
 GridContainer
 CanvasLayer
 Sprite2D
 GPUParticles2D
-AnimationPlayer
 itemStatus (DescriptiveScriptBase.gd)
 itemShooter (laserShooter.gd)
 CollisionShape2D

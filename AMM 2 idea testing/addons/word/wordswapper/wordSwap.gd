@@ -141,3 +141,9 @@ func insertWord(_word):
 func updateFromInput(inWord):
 	if(inWord=="KEY"&&Word.hoveringObject.Status.has("locked")):
 		BaseText=BaseText.replace("locked","open").replace("KEY","")
+
+
+#animated the addedword text
+func addWord(charged):
+	get_parent().get_node("alteredLabel/addedWords").text="Swaps Charged By %s"%str(charged)
+	get_parent().get_node("alteredLabel/wordadder").play("addword")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://duvqn61wbe7gx"]
+[gd_scene load_steps=12 format=3 uid="uid://duvqn61wbe7gx"]
 
 [ext_resource type="Script" path="res://World/level1.gd" id="1_elp54"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="7_78tmm"]
 [ext_resource type="Resource" path="res://entities/items/button/button.tres" id="7_rh7fu"]
 [ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="9_jpgdp"]
+[ext_resource type="Script" path="res://entities/items/swapCharger/swapCharger.gd" id="11_r5dqk"]
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_elp54")
@@ -29,7 +30,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(65546, 851968, 0, 131082, 786432, 0, 196618, 786432, 0, 262154, 786432, 0, 327690, 786432, 0, 393226, 786432, 0, 458762, 786432, 0, 589832, 1376256, 0, 589831, 655360, 0, 589830, 655360, 0, 589829, 655360, 0, 589828, 655360, 0, 589827, 655360, 0, 589826, 589824, 0, 65547, 1114112, 0, 131083, 983040, 0, 196619, 983040, 0, 262155, 983040, 0, 327691, 983040, 0, 393227, 983040, 0, 589838, 655360, 0, 589839, 655360, 0, 589840, 655360, 0, 589841, 655360, 0, 589842, 720896, 0, 589834, 786432, 0, 655370, 786432, 0, 720906, 786432, 0, 786442, 786432, 0, 851978, 786432, 0, 917514, 786432, 0, 983050, 917504, 0, 65555, 851968, 0, 131091, 786432, 0, 196627, 786432, 0, 262163, 786432, 0, 327699, 786432, 0, 393235, 786432, 0, 458771, 786432, 0, 524307, 786432, 0, 589843, 786432, 0, 655379, 786432, 0, 720915, 786432, 0, 786451, 786432, 0, 851987, 786432, 0, 917523, 786432, 0, 983059, 917504, 0, 589837, 655360, 0, 458763, 1048576, 0, 589835, 1114112, 0, 589836, 589824, 0, 655371, 983040, 0, 720907, 983040, 0, 786443, 983040, 0, 851979, 983040, 0, 917515, 983040, 0, 983051, 1048576, 0, 131089, 983040, 0, 65553, 983040, 0, 196625, 1048576, 0, 655368, 1048576, 0)
+layer_1/tile_data = PackedInt32Array(65546, 851968, 0, 262154, 851968, 0, 327690, 786432, 0, 393226, 786432, 0, 458762, 786432, 0, 589832, 1376256, 0, 589831, 655360, 0, 589830, 655360, 0, 589829, 655360, 0, 589828, 655360, 0, 589827, 655360, 0, 589826, 589824, 0, 65547, 1114112, 0, 131083, 983040, 0, 196619, 983040, 0, 262155, 983040, 0, 327691, 983040, 0, 393227, 983040, 0, 589838, 655360, 0, 589839, 655360, 0, 589840, 655360, 0, 589841, 655360, 0, 589842, 720896, 0, 589834, 786432, 0, 655370, 786432, 0, 720906, 786432, 0, 786442, 917504, 0, 917514, 851968, 0, 983050, 917504, 0, 65555, 851968, 0, 131091, 786432, 0, 196627, 786432, 0, 262163, 786432, 0, 327699, 786432, 0, 393235, 786432, 0, 458771, 786432, 0, 524307, 786432, 0, 589843, 786432, 0, 655379, 786432, 0, 720915, 786432, 0, 786451, 786432, 0, 851987, 786432, 0, 917523, 786432, 0, 983059, 917504, 0, 589837, 655360, 0, 458763, 1048576, 0, 589836, 589824, 0, 917515, 1114112, 0, 983051, 1048576, 0, 131089, 983040, 0, 65553, 983040, 0, 196625, 1048576, 0, 655368, 1048576, 0, 524298, 786432, 0, 196616, 917504, 0, 131080, 786432, 0, 65544, 786432, 0, 131082, 917504, 0, 786443, 983040, 0, 655371, 1048576, 0, 589835, 1114112, 0)
 layer_2/name = "Wires"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -109,9 +110,43 @@ script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
 Status = PackedStringArray()
 
+[node name="itemResource14" type="Position2D" parent="items"]
+position = Vector2(152, 96)
+rotation = 3.14159
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("7_78tmm")
+Status = PackedStringArray()
+
+[node name="itemResource15" type="Position2D" parent="items"]
+position = Vector2(66, 24)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("7_78tmm")
+Status = PackedStringArray()
+
 [node name="itemResource6" type="Position2D" parent="items" groups=["teleporter0A"]]
-position = Vector2(72, 8)
+position = Vector2(56, 8)
 z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("5_i1kxc")
 Status = PackedStringArray()
+
+[node name="itemResource12" type="Position2D" parent="items" groups=["teleporter1A"]]
+position = Vector2(72, 120)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("5_i1kxc")
+Status = PackedStringArray("broken")
+
+[node name="itemResource13" type="Position2D" parent="items" groups=["teleporter1B"]]
+position = Vector2(16, 8)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("5_i1kxc")
+Status = PackedStringArray()
+
+[node name="WordSwapCharger" type="Position2D" parent="items"]
+position = Vector2(61, 100)
+script = ExtResource("11_r5dqk")
+chargeAmount = 2

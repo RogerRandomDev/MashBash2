@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dap82rqd03mbk"]
+[gd_scene load_steps=14 format=3 uid="uid://dap82rqd03mbk"]
 
 [ext_resource type="Script" path="res://addons/word/wordswapper/wordSwap.gd" id="1_iothb"]
 [ext_resource type="Theme" uid="uid://68lfx3gkstmd" path="res://themes/worldtheme.tres" id="1_itcld"]
 [ext_resource type="RichTextEffect" uid="uid://otft4qkjls43" path="res://addons/word/resources/pull.tres" id="2_34jdx"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="4_r5edk"]
+[ext_resource type="FontFile" uid="uid://bv5bowfcrj3mo" path="res://fonts/Retro Gaming.ttf" id="5_drmfc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4for"]
 bg_color = Color(0.305882, 0.145098, 0.341176, 1)
@@ -67,6 +68,39 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vj2xv"]
 _data = {
 "alter": SubResource("Animation_8e47e")
+}
+
+[sub_resource type="Animation" id="Animation_0ftvy"]
+resource_name = "addword"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("addedWords:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("addedWords:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.5),
+"transitions": PackedFloat32Array(2.14355, 1, 2.46229, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_chp86"]
+_data = {
+"addword": SubResource("Animation_0ftvy")
 }
 
 [sub_resource type="Animation" id="Animation_asq6u"]
@@ -205,6 +239,21 @@ percent_visible = 0.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="alteredLabel"]
 libraries = {
 "": SubResource("AnimationLibrary_vj2xv")
+}
+
+[node name="addedWords" type="Label" parent="alteredLabel"]
+offset_left = 384.0
+offset_right = 640.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("5_drmfc")
+text = "Swaps Charged By 1"
+horizontal_alignment = 1
+visible_characters = 0
+percent_visible = 0.0
+
+[node name="wordadder" type="AnimationPlayer" parent="alteredLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_chp86")
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
