@@ -4,9 +4,9 @@ extends Node2D
 var alreadyTeleported=0
 func _ready():
 	Sound.playSong("song0",-5);Pausemenu.get_node("logic").visible=false
-#	Mashlogue.load_dialogue(
-#		load("res://addons/MASHLOG/dialogueSets/tutorialLevel.tres"),
-#		load("res://addons/MASHLOG/iconsets/MASH.tres"))
+	Mashlogue.load_dialogue(
+		load("res://addons/MASHLOG/dialogueSets/tutorialLevel.tres"),
+		load("res://addons/MASHLOG/iconsets/MASH.tres"))
 	#checks if it was the player teleporting
 	$items/itemResource2.connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportFirst())
 	$items/itemResource6.connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportSecond())

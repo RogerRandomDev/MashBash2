@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="10_t8r86"]
 [ext_resource type="Resource" uid="uid://di350a3t2nt7y" path="res://entities/items/laserButton/LaserButton.tres" id="11_igfsw"]
 [ext_resource type="PackedScene" uid="uid://df40v44mkahwy" path="res://entities/flyingBot/flyingBot.tscn" id="12_bwq0a"]
-[ext_resource type="Resource" path="res://entities/items/button/button.tres" id="12_lmhi6"]
+[ext_resource type="Resource" uid="uid://rpb7ppknp8oa" path="res://entities/items/button/button.tres" id="12_lmhi6"]
 [ext_resource type="Shader" path="res://entities/shaderBased/buttonOrder.gdshader" id="12_mlhf0"]
 [ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="13_4pdc5"]
 
@@ -27,7 +27,7 @@ process_priority = -1
 script = ExtResource("1_0ho5g")
 
 [node name="Player" parent="." instance=ExtResource("1_hyipm")]
-position = Vector2(136, 520)
+position = Vector2(60, 48)
 z_index = 4
 canVacuum = true
 
@@ -327,5 +327,5 @@ offset_right = 56.0
 offset_bottom = 520.0
 
 [node name="flyingBotPosition" parent="." instance=ExtResource("12_bwq0a")]
-position = Vector2(64, 208)
+position = Vector2(-232, -40)
 z_index = 8

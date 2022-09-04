@@ -15,6 +15,6 @@ ActionValues = [false]
 
 [resource]
 script = ExtResource("1_l2ptn")
-dialogue = PackedStringArray("Alright, So now we have boxes and buttons.", "I\'ve checked how they work just now so:", "you can\'t push a [color=#f00]heavy[/color] box", "and a [color=#f00]light[/color] box can\'t push a button", "the buttons connect to [color=#0ff]LOGIC GATES[/color] which have basic logic functions", "I\'ll add logic gate types to the pause menu, press ESC to enter it", "and finally, I gave you a vacuum.", "It pulls boxes to you, if they aren\'t [color=#f00]heavy[/color] and goes where your mouse is aimed", "press the  LEFT MOUSE button to use it!")
-dialogueFaces = [1, 1, 2, 1, 0, 1, 0, 0, 1]
-dialogueActions = [null, null, null, null, null, SubResource("Resource_gxh2h"), null, null, SubResource("Resource_b0o6c")]
+dialogue = PackedStringArray("Alright, So now we have boxes and buttons.", "I\'ve checked how they work just now so:", "you can\'t push a [color=#f00]heavy[/color] box", "and a [color=#f00]light[/color] box can\'t push a button", "the buttons connect to [color=#0ff]LOGIC GATES[/color] which have basic logic functions", "I\'ll add logic gate types to the pause menu, press ESC to enter it", "and finally, I gave you a vacuum.", "It pulls boxes to you, if they aren\'t [color=#f00]heavy[/color] and goes where your mouse is aimed", "press the  LEFT MOUSE button to use it!", "And finally, The [color=#f00]DOOR[/color] is open if not locked when active", "but when activated while [color=#0ff]locked[/color], it only unlocks it!")
+dialogueFaces = [1, 1, 2, 1, 0, 1, 0, 0, 1, 1, 1]
+dialogueActions = [null, null, null, null, null, SubResource("Resource_gxh2h"), null, null, SubResource("Resource_b0o6c"), null, null]

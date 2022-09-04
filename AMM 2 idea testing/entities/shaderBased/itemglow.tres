@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cnko4h4dwnluc"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bu2jrbvdb2pwg"]
 
 [ext_resource type="Shader" path="res://entities/shaderBased/glowItem.gdshader" id="1_4dayn"]
 
