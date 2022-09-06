@@ -128,6 +128,7 @@ Word="*res://addons/word/wordSystem.gd"
 Sound="*res://addons/Sound/Sound.gd"
 Pausemenu="*res://addons/pauseMenu/pausemenu.tscn"
 achievements="*res://addons/achievements/achievementScene.tscn"
+Transitions="*res://addons/transitionScene/transitions.tscn"
 
 [debug]
 

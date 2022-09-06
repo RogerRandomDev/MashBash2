@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://duvqn61wbe7gx"]
+[gd_scene load_steps=13 format=3 uid="uid://duvqn61wbe7gx"]
 
 [ext_resource type="Script" path="res://World/level1.gd" id="1_elp54"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://rpb7ppknp8oa" path="res://entities/items/button/button.tres" id="7_rh7fu"]
 [ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="9_jpgdp"]
 [ext_resource type="Script" path="res://entities/items/swapCharger/swapCharger.gd" id="11_r5dqk"]
+[ext_resource type="PackedScene" uid="uid://df40v44mkahwy" path="res://entities/flyingBot/flyingBot.tscn" id="12_q3dv6"]
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_elp54")
@@ -150,3 +151,7 @@ Status = PackedStringArray()
 position = Vector2(61, 100)
 script = ExtResource("11_r5dqk")
 chargeAmount = 2
+
+[node name="flyingBotPosition" parent="." instance=ExtResource("12_q3dv6")]
+position = Vector2(109, 24)
+z_index = 8

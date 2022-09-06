@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddtimcw3ywjj3"]
+
+[ext_resource type="Script" path="res://addons/transitionScene/transitions.gd" id="1_1gtve"]
+
+[node name="transitions" type="CanvasLayer"]
+script = ExtResource("1_1gtve")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

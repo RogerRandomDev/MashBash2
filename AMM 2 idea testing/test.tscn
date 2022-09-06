@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://dg6suvfty6r86"]
 
-[ext_resource type="Material" uid="uid://wr3bclros51v" path="res://entities/items/laserShooter/lasershader.tres" id="1_8v8n8"]
+[ext_resource type="Material" uid="uid://6xqgmrwwdq3" path="res://entities/shaderBased/confetti.tres" id="1_v16jj"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Line2D" type="Line2D" parent="."]
-material = ExtResource("1_8v8n8")
-position = Vector2(-10, 5)
-scale = Vector2(0.598958, 1)
-points = PackedVector2Array(-4, 51, 303.861, 152, 317.218, 23)
-width = 4.0
-texture_mode = 1
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("1_v16jj")

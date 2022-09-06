@@ -1,5 +1,6 @@
-res://World/level1.tscn
+res://addons/transitionScene/transitions.tscn
 res://addons/achievements/achievementTheme.tres
+res://addons/transitionScene/transitions.gdshader
 res://entities/player/playerAnim.tres
 res://entities/player/vacuum.tres
 res://title/titleTheme.tres
@@ -15,4 +16,5 @@ res://entities/items/laserShooter/lasershader.tres
 res://entities/items/laserShooter/laserShooter.tres
 res://entities/items/laserButton/LaserButton.tres
 res://entities/items/button/button.tres
-res://World/level0.tscn
+res://entities/shaderBased/pickupAuraparticles.tres
+res://entities/shaderBased/confetti.tres

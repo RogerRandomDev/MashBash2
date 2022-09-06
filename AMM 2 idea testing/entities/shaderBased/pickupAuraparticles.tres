@@ -1,0 +1,27 @@
+[gd_resource type="ParticlesMaterial" load_steps=3 format=3 uid="uid://bam5p2xdu5f4q"]
+
+[sub_resource type="Gradient" id="Gradient_wwu8w"]
+offsets = PackedFloat32Array(0.29078, 1)
+colors = PackedColorArray(0, 1, 1, 0.764706, 0, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_145kc"]
+gradient = SubResource("Gradient_wwu8w")
+width = 32
+
+[resource]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 5.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+radial_accel_min = -25.0
+radial_accel_max = -25.0
+tangential_accel_min = 5.0
+tangential_accel_max = 5.0
+scale_min = 1.5
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_145kc")
