@@ -1,11 +1,11 @@
+Sprite2D
+Node2D
 ColorRect
 AnimationPlayer
 CanvasLayer
 GPUParticles2D
-Sprite2D
 Label
 itemResource (itemResource.gd)
-Node2D
 GridContainer
 itemStatus (DescriptiveScriptBase.gd)
 itemShooter (laserShooter.gd)
