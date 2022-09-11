@@ -152,7 +152,9 @@ const opposites=[
 	"broken",
 	"weak",
 	"light",
-	"heavy"
+	"heavy",
+	"active",
+	"disabled"
 ]
 
 #checks if you can put in the current word
@@ -203,6 +205,7 @@ func applyScripts(_descriptives,ignore=false):
 	if Word.swapped||ignore:
 		descriptiveScript.set_script(new)
 		descriptiveScript._ready()
+		descriptiveScript.logicDescriptives=[HeldResource.logicOff,HeldResource.logicOn]
 		if makeRigid:
 			var col=descriptiveScript.addCollision(0.49,false)
 			get_parent().add_child(col)

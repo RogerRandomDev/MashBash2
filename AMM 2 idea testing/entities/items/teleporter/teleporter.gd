@@ -42,6 +42,7 @@ func makeArrow():
 #checks if the new object to enter is the player, and if so, it teleports it
 func checkTeleport(body):
 	if get_parent().Status.has("broken")||linked.Status.has("broken"):return
+	if get_parent().Status.has("disabled")||linked.Status.has("disabled"):return
 	if teleporting!=null:return
 	if body.name=="playerchest":
 		#checks if you were just teleported to it

@@ -105,3 +105,9 @@ var newHits=[]
 func collideReceivers():
 	for collider in receiverHits:collider.get_parent().toggleActive(newHits.has(collider))
 	receiverHits=newHits
+
+
+#logic action for the laser shooter
+func logicAction(active):
+	
+	print(active)

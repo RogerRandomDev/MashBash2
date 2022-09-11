@@ -92,17 +92,19 @@ func updateOutputs():
 	Word.swapped=true
 	for output in outputs:
 		if(output.get_class()=="Position2D"):
-			
-			if root.sprite.texture==states.ON:
-				if !output.Status.has("locked"):output.Status.append("open")
-				else:output.Status.remove_at(output.Status.find("locked"))
+			if output.get_node("ScriptHolder").has_method("logicAction"):
+				output.get_node("ScriptHolder").logicAction(root.sprite.texture==states.ON)
 			else:
-				#this stops you from farming one door for open and prevents you from pulling stuff i dont like
-				if output.Status.has("open"):output.Status.remove_at(output.Status.find("open"))
-				else:output.Status.append("locked")
-			
-			output.Status.append("_")
-			output.modifyTo(output.Status)
+				if root.sprite.texture==states.ON:
+					if !output.Status.has("locked"):output.Status.append("open")
+					else:output.Status.remove_at(output.Status.find("locked"))
+				else:
+					#this stops you from farming one door for open and prevents you from pulling stuff i dont like
+					if output.Status.has("open"):output.Status.remove_at(output.Status.find("open"))
+					else:output.Status.append("locked")
+				
+				output.Status.append("_")
+				output.modifyTo(output.Status)
 	Word.swapped=false
 #checsk based on logic gates
 func checkLogic(_in,_allIn):
@@ -117,6 +119,8 @@ func checkLogic(_in,_allIn):
 		3:checked = _in==0
 		4:checked = _in>0&&_in<_allIn
 		5:checked = !(_in>0&&_in<_allIn)
+	if root.Status.has("disabled"):active=false
+	if root.Status.has("active"):active=true
 	if checked&&!active:
 		emit_signal("buttonPressed");updateOutputs();active=true
 	else:if !checked&&active:

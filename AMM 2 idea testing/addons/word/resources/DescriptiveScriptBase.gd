@@ -1,6 +1,7 @@
 extends Node2D
 class_name itemStatus
 var justSwap=true
+var logicDescriptives=["open","locked"]
 #called when first loaded
 func _ready():
 	position=get_parent().size/2
@@ -62,3 +63,14 @@ func pushPlayer():
 			Word.player.global_position=check.transform.origin
 			break
 	
+func applyLogic(active):
+	if active:
+		if !get_parent().Status.has(logicDescriptives[1]):get_parent().Status.append(logicDescriptives[0])
+		else:get_parent().Status.remove_at(get_parent().Status.find(logicDescriptives[1]))
+	else:
+		#this stops you from farming one door for open and prevents you from pulling stuff i dont like
+		if get_parent().Status.has(logicDescriptives[0]):get_parent().Status.remove_at(get_parent().Status.find(logicDescriptives[0]))
+		else:if logicDescriptives[1]!="":get_parent().Status.append(logicDescriptives[1])
+	
+	get_parent().Status.append("_")
+	get_parent().modifyTo(get_parent().Status)

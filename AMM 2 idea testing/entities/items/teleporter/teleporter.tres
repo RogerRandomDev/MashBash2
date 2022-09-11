@@ -17,3 +17,5 @@ Sprites = {
 Scripts = {
 "default": ExtResource("1_f0ulu")
 }
+logicOff = "disabled"
+logicOn = ""
