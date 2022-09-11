@@ -18,3 +18,5 @@ Scripts = {
 "default": ExtResource("1_tlvmq"),
 "open": ExtResource("2_vrbgh")
 }
+logicOff = "locked"
+logicOn = "open"

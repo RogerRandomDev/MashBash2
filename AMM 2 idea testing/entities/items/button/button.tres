@@ -13,3 +13,5 @@ Sprites = {
 Scripts = {
 "default": ExtResource("1_5hlsb")
 }
+logicOff = "locked"
+logicOn = "open"

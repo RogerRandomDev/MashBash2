@@ -39,6 +39,7 @@ z_index = 1
 
 [node name="itemResource" type="Position2D" parent="items"]
 position = Vector2(0, 16)
+z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
 Status = PackedStringArray()

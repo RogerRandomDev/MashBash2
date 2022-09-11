@@ -107,7 +107,3 @@ func collideReceivers():
 	receiverHits=newHits
 
 
-#logic action for the laser shooter
-func logicAction(active):
-	
-	print(active)

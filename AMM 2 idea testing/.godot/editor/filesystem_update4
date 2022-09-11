@@ -1,4 +1,4 @@
-res://addons/transitionScene/transitions.tscn
+res://World/level2.tscn
 res://addons/achievements/achievementTheme.tres
 res://entities/player/playerAnim.tres
 res://entities/player/vacuum.tres
@@ -17,13 +17,4 @@ res://entities/items/laserButton/LaserButton.tres
 res://entities/items/button/button.tres
 res://entities/shaderBased/pickupAuraparticles.tres
 res://entities/shaderBased/confetti.tres
-res://World/level1.tscn
-res://World/level2.tscn
-res://entities/items/logicGate/itemLogic.gd
 res://entities/items/laserShooter/laserShooter.gd
-res://addons/MASHLOG/resources/dialogueResource.gd
-res://addons/word/resources/DescriptiveScriptBase.gd
-res://addons/word/resources/itemResource.gd
-res://addons/word/resources/itemContents.gd
-res://entities/items/logicGate/iitemLogic.tres
-res://entities/items/teleporter/teleporter.gd
