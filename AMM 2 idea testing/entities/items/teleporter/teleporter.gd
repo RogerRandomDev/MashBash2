@@ -8,6 +8,7 @@ var teleporting=null
 var area=null
 func _ready():
 	super._ready()
+	
 	emptyScript()
 	triggerNow=false
 	if (Word.player.global_position-global_position).length_squared()>16:triggerNow=true
@@ -24,6 +25,11 @@ func _ready():
 			break
 	linked=get_tree().get_nodes_in_group(linkTo)[0]
 	makeArrow()
+	
+	if !Engine.is_editor_hint():
+		if !get_parent().Status.has("disabled")&&!get_parent().Status.has("inactive")&&!get_parent().Status.has("active"):get_parent().Status.append("active")
+		if get_parent().Status.has("inactive"):get_parent().Status.remove_at(get_parent().Status.find("inactive"))
+		get_parent().updateDescriptives()
 	arrow.look_at(linked.global_position+Vector2(4,4));arrow.rotation+=PI/2
 	
 
@@ -41,6 +47,7 @@ func makeArrow():
 
 #checks if the new object to enter is the player, and if so, it teleports it
 func checkTeleport(body):
+	if !get_parent().Status.has("active")||!linked.Status.has("active"):return
 	if get_parent().Status.has("broken")||linked.Status.has("broken"):return
 	if get_parent().Status.has("disabled")||linked.Status.has("disabled"):return
 	if teleporting!=null:return

@@ -1,3 +1,6 @@
+CollisionShape2D
+Area2D
+Label
 itemResource (itemResource.gd)
 itemStatus (DescriptiveScriptBase.gd)
 Sprite2D
@@ -6,10 +9,8 @@ ColorRect
 AnimationPlayer
 CanvasLayer
 GPUParticles2D
-Label
 GridContainer
 itemShooter (laserShooter.gd)
-CollisionShape2D
 Line2D
 AudioListener2D
 StaticBody2D
@@ -26,6 +27,5 @@ logicGate2D (logicGate2D.gd)
 RigidDynamicBody2D
 nextLevel (nextlevel.gd)
 Position2D
-Area2D
 AnimationTree
 RichTextLabel

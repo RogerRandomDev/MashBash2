@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyhsk57dr4nwt"]
+
+[ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_qemwp"]
+[ext_resource type="Texture2D" uid="uid://bgpnncomj2yss" path="res://entities/items/teleporter/teleporter.png" id="2_ckogp"]
+[ext_resource type="Script" path="res://World/nextlevel.gd" id="2_vj2di"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horsc"]
+size = Vector2(8, 8)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("2_vj2di")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 20)
+shape = SubResource("RectangleShape2D_horsc")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 88.0
+offset_bottom = 23.0
+theme = ExtResource("1_qemwp")
+text = "Next Level"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Teleporter" type="Sprite2D" parent="."]
+position = Vector2(40, 20)
+texture = ExtResource("2_ckogp")
+
+[connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]

@@ -1,17 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://cs5jqdnomjv3f"]
+[gd_scene load_steps=12 format=3 uid="uid://cs5jqdnomjv3f"]
 
 [ext_resource type="Script" path="res://World/level1.gd" id="1_elp54"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
 [ext_resource type="TileSet" uid="uid://berok1m7cgn75" path="res://TileMap/MapGame.tres" id="3_ji7cw"]
 [ext_resource type="Script" path="res://addons/word/resources/itemResource.gd" id="4_kvbxv"]
+[ext_resource type="Resource" uid="uid://dxmu6bmob77dy" path="res://entities/items/box/box.tres" id="6_2c7ik"]
+[ext_resource type="Resource" uid="uid://di350a3t2nt7y" path="res://entities/items/laserButton/LaserButton.tres" id="6_4un7n"]
 [ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="7_78tmm"]
+[ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="7_a4qpx"]
+[ext_resource type="Resource" uid="uid://rpb7ppknp8oa" path="res://entities/items/button/button.tres" id="7_tqe0v"]
+[ext_resource type="Resource" uid="uid://tjgcx51yrthv" path="res://entities/items/door/door.tres" id="9_rab1d"]
 [ext_resource type="PackedScene" uid="uid://df40v44mkahwy" path="res://entities/flyingBot/flyingBot.tscn" id="12_q3dv6"]
 
 [node name="level2" type="Node2D"]
 script = ExtResource("1_elp54")
 
 [node name="Player" parent="." instance=ExtResource("1_hyipm")]
-position = Vector2(122, 40)
+position = Vector2(32, 24)
 push = 75.0
 canVacuum = true
 
@@ -25,24 +30,91 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array()
+layer_1/tile_data = PackedInt32Array(65544, 786432, 0, 131080, 786432, 0, 196616, 786432, 0, 262152, 786432, 0, 458758, 655360, 0, 458757, 655360, 0, 458756, 655360, 0, 458755, 655360, 0, 458754, 655360, 0, 458753, 655360, 0, 458752, 655360, 0, 458759, 720896, 0, 65547, 786432, 0, 131083, 786432, 0, 196619, 786432, 0, 262155, 917504, 0, 458763, 851968, 0, 524299, 589824, 0, 327688, 917504, 0, 65550, 786432, 0, 131086, 786432, 0, 196622, 786432, 0, 262158, 786432, 0, 327694, 786432, 0, 393230, 786432, 0, 458766, 917504, 0, 524300, 655360, 0, 524301, 1376256, 0)
 layer_2/name = "Wires"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array()
+layer_2/tile_data = PackedInt32Array(65545, 65538, 0, 131081, 65538, 0, 196617, 65538, 0, 262153, 65538, 0, 327689, 589826, 0, 327690, 2, 0, 393228, 524290, 0, 327692, 65538, 0, 262156, 65538, 0, 196620, 65538, 0, 131084, 65538, 0, 65548, 65538, 0, 393229, 458754, 0, 458765, 65538, 0, 524301, 65538, 0)
 
 [node name="items" type="Node2D" parent="."]
 z_index = 1
 
 [node name="itemResource" type="Position2D" parent="items"]
-position = Vector2(0, 16)
+position = Vector2(16, 8)
+rotation = 1.5708
 z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
+Status = PackedStringArray("active")
+
+[node name="itemResource4" type="Position2D" parent="items"]
+position = Vector2(72, 16)
+rotation = -1.5708
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("6_4un7n")
 Status = PackedStringArray()
+
+[node name="itemResource9" type="Position2D" parent="items"]
+position = Vector2(104, 48)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("6_4un7n")
+Status = PackedStringArray()
+
+[node name="itemResource8" type="Position2D" parent="items"]
+position = Vector2(96, 8)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("7_tqe0v")
+Status = PackedStringArray("toggle")
+
+[node name="itemResource5" type="Position2D" parent="items" groups=["INP_itemResource4", "OUT_itemResource6"]]
+position = Vector2(0, -192)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("7_a4qpx")
+Status = PackedStringArray("and")
+
+[node name="itemResource2" type="Position2D" parent="items"]
+position = Vector2(4, 48)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("6_2c7ik")
+Status = PackedStringArray("reflective", "heavy")
+makeRigid = true
+
+[node name="itemResource6" type="Position2D" parent="items"]
+position = Vector2(88, 40)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("9_rab1d")
+Status = PackedStringArray()
+
+[node name="itemResource7" type="Position2D" parent="items"]
+position = Vector2(88, 48)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("9_rab1d")
+Status = PackedStringArray()
+
+[node name="itemResource10" type="Position2D" parent="items"]
+position = Vector2(107, 72)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("9_rab1d")
+Status = PackedStringArray()
+
+[node name="itemResource3" type="Position2D" parent="items"]
+position = Vector2(40, 35)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("6_2c7ik")
+Status = PackedStringArray("reflective")
+makeRigid = true
 
 [node name="flyingBotPosition" parent="." instance=ExtResource("12_q3dv6")]
 position = Vector2(109, 24)

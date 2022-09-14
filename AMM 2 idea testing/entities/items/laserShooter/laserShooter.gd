@@ -9,7 +9,7 @@ var col=StaticBody2D.new()
 var lineCol=Position2D.new()
 var rot=0
 func _ready():
-	
+	active=get_parent().Status.has("active")
 	if get_child_count()==0:
 		rot=get_parent().rotation
 		var shape=CollisionShape2D.new();lineCol.global_position=Vector2.ZERO
