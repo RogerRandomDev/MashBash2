@@ -42,7 +42,7 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(131088, 655362, 0, 131087, 2, 0, 131086, 2, 0, 131085, 589826, 0, 11, 458754, 0, 12, 2, 0, 13, 655362, 0, 65549, 65538, 0, 196624, 589826, 0, 196625, 2, 0, 65547, 524290, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 2, 0, 524290, 2, 0, 524297, 655362, 0)
 
 [node name="items" type="Node2D" parent="."]
-z_index = 1
+z_index = 2
 
 [node name="itemResource2" type="Position2D" parent="items" groups=["teleporter0B"]]
 position = Vector2(144, 8)

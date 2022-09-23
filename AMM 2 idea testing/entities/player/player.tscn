@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://igajlkjrdxur" path="res://entities/player/dust.png" id="6_pggit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yocgs"]
-size = Vector2(7.475, 6)
+size = Vector2(7.475, 5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oy8eb"]
 shader = ExtResource("2_xfmht")
@@ -90,7 +90,6 @@ texture_repeat = 1
 material = SubResource("ShaderMaterial_oy8eb")
 frames = ExtResource("2_ib2wq")
 animation = &"idle"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

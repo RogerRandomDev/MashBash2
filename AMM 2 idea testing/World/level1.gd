@@ -2,4 +2,4 @@ extends Node2D
 
 
 
-func _ready():Word.swapsLeft=2
+func _ready():Word.swapsLeft=3
