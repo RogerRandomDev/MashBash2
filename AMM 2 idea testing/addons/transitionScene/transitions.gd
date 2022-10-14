@@ -7,9 +7,9 @@ func transitionScene(target):
 	$AnimationPlayer.play("load")
 
 
-
 func finishLoadScene():
-	get_tree().change_scene(toScene)
+	if toScene=="":get_tree().reload_current_scene()
+	else:get_tree().change_scene(toScene)
 
 func playScene():
 	get_tree().paused=false;Pausemenu.canPause=true

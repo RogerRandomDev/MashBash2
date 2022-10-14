@@ -20,7 +20,7 @@ func _ready():
 
 
 func _input(event):
-	if !canChange:return
+	if !canChange||Pausemenu.visible:return
 	if player==null||player.locked:return
 	#opens the hovered item
 	if Input.is_action_just_pressed("confirm")&&hoveringObjects!=[]&&!wordSwap.get_parent().visible:
@@ -31,7 +31,7 @@ func _input(event):
 		storedWords=lastStored.duplicate(true)
 		updateSwapper()
 	#closes the swapper and updates the item to match it
-	if Input.is_action_just_pressed("misc")&&wordSwap.get_parent().visible:
+	if (Input.is_action_just_pressed("misc")||Input.is_action_just_pressed("exit"))&&wordSwap.get_parent().visible:
 		if swapped:
 			hoveringObject.Status=(wordSwap.BaseText.split(" "))
 			hoveringObject.updateWordsFromOthers()

@@ -29,7 +29,8 @@ func _ready():
 
 
 func physics_process():
-	if !active:return;
+	if !active:
+		for collider in lineCol.get_children():collider.queue_free();return;
 	updateBeam()
 
 
