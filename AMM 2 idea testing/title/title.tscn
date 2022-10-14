@@ -206,5 +206,6 @@ libraries = {
 [connection signal="pressed" from="Menu/play" to="." method="pressPlay"]
 [connection signal="focus_entered" from="Menu/settings" to="." method="play_focus" binds= ["settings"]]
 [connection signal="mouse_entered" from="Menu/settings" to="." method="play_focus" binds= ["settings"]]
+[connection signal="pressed" from="Menu/settings" to="." method="_on_settings_pressed"]
 [connection signal="focus_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
 [connection signal="mouse_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]

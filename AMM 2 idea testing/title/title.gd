@@ -24,4 +24,5 @@ func pressPlay():
 
 
 func _on_settings_pressed():
-	pass # Replace with function body.
+	$Menu/settings.queue_free()
+	Sound.play("no_man_voice")
