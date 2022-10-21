@@ -9,7 +9,7 @@ signal buttonReleased()
 var pressedBy=[]
 func _ready():
 	if Engine.is_editor_hint():return
-	root=get_parent();var groups=root.get_groups()
+	root=get_parent();var _groups=root.get_groups()
 	toggle=root.Status.has("toggle")
 	
 	

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ck485mkq3fnfr"]
+
+[ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_mrkhi"]
+
+[resource]
+script = ExtResource("1_mrkhi")
+dialogue = PackedStringArray("For this, you will be using the vacuum a lot!", "Well, i call it a vacuum, but really.", "You just inhale REALLY hard.", "Honestly impressive, to be honest, considering you are wearing a helmet.", "Anyway, back to the level!", "You shouldn\'t need any swaps, but here, have two anyways.")
+dialogueFaces = [0, 0, 0, 0, 0, 0]
+dialogueActions = [null, null, null, null, null, null]

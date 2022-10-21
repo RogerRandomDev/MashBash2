@@ -1,17 +1,36 @@
-[gd_resource type="ParticlesMaterial" format=3 uid="uid://j0arxukiivtu"]
+[gd_resource type="ParticlesMaterial" load_steps=5 format=3 uid="uid://crd35051u0275"]
+
+[sub_resource type="Gradient" id="Gradient_w202f"]
+offsets = PackedFloat32Array(0.120567, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8xhci"]
+gradient = SubResource("Gradient_w202f")
+width = 64
+
+[sub_resource type="Curve" id="Curve_3rovo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 0.309091), -2.64848, -0.495652, 0, 0, Vector2(1, 0.209091), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fiv5q"]
+width = 64
+curve = SubResource("Curve_3rovo")
 
 [resource]
 emission_shape = 3
-emission_box_extents = Vector3(0, 8, 0)
+emission_box_extents = Vector3(1, 8, 1)
 particle_flag_disable_z = true
-direction = Vector3(-1, 0, 0)
 spread = 0.0
-gravity = Vector3(-64, 0, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-radial_accel_min = -12.5
-radial_accel_max = -12.5
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -30
+initial_velocity_max = -30
+orbit_velocity_min = -0.005
+orbit_velocity_max = -0.005
+radial_accel_min = -10.0
+radial_accel_max = -10.0
 angle_min = -180.0
 angle_max = 180.0
-scale_min = 0.25
-scale_max = 0.25
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_fiv5q")
+color_ramp = SubResource("GradientTexture1D_8xhci")

@@ -18,7 +18,9 @@ func _ready():
 		shape.shape.extents=Vector2(2,4);shape.position.x=2;shape.position.y=4
 		prepBeam()
 	updateBeam()
-	add_child(col);add_child(lineCol)
+	if col.get_parent()==null:add_child(col)
+	if lineCol.get_parent()==null:add_child(lineCol)
+	
 	sprite=get_parent().get_node("Sprite2D")
 	sprite.texture=load("res://entities/items/laserShooter/laserShooter.png")
 	sprite.centered=false;sprite.z_index+=1;lineCol.top_level=true

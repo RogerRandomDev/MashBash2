@@ -96,12 +96,15 @@ func updateOutputs():
 				output.get_node("ScriptHolder").logicAction(root.sprite.texture==states.ON)
 			else:
 				if root.sprite.texture==states.ON:
-					if !output.Status.has("locked"):output.Status.append("open")
-					else:output.Status.remove_at(output.Status.find("locked"))
+					if !output.Status.has(output.HeldResource.logicOff
+					):output.Status.append(output.HeldResource.logicOn)
+					else:output.Status.remove_at(
+						output.Status.find(output.HeldResource.logicOff))
 				else:
 					#this stops you from farming one door for open and prevents you from pulling stuff i dont like
-					if output.Status.has("open"):output.Status.remove_at(output.Status.find("open"))
-					else:output.Status.append("locked")
+					if output.Status.has(output.HeldResource.logicOn
+					):output.Status.remove_at(output.Status.find(output.HeldResource.logicOn))
+					else:output.Status.append(output.HeldResource.logicOff)
 				
 				output.Status.append("_")
 				output.modifyTo(output.Status)

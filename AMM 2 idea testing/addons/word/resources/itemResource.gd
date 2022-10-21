@@ -12,6 +12,7 @@ signal use_item(usedBy,action)
 @export var HeldResource:Resource=itemContents.new()
 
 @export var Status:PackedStringArray
+@export var HiddenStatus:PackedStringArray
 @export var glow:bool=false
 var sprite=Sprite2D.new()
 var descriptives=HBoxContainer.new()
@@ -59,6 +60,7 @@ func _ready():
 		hold.position+=size/2.
 	descriptiveLabel.visible=false
 	descriptiveScript.name="ScriptHolder"
+	Status.append_array(HiddenStatus)
 
 
 func makeMeRigid():

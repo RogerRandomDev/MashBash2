@@ -39,14 +39,14 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(327693, 1310720, 0, 327694, 655360, 0, 327695, 655360, 0, 327696, 655360, 0, 327697, 655360, 0, 327698, 655360, 0, 327699, 655360, 0, 327700, 720896, 0, 720909, 1310720, 0, 720910, 655360, 0, 720911, 655360, 0, 720912, 655360, 0, 720913, 655360, 0, 720914, 655360, 0, 720915, 655360, 0, 720916, 720896, 0, 983053, 655360, 0, 983060, 720896, 0, 983054, 655360, 0, 983055, 655360, 0, 983056, 655360, 0, 983057, 655360, 0, 983058, 655360, 0, 983059, 655360, 0, 983052, 655360, 0, 983051, 655360, 0, 983050, 655360, 0, 983049, 655360, 0, 983047, 655360, 0, 983046, 655360, 0, 983045, 655360, 0, 983044, 655360, 0, 983043, 655360, 0, 983042, 655360, 0, 983041, 655360, 0, 983040, 655360, 0, 393229, 786432, 0, 458765, 786432, 0, 524301, 786432, 0, 589837, 786432, 0, 786445, 786432, 0, 851981, 786432, 0, 262157, 786432, 0, 196621, 786432, 0, 65549, 786432, 0, 131085, 786432, 0, 655378, 786432, 0, 458770, 851968, 0, 524306, 786432, 0, 589842, 786432, 0)
+layer_1/tile_data = PackedInt32Array(327693, 1310720, 0, 327694, 655360, 0, 327695, 655360, 0, 327696, 655360, 0, 327697, 655360, 0, 327698, 655360, 0, 327699, 655360, 0, 327700, 720896, 0, 720909, 1310720, 0, 720910, 655360, 0, 720911, 655360, 0, 720912, 655360, 0, 720913, 655360, 0, 720914, 655360, 0, 720915, 655360, 0, 720916, 720896, 0, 983053, 655360, 0, 983060, 720896, 0, 983054, 655360, 0, 983055, 655360, 0, 983056, 655360, 0, 983057, 655360, 0, 983058, 655360, 0, 983059, 655360, 0, 983052, 655360, 0, 983051, 655360, 0, 983050, 655360, 0, 983049, 655360, 0, 983047, 655360, 0, 983046, 655360, 0, 983045, 655360, 0, 983044, 655360, 0, 983043, 655360, 0, 983042, 655360, 0, 983041, 655360, 0, 393229, 786432, 0, 458765, 786432, 0, 524301, 786432, 0, 589837, 786432, 0, 786445, 786432, 0, 851981, 786432, 0, 262157, 786432, 0, 196621, 786432, 0, 65549, 786432, 0, 131085, 786432, 0, 655378, 786432, 0, 458770, 851968, 0, 524306, 786432, 0, 589842, 786432, 0, 983040, 655360, 0)
 layer_2/name = "Wires"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 2, 0, 524299, 2, 0, 524300, 393218, 0, 524301, 2, 0, 524302, 2, 0, 524303, 2, 0, 524304, 2, 0, 524305, 2, 0, 524306, 2, 0, 589830, 589826, 0, 589831, 2, 0, 589832, 655362, 0, 655368, 589826, 0, 655369, 2, 0, 655370, 655362, 0, 720906, 65538, 0, 720908, 65538, 0, 786444, 131074, 0, 786445, 2, 0, 786446, 2, 0, 524292, 458754, 0, 524293, 2, 0, 589828, 65538, 0, 655364, 65538, 0, 720900, 65538, 0, 786436, 65538, 0, 851972, 65538, 0, 917508, 589826, 0, 917509, 2, 0, 917510, 2, 0, 917512, 655362, 0, 917511, 2, 0, 19, 65538, 0, 65555, 65538, 0, 131091, 65538, 0, 196627, 65538, 0, 655380, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 655377, 2, 0, 655378, 2, 0, 655379, 2, 0, 655373, 2, 0, 655381, 524290, 0, 458773, 65538, 0, 524309, 65538, 0, 589845, 65538, 0, 262165, 655362, 0, 327701, 65538, 0, 393237, 65538, 0, 262163, 589826, 0, 262164, 2, 0, 524307, 524290, 0, 327699, 458754, 0, 393235, 65538, 0, 458771, 65538, 0, 327700, 2, 0, 786447, 393218, 0, 786448, 2, 0, 786449, 2, 0, 786450, 2, 0, 786451, 2, 0, 786452, 2, 0, 589836, 65538, 0, 655372, 65538, 0, 851980, 65538, 0, 917516, 589826, 0, 786443, 2, 0, 786442, 589826, 0, 851983, 65538, 0, 917518, 2, 0, 917519, 524290, 0, 1572864, 589824, 0, 1572865, 655360, 0, 1572866, 655360, 0, 1572867, 655360, 0, 1572868, 655360, 0, 1572869, 655360, 0, 1572870, 655360, 0, 1572871, 655360, 0, 1572872, 655360, 0, 1572873, 655360, 0, 1572874, 655360, 0, 1572875, 655360, 0, 1572876, 655360, 0, 1572877, 655360, 0, 1572878, 655360, 0, 1572879, 655360, 0, 1572880, 655360, 0, 1572881, 655360, 0, 1572882, 655360, 0, 1572883, 655360, 0, 1572884, 720896, 0)
+layer_2/tile_data = PackedInt32Array(524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 2, 0, 524299, 2, 0, 524300, 393218, 0, 524301, 2, 0, 524302, 2, 0, 524303, 2, 0, 524304, 2, 0, 524305, 2, 0, 524306, 2, 0, 589830, 589826, 0, 589831, 2, 0, 589832, 655362, 0, 655368, 589826, 0, 655369, 2, 0, 655370, 655362, 0, 720906, 65538, 0, 720908, 65538, 0, 786444, 131074, 0, 786445, 2, 0, 786446, 2, 0, 524292, 458754, 0, 524293, 2, 0, 589828, 65538, 0, 655364, 65538, 0, 720900, 65538, 0, 786436, 65538, 0, 851972, 65538, 0, 917508, 589826, 0, 917509, 2, 0, 917510, 2, 0, 917512, 655362, 0, 917511, 2, 0, 19, 65538, 0, 65555, 65538, 0, 131091, 65538, 0, 196627, 65538, 0, 655380, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 655377, 2, 0, 655378, 2, 0, 655379, 2, 0, 655373, 2, 0, 655381, 524290, 0, 458773, 65538, 0, 524309, 65538, 0, 589845, 65538, 0, 262165, 655362, 0, 327701, 65538, 0, 393237, 65538, 0, 262163, 589826, 0, 262164, 2, 0, 524307, 524290, 0, 327699, 458754, 0, 393235, 65538, 0, 458771, 65538, 0, 327700, 2, 0, 786447, 393218, 0, 786448, 2, 0, 786449, 2, 0, 786450, 2, 0, 786451, 2, 0, 786452, 2, 0, 589836, 65538, 0, 655372, 65538, 0, 851980, 65538, 0, 917516, 589826, 0, 786443, 2, 0, 786442, 589826, 0, 851983, 65538, 0, 917518, 2, 0, 917519, 524290, 0, 1572864, 589824, 0, 1572865, 655360, 0, 1572866, 655360, 0, 1572867, 655360, 0, 1572868, 655360, 0, 1572869, 655360, 0, 1572870, 655360, 0, 1572871, 655360, 0, 1572872, 655360, 0, 1572873, 655360, 0, 1572874, 655360, 0, 1572875, 655360, 0, 1572876, 655360, 0, 1572877, 655360, 0, 1572878, 655360, 0, 1572879, 655360, 0, 1572880, 655360, 0, 1572881, 655360, 0, 1572882, 655360, 0, 1572883, 655360, 0, 1572884, 720896, 0, 983040, 655362, 0, 1048576, 65538, 0, 1114113, 2, 0, 1114114, 2, 0, 1114115, 2, 0, 1114116, 2, 0, 1114117, 2, 0, 1114118, 2, 0, 1114119, 2, 0, 1114120, 524290, 0, 1048584, 65538, 0, 983048, 65538, 0)
 
 [node name="items" type="Node2D" parent="."]
 z_index = 2
@@ -57,6 +57,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_rab1d")
 Status = PackedStringArray("open")
+HiddenStatus = PackedStringArray()
 
 [node name="itemResource4" type="Position2D" parent="items" groups=["INP_room2/itemResource6", "INP_room3/itemResource6", "OUT_itemResource33"]]
 position = Vector2(48, 64)
@@ -64,6 +65,15 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_a4qpx")
 Status = PackedStringArray("and")
+HiddenStatus = PackedStringArray()
+
+[node name="itemResource8" type="Position2D" parent="items" groups=["INP_itemResource4", "OUT_itemResource34"]]
+position = Vector2(0, 137)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("7_a4qpx")
+Status = PackedStringArray("nor")
+HiddenStatus = PackedStringArray()
 
 [node name="itemResource5" type="Position2D" parent="items" groups=["INP_room1/itemResource6", "OUT_itemResource2"]]
 position = Vector2(0, -256)
@@ -71,6 +81,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_a4qpx")
 Status = PackedStringArray("and")
+HiddenStatus = PackedStringArray()
 
 [node name="itemResource6" type="Position2D" parent="items" groups=["INP_room2/itemResource6", "OUT_itemResource3"]]
 position = Vector2(8, -256)
@@ -78,6 +89,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_a4qpx")
 Status = PackedStringArray("and")
+HiddenStatus = PackedStringArray()
 
 [node name="itemResource7" type="Position2D" parent="items" groups=["INP_room3/itemResource6", "OUT_itemResource3"]]
 position = Vector2(16, -256)
@@ -85,6 +97,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_a4qpx")
 Status = PackedStringArray("nor")
+HiddenStatus = PackedStringArray()
 
 [node name="itemResource2" type="Position2D" parent="items"]
 position = Vector2(104, 80)
@@ -92,6 +105,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_rab1d")
 Status = PackedStringArray()
+HiddenStatus = PackedStringArray()
 
 [node name="itemResource3" type="Position2D" parent="items"]
 position = Vector2(104, 112)
@@ -99,6 +113,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_rab1d")
 Status = PackedStringArray("locked")
+HiddenStatus = PackedStringArray()
 
 [node name="itemResource33" type="Position2D" parent="items"]
 position = Vector2(64, 120)
@@ -106,6 +121,15 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_rab1d")
 Status = PackedStringArray()
+HiddenStatus = PackedStringArray()
+
+[node name="itemResource34" type="Position2D" parent="items"]
+position = Vector2(0, 123)
+z_index = 2
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("7_78tmm")
+Status = PackedStringArray()
+HiddenStatus = PackedStringArray()
 
 [node name="room1" type="Node2D" parent="items"]
 
@@ -115,6 +139,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
 Status = PackedStringArray("reflective")
+HiddenStatus = PackedStringArray()
 
 [node name="itemResource7" type="Position2D" parent="items/room1"]
 position = Vector2(126, 14)
@@ -122,6 +147,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_2c7ik")
 Status = PackedStringArray("active")
+HiddenStatus = PackedStringArray()
 makeRigid = true
 
 [node name="itemResource6" type="Position2D" parent="items/room1"]
@@ -131,6 +157,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_4un7n")
 Status = PackedStringArray("")
+HiddenStatus = PackedStringArray()
 
 [node name="room2" type="Node2D" parent="items"]
 
@@ -140,6 +167,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
 Status = PackedStringArray("reflective")
+HiddenStatus = PackedStringArray()
 
 [node name="itemResource7" type="Position2D" parent="items/room2"]
 position = Vector2(120, 67)
@@ -147,6 +175,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_2c7ik")
 Status = PackedStringArray("active")
+HiddenStatus = PackedStringArray()
 makeRigid = true
 
 [node name="itemResource8" type="Position2D" parent="items/room2"]
@@ -155,6 +184,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_2c7ik")
 Status = PackedStringArray("reflective", "heavy")
+HiddenStatus = PackedStringArray()
 makeRigid = true
 
 [node name="itemResource6" type="Position2D" parent="items/room2"]
@@ -163,6 +193,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_4un7n")
 Status = PackedStringArray("")
+HiddenStatus = PackedStringArray()
 
 [node name="room3" type="Node2D" parent="items"]
 
@@ -173,6 +204,7 @@ z_index = 2
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_tqe0v")
 Status = PackedStringArray("heavy")
+HiddenStatus = PackedStringArray()
 
 [node name="flyingBotPosition" parent="." instance=ExtResource("12_q3dv6")]
 position = Vector2(109, 24)

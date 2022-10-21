@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bcybu8d6mkcul"]
+[gd_scene load_steps=14 format=3 uid="uid://bcybu8d6mkcul"]
 
 [ext_resource type="Script" path="res://addons/pauseMenu/pausemenu.gd" id="1_8qwra"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_oi0mr"]
@@ -8,22 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://chm7lg4mf1ffm" path="res://entities/items/logicGate/nor.png" id="4_i5165"]
 [ext_resource type="Texture2D" uid="uid://v37x57wbvvlx" path="res://entities/items/logicGate/xor.png" id="5_imvbf"]
 [ext_resource type="Texture2D" uid="uid://m1400m6kiir4" path="res://entities/items/logicGate/xnor.png" id="6_4sf38"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwo3b"]
-bg_color = Color(0.227451, 0.133333, 0.309804, 1)
-border_width_left = 4
-border_width_right = 4
-border_color = Color(0.4, 0.321569, 0.419608, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-corner_detail = 1
-shadow_color = Color(1, 1, 1, 0.6)
-shadow_size = 2
-anti_aliasing_size = 1.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28ak0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgrgk"]
 
@@ -92,8 +76,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/guide_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 12
-theme_override_styles/bg = SubResource("StyleBoxFlat_dwo3b")
-theme_override_styles/bg_focus = SubResource("StyleBoxEmpty_28ak0")
 theme_override_styles/selected = SubResource("StyleBoxEmpty_tgrgk")
 theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_3hfxg")
 theme_override_styles/cursor = SubResource("StyleBoxEmpty_yemlc")

@@ -1,15 +1,15 @@
+res://entities/player
+res://addons/MASHLOG/dialogueSets
 res://addons/transitionScene
 res://
 res://entities/shaderBased
 res://addons/achievements/achievementList
 res://addons/achievements
-res://addons/MASHLOG/dialogueSets
 res://entities/items/laserShooter
 res://addons/pauseMenu
 res://addons/MASHLOG/dialogueSets/
 res://TileMap
 res://entities/items/box
-res://entities/player
 res://entities/items/teleporter/
 res://entities/items/toy
 res://addons/MASHLOG/dialoguebox
