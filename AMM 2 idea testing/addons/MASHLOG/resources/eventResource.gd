@@ -43,7 +43,7 @@ func trigger():
 #very useful for the purpose I gave it
 func getActionVar(_actionId):
 	var inp=ActionVariableType[_actionId*2+1]
-	var out=str2var(inp)
+	var out=str_to_var(inp)
 	if out==null&&inp!="null":return inp
 	return out
 

@@ -1,35 +1,36 @@
-[gd_scene load_steps=14 format=3 uid="uid://8cca7xbnit4g"]
+[gd_scene load_steps=15 format=3 uid="uid://8cca7xbnit4g"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_ffxdt"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_hk07f"]
 [ext_resource type="Shader" path="res://World/background.gdshader" id="2_ult1y"]
-[ext_resource type="FontFile" uid="uid://bv5bowfcrj3mo" path="res://fonts/Retro Gaming.ttf" id="3_iy4j3"]
+[ext_resource type="FontFile" uid="uid://b6wscsfjia7g6" path="res://fonts/Retro Gaming.ttf" id="3_iy4j3"]
 [ext_resource type="Theme" uid="uid://2rdsr31cvlso" path="res://title/titleTheme.tres" id="4_cd6e5"]
 [ext_resource type="Shader" path="res://title/buttonHover.gdshader" id="5_d5uk3"]
+[ext_resource type="Environment" uid="uid://1n3uhupg7o3n" path="res://default_env.tres" id="7_e54jt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4m5i"]
 shader = ExtResource("2_ult1y")
-aspect = 8.0
-basePulse = 2.0
-color1 = Quaternion(0, 0.3, 0.6, 1)
-color2 = Quaternion(0.6, 0, 0.3, 1)
-dataspeed = 0.375
-doInput = true
-height = 0.5
-line_freq = 3.0
-numBlocks = 32
-scale = Vector2(0.013, 0.025)
-size = null
-speed = 0.375
-ySpread = null
+shader_parameter/aspect = 8.0
+shader_parameter/basePulse = 2.0
+shader_parameter/color1 = Quaternion(0, 0.3, 0.6, 1)
+shader_parameter/color2 = Quaternion(0.6, 0, 0.3, 1)
+shader_parameter/dataspeed = 0.375
+shader_parameter/doInput = true
+shader_parameter/height = 0.5
+shader_parameter/line_freq = 3.0
+shader_parameter/numBlocks = 32
+shader_parameter/scale = Vector2(0.013, 0.025)
+shader_parameter/size = null
+shader_parameter/speed = 0.375
+shader_parameter/ySpread = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfos6"]
 shader = ExtResource("5_d5uk3")
-shake_block_size = 30.5
-shake_color_rate = 0.025
-shake_power = 0.013
-shake_rate = 0.25
-shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.025
+shader_parameter/shake_power = 0.013
+shader_parameter/shake_rate = 0.25
+shader_parameter/shake_speed = 5.0
 
 [sub_resource type="Animation" id="Animation_k2yn3"]
 resource_name = "load"
@@ -127,6 +128,8 @@ _data = {
 }
 
 [node name="title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource("1_hk07f")
@@ -138,6 +141,8 @@ offset_right = 1024.0
 offset_bottom = 600.0
 
 [node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 512.0
 offset_top = 300.0
 offset_right = 512.0
@@ -200,6 +205,9 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_vwvg1")
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("7_e54jt")
 
 [connection signal="focus_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="mouse_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]

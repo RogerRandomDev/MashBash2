@@ -41,12 +41,12 @@ func _ready():
 	call_deferred('update_label')
 	if Engine.is_editor_hint():return
 	for output in outputs.size():outputs[output]=get_node(outputs[output])
-	connect("buttonPressed",updateSelf,[true])
-	connect("buttonReleased",updateSelf,[false])
+	connect("buttonPressed",func(e=true):updateSelf(e))
+	connect("buttonReleased",func(e=false):updateSelf(e))
 	for input in inputs:
 		var _input=get_node(input)
-		_input.connect("buttonPressed",activateInput,[_input])
-		_input.connect("buttonReleased",releaseInput,[_input])
+		_input.connect("buttonPressed",func(e=_input):activateInput(e))
+		_input.connect("buttonReleased",func(e=_input):releaseInput(e))
 	checkLogic(activeInputs.size(),inputs.size())
 
 
@@ -68,7 +68,7 @@ func updateSelf(isPressed):
 func updateOutputs():
 	Word.swapped=true
 	for output in outputs:
-		if(output.get_class()=="Position2D")&& !output.Status.has("locked"):
+		if(output.get_class()=="Marker2D")&& !output.Status.has("locked"):
 			if texture==states.ON:output.Status.append("open")
 			else:
 				#this stops you from farming one door for open and prevents you from pulling stuff i dont like

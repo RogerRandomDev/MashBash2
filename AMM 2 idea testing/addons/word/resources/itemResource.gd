@@ -1,5 +1,5 @@
 @tool
-extends Position2D
+extends Marker2D
 class_name itemResource
 #signals for the node to emit
 #mainly just used for the tutorial and events
@@ -9,7 +9,7 @@ signal swappedWord(start,end)
 signal changedStatus(status)
 signal use_item(usedBy,action)
 
-@export var HeldResource:Resource=itemContents.new()
+@export var HeldResource=itemContents.new()
 
 @export var Status:PackedStringArray
 @export var HiddenStatus:PackedStringArray
@@ -24,6 +24,7 @@ const glowShader=preload("res://entities/shaderBased/itemglow.tres")
 @export var makeRigid:bool=false
 #prepares basic setup for items
 func _ready():
+	Status=Status.duplicate()
 	add_to_group("item")
 	#makes it a rigidbody
 	if !Engine.is_editor_hint():
@@ -60,7 +61,7 @@ func _ready():
 		hold.position+=size/2.
 	descriptiveLabel.visible=false
 	descriptiveScript.name="ScriptHolder"
-	Status.append_array(HiddenStatus)
+	if !Engine.is_editor_hint():Status.append_array(HiddenStatus)
 
 
 func makeMeRigid():
@@ -102,7 +103,7 @@ func removeDescriptive(id):
 
 #will either change sprite if it has one for the descriptive, elsewise is just adds the icon above to show it
 func applyDescriptive(descriptive):
-	if descriptive=="":return
+	if descriptive==""||Engine.is_editor_hint():return
 	#if sprite changes with descriptive, it will show it here
 	if HeldResource.has_sprite(descriptive):
 		sprite.texture=HeldResource.Sprites[descriptive]

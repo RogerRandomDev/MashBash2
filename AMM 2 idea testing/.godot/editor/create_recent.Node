@@ -1,12 +1,13 @@
+itemResource (itemResource.gd)
+WorldEnvironment
+Sprite2D
 Button
 Button2D (button.gd)
 Node2D
 CollisionShape2D
 Area2D
 Label
-itemResource (itemResource.gd)
 itemStatus (DescriptiveScriptBase.gd)
-Sprite2D
 ColorRect
 AnimationPlayer
 CanvasLayer
@@ -24,8 +25,6 @@ VBoxContainer
 PanelContainer
 CanvasGroup
 logicGate2D (logicGate2D.gd)
-RigidDynamicBody2D
 nextLevel (nextlevel.gd)
-Position2D
 AnimationTree
 RichTextLabel

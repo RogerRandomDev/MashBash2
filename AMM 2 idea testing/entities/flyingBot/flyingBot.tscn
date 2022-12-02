@@ -13,7 +13,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.25098)
 gradient = SubResource("Gradient_bdndb")
 width = 32
 
-[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_6pkbd"]
+[sub_resource type="ParticleProcessMaterial" id="ParticlesMaterial_6pkbd"]
 particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
 spread = 0.0
@@ -24,7 +24,7 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 0.5
 scale_max = 0.5
-color = Color(0.1, 2, 2, 1)
+color = Color(0.2, 4, 4, 1)
 color_ramp = SubResource("GradientTexture1D_5bxxy")
 
 [sub_resource type="Animation" id="Animation_l24ou"]
@@ -82,35 +82,33 @@ position = Vector2(0, -0.676079)
 texture = ExtResource("1_ujkue")
 
 [node name="BotwingL" type="Sprite2D" parent="flyingBot"]
+z_index = -1
 position = Vector2(-4, -2)
 rotation = -0.153948
-z_index = -1
 texture = ExtResource("3_w8gkr")
 offset = Vector2(-4, 2)
 
 [node name="HoverParticles" type="GPUParticles2D" parent="flyingBot/BotwingL"]
-position = Vector2(-4, 3)
 z_index = -1
+position = Vector2(-4, 3)
 amount = 4
 lifetime = 0.5
-local_coords = false
 process_material = SubResource("ParticlesMaterial_6pkbd")
 texture = ExtResource("4_w0ag8")
 
 [node name="BotwingR" type="Sprite2D" parent="flyingBot"]
+z_index = -1
 position = Vector2(4, -2)
 rotation = 0.153948
-z_index = -1
 texture = ExtResource("3_w8gkr")
 offset = Vector2(4, 2)
 flip_h = true
 
 [node name="HoverParticles" type="GPUParticles2D" parent="flyingBot/BotwingR"]
-position = Vector2(5, 3)
 z_index = -1
+position = Vector2(5, 3)
 amount = 4
 lifetime = 0.5
-local_coords = false
 process_material = SubResource("ParticlesMaterial_6pkbd")
 texture = ExtResource("4_w0ag8")
 

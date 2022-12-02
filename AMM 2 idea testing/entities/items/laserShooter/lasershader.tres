@@ -4,19 +4,19 @@
 
 [resource]
 shader = ExtResource("1_5rg72")
-y_offset = 0.0
-thickness = 0.2
-speed = 1.827
-roughness = 10
-progress = 0.652
-outline_thickness = 0.08
-outline_glow = 0.414
-outline_color = null
-noise_scale = Vector2(0.5, 0.5)
-glow = 0.0
-frequency = 2
-fixed_edge_size = 0.05
-energy = 30.0
-color = null
-beams = 2
-beam_difference = 0.0
+shader_parameter/beam_difference = 0.0
+shader_parameter/beams = 2
+shader_parameter/color = null
+shader_parameter/energy = 30.0
+shader_parameter/fixed_edge_size = 0.05
+shader_parameter/frequency = 2
+shader_parameter/glow = 0.0
+shader_parameter/noise_scale = Vector2(0.5, 0.5)
+shader_parameter/outline_color = null
+shader_parameter/outline_glow = 0.414
+shader_parameter/outline_thickness = 0.08
+shader_parameter/progress = 0.652
+shader_parameter/roughness = 10
+shader_parameter/speed = 1.827
+shader_parameter/thickness = 0.2
+shader_parameter/y_offset = 0.0

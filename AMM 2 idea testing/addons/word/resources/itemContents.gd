@@ -19,7 +19,8 @@ func has_sprite(descriptive):
 #makes icon for descriptives
 func make_descriptive_icon(descriptive):
 	var icon = TextureRect.new()
-	if !File.file_exists("res://addons/word/descriptiveIcons/%s.png"%descriptive):return null
+	
+	if !FileAccess.file_exists("res://addons/word/descriptiveIcons/%s.png"%descriptive):return null
 	icon.texture=load("res://addons/word/descriptiveIcons/%s.png"%descriptive)
 	icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	icon.ignore_texture_size=true

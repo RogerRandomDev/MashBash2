@@ -17,8 +17,8 @@ func _ready():
 	area.connect("body_entered",checkTeleport)
 	area.position.y-=4
 	#links to the connected teleporter
-	for group in get_parent().get_groups():
-		group=String(group)
+	for _group in get_parent().get_groups():
+		var group=String(_group)
 		if group.contains("teleporter"):
 			var let="AB"[int(group.contains("A"))]
 			linkTo=group.left(group.length()-1)+let

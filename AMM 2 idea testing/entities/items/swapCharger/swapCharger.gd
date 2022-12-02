@@ -1,5 +1,5 @@
 @tool
-extends Position2D
+extends Marker2D
 class_name WordSwapCharger
 var check=PhysicsShapeQueryParameters2D.new()
 var sprite=Sprite2D.new()

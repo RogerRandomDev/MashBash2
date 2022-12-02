@@ -7,11 +7,14 @@ func _ready():
 	Mashlogue.load_dialogue(
 		load("res://addons/MASHLOG/dialogueSets/tutorialLevel.tres"),
 		load("res://addons/MASHLOG/iconsets/MASH.tres"))
+	#stops the generation signal from causing trouble
+	await get_tree().process_frame
+	
 	#checks if it was the player teleporting
-	$items/itemResource2.connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportFirst())
-	$items/itemResource6.connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportSecond())
-	$items/itemResource11.connect("use_item",func(ent,action):if(action=="openDoor"):doorFirst())
-	$items/itemResource13.connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):introduceWords())
+	$items/itemResource2.get_child(0).connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportFirst())
+	$items/itemResource6.get_child(0).connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportSecond())
+	$items/itemResource11.get_child(0).connect("use_item",func(ent,action):if(action=="openDoor"):doorFirst())
+	$items/itemResource13.get_child(0).connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):introduceWords())
 
 func teleportFirst():
 	if alreadyTeleported>0:return

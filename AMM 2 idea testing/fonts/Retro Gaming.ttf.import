@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bv5bowfcrj3mo"
+uid="uid://b6wscsfjia7g6"
 path="res://.godot/imported/Retro Gaming.ttf-dad03884b8f0a8a950353fb9a5b356c4.fontdata"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Retro Gaming.ttf-dad03884b8f0a8a950353fb9a5b3
 [params]
 
 Rendering=null
-antialiased=false
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
@@ -25,8 +25,13 @@ oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=true
-preload=[]
+compress=false
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"variation_embolden": 0.0
+}]
 language_support={}
 script_support={}
 opentype_features={}

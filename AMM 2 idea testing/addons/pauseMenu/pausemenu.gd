@@ -12,4 +12,5 @@ func _input(_event):
 
 
 func _on_button_pressed():
+	Word.storedWords=[]
 	Transitions.transitionScene("")

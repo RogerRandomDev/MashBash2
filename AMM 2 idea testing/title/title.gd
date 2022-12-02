@@ -20,7 +20,7 @@ func play_focus(node):
 
 
 func pressPlay():
-	get_tree().change_scene("res://World/level0.tscn")
+	get_tree().change_scene_to_file("res://World/level0.tscn")
 
 
 func _on_settings_pressed():

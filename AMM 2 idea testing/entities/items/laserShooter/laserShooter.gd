@@ -6,7 +6,7 @@ var t=0;
 var active:bool=true
 var sprite
 var col=StaticBody2D.new()
-var lineCol=Position2D.new()
+var lineCol=Marker2D.new()
 var rot=0
 func _ready():
 	active=get_parent().Status.has("active")

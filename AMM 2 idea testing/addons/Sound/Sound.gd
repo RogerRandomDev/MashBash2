@@ -9,12 +9,14 @@ func _ready():
 
 
 func play(sound,db=0.):
+	if sound=="no_man_voice":return
 	var player=AudioStreamPlayer.new()
 	add_child(player)
 	sounds.push_back(player)
 	player.volume_db=db
+	
 	player.stream=load("res://addons/Sound/Sounds/World/%s.wav"%sound)
-	player.connect("finished",removeSound,[player])
+	player.connect("finished",func(e=player):removeSound(e))
 	player.play()
 	
 #plays song

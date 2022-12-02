@@ -4,11 +4,19 @@
 
 [resource]
 background_mode = 3
-background_canvas_max_layer = 4
+background_color = Color(1, 1, 1, 1)
+background_canvas_max_layer = 26
 sky = SubResource("Sky_y1gkl")
+ambient_light_source = 1
+ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 1
-glow_intensity = 0.79
-glow_strength = 1.18
-glow_bloom = 1.0
+glow_enabled = true
+glow_intensity = 5.6
+glow_strength = 0.58
+glow_mix = 0.0
+glow_bloom = 0.05
+glow_blend_mode = 0
 adjustment_enabled = true
-adjustment_brightness = 0.01
+adjustment_brightness = 0.88
+adjustment_contrast = 1.13
+adjustment_saturation = 1.13

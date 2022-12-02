@@ -33,7 +33,7 @@ func _physics_process(_delta):
 	var vel=direction*SPEED*0.5
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index);var col=collision.get_collider()
-		var vel2=dir[str(closestAngle(round(rad2deg(collision.get_angle()))))]*vel
+		var vel2=dir[str(closestAngle(round(rad_to_deg(collision.get_angle()))))]*vel
 		if col.get_class()=="CharacterBody2D":
 			if !col.freeze:
 				col.velocity+=vel2

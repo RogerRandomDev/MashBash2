@@ -40,7 +40,7 @@ func checkValidBody(body,entering=true):
 	if body.get_class()=="TileMap":return null
 	var itemStat=body.get_node_or_null("ItemResource")
 	if itemStat==null:return checked
-	if itemStat.get_class()=="Position2D"&&itemStat.Status.has("light"):checked=!entering
+	if itemStat.get_class()=="Marker2D"&&itemStat.Status.has("light"):checked=!entering
 	
 	return checked
 	

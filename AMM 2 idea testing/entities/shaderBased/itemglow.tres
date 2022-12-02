@@ -4,6 +4,6 @@
 
 [resource]
 shader = ExtResource("1_4dayn")
-bloomIntensity = 0.9
-bloomRadius = 0.884
-bloomThreshold = 0.119
+shader_parameter/bloomIntensity = 0.9
+shader_parameter/bloomRadius = 0.884
+shader_parameter/bloomThreshold = 0.119

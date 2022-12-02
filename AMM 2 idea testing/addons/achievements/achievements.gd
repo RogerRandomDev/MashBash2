@@ -10,9 +10,8 @@ func _ready():
 
 #loads all our achievements for us
 func load_achievement_list():
-	var dir=Directory.new()
 	#opens the achievement folder to pull them all
-	dir.open(rootFile+"achievementList")
+	var dir= DirAccess.open(rootFile+"achievementList")
 	var _content=dir.get_files()
 	for fileName in _content:
 		var file=load(rootFile+"achievementList/%s"%fileName)

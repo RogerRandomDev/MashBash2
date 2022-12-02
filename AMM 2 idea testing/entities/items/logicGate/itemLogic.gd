@@ -24,7 +24,7 @@ func _ready():
 	logic=-1
 	justSwap=false
 	root=get_parent()
-	for id in root.Status:if gates.has(id):logic = gates.find_last(id)
+	for id in root.Status:if gates.has(id):logic = gates.find(id)
 	if logic!=-1:logicName.text=gates[logic]
 	logicName.visible=logic!=-1
 	logicSymbol.visible=logic!=-1
@@ -44,7 +44,7 @@ func _ready():
 		group=String(group);var mod=group.replace("INP_","").replace("OUT_","")
 		if mod==group:continue
 		var node=root.get_parent().get_parent().get_node(mod)
-		if(node.get_class()!="Position2D"):node=node.get_node("ItemResource")
+		if(node.get_class()!="Marker2D"):node=node.get_node("ItemResource")
 		if group.begins_with("INP_"):inputs.append(node)
 		else:outputs.append(node)
 	
@@ -56,16 +56,16 @@ func _ready():
 	call_deferred('update_label')
 	
 	Pausemenu.showgate.connect("toggled",func(toggled):logicName.visible=toggled)
-	connect("buttonPressed",updateSelf,[true])
-	connect("buttonReleased",updateSelf,[false])
+	connect("buttonPressed",func(e=true):updateSelf(e))
+	connect("buttonReleased",func(e=false):updateSelf(e))
 	
 	call_deferred('connectInputs')
 #connects to the inputs
 func connectInputs():
 	for _input in inputs:
 		var inp=_input.get_node_or_null("ScriptHolder")
-		inp.connect("buttonPressed",activateInput,[_input])
-		inp.connect("buttonReleased",releaseInput,[_input])
+		inp.connect("buttonPressed",func(e=_input):activateInput(e))
+		inp.connect("buttonReleased",func(e=_input):releaseInput(e))
 		if inp.get("pressed"):activateInput(inp)
 		else:if inp.get("active"):activateInput(inp)
 		else:if activeInputs.has(inp):releaseInput(inp)
@@ -74,7 +74,7 @@ func connectInputs():
 
 
 func activateInput(_input):
-	if activeInputs.has(_input)||_input.get_class()!="Position2D":return
+	if activeInputs.has(_input)||_input.get_class()!="Marker2D":return
 	activeInputs.append(_input)
 	checkLogic(activeInputs.size(),inputs.size())
 func releaseInput(_input):
@@ -91,7 +91,7 @@ func updateSelf(isPressed):
 func updateOutputs():
 	Word.swapped=true
 	for output in outputs:
-		if(output.get_class()=="Position2D"):
+		if(output.get_class()=="Marker2D"):
 			if output.get_node("ScriptHolder").has_method("logicAction"):
 				output.get_node("ScriptHolder").logicAction(root.sprite.texture==states.ON)
 			else:

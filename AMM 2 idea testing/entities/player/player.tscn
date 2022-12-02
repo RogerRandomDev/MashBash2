@@ -13,26 +13,26 @@ size = Vector2(7.475, 5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oy8eb"]
 shader = ExtResource("2_xfmht")
-line_scale = 0.875
+shader_parameter/line_scale = 0.875
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2ue7"]
 size = Vector2(7, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ld5a2"]
 shader = ExtResource("5_m0qxn")
-aspect = 8.0
-basePulse = 1.0
-color1 = Quaternion(0, 0.3, 0.6, 1)
-color2 = null
-dataspeed = 0.375
-doInput = false
-height = 0.5
-line_freq = 3.0
-numBlocks = 32
-scale = Vector2(0.05, 0.1)
-size = Vector2(0.3, 0.3)
-speed = 0.375
-ySpread = null
+shader_parameter/aspect = 8.0
+shader_parameter/basePulse = 1.0
+shader_parameter/color1 = Quaternion(0, 0.3, 0.6, 1)
+shader_parameter/color2 = null
+shader_parameter/dataspeed = 0.375
+shader_parameter/doInput = false
+shader_parameter/height = 0.5
+shader_parameter/line_freq = 3.0
+shader_parameter/numBlocks = 32
+shader_parameter/scale = Vector2(0.05, 0.1)
+shader_parameter/size = Vector2(0.3, 0.3)
+shader_parameter/speed = 0.375
+shader_parameter/ySpread = null
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ih6p0"]
 radius = 2.0
@@ -56,7 +56,7 @@ point_count = 3
 width = 64
 curve = SubResource("Curve_3rovo")
 
-[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_3rgib"]
+[sub_resource type="ParticleProcessMaterial" id="ParticlesMaterial_3rgib"]
 emission_shape = 3
 emission_box_extents = Vector3(1, 8, 1)
 particle_flag_disable_z = true
@@ -124,7 +124,6 @@ texture_repeat = 1
 material = SubResource("ShaderMaterial_oy8eb")
 frames = ExtResource("2_ib2wq")
 animation = &"idle"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -137,11 +136,10 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_s2ue7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 0.034)
 z_index = -50
+position = Vector2(0, 0.034)
 current = true
 zoom = Vector2(4, 4)
-smoothing_speed = 10.0
 script = ExtResource("4_kr2yj")
 
 [node name="background" type="ColorRect" parent="Camera2D"]
@@ -158,7 +156,7 @@ collision_mask = 0
 [node name="collision" type="CollisionShape2D" parent="playerchest"]
 shape = SubResource("CircleShape2D_ih6p0")
 
-[node name="holdingItem" type="Position2D" parent="."]
+[node name="holdingItem" type="Marker2D" parent="."]
 
 [node name="vaccuum" type="Area2D" parent="holdingItem"]
 position = Vector2(14, 0)
