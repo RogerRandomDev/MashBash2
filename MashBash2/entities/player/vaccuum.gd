@@ -3,7 +3,7 @@ extends Area2D
 
 #uses the vacuum
 func doVacuum(_delta):
-	get_parent().rotation=lerp_angle(get_parent().rotation,get_parent().global_position.angle_to_point(get_global_mouse_position()),_delta*10)
+	
 	for object in get_overlapping_bodies():
 		if object.get_class()!="CharacterBody2D":continue
 		var moveDir=(global_position-object.global_position)
@@ -12,3 +12,6 @@ func doVacuum(_delta):
 		#not a real fan of bethesda suing me for sending a random pixelart item
 		#into their games
 		if imp.length_squared()<10240:object.velocity=imp
+
+func rotateVacuum(rotBy):
+	get_parent().rotation=lerp_angle(get_parent().rotation,get_parent().global_position.angle_to_point(get_global_mouse_position()),rotBy)

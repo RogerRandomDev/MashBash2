@@ -145,7 +145,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/MASHLOG/plugin.cfg", "res://addons/word/plugin.cfg", "res://addons/achievements/plugin.cfg")
+enabled=PackedStringArray("res://addons/MASHLOG/plugin.cfg", "res://addons/achievements/plugin.cfg", "res://addons/word/plugin.cfg")
 
 [filesystem]
 
@@ -255,8 +255,26 @@ lMouse={
 
 [rendering]
 
+occlusion_culling/bvh_build_quality=0
+2d/shadow_atlas/size=1024
 textures/default_filters/anisotropic_filtering_level=0
+environment/ssao/quality=0
+environment/ssil/quality=0
+anti_aliasing/screen_space_roughness_limiter/enabled=false
+environment/glow/upscale_mode=0
+environment/volumetric_fog/volume_size=16
+environment/volumetric_fog/volume_depth=16
+environment/volumetric_fog/use_filter=0
 environment/defaults/default_clear_color=Color(0.321569, 0.290196, 0.427451, 1)
 2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
 textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
+
+[threading]
+
+worker_pool/use_system_threads_for_low_priority_tasks=false
+
+[xr]
+
+shaders/enabled=true

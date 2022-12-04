@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Paskowy.ttf-7612193f85d85ba8e2b70103afefcda2.
 [params]
 
 Rendering=null
-antialiased=false
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8

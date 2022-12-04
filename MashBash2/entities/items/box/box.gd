@@ -33,4 +33,4 @@ func checkButtons():
 	for shape in objects:
 		shape.collider=shape.collider.get_parent()
 		if shape.collider.name!="ScriptHolder":continue
-		if shape.collider.get("lastMode")!=null:shape.collider.forceUpdate()
+		if shape.collider.get("lastMode")!=null&&shape.collider.has_method("forceUpdate"):shape.collider.forceUpdate()

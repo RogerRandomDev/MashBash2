@@ -16,21 +16,15 @@
 script/source = "extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	world.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	Word.swapsLeft=5
 "
 
 [node name="level5" type="Node2D"]
 script = SubResource("GDScript_fb7va")
 
 [node name="Player" parent="." instance=ExtResource("2_0aoct")]
-position = Vector2(96, 43)
+position = Vector2(24, 120)
 canVacuum = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -43,7 +37,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(458759, 655360, 0, 458760, 655360, 0, 458761, 1376256, 0, 589833, 983040, 0, 524297, 983040, 0, 1114119, 983040, 0, 1048583, 983040, 0, 983047, 983040, 0, 917511, 983040, 0, 851975, 983040, 0, 786439, 983040, 0, 720903, 983040, 0, 655367, 1376256, 0, 524294, 786432, 0, 524293, 655360, 0, 524292, 655360, 0, 524291, 655360, 0, 524289, 655360, 0, 524288, 655360, 0, 524298, 655360, 0, 524299, 655360, 0, 524301, 655360, 0, 524302, 655360, 0, 524303, 655360, 0, 524304, 655360, 0, 589823, 655360, 0, 589830, 786432, 0, 458758, 1310720, 0, 655366, 589824, 0, 655369, 720896, 0, 1245183, 589824, 0, 1179648, 655360, 0, 1179649, 655360, 0, 1179650, 655360, 0, 1179651, 655360, 0, 1179652, 655360, 0, 1179653, 655360, 0, 1179654, 655360, 0, 1179655, 655360, 0, 1179656, 655360, 0, 1179657, 655360, 0, 1179658, 655360, 0, 1179659, 655360, 0, 1179660, 655360, 0, 1179661, 655360, 0, 1179662, 655360, 0, 1179663, 655360, 0, 1179664, 720896, 0, 393224, 786432, 0, 327688, 851968, 0, 131080, 786432, 0, 196616, 917504, 0, 65544, 786432, 0, 8, 786432, 0)
+layer_1/tile_data = PackedInt32Array(458759, 655360, 0, 458760, 655360, 0, 458761, 1376256, 0, 589833, 983040, 0, 524297, 983040, 0, 1114119, 983040, 0, 1048583, 983040, 0, 983047, 983040, 0, 917511, 983040, 0, 851975, 983040, 0, 786439, 983040, 0, 720903, 983040, 0, 655367, 1376256, 0, 524294, 786432, 0, 524293, 655360, 0, 524292, 655360, 0, 524291, 655360, 0, 524289, 655360, 0, 524288, 655360, 0, 524298, 655360, 0, 524299, 655360, 0, 524301, 655360, 0, 524302, 655360, 0, 524303, 655360, 0, 524304, 655360, 0, 589823, 655360, 0, 589830, 786432, 0, 458758, 1310720, 0, 655366, 589824, 0, 655369, 720896, 0, 1245183, 589824, 0, 1179648, 655360, 0, 1179649, 655360, 0, 1179650, 655360, 0, 1179651, 655360, 0, 1179652, 655360, 0, 1179653, 655360, 0, 1179654, 655360, 0, 1179655, 655360, 0, 1179656, 655360, 0, 1179657, 655360, 0, 1179658, 655360, 0, 1179659, 655360, 0, 1179660, 655360, 0, 1179661, 655360, 0, 1179662, 655360, 0, 1179663, 655360, 0, 1179664, 720896, 0, 393224, 786432, 0, 327688, 851968, 0, 131080, 786432, 0, 196616, 917504, 0, 65544, 786432, 0, 8, 786432, 0, 720912, 589824, 0, 393225, 1114112, 0)
 layer_2/name = "Wires"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -61,7 +55,7 @@ position = Vector2(60, 56)
 rotation = 3.14159
 script = ExtResource("4_nbukf")
 HeldResource = ExtResource("8_0oxqy")
-Status = PackedStringArray()
+Status = PackedStringArray("toggle")
 HiddenStatus = PackedStringArray()
 
 [node name="itemResource10" type="Marker2D" parent="items"]
@@ -73,9 +67,41 @@ HeldResource = ExtResource("8_0oxqy")
 Status = PackedStringArray()
 HiddenStatus = PackedStringArray()
 
-[node name="itemResource27" type="Marker2D" parent="items"]
+[node name="itemResource27" type="Marker2D" parent="items" groups=["INP_itemResource10", "INP_itemResource2", "INP_itemResource3", "INP_itemResource8", "INP_itemResource9", "OUT_itemResource23"]]
 z_index = 2
 position = Vector2(0, -184)
+script = ExtResource("4_nbukf")
+HeldResource = ExtResource("9_l5ewi")
+Status = PackedStringArray("and")
+HiddenStatus = PackedStringArray()
+
+[node name="itemResource31" type="Marker2D" parent="items" groups=["INP_itemResource", "OUT_itemResource22", "OUT_itemResource4"]]
+z_index = 2
+position = Vector2(0, -192)
+script = ExtResource("4_nbukf")
+HeldResource = ExtResource("9_l5ewi")
+Status = PackedStringArray("and")
+HiddenStatus = PackedStringArray()
+
+[node name="itemResource32" type="Marker2D" parent="items" groups=["INP_itemResource2", "OUT_itemResource26", "OUT_itemResource6"]]
+z_index = 2
+position = Vector2(8, -192)
+script = ExtResource("4_nbukf")
+HeldResource = ExtResource("9_l5ewi")
+Status = PackedStringArray("and")
+HiddenStatus = PackedStringArray()
+
+[node name="itemResource33" type="Marker2D" parent="items" groups=["INP_itemResource8", "OUT_itemResource25"]]
+z_index = 2
+position = Vector2(16, -192)
+script = ExtResource("4_nbukf")
+HeldResource = ExtResource("9_l5ewi")
+Status = PackedStringArray("and")
+HiddenStatus = PackedStringArray()
+
+[node name="itemResource34" type="Marker2D" parent="items"]
+z_index = 2
+position = Vector2(24, -192)
 script = ExtResource("4_nbukf")
 HeldResource = ExtResource("9_l5ewi")
 Status = PackedStringArray("and")
@@ -94,7 +120,7 @@ z_index = 2
 position = Vector2(96, 96)
 script = ExtResource("4_nbukf")
 HeldResource = ExtResource("7_lcdpe")
-Status = PackedStringArray()
+Status = PackedStringArray("reflective")
 HiddenStatus = PackedStringArray()
 makeRigid = true
 
@@ -159,7 +185,7 @@ makeRigid = true
 
 [node name="itemResource18" type="Marker2D" parent="items"]
 z_index = 2
-position = Vector2(39, 8)
+position = Vector2(39, 7)
 script = ExtResource("4_nbukf")
 HeldResource = ExtResource("7_lcdpe")
 Status = PackedStringArray("heavy", "reflective")
@@ -213,7 +239,7 @@ makeRigid = true
 
 [node name="itemResource12" type="Marker2D" parent="items"]
 z_index = 2
-position = Vector2(64, 96)
+position = Vector2(66, 104)
 script = ExtResource("4_nbukf")
 HeldResource = ExtResource("7_lcdpe")
 Status = PackedStringArray("heavy", "reflective")
@@ -261,7 +287,7 @@ z_index = 2
 position = Vector2(-8, 8)
 script = ExtResource("4_nbukf")
 HeldResource = ExtResource("10_g5g7u")
-Status = PackedStringArray("active")
+Status = PackedStringArray()
 HiddenStatus = PackedStringArray()
 
 [node name="itemResource24" type="Marker2D" parent="items"]
@@ -269,7 +295,7 @@ z_index = 2
 position = Vector2(51, 72)
 script = ExtResource("4_nbukf")
 HeldResource = ExtResource("10_g5g7u")
-Status = PackedStringArray("active")
+Status = PackedStringArray()
 HiddenStatus = PackedStringArray()
 
 [node name="itemResource5" type="Marker2D" parent="items"]

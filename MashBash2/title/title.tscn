@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8cca7xbnit4g"]
+[gd_scene load_steps=14 format=3 uid="uid://8cca7xbnit4g"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_ffxdt"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_hk07f"]
@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://b6wscsfjia7g6" path="res://fonts/Retro Gaming.ttf" id="3_iy4j3"]
 [ext_resource type="Theme" uid="uid://2rdsr31cvlso" path="res://title/titleTheme.tres" id="4_cd6e5"]
 [ext_resource type="Shader" path="res://title/buttonHover.gdshader" id="5_d5uk3"]
-[ext_resource type="Environment" uid="uid://1n3uhupg7o3n" path="res://default_env.tres" id="7_e54jt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4m5i"]
 shader = ExtResource("2_ult1y")
@@ -132,6 +131,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_hk07f")
 script = ExtResource("1_ffxdt")
 
@@ -205,9 +206,6 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_vwvg1")
 }
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("7_e54jt")
 
 [connection signal="focus_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="mouse_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]

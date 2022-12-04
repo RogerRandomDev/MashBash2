@@ -38,7 +38,7 @@ shader_parameter/ySpread = null
 radius = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwjad"]
-size = Vector2(32, 16)
+size = Vector2(26, 10)
 
 [sub_resource type="Gradient" id="Gradient_w202f"]
 offsets = PackedFloat32Array(0.120567, 1)
@@ -58,16 +58,16 @@ curve = SubResource("Curve_3rovo")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticlesMaterial_3rgib"]
 emission_shape = 3
-emission_box_extents = Vector3(1, 8, 1)
+emission_box_extents = Vector3(1, 5, 1)
 particle_flag_disable_z = true
 spread = 0.0
 gravity = Vector3(0, 0, 0)
 initial_velocity_min = -30.0
 initial_velocity_max = -30.0
-orbit_velocity_min = -0.01
-orbit_velocity_max = -0.01
-radial_accel_min = -10.0
-radial_accel_max = -10.0
+orbit_velocity_min = -0.02
+orbit_velocity_max = -0.02
+radial_accel_min = -12.5
+radial_accel_max = -12.5
 angle_min = -180.0
 angle_max = 180.0
 scale_min = 0.5
@@ -166,15 +166,15 @@ linear_damp = 0.0
 script = ExtResource("5_bfok5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="holdingItem/vaccuum"]
-position = Vector2(16, 0)
+position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_iwjad")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="holdingItem/vaccuum"]
-position = Vector2(32, 0)
+position = Vector2(22, 0)
 emitting = false
 amount = 32
-lifetime = 2.5
-speed_scale = 4.0
+lifetime = 1.5
+speed_scale = 3.0
 process_material = SubResource("ParticlesMaterial_3rgib")
 texture = ExtResource("6_pggit")
 

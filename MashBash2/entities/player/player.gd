@@ -40,19 +40,22 @@ func _physics_process(_delta):
 			else:position-=vel*0.25*_delta
 			
 	
-	if vacuum:$holdingItem/vaccuum.doVacuum(_delta)
+	if vacuum:
+		$holdingItem/vaccuum.rotateVacuum(_delta*10.0)
+		$holdingItem/vaccuum.doVacuum(_delta)
 
 
 
 
 func _input(_event):
-	
 	if locked:return
+	
 	if canVacuum:
-		if vacuum!=Input.is_action_pressed("lMouse"):
-			$holdingItem.rotation=$holdingItem.global_position.angle_to_point(get_global_mouse_position())
-		vacuum = Input.is_action_pressed("lMouse")
-		$holdingItem/vaccuum/GPUParticles2D.emitting=vacuum
+		var doVacuum=Input.is_action_pressed("lMouse")
+		if vacuum!=doVacuum:
+			$holdingItem/vaccuum.rotateVacuum(1.0)
+		set_deferred('vacuum',doVacuum)
+		$holdingItem/vaccuum/GPUParticles2D.emitting=doVacuum
 
 
 #gets angle closest to current

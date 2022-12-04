@@ -38,6 +38,7 @@ func physics_process():
 
 #deals with the laser line
 func updateBeam():
+	if !is_inside_tree():return
 	var lastBeam=beam.points
 	var _trans=global_position+Vector2(0,4).rotated(rot);
 	var hitWall=false;var _transNormal=Vector2(1,0)
@@ -49,7 +50,6 @@ func updateBeam():
 	while !hitWall&&_transNormal!=Vector2.ZERO&&loopCount<15:
 		beamLine.from=_trans;loopCount+=1
 		beamLine.to=_trans+(Vector2(2048,0).rotated(bouncedAngle))
-		
 		var check=get_world_2d().direct_space_state.intersect_ray(beamLine)
 		
 		if check:
@@ -94,8 +94,9 @@ func buildLaserCollision():
 		if lineChild.size()<=point:
 			var _col=StaticBody2D.new()
 			line=CollisionShape2D.new();line.shape=SegmentShape2D.new()
+			_col.collision_layer=32
 			_col.add_child(line)
-			lineCol.add_child(_col);_col.collision_layer=32
+			lineCol.add_child.call_deferred(_col);
 		else:line=lineChild[point].get_child(0)
 		line.shape.a=beam.points[point]
 		line.shape.b=beam.points[point+1]

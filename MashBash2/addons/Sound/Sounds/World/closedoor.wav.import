@@ -1,7 +1,7 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
+type="AudioStreamWAV"
 uid="uid://dq6jrqsjl8ln0"
 path="res://.godot/imported/closedoor.wav-2e562e4b0a8d9a7b34d24df3a0252aad.sample"
 
