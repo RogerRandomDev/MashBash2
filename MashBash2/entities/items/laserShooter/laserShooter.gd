@@ -7,8 +7,10 @@ var active:bool=true
 var sprite
 var col=StaticBody2D.new()
 var lineCol=Marker2D.new()
+var laserParticles=GPUParticles2D.new()
 var rot=0
 func _ready():
+	
 	active=get_parent().Status.has("active")
 	if get_child_count()==0:
 		rot=get_parent().rotation
@@ -16,6 +18,10 @@ func _ready():
 		col.add_child(shape)
 		shape.shape=RectangleShape2D.new()
 		shape.shape.extents=Vector2(2,4);shape.position.x=2;shape.position.y=4
+		laserParticles.process_material=load("res://entities/shaderBased/LaserOnWalls.tres")
+		laserParticles.amount=16
+		laserParticles.lifetime=0.33
+		add_child(laserParticles)
 		prepBeam()
 	updateBeam()
 	if col.get_parent()==null:add_child(col)
@@ -100,6 +106,9 @@ func buildLaserCollision():
 		else:line=lineChild[point].get_child(0)
 		line.shape.a=beam.points[point]
 		line.shape.b=beam.points[point+1]
+		laserParticles.emitting=true
+		laserParticles.global_position=line.shape.b
+		laserParticles.rotation=line.shape.a.angle_to(line.shape.b)
 	while lineChild.size()>beam.points.size()-1:
 		lineChild[lineChild.size()-1].queue_free()
 		lineChild.resize(lineChild.size()-1)

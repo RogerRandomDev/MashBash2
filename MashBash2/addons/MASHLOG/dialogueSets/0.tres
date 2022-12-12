@@ -10,6 +10,6 @@ ActionValues = ["GEN"]
 
 [resource]
 script = ExtResource("1_pngwn")
-dialogue = PackedStringArray("IT WORKED!", "Are you Sure about that\?")
+dialogue = PackedStringArray("IT WORKED!", "Are you Sure about that?")
 dialogueFaces = [1, 9]
 dialogueActions = [null, SubResource("Resource_hc2gu")]

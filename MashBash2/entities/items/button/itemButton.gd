@@ -15,15 +15,15 @@ func _ready():
 	
 	if get_child_count()!=0:
 		for body in check.get_overlapping_bodies():checkEntered(body);return
-
-	var area=CollisionShape2D.new();area.shape=RectangleShape2D.new();area.shape.extents=Vector2(4,2)
-	area.position+=Vector2(4,1);check.collision_mask=8;check.add_child(area);add_child(check);
-	check.connect("body_entered",checkEntered);check.connect("body_exited",checkExited)
-	connect("buttonPressed",onPress);connect("buttonReleased",onRelease)
-	#button collision area
-	var col=CollisionShape2D.new();var hold=StaticBody2D.new()
-	hold.add_child(col);col.shape=RectangleShape2D.new();col.shape.extents=Vector2(4,2)
-	hold.position+=Vector2(4,int(root.scale.y<0)*-4);add_child(hold)
+	else:
+		var area=CollisionShape2D.new();area.shape=RectangleShape2D.new();area.shape.extents=Vector2(4,2)
+		area.position+=Vector2(4,1);check.collision_mask=8;check.add_child(area);add_child(check);
+		check.connect("body_entered",checkEntered);check.connect("body_exited",checkExited)
+		connect("buttonPressed",onPress);connect("buttonReleased",onRelease)
+		#button collision area
+		var col=CollisionShape2D.new();var hold=StaticBody2D.new()
+		hold.add_child(col);col.shape=RectangleShape2D.new();col.shape.extents=Vector2(4,2)
+		hold.position+=Vector2(4,int(root.scale.y<0)*-4);add_child(hold)
 
 
 #checks if entered or exited and updates accordingly

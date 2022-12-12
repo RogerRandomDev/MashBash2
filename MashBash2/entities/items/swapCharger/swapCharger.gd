@@ -7,8 +7,9 @@ var particles=GPUParticles2D.new()
 @export var chargeAmount:int=1
 func _ready():
 	add_child(sprite);sprite.add_child(particles)
-	particles.process_material=preload("res://entities/shaderBased/pickupAuraparticles.tres")
-	particles.trail_enabled=true;particles.trail_length_secs=0.25;particles.trail_section_subdivisions=1;particles.trail_sections=3
+	particles.process_material=load("res://World/wordswapcharger.tres")
+	#looks cool, but is currently not working for idk why
+	#particles.trail_enabled=true;particles.trail_length_secs=0.25;particles.trail_section_subdivisions=1;particles.trail_sections=3
 	particles.amount=12
 	sprite.texture=load("res://entities/flyingBot/botbody.png")
 	check.shape=RectangleShape2D.new();check.shape.extents=Vector2(4,4)
