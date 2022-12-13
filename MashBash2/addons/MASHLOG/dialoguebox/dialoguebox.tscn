@@ -11,31 +11,29 @@ shader = ExtResource("2_w7lo7")
 [node name="dialoguelayer" type="CanvasLayer"]
 layer = 14
 script = ExtResource("1_sihhg")
-charDelay = 0.025
-setDelay = 1.0
+charDelay = 0.05
+setDelay = 3.0
 
 [node name="dialoguebox" type="Panel" parent="."]
 texture_filter = 1
-custom_minimum_size = Vector2(1024, 150)
-offset_top = 450.0
-offset_right = 1024.0
-offset_bottom = 600.0
+custom_minimum_size = Vector2(1152, 150)
+offset_top = 498.0
+offset_right = 1152.0
+offset_bottom = 648.0
 size_flags_vertical = 8
 theme = ExtResource("2_3l11s")
 
 [node name="contents" type="HBoxContainer" parent="dialoguebox"]
-custom_minimum_size = Vector2(1024, 150)
-offset_right = 1024.0
+custom_minimum_size = Vector2(1152, 150)
+offset_right = 1152.0
 offset_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="speech" type="RichTextLabel" parent="dialoguebox/contents"]
-offset_right = 877.0
+offset_right = 987.0
 offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 bbcode_enabled = true
@@ -45,9 +43,9 @@ metadata/_edit_layout_mode = 1
 
 [node name="iconpanel" type="PanelContainer" parent="dialoguebox/contents"]
 custom_minimum_size = Vector2(136, 136)
-offset_left = 888.0
+offset_left = 1016.0
 offset_top = 7.0
-offset_right = 1024.0
+offset_right = 1152.0
 offset_bottom = 143.0
 size_flags_horizontal = 10
 size_flags_vertical = 4

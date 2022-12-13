@@ -21,7 +21,7 @@ var ActionVariableType:Array=[
 	0,"level0",
 	0,"null"
 ]
-func _ready():ActionVariableType=Mashlogue.ActionVariableType
+#func _ready():ActionVariableType=Mashlogue.ActionVariableType
 func updateValues():
 	#resizes
 	if Actions.size()!=ActionValues.size():ActionValues.resize(Actions.size())

@@ -138,16 +138,16 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
-offset_right = 1024.0
-offset_bottom = 600.0
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 512.0
-offset_top = 300.0
-offset_right = 512.0
-offset_bottom = 300.0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 324.0
 theme = ExtResource("4_cd6e5")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]

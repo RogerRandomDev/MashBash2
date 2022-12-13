@@ -24,6 +24,7 @@ func _ready():
 		add_child(laserParticles)
 		prepBeam()
 	updateBeam()
+	laserParticles.emitting=active
 	if col.get_parent()==null:add_child(col)
 	if lineCol.get_parent()==null:add_child(lineCol)
 	
@@ -45,6 +46,7 @@ func physics_process():
 #deals with the laser line
 func updateBeam():
 	if !is_inside_tree():return
+	beam.z_index=1
 	var lastBeam=beam.points
 	var _trans=global_position+Vector2(0,4).rotated(rot);
 	var hitWall=false;var _transNormal=Vector2(1,0)
@@ -106,7 +108,7 @@ func buildLaserCollision():
 		else:line=lineChild[point].get_child(0)
 		line.shape.a=beam.points[point]
 		line.shape.b=beam.points[point+1]
-		laserParticles.emitting=true
+		laserParticles.emitting=active
 		laserParticles.global_position=line.shape.b
 		laserParticles.rotation=line.shape.a.angle_to(line.shape.b)
 	while lineChild.size()>beam.points.size()-1:

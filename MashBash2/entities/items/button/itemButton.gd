@@ -29,13 +29,15 @@ func _ready():
 #checks if entered or exited and updates accordingly
 func checkExited(body):
 	var checked=checkValidBody(body,false)
-	if pressedBy.has(body):pressedBy.erase(body)
 	if !checked:return
+	if pressedBy.has(body):pressedBy.erase(body)
+	
 	triggerPressed()
 func checkEntered(body):
 	var checked=checkValidBody(body)
-	if checked&&!pressedBy.has(body):pressedBy.push_back(body)
 	if !checked:return
+	if checked&&!pressedBy.has(body):pressedBy.push_back(body)
+	
 	triggerPressed()
 
 #makes sure body is valid and is pressing it
@@ -46,7 +48,7 @@ func checkValidBody(body,entering=true):
 	if itemStat==null:return checked
 	if itemStat.get_class()=="Marker2D"&&(
 itemStat.Status.has("light")&&!root.Status.has("light"))||(
-!itemStat.Status.has("heavy")&&root.Status.has("heavy")):checked=!entering
+!itemStat.Status.has("heavy")&&root.Status.has("heavy")):checked=false
 	return checked
 
 func forceUpdate():for body in check.get_overlapping_bodies():checkEntered(body)

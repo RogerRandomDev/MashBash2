@@ -9,6 +9,7 @@ var vacuum:bool=false
 @export var canVacuum:bool=false
 const freeze=false
 func _ready():
+	add_to_group("player")
 	Word.player=self
 	Word.tiles=get_parent().get_node("TileMap")
 	position.y+=0.6
@@ -30,14 +31,14 @@ func _physics_process(_delta):
 	updateAnimations()
 	move_and_slide()
 	# after calling move_and_slide()
-	var vel=direction*SPEED*0.5
+	var vel=velocity*0.5
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index);var col=collision.get_collider()
 		var vel2=dir[str(closestAngle(round(rad_to_deg(collision.get_angle()))))]*vel
 		if col.get_class()=="CharacterBody2D":
 			if !col.freeze:
 				col.velocity+=vel2
-			else:position-=vel*0.25*_delta
+			#else:position-=vel*0.25*_delta
 			
 	
 	if vacuum:

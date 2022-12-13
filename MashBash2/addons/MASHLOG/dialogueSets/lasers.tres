@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_ct4ki")
-dialogue = PackedStringArray("Alright! So now we have [color=#f00]LASERS[/color]!", "You can\'t walk through a [color=#f00]LASERS[/color], but object can be used to block them.", "And finally, a [color=#0ff]REFLECTIVE[/color] object will bounce the laser off of it!", "Though the programmer only made boxes bounce it away from where it came...", "Finally, the thing at the bottom is a [color=#f00]LASER RECEIVER[/color].", "It acts identical to a button but with [color=#f00]lasers[/color] instead", "Since it\'s connected to a [color=#0ff]NAND[/color] gate, try using the [color=#0ff]LIGHT BOX[/color] from earlier to block the beam.", "The [color=#0ff]Vacuum[/color] should prove helpful in moving it.")
-dialogueFaces = [1, 1, 1, 2, 1, 1, 1, 1]
-dialogueActions = [null, null, null, null, null, null, null, null]
+dialogue = PackedStringArray("Alright! So now we have [color=#f00]LASERS[/color]!", "You can\'t walk through a [color=#f00]LASERS[/color], but object can be used to block them.", "a [color=#0ff]REFLECTIVE[/color] object will bounce the laser off of it!", "A laser that is not [color=#f00]ACTIVE[/color] is not shooting out a [color=#f00]LASER BEAM[/color]!", "And a [color=#f00]LASER RECEIVER[/color] acts like a button for lasers beams!", "Anyway, you should try using the [color=#0ff]VACUUM[/color] on the light box from before to block the [color=#f00]LASER BEAM[/color]", "press [color=#0ff]LEFT MOUSE[/color] to use the [color=#0ff]Vacuum[/color].")
+dialogueFaces = [1, 1, 1, 1, 1, 1, 1]
+dialogueActions = [null, null, null, null, null, null, null]

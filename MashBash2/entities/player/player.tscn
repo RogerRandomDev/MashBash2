@@ -145,10 +145,10 @@ script = ExtResource("4_kr2yj")
 [node name="background" type="ColorRect" parent="Camera2D"]
 show_behind_parent = true
 material = SubResource("ShaderMaterial_ld5a2")
-offset_left = -140.0
-offset_top = -87.0
-offset_right = 140.0
-offset_bottom = 87.0
+offset_left = -148.0
+offset_top = -91.0
+offset_right = 148.0
+offset_bottom = 91.0
 
 [node name="playerchest" type="Area2D" parent="."]
 collision_mask = 0
