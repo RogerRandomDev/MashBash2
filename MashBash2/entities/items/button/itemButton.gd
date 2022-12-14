@@ -41,7 +41,7 @@ func checkEntered(body):
 	triggerPressed()
 
 #makes sure body is valid and is pressing it
-func checkValidBody(body,entering=true):
+func checkValidBody(body,_entering=true):
 	var checked=true
 	if body.get_class()=="TileMap":return null
 	var itemStat=body.get_node_or_null("ItemResource")

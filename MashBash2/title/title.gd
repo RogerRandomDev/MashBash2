@@ -20,7 +20,9 @@ func play_focus(node):
 
 
 func pressPlay():
-	get_tree().change_scene_to_file("res://World/level0.tscn")
+	Pausemenu.beginGame=Time.get_unix_time_from_system()
+	Transitions.transitionScene("res://World/level0.tscn")
+	
 
 
 func _on_settings_pressed():

@@ -332,4 +332,4 @@ position = Vector2(109, 24)
 [node name="Area2D" parent="." instance=ExtResource("13_x1xmb")]
 z_index = 6
 position = Vector2(24, 52)
-nextlvl = "res://World/level4.tscn"
+nextlvl = "res://World/level6.tscn"
