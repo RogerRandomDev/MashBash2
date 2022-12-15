@@ -66,7 +66,8 @@ func ChangeSpeaker(_speaker):
 func toggleplayerlock(_null):
 	if !_null&&!Word.player.locked:Word.player.canVacuum=true
 	Word.player.locked=_null
-func showLogic(_null):Pausemenu.get_node("logic").visible=true
+#useless and pointless
+func showLogic(_null):pass;#Pausemenu.get_node("logic").visible=true
 
 func toggleEditor(_null):
 	Word.canChange=_null

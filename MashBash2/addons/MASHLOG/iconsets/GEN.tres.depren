@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=13 format=3 uid="uid://btr0hvgumamxj"]
+[gd_resource type="Resource" load_steps=13 format=3]
 
 [ext_resource type="Texture2D" uid="uid://bfauvph0ynjh8" path="res://addons/MASHLOG/Textures/Mashicons/0.png" id="1_8jfru"]
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/iconResource.gd" id="1_quqj0"]
@@ -12,20 +12,3 @@
 [ext_resource type="Texture2D" uid="uid://dwrpv4jq84uvv" path="res://addons/MASHLOG/Textures/Mashicons/6.png" id="9_bcklb"]
 [ext_resource type="Texture2D" uid="uid://jnd388e3q6ac" path="res://addons/MASHLOG/Textures/Mashicons/9.png" id="10_oa8ws"]
 [ext_resource type="Texture2D" uid="uid://cy72vsgmhhhyx" path="res://addons/MASHLOG/Textures/Mashicons/10.png" id="11_do3bn"]
-
-[resource]
-script = ExtResource("1_quqj0")
-modulate = Color(0.0980392, 0.482353, 0, 1)
-icon_set = {
-"Default": ExtResource("1_8jfru"),
-"Frown": ExtResource("3_a2n0r"),
-"GrinSquint": ExtResource("10_oa8ws"),
-"MadDefault": ExtResource("4_arprc"),
-"MadFrown": ExtResource("6_k01dp"),
-"MadSmile": ExtResource("5_ict6d"),
-"Smile": ExtResource("2_oiujv"),
-"SquintFrown": ExtResource("9_bcklb"),
-"SquintNeutral": ExtResource("7_qqudh"),
-"SquintSmallFrown": ExtResource("11_do3bn"),
-"SquintSmile": ExtResource("8_lv5io")
-}

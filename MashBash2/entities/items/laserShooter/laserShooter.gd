@@ -32,6 +32,7 @@ func _ready():
 	sprite.texture=load("res://entities/items/laserShooter/laserShooter.png")
 	sprite.centered=false;sprite.z_index+=1;lineCol.top_level=true
 	var timer=Timer.new();timer.wait_time=0.033;add_child(timer)
+	await get_tree().process_frame
 	timer.connect("timeout",physics_process);timer.start()
 
 

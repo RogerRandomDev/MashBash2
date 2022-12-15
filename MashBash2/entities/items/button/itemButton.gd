@@ -28,10 +28,9 @@ func _ready():
 
 #checks if entered or exited and updates accordingly
 func checkExited(body):
+	if pressedBy.has(body):pressedBy.erase(body)
 	var checked=checkValidBody(body,false)
 	if !checked:return
-	if pressedBy.has(body):pressedBy.erase(body)
-	
 	triggerPressed()
 func checkEntered(body):
 	var checked=checkValidBody(body)

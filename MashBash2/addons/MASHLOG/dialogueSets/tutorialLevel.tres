@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bbdi8ctaq37oi"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://ckl86lxe8e87h"]
 
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_5gnij"]
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/eventResource.gd" id="1_m670p"]
@@ -10,16 +10,16 @@ ActionValues = [true]
 
 [sub_resource type="Resource" id="Resource_b6h4u"]
 script = ExtResource("1_m670p")
-Actions = PackedInt32Array(5)
+Actions = PackedInt32Array(6)
 ActionValues = [false]
 
-[sub_resource type="Resource" id="Resource_6ryv3"]
+[sub_resource type="Resource" id="Resource_myktk"]
 script = ExtResource("1_m670p")
 Actions = PackedInt32Array(5)
 ActionValues = [false]
 
 [resource]
 script = ExtResource("1_5gnij")
-dialogue = PackedStringArray("Hello there, You must be the new [color=#0f0]PLAYER[/color]!", "I\'d love to play with you, considering I recently recovered my corrupt files, but am currently facing some \"Minor\" issues.", "Namely that I didnt make this.", "But you have the controls and I have the code, so let\'s figure it out!", " ", "Ah, right. You still need the [b]CONTROLS[/b]!", "Try [color=#f00]WASD[/color] to move. I\'d do that if it were me.", " ", "AH! the player was locked in place! Let me fix that real quick...", "There! NOW you can move!")
-dialogueFaces = [1, 2, 2, 1, 0, 1, 1, 0, 1, 1]
-dialogueActions = [SubResource("Resource_wxxbp"), SubResource("Resource_b6h4u"), null, null, null, null, null, null, null, SubResource("Resource_6ryv3")]
+dialogue = PackedStringArray("Hello there, You must be the new [color=#0f0]PLAYER[/color]!", "I\'d love to play with you, considering I recently recovered my corrupt files, but am currently facing some \"Minor\" issues.", "Namely that I didnt make this, But we can figure it out together!", " ", "Ah, right. You still need the [b]CONTROLS[/b]!", "Try [color=#f00]WASD[/color] to move. I\'d do that if it were me.", " ", "AH! the player was locked in place! Let me fix that real quick...", "There! NOW you can move!")
+dialogueFaces = [1, 2, 2, 0, 1, 1, 0, 1, 1]
+dialogueActions = [SubResource("Resource_wxxbp"), SubResource("Resource_b6h4u"), null, null, null, null, null, null, SubResource("Resource_myktk")]

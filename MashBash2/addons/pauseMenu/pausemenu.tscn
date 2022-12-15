@@ -109,13 +109,15 @@ offset_bottom = 514.0
 button_pressed = true
 text = "Show Gate Names"
 
-[node name="Label" type="Label" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
 custom_minimum_size = Vector2(1152, 0)
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 1152.0
+offset_bottom = 54.0
 theme = ExtResource("1_oi0mr")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 16
 text = "test"
-horizontal_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

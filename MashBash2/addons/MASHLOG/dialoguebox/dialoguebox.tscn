@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckfxvsft6eu53"]
+[gd_scene load_steps=6 format=3 uid="uid://c500jets8d1xe"]
 
 [ext_resource type="Script" path="res://addons/MASHLOG/dialoguebox/dialoguebox.gd" id="1_sihhg"]
 [ext_resource type="Theme" uid="uid://b1t2yx05ctwy8" path="res://addons/MASHLOG/dialoguebox/dialogueTheme.tres" id="2_3l11s"]

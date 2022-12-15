@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://rpb7ppknp8oa" path="res://entities/items/button/button.tres" id="8_0oxqy"]
 [ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="9_l5ewi"]
 [ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="10_g5g7u"]
-[ext_resource type="PackedScene" uid="uid://df40v44mkahwy" path="res://entities/flyingBot/flyingBot.tscn" id="12_jrs6e"]
+[ext_resource type="PackedScene" uid="uid://do4o7tqpah87e" path="res://entities/flyingBot/flyingBot.tscn" id="12_jrs6e"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="13_x1xmb"]
 
 [sub_resource type="GDScript" id="GDScript_fb7va"]
@@ -118,6 +118,15 @@ HiddenStatus = PackedStringArray()
 [node name="itemResource11" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(96, 96)
+script = ExtResource("4_nbukf")
+HeldResource = ExtResource("7_lcdpe")
+Status = PackedStringArray("reflective")
+HiddenStatus = PackedStringArray()
+makeRigid = true
+
+[node name="itemResource29" type="Marker2D" parent="items"]
+z_index = 2
+position = Vector2(117, 117)
 script = ExtResource("4_nbukf")
 HeldResource = ExtResource("7_lcdpe")
 Status = PackedStringArray("reflective")

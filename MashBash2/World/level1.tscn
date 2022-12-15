@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://rpb7ppknp8oa" path="res://entities/items/button/button.tres" id="7_rh7fu"]
 [ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="9_jpgdp"]
 [ext_resource type="Script" path="res://entities/items/swapCharger/swapCharger.gd" id="11_r5dqk"]
-[ext_resource type="PackedScene" uid="uid://df40v44mkahwy" path="res://entities/flyingBot/flyingBot.tscn" id="12_q3dv6"]
+[ext_resource type="PackedScene" uid="uid://do4o7tqpah87e" path="res://entities/flyingBot/flyingBot.tscn" id="12_q3dv6"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="13_2sxqc"]
 
 [node name="level1" type="Node2D"]

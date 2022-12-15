@@ -59,12 +59,19 @@ func loadNextSet():
 	if _contentProgress>=fullContents.count_sets():
 		emit_signal("finishedSet")
 		$nextChar.stop()
+		Pausemenu.dontTime=false
+		var tex=icon_set.get_face("Smile");
+		var flyingBot=get_tree().get_first_node_in_group("flyingBot")
+		if flyingBot!=null:flyingBot.texture=tex
 		visible=false;return
 	emit_signal("nextSet")
 	#loads new text set into the text box
 	textContent.text=fullContents.text_for(_contentProgress)
 	#loads needed icon
-	icon.texture=icon_set.get_face(fullContents.face_for(_contentProgress))
+	var tex=icon_set.get_face(fullContents.face_for(_contentProgress))
+	icon.texture=tex
+	var flyingBot=get_tree().get_first_node_in_group("flyingBot")
+	if flyingBot!=null:flyingBot.texture=tex
 	updateEndWait(textContent.get_parsed_text().length())
 	if textContent.text==""&&fullContents.count_sets()+1>=_contentProgress:visible=false
 	

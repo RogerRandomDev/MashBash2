@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://df40v44mkahwy"]
+[gd_scene load_steps=10 format=3 uid="uid://do4o7tqpah87e"]
 
 [ext_resource type="Texture2D" uid="uid://bvnlsrwf3l3hk" path="res://entities/flyingBot/botbody.png" id="1_ujkue"]
 [ext_resource type="Script" path="res://entities/flyingBot/flyingBot.gd" id="2_lrpjt"]
 [ext_resource type="Texture2D" uid="uid://bafsfk62urcc3" path="res://entities/flyingBot/botwing.png" id="3_w8gkr"]
 [ext_resource type="Texture2D" uid="uid://cysaxt432ke5m" path="res://entities/flyingBot/hoverparticle.png" id="4_w0ag8"]
-[ext_resource type="Texture2D" uid="uid://6ci634jsykc8" path="res://addons/MASHLOG/Textures/Mashicons/1.png" id="5_1j515"]
 
 [sub_resource type="Gradient" id="Gradient_bdndb"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.25098)
@@ -115,7 +114,6 @@ texture = ExtResource("4_w0ag8")
 [node name="face" type="Sprite2D" parent="flyingBot"]
 modulate = Color(0, 0.780392, 0, 1)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("5_1j515")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../flyingBot")

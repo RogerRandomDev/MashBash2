@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://rpb7ppknp8oa" path="res://entities/items/button/button.tres" id="7_tqe0v"]
 [ext_resource type="Resource" uid="uid://tjgcx51yrthv" path="res://entities/items/door/door.tres" id="9_rab1d"]
 [ext_resource type="Script" path="res://entities/items/swapCharger/swapCharger.gd" id="11_ca6e3"]
-[ext_resource type="PackedScene" uid="uid://df40v44mkahwy" path="res://entities/flyingBot/flyingBot.tscn" id="12_q3dv6"]
+[ext_resource type="PackedScene" uid="uid://do4o7tqpah87e" path="res://entities/flyingBot/flyingBot.tscn" id="12_q3dv6"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="13_fbw7y"]
 
 [node name="level2" type="Node2D"]
@@ -55,6 +55,15 @@ HiddenStatus = PackedStringArray()
 [node name="itemResource15" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(176, 144)
+rotation = 3.14159
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("7_78tmm")
+Status = PackedStringArray()
+HiddenStatus = PackedStringArray()
+
+[node name="itemResource19" type="Marker2D" parent="items"]
+z_index = 2
+position = Vector2(109, 107)
 rotation = 3.14159
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
@@ -126,6 +135,14 @@ HeldResource = ExtResource("7_a4qpx")
 Status = PackedStringArray("and")
 HiddenStatus = PackedStringArray()
 
+[node name="itemResource20" type="Marker2D" parent="items" groups=["INP_itemResource17", "OUT_itemResource19"]]
+z_index = 2
+position = Vector2(32, -192)
+script = ExtResource("4_kvbxv")
+HeldResource = ExtResource("7_a4qpx")
+Status = PackedStringArray("nor")
+HiddenStatus = PackedStringArray()
+
 [node name="itemResource2" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(4, 48)
@@ -161,7 +178,7 @@ HiddenStatus = PackedStringArray()
 
 [node name="itemResource16" type="Marker2D" parent="items"]
 z_index = 2
-position = Vector2(120, 30)
+position = Vector2(120, 27)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_rab1d")
 Status = PackedStringArray()

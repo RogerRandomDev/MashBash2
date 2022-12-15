@@ -9,6 +9,7 @@ func transitionScene(target):
 func _process(delta):if toScene!="":Pausemenu.pausedFor+=delta
 
 func finishLoadScene():
+	Word.storedWords=[]
 	if toScene=="":get_tree().reload_current_scene()
 	else:get_tree().change_scene_to_file(toScene)
 	toScene=""

@@ -2,6 +2,7 @@ extends Node2D
 var player=null
 func _ready():
 	player=Word.player
+	$flyingBot/face.add_to_group("flyingBot");
 	$AnimationPlayer.play("hover")
 
 

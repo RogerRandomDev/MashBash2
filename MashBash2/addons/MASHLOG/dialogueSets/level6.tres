@@ -1,9 +1,3 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://kc5uma2v4tbb"]
+[gd_resource type="Resource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="2_6ubfh"]
-
-[resource]
-script = ExtResource("2_6ubfh")
-dialogue = PackedStringArray("Alright, whoever made this level just wants to spite you.", "Just remember, you can [color=#f00]RESET[/color] from the pause menu.")
-dialogueFaces = [5, 2]
-dialogueActions = [null, null]
+[ext_resource type="Script" path="res://addons/word/MASHLOG/resources/dialogueResource.gd" id="2_6ubfh"]

@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://dxmu6bmob77dy" path="res://entities/items/box/box.tres" id="10_avjfs"]
 [ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="10_t8r86"]
 [ext_resource type="Resource" uid="uid://di350a3t2nt7y" path="res://entities/items/laserButton/LaserButton.tres" id="11_igfsw"]
-[ext_resource type="PackedScene" uid="uid://df40v44mkahwy" path="res://entities/flyingBot/flyingBot.tscn" id="12_bwq0a"]
+[ext_resource type="PackedScene" uid="uid://do4o7tqpah87e" path="res://entities/flyingBot/flyingBot.tscn" id="12_bwq0a"]
 [ext_resource type="Resource" uid="uid://rpb7ppknp8oa" path="res://entities/items/button/button.tres" id="12_lmhi6"]
 [ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="13_4pdc5"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="14_vaxsb"]
@@ -20,7 +20,7 @@ script = ExtResource("1_0ho5g")
 
 [node name="Player" parent="." instance=ExtResource("1_hyipm")]
 z_index = 4
-position = Vector2(24, 32)
+position = Vector2(36, 24)
 canVacuum = true
 
 [node name="TileMap" type="TileMap" parent="."]

@@ -20,6 +20,7 @@ func play_focus(node):
 
 
 func pressPlay():
+	Pausemenu.get_node("CanvasLayer").visible=false
 	Pausemenu.beginGame=Time.get_unix_time_from_system()
 	Transitions.transitionScene("res://World/level0.tscn")
 	
