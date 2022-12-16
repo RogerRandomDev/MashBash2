@@ -18,10 +18,10 @@ script/source = "extends Node2D
 
 func _ready():
 	Word.swapsLeft=1
-	Mashlogue.load_dialogue(
-		load(\"res://addons/MASHLOG/dialogueSets/level6.tres\"),
-		load(\"res://addons/MASHLOG/iconsets/MASH.tres\")
-	)
+#	Mashlogue.load_dialogue(
+#		load(\"res://addons/MASHLOG/dialogueSets/level6.tres\"),
+#		load(\"res://addons/MASHLOG/iconsets/MASH.tres\")
+#	)
 "
 
 [node name="level6" type="Node2D"]

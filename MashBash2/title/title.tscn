@@ -11,6 +11,7 @@
 shader = ExtResource("2_ult1y")
 shader_parameter/aspect = 8.0
 shader_parameter/basePulse = 2.0
+shader_parameter/bg_color = null
 shader_parameter/color1 = Quaternion(0, 0.3, 0.6, 1)
 shader_parameter/color2 = Quaternion(0.6, 0, 0.3, 1)
 shader_parameter/dataspeed = 0.375
@@ -138,11 +139,12 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 576.0
 offset_top = 324.0
@@ -151,6 +153,7 @@ offset_bottom = 324.0
 theme = ExtResource("4_cd6e5")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+layout_mode = 0
 offset_left = -256.0
 offset_top = -250.0
 offset_right = 256.0
@@ -162,6 +165,7 @@ text = "[center][shake level=8 rate=10]WOR(L)D  SWAP[/shake][/center]"
 fit_content_height = true
 
 [node name="play" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0
@@ -171,6 +175,7 @@ theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
 [node name="settings" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -116.0
 offset_top = 34.0
 offset_right = 116.0
@@ -180,6 +185,7 @@ theme_override_font_sizes/font_size = 36
 text = "SETTINGS"
 
 [node name="quit" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = 112.0
 offset_right = 64.0
@@ -191,6 +197,7 @@ text = "QUIT"
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
+layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0

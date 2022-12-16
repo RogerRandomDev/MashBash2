@@ -20,8 +20,9 @@ size = Vector2(7, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ld5a2"]
 shader = ExtResource("5_m0qxn")
-shader_parameter/aspect = 8.0
-shader_parameter/basePulse = 1.0
+shader_parameter/aspect = 2.0
+shader_parameter/basePulse = 0.33
+shader_parameter/bg_color = null
 shader_parameter/color1 = Quaternion(0, 0.3, 0.6, 1)
 shader_parameter/color2 = null
 shader_parameter/dataspeed = 0.375
@@ -32,7 +33,7 @@ shader_parameter/numBlocks = 32
 shader_parameter/scale = Vector2(0.05, 0.1)
 shader_parameter/size = Vector2(0.3, 0.3)
 shader_parameter/speed = 0.375
-shader_parameter/ySpread = null
+shader_parameter/ySpread = 1.6
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ih6p0"]
 radius = 2.0
@@ -114,6 +115,7 @@ collision_mask = 33
 motion_mode = 1
 wall_min_slide_angle = 3.14159
 script = ExtResource("1_g1pj2")
+metadata/_edit_vertical_guides_ = []
 
 [node name="boxbody" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)

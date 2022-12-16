@@ -39,21 +39,56 @@ uniform float height = 0.6;
 uniform float speed = 0.8;
 uniform vec2 scale = vec2( 2.0, 16.0 );
 varying vec2 world_pos;
+varying mat4 model;
 void vertex(){
 	world_pos=(MODEL_MATRIX * vec4(VERTEX, 1.0, 1.0)).xy; 
+	model=MODEL_MATRIX;
 }
+uniform vec4 bg_color;
+
+float rand3(vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+}
+vec2 to_world(vec2 uv){
+	return (model * vec4(uv,296.0,182.0)).xy;
+}
+
 void fragment( )
 {
-	vec2 uv = (UV+(world_pos*20.)) * scale;
-	uv.x=round(round(uv.x/scale.x)*scale.x)/32.;
-	uv.y=round(round(uv.y/scale.y)*scale.y)/32.;
-	float shift = cos( floor( uv.y ) );
-	uv.x += shift;
 	
-	float freq = clamp( cos((uv.x * line_freq)) * 3.0, 0.0, 1.0 ) * height;
-	float line = 1.0 - clamp( abs( freq - mod( uv.y, 1. ) ) * 11.0, 0.0, 1.0 );
-	vec4 ncol=mix(vec4(0.,0.,0.,0.5), vec4(0.,1.,0.625,0.5), line * mod( (uv.x) - TIME * speed * abs( shift ), 1.0 ) /*  * mod( TIME + shift, 1.0 ) */ );
-	COLOR=ncol;
+	bool used=false;
+	//original backing shader
+	vec2 uv = (UV+(world_pos*20.)) * scale;
+//	uv.x=round(round(uv.x/scale.x)*scale.x)/32.;
+//	uv.y=round(round(uv.y/scale.y)*scale.y)/32.;
+//	float shift = cos( floor( uv.y ) );
+//	uv.x += shift;
+//	float freq = clamp( cos((uv.x * line_freq)) * 3.0, 0.0, 1.0 ) * height;
+//	float line = 1.0 - clamp( abs( freq - mod( uv.y, 1. ) ) * 11.0, 0.0, 1.0 );
+//	vec4 ncol=mix(vec4(0.,0.,0.,0.5), vec4(0.,1.,0.625,0.5), line * mod( (uv.x) - TIME * speed * abs( shift ), 1.0 ) /*  * mod( TIME + shift, 1.0 ) */ );
+//	COLOR=ncol;
+	//stars shader part
+	float size2 = 8.0;
+	float prob = 0.997;
+	vec2 newUV=(UV.xy+(world_pos*20.0))*scale;
+	vec2 pos = floor(1.0 / size2 * newUV.xy);
+	float color = 0.0;
+	float starValue = rand3(pos);
+
+	if (starValue > prob)
+	{
+		vec2 center = size2 * pos + vec2(size2, size2) * 0.5;
+		float t = 0.9 + 0.2 * sin(TIME * 8.0 + (starValue - prob) / (1.0 - prob) * 45.0);
+		color = 1.0 - distance(newUV.xy, center) / (0.5 * size2);
+		color = color * t / (abs(newUV.y - center.y)) * t / (abs(newUV.x - center.x));
+	}
+	else if (rand3(SCREEN_UV) > 0.996)
+	{
+		float r = rand3(SCREEN_UV*20.);
+		color = r * (0.85 * sin(TIME * (r * 5.0) + 720.0 * r) + 0.95);
+	}
+	COLOR = vec4(vec3(color),1.0) + bg_color;
+	//title backing
 	if(doInput){
 	float pulse = pulseColor();
 	
@@ -85,6 +120,6 @@ void fragment( )
 	
 	color -= rand2(uv)*0.04;
 	COLOR=mix(COLOR,color,min(color.a,0.25));
-	
 	}
+	
 }

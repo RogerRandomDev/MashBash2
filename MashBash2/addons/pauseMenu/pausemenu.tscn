@@ -111,6 +111,7 @@ text = "Show Gate Names"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 custom_minimum_size = Vector2(1152, 0)
