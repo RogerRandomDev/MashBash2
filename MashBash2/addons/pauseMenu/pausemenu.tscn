@@ -35,29 +35,19 @@ offset_bottom = 445.0
 theme = ExtResource("1_oi0mr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-offset_right = 256.0
-offset_bottom = 225.0
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
-offset_right = 256.0
-offset_bottom = 65.0
 theme_override_font_sizes/font_size = 48
 text = "PAUSED"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
-offset_top = 69.0
-offset_right = 256.0
-offset_bottom = 153.0
 theme_override_font_sizes/font_size = 30
 text = "PRESS ESC 
 TO CONTINUE"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
-offset_top = 157.0
-offset_right = 256.0
-offset_bottom = 225.0
 theme_override_font_sizes/font_size = 23
 text = "Press To
 Reset Level"

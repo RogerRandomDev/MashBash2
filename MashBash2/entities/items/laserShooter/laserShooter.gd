@@ -9,6 +9,7 @@ var col=StaticBody2D.new()
 var lineCol=Marker2D.new()
 var laserParticles=GPUParticles2D.new()
 var rot=0
+var connected=[]
 func _ready():
 	
 	active=get_parent().Status.has("active")
@@ -40,6 +41,7 @@ func _ready():
 
 func physics_process():
 	if !active:
+		collideReceivers(false);receiverHits=[]
 		for collider in lineCol.get_children():collider.queue_free();return;
 	updateBeam()
 
@@ -48,6 +50,7 @@ func physics_process():
 func updateBeam():
 	if !is_inside_tree():return
 	beam.z_index=1
+	connected=[]
 	var lastBeam=beam.points
 	var _trans=global_position+Vector2(0,4).rotated(rot);
 	var hitWall=false;var _transNormal=Vector2(1,0)
@@ -66,7 +69,9 @@ func updateBeam():
 			if check.collider.is_in_group("mirror")&&check.collider.get_class()!="TileMap":
 				hitWall=false
 				_trans=check.position-check.normal*0.1;_transNormal= check.normal
-			if check.collider.is_in_group("receiver"):newHits.append(check.collider)
+			if check.collider.is_in_group("receiver"):
+				connected.append(check.collider)
+				newHits.append(check.collider)
 		else:
 			hitWall=true;beam.add_point(beamLine.to)
 		
@@ -118,8 +123,8 @@ func buildLaserCollision():
 
 var receiverHits=[]
 var newHits=[]
-func collideReceivers():
-	for collider in receiverHits:collider.get_parent().toggleActive(newHits.has(collider))
+func collideReceivers(docol=true):
+	for collider in receiverHits:collider.get_parent().toggleActive(newHits.has(collider) && docol)
 	receiverHits=newHits
 
 

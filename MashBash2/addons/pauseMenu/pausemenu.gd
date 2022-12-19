@@ -36,11 +36,15 @@ func _on_button_pressed():
 	Transitions.transitionScene("")
 	visible=false
 
-func updateTimer():
+func getTime():
 	var time=runningFor;
 	#convert to minutes and seconds
 	var minutes=int(time/60)
 	var seconds=int(time)%60
 	seconds = seconds+floor((runningFor-floor(runningFor))*1000)/1000
 	var outputTime=("0" if minutes<10 else "")+str(minutes)+":"+("0" if seconds < 10 else "")+str(seconds)
+	return outputTime
+
+func updateTimer():
+	var outputTime=getTime()
 	$CanvasLayer/Label.text=outputTime
