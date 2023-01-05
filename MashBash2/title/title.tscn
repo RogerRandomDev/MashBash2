@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://title/title.gd" id="1_ffxdt"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_hk07f"]
 [ext_resource type="Shader" path="res://World/background.gdshader" id="2_ult1y"]
-[ext_resource type="FontFile" uid="uid://b6wscsfjia7g6" path="res://fonts/Retro Gaming.ttf" id="3_iy4j3"]
+[ext_resource type="FontFile" uid="uid://dutpghayd3oqf" path="res://fonts/Retro Gaming.ttf" id="3_iy4j3"]
 [ext_resource type="Theme" uid="uid://2rdsr31cvlso" path="res://title/titleTheme.tres" id="4_cd6e5"]
 [ext_resource type="Shader" path="res://title/buttonHover.gdshader" id="5_d5uk3"]
 

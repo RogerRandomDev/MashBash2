@@ -5,7 +5,7 @@ extends itemStatus
 signal buttonPressed()
 signal buttonReleased()
 const states={"OFF":preload("res://entities/items/logicGate/off.png"),"ON":preload("res://entities/items/logicGate/on.png")}
-
+const particles=preload("res://entities/items/logicGate/activeLogic.tres")
 var inputs:Array=[]
 var outputs:Array=[]
 var activeInputs=[]
@@ -17,6 +17,7 @@ var logicName=Label.new()
 var logic=-1
 var root=null
 var myPath=null
+var particleEmitter=null
 #connects the logic gate to the inputs
 func _ready():
 	if Engine.is_editor_hint():return
@@ -32,6 +33,8 @@ func _ready():
 	if get_child_count()!=0:
 		call_deferred('checkLogic',activeInputs.size(),inputs.size())
 		return
+	particleEmitter=createParticles(particles,32,0.0,false,0.25)
+	particleEmitter.global_position=global_position+Vector2(4,4)
 	logicName.theme=load("res://themes/basetheme.tres")
 	add_child(logicName);
 	root.sprite.centered=false
@@ -85,6 +88,7 @@ func releaseInput(_input):
 func updateSelf(isPressed):
 	if isPressed:root.sprite.texture=states.ON
 	else:root.sprite.texture=states.OFF
+	if(particleEmitter!=null):particleEmitter.emitting=isPressed
 
 
 #deals with output handling

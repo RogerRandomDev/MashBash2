@@ -10,7 +10,16 @@ func _ready():
 func emptyScript():
 	for child in get_children():child.queue_free()
 	if get_parent().makeRigid:for child in get_parent().get_parent().get_children():if child.get_class()=="CollisionShape2D":child.queue_free()
-
+func createParticles(shader,p_amount:int=16,exp:float=0.0,pre_emit:bool=false,life:float=1.0):
+	var emitter=GPUParticles2D.new()
+	emitter.process_material=shader;
+	emitter.explosiveness=exp
+	emitter.amount=p_amount
+	emitter.emitting=pre_emit
+	emitter.lifetime=life
+	emitter.local_coords=true
+	add_child(emitter)
+	return emitter
 
 #builds collision for shape
 func addCollision(scaled:float=1.0,ignore=true):

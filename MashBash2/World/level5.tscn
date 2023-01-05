@@ -18,6 +18,7 @@ script/source = "extends Node2D
 
 func _ready():
 	Word.swapsLeft=5
+
 "
 
 [node name="level5" type="Node2D"]

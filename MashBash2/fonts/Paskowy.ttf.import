@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c3dneundymxgr"
+uid="uid://di4xqwhycxs7a"
 path="res://.godot/imported/Paskowy.ttf-7612193f85d85ba8e2b70103afefcda2.fontdata"
 
 [deps]
@@ -20,8 +20,8 @@ msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
-hinting=0
-subpixel_positioning=0
+hinting=1
+subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]

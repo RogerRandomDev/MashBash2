@@ -12,6 +12,7 @@ var hoveringObjects=[]
 var canChange=true
 
 func _ready():
+	await get_tree().process_frame
 	wordSwap=load("res://addons/word/wordswapper/wordSwap.tscn").instantiate()
 	add_child(wordSwap)
 	wordSwap=wordSwap.get_child(0)
@@ -65,4 +66,4 @@ func swapVisible(show):
 		var anim=wordSwap.get_parent().get_node("alteredLabel/AnimationPlayer")
 		anim.stop()
 		anim.play("alter",0.)
-		Sound.play("worldchanged",-5.)
+		Sound.play("worldchanged",-12.)

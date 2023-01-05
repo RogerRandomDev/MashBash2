@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://c16cj52vb5751"]
 
-[ext_resource type="FontFile" uid="uid://b6wscsfjia7g6" path="res://fonts/Retro Gaming.ttf" id="1_pooc8"]
+[ext_resource type="FontFile" uid="uid://dutpghayd3oqf" path="res://fonts/Retro Gaming.ttf" id="1_pooc8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkc28"]
 bg_color = Color(0, 0.603922, 0, 1)

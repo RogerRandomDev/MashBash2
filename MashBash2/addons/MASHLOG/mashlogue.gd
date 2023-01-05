@@ -25,6 +25,7 @@ var _dialogueBox=null
 
 #finishes setup
 func _ready():
+	await get_tree().process_frame
 	_dialogueBox=load("res://addons/MASHLOG/dialoguebox/dialoguebox.tscn").instantiate()
 	add_child(_dialogueBox)
 	_dialogueBox.process_mode=Node.PROCESS_MODE_ALWAYS

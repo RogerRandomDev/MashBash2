@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://68lfx3gkstmd"]
 
-[ext_resource type="FontFile" uid="uid://b6wscsfjia7g6" path="res://fonts/Retro Gaming.ttf" id="1_x6a0k"]
+[ext_resource type="FontFile" uid="uid://dutpghayd3oqf" path="res://fonts/Retro Gaming.ttf" id="1_x6a0k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45j21"]
 draw_center = false

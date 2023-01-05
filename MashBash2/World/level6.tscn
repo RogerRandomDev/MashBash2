@@ -18,10 +18,9 @@ script/source = "extends Node2D
 
 func _ready():
 	Word.swapsLeft=1
-#	Mashlogue.load_dialogue(
-#		load(\"res://addons/MASHLOG/dialogueSets/level6.tres\"),
-#		load(\"res://addons/MASHLOG/iconsets/MASH.tres\")
-#	)
+	Mashlogue.load_dialogue(
+		load(\"res://addons/MASHLOG/dialogueSets/level6.tres\"),
+		load(\"res://addons/MASHLOG/iconsets/MASH.tres\"))
 "
 
 [node name="level6" type="Node2D"]
@@ -223,4 +222,4 @@ position = Vector2(-163, 37)
 [node name="Area2D" parent="." instance=ExtResource("11_ndpc2")]
 z_index = 6
 position = Vector2(114, 104)
-nextlvl = "res://World/level4.tscn"
+nextlvl = "res://World/endLevel.tscn"

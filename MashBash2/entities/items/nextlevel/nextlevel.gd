@@ -1,4 +1,4 @@
-extends Position2D
+extends Marker2D
 class_name nextLevel
 @export var size:Vector2
 @export var changeTo:String

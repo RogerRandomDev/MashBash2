@@ -1,6 +1,5 @@
 [gd_scene load_steps=14 format=3 uid="uid://cs5jqdnomjv3f"]
 
-[ext_resource type="Script" path="res://World/level1.gd" id="1_elp54"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
 [ext_resource type="TileSet" uid="uid://berok1m7cgn75" path="res://TileMap/MapGame.tres" id="3_ji7cw"]
 [ext_resource type="Script" path="res://addons/word/resources/itemResource.gd" id="4_kvbxv"]
@@ -14,8 +13,20 @@
 [ext_resource type="PackedScene" uid="uid://do4o7tqpah87e" path="res://entities/flyingBot/flyingBot.tscn" id="12_q3dv6"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="13_fbw7y"]
 
+[sub_resource type="GDScript" id="GDScript_d5da1"]
+script/source = "extends Node2D
+
+
+
+func _ready():
+	Word.swapsLeft=3
+	Mashlogue.load_dialogue(
+		load(\"res://addons/MASHLOG/dialogueSets/level2.tres\"),
+		load(\"res://addons/MASHLOG/iconsets/MASH.tres\"))
+"
+
 [node name="level2" type="Node2D"]
-script = ExtResource("1_elp54")
+script = SubResource("GDScript_d5da1")
 
 [node name="Player" parent="." instance=ExtResource("1_hyipm")]
 position = Vector2(32, 24)

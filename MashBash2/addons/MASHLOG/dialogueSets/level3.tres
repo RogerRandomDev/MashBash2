@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dnnucuey8yj0o"]
+
+[ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_onrxk"]
+
+[resource]
+script = ExtResource("1_onrxk")
+dialogue = PackedStringArray("OK, so this could be either really easy or hard based on how you see it.", "You can do it, right?", "Yeah, you\'ll figure it out.", "If you need me, i\'ll be snacking on Digi-Bytes.")
+dialogueFaces = [1, 1, 1, 1]
+dialogueActions = [null, null, null, null]

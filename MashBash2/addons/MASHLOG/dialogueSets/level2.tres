@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cn8wrml5i8lfc"]
+
+[ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_6l567"]
+
+[resource]
+script = ExtResource("1_6l567")
+dialogue = PackedStringArray("So, whoever built this REALLY didn\'t understand doors", "I mean, its just lasers everywhere with a LOT of security!", "I swear the devs were either genius or insane. Maybe both!")
+dialogueFaces = [1, 5, 5]
+dialogueActions = [null, null, null]

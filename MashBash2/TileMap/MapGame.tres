@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=9 format=3 uid="uid://berok1m7cgn75"]
 
-[ext_resource type="Texture2D" uid="uid://cv147w25tu412" path="res://TileMap/tileset.png" id="1_jbsll"]
-[ext_resource type="Texture2D" uid="uid://buxh66y7svutp" path="res://TileMap/wallcomputer.png" id="2_iid0d"]
-[ext_resource type="Texture2D" uid="uid://dv3k81ueclwpo" path="res://TileMap/connectWire.png" id="3_hnaao"]
-[ext_resource type="Texture2D" uid="uid://flt2icpcf6sc" path="res://TileMap/extraTiles.png" id="4_6an8b"]
+[ext_resource type="Texture2D" uid="uid://c5cbkbwqg0iq2" path="res://TileMap/tileset.png" id="1_jbsll"]
+[ext_resource type="Texture2D" uid="uid://d331rqm3q4h6g" path="res://TileMap/wallcomputer.png" id="2_iid0d"]
+[ext_resource type="Texture2D" uid="uid://8lctiaoyibd1" path="res://TileMap/connectWire.png" id="3_hnaao"]
+[ext_resource type="Texture2D" uid="uid://qsb3xtfp3tn2" path="res://TileMap/extraTiles.png" id="4_6an8b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ln1ew"]
 texture = ExtResource("1_jbsll")

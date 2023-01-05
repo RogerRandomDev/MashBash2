@@ -5,7 +5,7 @@ var alreadyTeleported=0
 func _ready():
 	Pausemenu.get_node("CanvasLayer").visible=true
 	Pausemenu.dontTime=true
-	Sound.playSong("song0",-5)
+	Sound.playSong("song0",-8)
 	await get_tree().process_frame
 	Mashlogue.load_dialogue(
 		load("res://addons/MASHLOG/dialogueSets/tutorialLevel.tres"),

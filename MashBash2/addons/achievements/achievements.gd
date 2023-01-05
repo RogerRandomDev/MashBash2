@@ -2,7 +2,8 @@ extends CanvasLayer
 const rootFile="res://addons/achievements/"
 var completeAchievements=[]
 func _ready():
-	load_achievement_list()
+	await get_tree().process_frame
+	load_achievement_list.call_deferred()
 
 
 

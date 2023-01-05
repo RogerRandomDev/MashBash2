@@ -9,7 +9,6 @@ func _ready():
 	emptyScript()
 	checkButtons()
 	if get_parent().Status.has("heavy"):root.freeze=true
-	
 	#deals with making the item reflective
 	for child in root.get_children():if child.get_class()=="StaticBody2D":child.queue_free()
 	if get_parent().Status.has("reflective"):
