@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://entities/player/Camera2D.gd" id="4_kr2yj"]
 [ext_resource type="Script" path="res://entities/player/vaccuum.gd" id="5_bfok5"]
 [ext_resource type="Shader" path="res://World/background.gdshader" id="5_m0qxn"]
-[ext_resource type="Texture2D" uid="uid://igajlkjrdxur" path="res://entities/player/dust.png" id="6_pggit"]
+[ext_resource type="Texture2D" uid="uid://dkkqra40bpd73" path="res://entities/player/dust.png" id="6_pggit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yocgs"]
 size = Vector2(7.475, 5)

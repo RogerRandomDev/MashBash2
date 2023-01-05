@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://tjgcx51yrthv" path="res://entities/items/door/door.tres" id="7_i71nm"]
 [ext_resource type="Resource" uid="uid://di350a3t2nt7y" path="res://entities/items/laserButton/LaserButton.tres" id="8_133q1"]
 [ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="9_36nwh"]
-[ext_resource type="PackedScene" uid="uid://do4o7tqpah87e" path="res://entities/flyingBot/flyingBot.tscn" id="10_synnb"]
+[ext_resource type="PackedScene" path="res://entities/flyingBot/flyingBot.tscn" id="10_synnb"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="11_ndpc2"]
 
 [sub_resource type="GDScript" id="GDScript_fb7va"]

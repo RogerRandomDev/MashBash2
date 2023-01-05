@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/items/button/itemButton.gd" id="1_5hlsb"]
 [ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_in6cf"]
-[ext_resource type="Texture2D" uid="uid://chotn2rg25pyk" path="res://entities/items/button/released.png" id="2_cdsml"]
+[ext_resource type="Texture2D" uid="uid://m2g1mhhjcvet" path="res://entities/items/button/released.png" id="2_cdsml"]
 
 [resource]
 script = ExtResource("1_in6cf")

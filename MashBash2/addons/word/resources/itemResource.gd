@@ -46,7 +46,7 @@ func _ready():
 	descriptives.theme=descriptiveLabel.theme
 	descriptives.position=Vector2(4,4)
 	descriptives.position-=(size+Vector2(4,4)).rotated(-rotation)*0.5
-	updateDescriptives()
+	updateDescriptives.call_deferred()
 	if !Engine.is_editor_hint():
 		#loads the area check around itself
 		var check=CollisionShape2D.new()
@@ -109,7 +109,9 @@ func applyDescriptive(descriptive):
 		sprite.texture=HeldResource.Sprites[descriptive]
 	#applies basic descriptive icons as well
 	var des=HeldResource.make_descriptive_icon(descriptive)
-	if des!=null:descriptives.add_child(des)
+	if des!=null:
+		descriptives.add_child(des)
+		des.z_index=4
 	descriptiveLabel.text+="%s "%(descriptive[0].to_upper() + descriptive.substr(1,-1))
 
 

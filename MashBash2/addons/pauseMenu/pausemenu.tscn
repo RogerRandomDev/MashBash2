@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://addons/pauseMenu/pausemenu.gd" id="1_8qwra"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_oi0mr"]
-[ext_resource type="Texture2D" uid="uid://cbbgvjjoggqx3" path="res://entities/items/logicGate/and.png" id="1_qpuxs"]
-[ext_resource type="Texture2D" uid="uid://cpta6554hlc01" path="res://entities/items/logicGate/nand.png" id="2_0ofru"]
-[ext_resource type="Texture2D" uid="uid://c8plspth5x4u7" path="res://entities/items/logicGate/or.png" id="3_og0ry"]
-[ext_resource type="Texture2D" uid="uid://chm7lg4mf1ffm" path="res://entities/items/logicGate/nor.png" id="4_i5165"]
-[ext_resource type="Texture2D" uid="uid://v37x57wbvvlx" path="res://entities/items/logicGate/xor.png" id="5_imvbf"]
-[ext_resource type="Texture2D" uid="uid://m1400m6kiir4" path="res://entities/items/logicGate/xnor.png" id="6_4sf38"]
+[ext_resource type="Texture2D" path="res://entities/items/logicGate/and.png" id="1_qpuxs"]
+[ext_resource type="Texture2D" path="res://entities/items/logicGate/nand.png" id="2_0ofru"]
+[ext_resource type="Texture2D" path="res://entities/items/logicGate/or.png" id="3_og0ry"]
+[ext_resource type="Texture2D" path="res://entities/items/logicGate/nor.png" id="4_i5165"]
+[ext_resource type="Texture2D" path="res://entities/items/logicGate/xor.png" id="5_imvbf"]
+[ext_resource type="Texture2D" path="res://entities/items/logicGate/xnor.png" id="6_4sf38"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgrgk"]
 

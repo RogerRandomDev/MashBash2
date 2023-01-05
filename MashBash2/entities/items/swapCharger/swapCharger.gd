@@ -26,7 +26,7 @@ func _ready():
 	check.transform=Transform2D(rotation,position)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Engine.is_editor_hint():return
 	var col:=get_world_2d().direct_space_state.intersect_shape(check)
 	for obj in col:if obj.collider.name=="Player":complete_purpose()

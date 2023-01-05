@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_8ccrl"]
 [ext_resource type="Script" path="res://entities/items/teleporter/teleporter.gd" id="1_f0ulu"]
-[ext_resource type="Texture2D" uid="uid://bgpnncomj2yss" path="res://entities/items/teleporter/teleporter.png" id="2_8sq2m"]
-[ext_resource type="Texture2D" uid="uid://kf8hd1dlash4" path="res://entities/items/teleporter/teleporterweak.png" id="3_jpeyn"]
-[ext_resource type="Texture2D" uid="uid://hv6xhsvxestu" path="res://entities/items/teleporter/teleporterbroken.png" id="4_8tw38"]
+[ext_resource type="Texture2D" uid="uid://begcenk17t12t" path="res://entities/items/teleporter/teleporter.png" id="2_8sq2m"]
+[ext_resource type="Texture2D" uid="uid://ds3l0vi0g725x" path="res://entities/items/teleporter/teleporterweak.png" id="3_jpeyn"]
+[ext_resource type="Texture2D" uid="uid://dpdb8r28dijgv" path="res://entities/items/teleporter/teleporterbroken.png" id="4_8tw38"]
 
 [resource]
 script = ExtResource("1_8ccrl")

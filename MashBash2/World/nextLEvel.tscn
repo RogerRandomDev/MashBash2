@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dyhsk57dr4nwt"]
 
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_qemwp"]
-[ext_resource type="Texture2D" uid="uid://bgpnncomj2yss" path="res://entities/items/teleporter/teleporter.png" id="2_ckogp"]
+[ext_resource type="Texture2D" uid="uid://begcenk17t12t" path="res://entities/items/teleporter/teleporter.png" id="2_ckogp"]
 [ext_resource type="Script" path="res://World/nextlevel.gd" id="2_vj2di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_horsc"]

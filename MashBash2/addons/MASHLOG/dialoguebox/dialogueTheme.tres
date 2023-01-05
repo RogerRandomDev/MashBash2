@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://b1t2yx05ctwy8"]
 
-[ext_resource type="FontFile" uid="uid://b6wscsfjia7g6" path="res://fonts/Retro Gaming.ttf" id="1_rwfhe"]
+[ext_resource type="FontFile" uid="uid://dutpghayd3oqf" path="res://fonts/Retro Gaming.ttf" id="1_rwfhe"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjh2f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtpoa"]
 bg_color = Color(0.133333, 0.239216, 0.329412, 1)
 border_width_top = 8
 border_width_bottom = 8
@@ -17,7 +17,7 @@ shadow_size = 4
 anti_aliasing = false
 anti_aliasing_size = 2.145
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov257"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5g1b"]
 bg_color = Color(0.121569, 0.180392, 0.321569, 1)
 border_width_left = 8
 border_color = Color(0.227451, 0.133333, 0.309804, 1)
@@ -29,16 +29,16 @@ corner_detail = 1
 anti_aliasing = false
 anti_aliasing_size = 2.676
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p8lxl"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_66tyb"]
 content_margin_left = 12.0
 content_margin_top = 8.0
 
 [resource]
 default_font = ExtResource("1_rwfhe")
 default_font_size = 12
-Panel/styles/panel = SubResource("StyleBoxFlat_kjh2f")
+Panel/styles/panel = SubResource("StyleBoxFlat_qtpoa")
 Panel/styles/panel_fg = null
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_ov257")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_n5g1b")
 RichTextLabel/constants/line_separation = 0
 RichTextLabel/constants/outline_size = 0
 RichTextLabel/constants/shadow_offset_x = 0
@@ -57,4 +57,4 @@ RichTextLabel/fonts/italics_font = ExtResource("1_rwfhe")
 RichTextLabel/fonts/mono_font = ExtResource("1_rwfhe")
 RichTextLabel/fonts/normal_font = ExtResource("1_rwfhe")
 RichTextLabel/styles/focus = null
-RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_p8lxl")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_66tyb")

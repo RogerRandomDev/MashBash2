@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_iofin"]
 [ext_resource type="Script" path="res://entities/items/laserShooter/laserShooter.gd" id="1_qkeqm"]
-[ext_resource type="Texture2D" uid="uid://b0gkwrhs0v40s" path="res://entities/items/laserShooter/laserShooter.png" id="2_120e8"]
+[ext_resource type="Texture2D" uid="uid://ddublshwbpue4" path="res://entities/items/laserShooter/laserShooter.png" id="2_120e8"]
 
 [resource]
 script = ExtResource("1_iofin")

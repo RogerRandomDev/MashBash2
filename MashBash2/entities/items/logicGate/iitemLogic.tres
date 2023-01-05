@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=3 uid="uid://1lgsaedmqeq7"]
 
 [ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_7t1qf"]
-[ext_resource type="Texture2D" uid="uid://vl56dknhj1gt" path="res://entities/items/logicGate/off.png" id="1_drhg8"]
+[ext_resource type="Texture2D" uid="uid://cq5idwfe6be5v" path="res://entities/items/logicGate/off.png" id="1_drhg8"]
 [ext_resource type="Script" path="res://entities/items/logicGate/itemLogic.gd" id="1_ret80"]
 
 [resource]
