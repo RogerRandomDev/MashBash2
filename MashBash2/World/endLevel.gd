@@ -33,12 +33,12 @@ func formatTime(time):
 	var outputTime=("0" if minutes<10 else "")+str(minutes)+":"+("0" if seconds < 10 else "")+secondsString
 	return outputTime
 const timeMessages={
-	300:"The speediest runner!",
-	600:"A speedrunner, I see.",
-	900:"Now that's pretty fast!",
-	1200:"Not bad at all!",
-	1800:"Could be better...",
-	2400:"Wanna try again?"
+	900:"The speediest runner!",
+	1500:"A speedrunner, I see.",
+	2100:"Now that's pretty fast!",
+	3000:"Not bad at all!",
+	3600:"Could be better...",
+	4800:"Wanna try again?"
 }
 #shows user time and message based on how long they took
 func showCelebratorMessages():

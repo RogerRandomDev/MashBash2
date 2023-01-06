@@ -8,6 +8,10 @@ func _ready():
 	Sound.playSong("song1")
 	$AnimationPlayer.play("load")
 	#focuses on the play button
+	Pausemenu.get_node("Controls/Movement").visible=false
+	Pausemenu.get_node("Controls/Interact").visible=false
+	Pausemenu.get_node("Controls/ClosePause").visible=false
+	Pausemenu.get_node("Controls/Vacuum").visible=false
 	
 
 

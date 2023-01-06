@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_hhd1v")
-dialogue = PackedStringArray("Okay so that...", "It\'s a [color=#0ff]Teleporter[/color]. It teleports you.", "though, if it becomes \"[color=#f00]weak[/color]\", it will break after one use.", "and when [color=#f00]broken[/color], you can\'t use it, which is what happened to the one you just used", "Anyway, the next part should be connected to the bottom teleporter")
-dialogueFaces = [0, 0, 0, 0, 2]
-dialogueActions = [null, null, null, null, null]
+dialogue = PackedStringArray("Okay so that...", "It\'s a [color=#0ff]Teleporter[/color]. It teleports you.", "though, if it becomes \"[color=#f00]weak[/color]\", it will break after one use.", "and when [color=#f00]broken[/color], you can\'t use it, which is what happened to the one you just used", "You can tell from the [color=#0ff]ICONS[/color] in the corner of the items.", "Anyway, the next part should be connected to the bottom teleporter")
+dialogueFaces = [0, 0, 0, 0, 2, 0]
+dialogueActions = [null, null, null, null, null, null]

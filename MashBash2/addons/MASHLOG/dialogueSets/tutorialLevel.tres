@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=6 format=3 uid="uid://ckl86lxe8e87h"]
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://ckl86lxe8e87h"]
 
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_5gnij"]
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/eventResource.gd" id="1_m670p"]
@@ -13,7 +13,12 @@ script = ExtResource("1_m670p")
 Actions = PackedInt32Array(6)
 ActionValues = [false]
 
-[sub_resource type="Resource" id="Resource_myktk"]
+[sub_resource type="Resource" id="Resource_0h627"]
+script = ExtResource("1_m670p")
+Actions = PackedInt32Array(9)
+ActionValues = ["Movement"]
+
+[sub_resource type="Resource" id="Resource_4w6yf"]
 script = ExtResource("1_m670p")
 Actions = PackedInt32Array(5)
 ActionValues = [false]
@@ -22,4 +27,4 @@ ActionValues = [false]
 script = ExtResource("1_5gnij")
 dialogue = PackedStringArray("Hello there, You must be the new [color=#0f0]PLAYER[/color]!", "I\'d love to play with you, considering I recently recovered my corrupt files, but am currently facing some \"Minor\" issues.", "Namely that I didnt make this, But we can figure it out together!", " ", "Ah, right. You still need the [b]CONTROLS[/b]!", "Try [color=#f00]WASD[/color] to move. I\'d do that if it were me.", " ", "AH! the player was locked in place! Let me fix that real quick...", "There! NOW you can move!")
 dialogueFaces = [1, 2, 2, 0, 1, 1, 0, 1, 1]
-dialogueActions = [SubResource("Resource_wxxbp"), SubResource("Resource_b6h4u"), null, null, null, null, null, null, SubResource("Resource_myktk")]
+dialogueActions = [SubResource("Resource_wxxbp"), SubResource("Resource_b6h4u"), null, null, null, SubResource("Resource_0h627"), null, null, SubResource("Resource_4w6yf")]

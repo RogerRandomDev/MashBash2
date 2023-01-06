@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bqbgyc4h4lywb"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bqbgyc4h4lywb"]
 
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/eventResource.gd" id="1_87a4m"]
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_l2ptn"]
@@ -8,13 +8,18 @@ script = ExtResource("1_87a4m")
 Actions = PackedInt32Array(8)
 ActionValues = [null]
 
+[sub_resource type="Resource" id="Resource_85sq3"]
+script = ExtResource("1_87a4m")
+Actions = PackedInt32Array(9)
+ActionValues = ["ClosePause"]
+
 [sub_resource type="Resource" id="Resource_opf4h"]
 script = ExtResource("1_87a4m")
-Actions = PackedInt32Array(5)
-ActionValues = [false]
+Actions = PackedInt32Array(9)
+ActionValues = ["Vacuum"]
 
 [resource]
 script = ExtResource("1_l2ptn")
 dialogue = PackedStringArray("Alright, So now we have [color=#f00]boxes[/color] and [color=#f00]buttons[/color].", "I\'ve checked how they work just now so:", "you can\'t push a [color=#f00]heavy[/color] box", "and a [color=#f00]light[/color] box can\'t push a button", "the buttons connect to [color=#0ff]LOGIC GATES[/color] which have basic logic functions", "I\'ll add logic gate types to the pause menu, press ESC to enter it", "and finally, I gave you a vacuum.", "It pulls boxes to you, if they aren\'t [color=#f00]heavy[/color] and goes where your mouse is aimed", "press the  LEFT MOUSE button to use it!", "And finally, The [color=#f00]DOOR[/color] is open if not locked when active", "but when activated while [color=#0ff]locked[/color], it only unlocks it!")
 dialogueFaces = [1, 1, 2, 1, 0, 1, 0, 0, 1, 1, 1]
-dialogueActions = [null, null, null, null, null, SubResource("Resource_bap0k"), null, null, SubResource("Resource_opf4h"), null, null]
+dialogueActions = [null, null, null, null, null, SubResource("Resource_bap0k"), SubResource("Resource_85sq3"), null, SubResource("Resource_opf4h"), null, null]

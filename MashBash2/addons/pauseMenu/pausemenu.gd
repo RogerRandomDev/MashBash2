@@ -23,8 +23,8 @@ func _input(_event):
 		
 	if visible && Input.is_key_pressed(KEY_U):
 		#skipping level adds a solid 5 minutes to your time
-		pausedFor-=300.0
-		runningFor+=300.0
+		pausedFor-=900.0
+		runningFor+=900.0
 		var next=get_tree().get_first_node_in_group("endLevel")
 		visible=false
 		next._on_area_2d_body_entered(get_tree().get_first_node_in_group("player"));

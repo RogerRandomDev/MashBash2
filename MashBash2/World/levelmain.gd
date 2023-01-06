@@ -17,7 +17,7 @@ func _ready():
 	#checks if it was the player teleporting
 	$items/itemResource2.get_child(0).connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportFirst())
 	$items/itemResource6.get_child(0).connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportSecond())
-	$items/itemResource11.get_child(0).connect("use_item",func(ent,action):if(action=="openDoor"):doorFirst())
+	$items/Area2D.connect("body_entered",func(ent):if(ent.name=="Player"):doorFirst())
 	$items/itemResource13.get_child(0).connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):introduceWords())
 
 func teleportFirst():

@@ -1,13 +1,20 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcybu8d6mkcul"]
+[gd_scene load_steps=21 format=3 uid="uid://bcybu8d6mkcul"]
 
 [ext_resource type="Script" path="res://addons/pauseMenu/pausemenu.gd" id="1_8qwra"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_oi0mr"]
-[ext_resource type="Texture2D" path="res://entities/items/logicGate/and.png" id="1_qpuxs"]
-[ext_resource type="Texture2D" path="res://entities/items/logicGate/nand.png" id="2_0ofru"]
-[ext_resource type="Texture2D" path="res://entities/items/logicGate/or.png" id="3_og0ry"]
-[ext_resource type="Texture2D" path="res://entities/items/logicGate/nor.png" id="4_i5165"]
-[ext_resource type="Texture2D" path="res://entities/items/logicGate/xor.png" id="5_imvbf"]
-[ext_resource type="Texture2D" path="res://entities/items/logicGate/xnor.png" id="6_4sf38"]
+[ext_resource type="Texture2D" uid="uid://emqogxwdbxuk" path="res://entities/items/logicGate/and.png" id="1_qpuxs"]
+[ext_resource type="Texture2D" uid="uid://b4dxdxp4l23wv" path="res://entities/items/logicGate/nand.png" id="2_0ofru"]
+[ext_resource type="Texture2D" uid="uid://bs38gaf8oea14" path="res://entities/items/logicGate/or.png" id="3_og0ry"]
+[ext_resource type="Texture2D" uid="uid://i7uujvpvr2u2" path="res://entities/items/logicGate/nor.png" id="4_i5165"]
+[ext_resource type="Texture2D" uid="uid://di6rs5vyyagqm" path="res://entities/items/logicGate/xor.png" id="5_imvbf"]
+[ext_resource type="Texture2D" uid="uid://3myeug26xuae" path="res://entities/items/logicGate/xnor.png" id="6_4sf38"]
+[ext_resource type="Texture2D" uid="uid://d0odpfhscm855" path="res://addons/pauseMenu/W.png" id="9_kvqvs"]
+[ext_resource type="Texture2D" uid="uid://1kmuvxvisg2v" path="res://addons/pauseMenu/A.png" id="10_edt8x"]
+[ext_resource type="Texture2D" uid="uid://blb3mrj472v4q" path="res://addons/pauseMenu/S.png" id="11_xovse"]
+[ext_resource type="Texture2D" uid="uid://cw47l12nmy14p" path="res://addons/pauseMenu/D.png" id="12_gw786"]
+[ext_resource type="Texture2D" uid="uid://c5auingyiedd1" path="res://addons/pauseMenu/E.png" id="13_yldi2"]
+[ext_resource type="Texture2D" uid="uid://f8lptteno8cj" path="res://addons/pauseMenu/ESC.png" id="14_a42r0"]
+[ext_resource type="Texture2D" uid="uid://bu75rooymcgto" path="res://addons/pauseMenu/Lmouse.png" id="15_wq3co"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgrgk"]
 
@@ -110,5 +117,95 @@ offset_bottom = 54.0
 theme = ExtResource("1_oi0mr")
 theme_override_font_sizes/font_size = 16
 text = "test"
+
+[node name="Controls" type="CanvasLayer" parent="."]
+
+[node name="Movement" type="Node2D" parent="Controls"]
+
+[node name="W" type="Sprite2D" parent="Controls/Movement"]
+position = Vector2(928, 48)
+scale = Vector2(4, 4)
+texture = ExtResource("9_kvqvs")
+
+[node name="A" type="Sprite2D" parent="Controls/Movement"]
+position = Vector2(896, 80)
+scale = Vector2(4, 4)
+texture = ExtResource("10_edt8x")
+
+[node name="S" type="Sprite2D" parent="Controls/Movement"]
+position = Vector2(928, 80)
+scale = Vector2(4, 4)
+texture = ExtResource("11_xovse")
+
+[node name="D" type="Sprite2D" parent="Controls/Movement"]
+position = Vector2(960, 80)
+scale = Vector2(4, 4)
+texture = ExtResource("12_gw786")
+
+[node name="Label" type="Label" parent="Controls/Movement"]
+offset_left = 880.0
+offset_right = 1152.0
+offset_bottom = 115.0
+theme = ExtResource("1_oi0mr")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/line_spacing = 0
+text = "Movement"
+
+[node name="Interact" type="Node2D" parent="Controls"]
+
+[node name="Label" type="Label" parent="Controls/Interact"]
+offset_left = 878.0
+offset_right = 1144.0
+offset_bottom = 115.0
+theme = ExtResource("1_oi0mr")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/line_spacing = 0
+text = "                        Interact"
+
+[node name="E" type="Sprite2D" parent="Controls/Interact"]
+position = Vector2(1016, 48)
+scale = Vector2(4, 4)
+texture = ExtResource("13_yldi2")
+
+[node name="ClosePause" type="Node2D" parent="Controls"]
+
+[node name="Label" type="Label" parent="Controls/ClosePause"]
+offset_left = 888.0
+offset_right = 1160.0
+offset_bottom = 115.0
+theme = ExtResource("1_oi0mr")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/line_spacing = 0
+text = "                                         Close/Pause"
+
+[node name="Esc" type="Sprite2D" parent="Controls/ClosePause"]
+position = Vector2(1096, 48)
+scale = Vector2(4, 4)
+texture = ExtResource("14_a42r0")
+
+[node name="Vacuum" type="Node2D" parent="Controls"]
+
+[node name="Label" type="Label" parent="Controls/Vacuum"]
+offset_left = 888.0
+offset_top = 48.0
+offset_right = 1160.0
+offset_bottom = 163.0
+theme = ExtResource("1_oi0mr")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/line_spacing = 0
+text = "
+
+
+
+    Vacuum"
+
+[node name="Lmouse" type="Sprite2D" parent="Controls/Vacuum"]
+position = Vector2(928, 136)
+scale = Vector2(4, 4)
+texture = ExtResource("15_wq3co")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,4 +1,4 @@
-@tool
+
 extends Resource
 class_name eventResource
 #editactions lets us use an enum
@@ -19,7 +19,8 @@ var ActionVariableType:Array=[
 	1,"false",
 	1,"false",
 	0,"level0",
-	0,"null"
+	0,"null",
+	0,"Movement"
 ]
 #func _ready():ActionVariableType=Mashlogue.ActionVariableType
 func updateValues():
@@ -73,3 +74,6 @@ func toggleEditor(_null):
 	Word.canChange=_null
 func changeScene(_path):
 	Word.get_tree().change_scene("res://World/%s.tscn"%_path)
+
+func showControls(_node):
+	Pausemenu.get_node("Controls/%s"%_node).visible=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://rmixql5wbq8s"]
+[gd_scene load_steps=15 format=3 uid="uid://rmixql5wbq8s"]
 
 [ext_resource type="Script" path="res://World/levelmain.gd" id="1_0ho5g"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
@@ -13,6 +13,9 @@
 [ext_resource type="Resource" uid="uid://rpb7ppknp8oa" path="res://entities/items/button/button.tres" id="12_lmhi6"]
 [ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="13_4pdc5"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="14_vaxsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgbpr"]
+size = Vector2(8, 9)
 
 [node name="level0" type="Node2D"]
 process_priority = -1
@@ -350,6 +353,14 @@ script = ExtResource("3_n54hw")
 HeldResource = ExtResource("12_lmhi6")
 Status = PackedStringArray("toggle")
 HiddenStatus = PackedStringArray()
+
+[node name="Area2D" type="Area2D" parent="items"]
+position = Vector2(12, 158)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="items/Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_mgbpr")
 
 [node name="Area2D" parent="." instance=ExtResource("14_vaxsb")]
 position = Vector2(399, 112)

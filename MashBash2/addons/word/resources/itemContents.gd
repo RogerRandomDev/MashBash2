@@ -18,10 +18,14 @@ func has_sprite(descriptive):
 
 #makes icon for descriptives
 func make_descriptive_icon(descriptive):
-	var icon = Sprite2D.new()
+	var icon = Control.new()
+	icon.custom_minimum_size=Vector2(4,4)
 	if Word.alldescriptives.has(descriptive):
+		var te=Sprite2D.new()
+		icon.add_child(te)
+		te.scale=Vector2(0.5,0.5)
 		var tex= load("res://addons/word/descriptiveIcons/%s.png"%descriptive)
-		icon.texture=tex
-		icon.scale=Vector2(0.5,0.5)
+		te.texture=tex
+		
 		return icon
 	return null
