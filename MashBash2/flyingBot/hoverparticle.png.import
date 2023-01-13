@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bryllot8i386n"
-path="res://.godot/imported/botbody.png-2a50da03df653ef04ebdf2fc74f5b53d.ctex"
+uid="uid://djji3pdr5wpo1"
+path="res://.godot/imported/hoverparticle.png-fca548c4a3ad8d6bcf65eb8f75d89994.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/flyingBot/botbody.png"
-dest_files=["res://.godot/imported/botbody.png-2a50da03df653ef04ebdf2fc74f5b53d.ctex"]
+source_file="res://flyingBot/hoverparticle.png"
+dest_files=["res://.godot/imported/hoverparticle.png-fca548c4a3ad8d6bcf65eb8f75d89994.ctex"]
 
 [params]
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="TileSet" uid="uid://berok1m7cgn75" path="res://TileMap/MapGame.tres" id="1_6ar6p"]
+[ext_resource type="Script" path="res://World/endLevel.gd" id="1_7kmvn"]
+[ext_resource type="PackedScene" uid="uid://bgq5y5im0yyow" path="res://entities/flyingBot/flyingBot.tscn" id="2_eoxw1"]
+[ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="3_tfhnl"]
+[ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="4_idti3"]
+[ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="5_e67pm"]

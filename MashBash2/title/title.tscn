@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://8cca7xbnit4g"]
+[gd_scene load_steps=22 format=3 uid="uid://niq8wrdh7lx2"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_ffxdt"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_hk07f"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dutpghayd3oqf" path="res://fonts/Retro Gaming.ttf" id="3_iy4j3"]
 [ext_resource type="Theme" uid="uid://2rdsr31cvlso" path="res://title/titleTheme.tres" id="4_cd6e5"]
 [ext_resource type="Shader" path="res://title/buttonHover.gdshader" id="5_d5uk3"]
+[ext_resource type="Texture2D" uid="uid://6ci634jsykc8" path="res://addons/MASHLOG/Textures/Mashicons/1.png" id="10_fg40m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4m5i"]
 shader = ExtResource("2_ult1y")
@@ -34,7 +35,7 @@ shader_parameter/shake_speed = 5.0
 
 [sub_resource type="Animation" id="Animation_k2yn3"]
 resource_name = "load"
-length = 2.0
+length = 4.0
 tracks/0/type = "animation"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,7 +44,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "clips": PackedStringArray("main", "buttons"),
-"times": PackedFloat32Array(0, 1.6)
+"times": PackedFloat32Array(0.3, 1.6)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_olfib"]
@@ -53,56 +54,68 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_cimj8"]
 resource_name = "buttons"
-length = 0.8
-tracks/0/type = "value"
+length = 2.0
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Menu/play:scale")
+tracks/0/path = NodePath("Menu/play")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.5, 0.6),
-"transitions": PackedFloat32Array(0.25, 2.2974, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Menu/settings:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 0.6, 0.7),
-"transitions": PackedFloat32Array(0.25, 2.2974, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Menu/quit:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.3, 0.7, 0.8),
-"transitions": PackedFloat32Array(0.25, 2.2974, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Menu/play")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(1.7),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"grab_focus"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/play:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 0.75, 2.5),
+"update": 0,
+"values": [Vector2(-64, -400), Vector2(-64, -400), Vector2(-64, -12), Vector2(-64, -44)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/settings:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 0.75, 2.5),
+"update": 0,
+"values": [Vector2(764, 42), Vector2(764, 42), Vector2(-180, 42), Vector2(-180, 42)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu/quit:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 0.5, 2.5),
+"update": 0,
+"values": [Vector2(-764, 112), Vector2(-764, 112), Vector2(-32, 112), Vector2(-64, 112)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Menu/play:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 0.420448),
+"update": 0,
+"values": [-50.2655, -50.2655, -0.523599, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_gjeep"]
@@ -111,20 +124,145 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Menu:scale")
+tracks/0/path = NodePath("Menu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5),
-"transitions": PackedFloat32Array(0.378929, 2.37841, 1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1.6245, 0.554785),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+"values": [Vector2(576, -324), Vector2(576, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/RichTextLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.554785, 3.24901, 1),
+"update": 0,
+"values": [Vector2(-256, -250), Vector2(-256, -200), Vector2(-256, -250)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/RichTextLabel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vwvg1"]
 _data = {
 "buttons": SubResource("Animation_cimj8"),
 "main": SubResource("Animation_gjeep")
+}
+
+[sub_resource type="GDScript" id="GDScript_xcil1"]
+script/source = "extends Node2D
+
+func _ready():$AnimationPlayer.play(\"hover\")
+func _process(delta):
+	position+=(get_global_mouse_position()-global_position+Vector2(32,32))*delta*3
+"
+
+[sub_resource type="Gradient" id="Gradient_kqvo6"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.25098)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5bxxy"]
+gradient = SubResource("Gradient_kqvo6")
+width = 32
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h5l70"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 8.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.2, 4, 4, 1)
+color_ramp = SubResource("GradientTexture1D_5bxxy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wjkd0"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 8.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.2, 4, 4, 1)
+color_ramp = SubResource("GradientTexture1D_5bxxy")
+
+[sub_resource type="Animation" id="Animation_l24ou"]
+resource_name = "hover"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.9, 1.1, 1.4, 1.5, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, -2), Vector2(0, 0), Vector2(0, 0), Vector2(0, 2), Vector2(0, 2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BotwingL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.261799, 0.0, -0.261799]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BotwingR:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, 0.0, 0.261799]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qi8aa"]
+_data = {
+"hover": SubResource("Animation_l24ou")
 }
 
 [node name="title" type="Control"]
@@ -139,23 +277,26 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 576.0
-offset_top = 324.0
+offset_top = -215.235
 offset_right = 576.0
-offset_bottom = 324.0
+offset_bottom = -215.235
 theme = ExtResource("4_cd6e5")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+layout_mode = 0
 offset_left = -256.0
 offset_top = -250.0
 offset_right = 256.0
 offset_bottom = -86.0
+pivot_offset = Vector2(256, 82)
 theme_override_fonts/normal_font = ExtResource("3_iy4j3")
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
@@ -163,27 +304,40 @@ text = "[center][shake level=8 rate=10]WOR(L)D  SWAP[/shake][/center]"
 fit_content_height = true
 
 [node name="play" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -64.0
-offset_top = -44.0
+offset_top = -400.0
 offset_right = 64.0
-offset_bottom = 10.0
+offset_bottom = -346.0
+rotation = -50.2655
 pivot_offset = Vector2(64, 27)
 theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
-[node name="settings" type="Button" parent="Menu"]
-offset_left = -116.0
-offset_top = 34.0
-offset_right = 116.0
-offset_bottom = 88.0
-pivot_offset = Vector2(116, 26)
-theme_override_font_sizes/font_size = 36
-text = "SETTINGS"
+[node name="settings" type="HBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 42.0
+offset_right = 1124.0
+offset_bottom = 82.0
+pivot_offset = Vector2(180, 26)
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="fullscreen" type="Button" parent="Menu/settings"]
+layout_mode = 2
+toggle_mode = true
+text = "Fullscreen"
+
+[node name="credits" type="Button" parent="Menu/settings"]
+layout_mode = 2
+text = "Credits"
 
 [node name="quit" type="Button" parent="Menu"]
-offset_left = -64.0
+layout_mode = 0
+offset_left = -764.0
 offset_top = 112.0
-offset_right = 64.0
+offset_right = -636.0
 offset_bottom = 166.0
 pivot_offset = Vector2(64, 27)
 theme_override_font_sizes/font_size = 36
@@ -192,6 +346,7 @@ text = "QUIT"
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
+layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0
@@ -208,11 +363,55 @@ libraries = {
 "": SubResource("AnimationLibrary_vwvg1")
 }
 
+[node name="mousefollow" type="Node2D" parent="."]
+z_index = 4
+scale = Vector2(4, 4)
+script = SubResource("GDScript_xcil1")
+
+[node name="flyingBot" type="Sprite2D" parent="mousefollow"]
+position = Vector2(0, 0.268184)
+
+[node name="BotwingL" type="Sprite2D" parent="mousefollow/flyingBot"]
+z_index = -1
+position = Vector2(-4, -2)
+rotation = -0.0611858
+offset = Vector2(-4, 2)
+
+[node name="HoverParticles" type="GPUParticles2D" parent="mousefollow/flyingBot/BotwingL"]
+z_index = -1
+position = Vector2(-4, 3)
+amount = 4
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_h5l70")
+
+[node name="BotwingR" type="Sprite2D" parent="mousefollow/flyingBot"]
+z_index = -1
+position = Vector2(4, -2)
+rotation = 0.0611858
+offset = Vector2(4, 2)
+flip_h = true
+
+[node name="HoverParticles" type="GPUParticles2D" parent="mousefollow/flyingBot/BotwingR"]
+z_index = -1
+position = Vector2(5, 3)
+amount = 4
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_wjkd0")
+
+[node name="face" type="Sprite2D" parent="mousefollow/flyingBot"]
+modulate = Color(0, 0.780392, 0, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_fg40m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="mousefollow"]
+root_node = NodePath("../flyingBot")
+libraries = {
+"": SubResource("AnimationLibrary_qi8aa")
+}
+
 [connection signal="focus_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="mouse_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="pressed" from="Menu/play" to="." method="pressPlay"]
-[connection signal="focus_entered" from="Menu/settings" to="." method="play_focus" binds= ["settings"]]
-[connection signal="mouse_entered" from="Menu/settings" to="." method="play_focus" binds= ["settings"]]
-[connection signal="pressed" from="Menu/settings" to="." method="_on_settings_pressed"]
+[connection signal="toggled" from="Menu/settings/fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="focus_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
 [connection signal="mouse_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]

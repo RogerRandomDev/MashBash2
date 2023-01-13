@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by8gp385d08jh"
-path="res://.godot/imported/botwing.png-67686cf816576db271212fe2c55fc738.ctex"
+uid="uid://bryllot8i386n"
+path="res://.godot/imported/botbody.png-4449e0f730c993d1dcd31ac1d4a18c7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/flyingBot/botwing.png"
-dest_files=["res://.godot/imported/botwing.png-67686cf816576db271212fe2c55fc738.ctex"]
+source_file="res://flyingBot/botbody.png"
+dest_files=["res://.godot/imported/botbody.png-4449e0f730c993d1dcd31ac1d4a18c7a.ctex"]
 
 [params]
 

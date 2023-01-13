@@ -1,0 +1,37 @@
+[gd_scene load_steps=13 format=3 uid="uid://ckbqpf8ev68dc"]
+
+[ext_resource type="Material" uid="uid://djjbpvw2dt73s" path="res://entities/shaderBased/LaserOnWalls.tres" id="1_ovjd2"]
+[ext_resource type="Shader" path="res://World/background.gdshader" id="2_638x2"]
+[ext_resource type="Shader" path="res://entities/shaderBased/buttonOrder.gdshader" id="3_lechh"]
+[ext_resource type="Material" uid="uid://6xqgmrwwdq3" path="res://entities/shaderBased/confetti.tres" id="4_4rvro"]
+[ext_resource type="Shader" path="res://entities/shaderBased/glowItem.gdshader" id="5_mtixp"]
+[ext_resource type="Material" uid="uid://bu2jrbvdb2pwg" path="res://entities/shaderBased/itemglow.tres" id="6_royqa"]
+[ext_resource type="Shader" path="res://World/level0.gdshader" id="7_r8vt7"]
+[ext_resource type="Shader" path="res://entities/player/player.gdshader" id="8_1egew"]
+[ext_resource type="Shader" path="res://World/testTwinkle.gdshader" id="9_dpct7"]
+[ext_resource type="Material" uid="uid://crd35051u0275" path="res://entities/player/vacuum.tres" id="10_awigw"]
+[ext_resource type="Material" uid="uid://bcj80jt16do3k" path="res://World/wordswapcharger.tres" id="11_mnc1u"]
+
+[sub_resource type="GDScript" id="GDScript_p8srg"]
+script/source = "extends Node
+
+const soundList = {
+	\"walk\":preload(\"res://sounds/walk.wav\"),
+	\"button\":preload(\"res://sounds/button.wav\"),
+	\"teleport\":preload(\"res://sounds/teleport.wav\")
+}
+
+
+func playSound(soundName:String):
+	var player=AudioStreamPlayer.new()
+	player.stream=soundList[soundName]
+	player.connect('finished',func():player.queue_free())
+	add_child(player)
+	player.play()
+"
+
+[node name="sound" type="Node"]
+script = SubResource("GDScript_p8srg")
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("LaserOnWalls", "background", "buttonOrder", "confetti", "glowItem", "itemglow", "level0", "player", "testTwinkle", "vacuum", "wordswapcharger"), [ExtResource("1_ovjd2"), ExtResource("2_638x2"), ExtResource("3_lechh"), ExtResource("4_4rvro"), ExtResource("5_mtixp"), ExtResource("6_royqa"), ExtResource("7_r8vt7"), ExtResource("8_1egew"), ExtResource("9_dpct7"), ExtResource("10_awigw"), ExtResource("11_mnc1u")]]

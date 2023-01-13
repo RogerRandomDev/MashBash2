@@ -4,9 +4,10 @@ extends Control
 
 func _ready():
 	#resets menu scale so i don't have to
-	$Menu/play.scale*=0;$Menu/settings.scale*=0;$Menu/quit.scale*=0
-	Sound.playSong("song1")
+	#$Menu/play.scale*=0;$Menu/settings.scale*=0;$Menu/quit.scale*=0
+	$Menu.visible=false
 	$AnimationPlayer.play("load")
+	Sound.playSong("song1")
 	#focuses on the play button
 	Pausemenu.get_node("Controls/Movement").visible=false
 	Pausemenu.get_node("Controls/Interact").visible=false
@@ -33,3 +34,10 @@ func pressPlay():
 func _on_settings_pressed():
 	$Menu/settings.queue_free()
 	Sound.play("no_man_voice")
+
+
+func _on_fullscreen_toggled(button_pressed):
+	if !button_pressed:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

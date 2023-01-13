@@ -1,4 +1,4 @@
-[gd_resource type="ParticlesMaterial" load_steps=5 format=3 uid="uid://crd35051u0275"]
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://crd35051u0275"]
 
 [sub_resource type="Gradient" id="Gradient_w202f"]
 offsets = PackedFloat32Array(0.120567, 1)
@@ -22,8 +22,8 @@ emission_box_extents = Vector3(1, 8, 1)
 particle_flag_disable_z = true
 spread = 0.0
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = -30
-initial_velocity_max = -30
+initial_velocity_min = -30.0
+initial_velocity_max = -30.0
 orbit_velocity_min = -0.005
 orbit_velocity_max = -0.005
 radial_accel_min = -10.0

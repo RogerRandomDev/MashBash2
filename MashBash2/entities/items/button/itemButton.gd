@@ -59,6 +59,7 @@ func triggerPressed():
 	else:for body in pressedBy:
 		if !checkValidBody(body):continue
 		isPressed=true
+	Sounds.playSound("button")
 	
 	#pressed logic
 	if toggle&&!justPressed:pressed=!pressed
