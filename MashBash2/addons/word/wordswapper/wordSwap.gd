@@ -49,7 +49,7 @@ func _input(_event):
 					a.advance(a.current_animation_length-a.current_animation_position)
 					a.stop()
 				a.play("cantDo",0.0)
-				Sound.play("cant")
+				Sound.play("cant",-12.0)
 				return
 			
 			var added=Word.storedWords[selectedWord]
@@ -74,7 +74,7 @@ func cantAnim():
 	var a = get_parent().get_node("AnimationPlayer")
 	if a.current_animation!="":a.advance(a.current_animation_length-a.current_animation_position)
 	a.stop();a.play("pulseRed",0.0)
-	Sound.play("cant")
+	Sound.play("cant",-12.0)
 
 #updates the current chosen word
 func updateSelectedWord():
@@ -101,19 +101,21 @@ func removeWord(id):
 	
 
 #rebuilds the phrase once taken apart
-func buildPhrase(_splitWords,withEffect=true):
-	Words.text=""
-	for i in _splitWords.size():
-		if _splitWords[i]=="":continue
-		if(i==selectedWord&&withEffect&&_splitWords.size()!=1&&activeSet==0):
-			Words.text+="[pull]"
-			Words.text+=_splitWords[i]
-			Words.text+="[/pull] "
+func buildPhrase(_splitWords, withEffect=true):
+	var phrase = ""
+	for i in range(_splitWords.size()):
+		if _splitWords[i] == "":
 			continue
-		Words.text+=_splitWords[i]
-		if i!=_splitWords.size()-1:Words.text+=" "
+		if i == selectedWord and withEffect and _splitWords.size() != 1 and activeSet == 0:
+			phrase += "[pull]" + _splitWords[i] + "[/pull] "
+			continue
+		phrase += _splitWords[i]
+		if i != _splitWords.size()-1:
+			phrase += " "
+	Words.text = phrase
 	updateOwned()
-	return Words.text
+	return phrase
+
 
 
 #updates the owned words

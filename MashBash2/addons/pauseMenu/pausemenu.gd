@@ -14,7 +14,7 @@ func _process(delta):
 	updateTimer();
 
 func _input(_event):
-	if !canPause||get_tree().current_scene.name=="title":return
+	if !canPause||get_tree().current_scene.name=="title"||get_tree().current_scene.name=="introScene":return
 	if Input.is_action_just_pressed("exit")&&!Word.get_node("wordswaplevel").visible:
 		visible=!visible;get_tree().paused=visible
 		if visible:Mashlogue._dialogueBox.process_mode=Node.PROCESS_MODE_PAUSABLE

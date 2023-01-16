@@ -9,9 +9,9 @@
 [ext_resource type="Resource" uid="uid://dxmu6bmob77dy" path="res://entities/items/box/box.tres" id="10_avjfs"]
 [ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="10_t8r86"]
 [ext_resource type="Resource" uid="uid://di350a3t2nt7y" path="res://entities/items/laserButton/LaserButton.tres" id="11_igfsw"]
-[ext_resource type="PackedScene" uid="uid://do4o7tqpah87e" path="res://entities/flyingBot/flyingBot.tscn" id="12_bwq0a"]
 [ext_resource type="Resource" uid="uid://rpb7ppknp8oa" path="res://entities/items/button/button.tres" id="12_lmhi6"]
 [ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="13_4pdc5"]
+[ext_resource type="PackedScene" uid="uid://c5tw6do8h3bl2" path="res://flyingBot/flyingBot.tscn" id="13_vomrx"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="14_vaxsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgbpr"]
@@ -371,6 +371,6 @@ z_index = 4
 position = Vector2(39, 53)
 canVacuum = true
 
-[node name="flyingBotPosition" parent="." instance=ExtResource("12_bwq0a")]
-z_index = 8
-position = Vector2(-232, -40)
+[node name="flyingBotPosition" parent="." instance=ExtResource("13_vomrx")]
+z_index = 2
+position = Vector2(-186, 1)

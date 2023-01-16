@@ -12,11 +12,11 @@ func _ready():
 	root=get_parent();var _groups=root.get_groups()
 	toggle=root.Status.has("toggle")
 	
-	
+	await get_tree().process_frame
 	if get_child_count()!=0:
 		for body in check.get_overlapping_bodies():checkEntered(body);return
 	else:
-		var area=CollisionShape2D.new();area.shape=RectangleShape2D.new();area.shape.extents=Vector2(4,2)
+		var area=CollisionShape2D.new();area.shape=RectangleShape2D.new();area.shape.extents=Vector2(3.5,2)
 		area.position+=Vector2(4,1);check.collision_mask=8;check.add_child(area);add_child(check);
 		check.connect("body_entered",checkEntered);check.connect("body_exited",checkExited)
 		connect("buttonPressed",onPress);connect("buttonReleased",onRelease)
@@ -59,11 +59,13 @@ func triggerPressed():
 	else:for body in pressedBy:
 		if !checkValidBody(body):continue
 		isPressed=true
-	Sounds.playSound("button")
+	
 	
 	#pressed logic
-	if toggle&&!justPressed:pressed=!pressed
-	if !toggle:pressed=isPressed
+	if toggle&&!justPressed:
+		pressed=!pressed;Sounds.playSound("button")
+	if !toggle:
+		pressed=isPressed;Sounds.playSound("button")
 	if !isPressed&&!toggle&&!justPressed:pressed=false
 	
 	if pressed&&!justPressed:emit_signal('buttonPressed')

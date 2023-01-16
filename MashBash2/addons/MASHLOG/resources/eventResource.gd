@@ -73,7 +73,7 @@ func showLogic(_null):pass;#Pausemenu.get_node("logic").visible=true
 func toggleEditor(_null):
 	Word.canChange=_null
 func changeScene(_path):
-	Word.get_tree().change_scene("res://World/%s.tscn"%_path)
+	Transitions.transitionScene("res://World/%s.tscn"%_path)
 
 func showControls(_node):
 	Pausemenu.get_node("Controls/%s"%_node).visible=true

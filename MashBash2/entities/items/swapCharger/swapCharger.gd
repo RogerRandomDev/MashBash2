@@ -21,7 +21,7 @@ func _ready():
 	#looks cool, but is currently not working for idk why
 	#particles.trail_enabled=true;particles.trail_length_secs=0.25;particles.trail_section_subdivisions=1;particles.trail_sections=3
 	particles.amount=12
-	sprite.texture=load("res://entities/flyingBot/botbody.png")
+	sprite.texture=load("res://flyingBot/botbody.png")
 	check.shape=RectangleShape2D.new();check.shape.extents=Vector2(4,4)
 	check.transform=Transform2D(rotation,position)
 

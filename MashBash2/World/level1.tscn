@@ -11,8 +11,8 @@
 [ext_resource type="Resource" uid="uid://rpb7ppknp8oa" path="res://entities/items/button/button.tres" id="7_rh7fu"]
 [ext_resource type="Resource" uid="uid://1lgsaedmqeq7" path="res://entities/items/logicGate/iitemLogic.tres" id="9_jpgdp"]
 [ext_resource type="Script" path="res://entities/items/swapCharger/swapCharger.gd" id="11_r5dqk"]
-[ext_resource type="PackedScene" uid="uid://do4o7tqpah87e" path="res://entities/flyingBot/flyingBot.tscn" id="12_q3dv6"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="13_2sxqc"]
+[ext_resource type="PackedScene" uid="uid://c5tw6do8h3bl2" path="res://flyingBot/flyingBot.tscn" id="13_r85x3"]
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_elp54")
@@ -166,11 +166,11 @@ position = Vector2(61, 100)
 script = ExtResource("11_r5dqk")
 chargeAmount = 2
 
-[node name="flyingBotPosition" parent="." instance=ExtResource("12_q3dv6")]
-z_index = 8
-position = Vector2(109, 24)
-
 [node name="Area2D" parent="." instance=ExtResource("13_2sxqc")]
 z_index = 6
 position = Vector2(84, 94)
 nextlvl = "res://World/level2.tscn"
+
+[node name="flyingBotPosition" parent="." instance=ExtResource("13_r85x3")]
+z_index = 2
+position = Vector2(-213, -4)

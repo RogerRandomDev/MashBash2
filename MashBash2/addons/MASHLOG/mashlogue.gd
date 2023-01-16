@@ -35,6 +35,7 @@ func _ready():
 
 
 func load_dialogue(_content:dialogueResource,_icons:iconSet):
+	
 	_dialogueBox.loadNewSet(_content,_icons)
 
 

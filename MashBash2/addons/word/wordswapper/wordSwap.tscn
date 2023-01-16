@@ -1,10 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://dap82rqd03mbk"]
+[gd_scene load_steps=20 format=3 uid="uid://dap82rqd03mbk"]
 
 [ext_resource type="Script" path="res://addons/word/wordswapper/wordSwap.gd" id="1_iothb"]
 [ext_resource type="Theme" uid="uid://68lfx3gkstmd" path="res://themes/worldtheme.tres" id="1_itcld"]
 [ext_resource type="RichTextEffect" uid="uid://otft4qkjls43" path="res://addons/word/resources/pull.tres" id="2_34jdx"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="4_r5edk"]
 [ext_resource type="FontFile" uid="uid://dutpghayd3oqf" path="res://fonts/Retro Gaming.ttf" id="5_drmfc"]
+[ext_resource type="Texture2D" uid="uid://1kmuvxvisg2v" path="res://addons/pauseMenu/A.png" id="6_kwmew"]
+[ext_resource type="Texture2D" uid="uid://cw47l12nmy14p" path="res://addons/pauseMenu/D.png" id="7_2ulec"]
+[ext_resource type="Texture2D" uid="uid://blb3mrj472v4q" path="res://addons/pauseMenu/S.png" id="8_vp5rr"]
+[ext_resource type="Texture2D" uid="uid://d0odpfhscm855" path="res://addons/pauseMenu/W.png" id="9_fw5td"]
+[ext_resource type="Texture2D" uid="uid://c5auingyiedd1" path="res://addons/pauseMenu/E.png" id="10_nr7s0"]
+[ext_resource type="Texture2D" uid="uid://f8lptteno8cj" path="res://addons/pauseMenu/ESC.png" id="11_vx37p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4for"]
 bg_color = Color(0.305882, 0.145098, 0.341176, 1)
@@ -171,24 +177,25 @@ layer = 9
 custom_minimum_size = Vector2(512, 384)
 offset_left = 320.0
 offset_top = 100.0
-offset_right = 832.0
+offset_right = 928.0
 offset_bottom = 484.0
 theme = ExtResource("1_itcld")
 theme_override_styles/panel = SubResource("StyleBoxFlat_m4for")
 script = ExtResource("1_iothb")
 
 [node name="labels" type="VBoxContainer" parent="wordswap"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 4.0
 offset_right = 500.0
 offset_bottom = 380.0
 
 [node name="Label2" type="Label" parent="wordswap/labels"]
-offset_right = 488.0
-offset_bottom = 29.0
+layout_mode = 2
 text = "Door"
 
 [node name="swapsleft" type="Label" parent="wordswap/labels/Label2"]
+layout_mode = 0
 offset_right = 488.0
 offset_bottom = 29.0
 text = "Swaps Left: 3"
@@ -196,22 +203,19 @@ horizontal_alignment = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="wordswap/labels"]
 clip_contents = false
-offset_top = 33.0
-offset_right = 488.0
-offset_bottom = 186.0
+layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
 text = "testing testing 1 2 3"
 custom_effects = [ExtResource("2_34jdx")]
 
 [node name="Label" type="Label" parent="wordswap/labels"]
-offset_top = 190.0
-offset_right = 488.0
-offset_bottom = 219.0
+layout_mode = 2
 text = "Inventory"
 
 [node name="cantputin" type="Label" parent="wordswap/labels/Label"]
 modulate = Color(1, 0, 0, 0)
+layout_mode = 0
 offset_right = 488.0
 offset_bottom = 29.0
 text = "WORD CLASHES WITH OTHER"
@@ -219,12 +223,53 @@ horizontal_alignment = 2
 
 [node name="Owned" type="RichTextLabel" parent="wordswap/labels"]
 clip_contents = false
-offset_top = 223.0
-offset_right = 488.0
-offset_bottom = 376.0
+layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
 custom_effects = [ExtResource("2_34jdx")]
+
+[node name="inputlist" type="RichTextLabel" parent="wordswap"]
+clip_contents = false
+layout_mode = 2
+offset_left = 516.0
+offset_top = 5.0
+offset_right = 597.0
+offset_bottom = 377.0
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "INPUTS
+"
+custom_effects = [ExtResource("2_34jdx")]
+
+[node name="A" type="Sprite2D" parent="wordswap/inputlist"]
+position = Vector2(19, 148)
+scale = Vector2(3, 3)
+texture = ExtResource("6_kwmew")
+
+[node name="D" type="Sprite2D" parent="wordswap/inputlist"]
+position = Vector2(67, 148)
+scale = Vector2(3, 3)
+texture = ExtResource("7_2ulec")
+
+[node name="S" type="Sprite2D" parent="wordswap/inputlist"]
+position = Vector2(43, 148)
+scale = Vector2(3, 3)
+texture = ExtResource("8_vp5rr")
+
+[node name="W" type="Sprite2D" parent="wordswap/inputlist"]
+position = Vector2(43, 124)
+scale = Vector2(3, 3)
+texture = ExtResource("9_fw5td")
+
+[node name="E" type="Sprite2D" parent="wordswap/inputlist"]
+position = Vector2(43.0001, 192)
+scale = Vector2(3, 3)
+texture = ExtResource("10_nr7s0")
+
+[node name="Esc" type="Sprite2D" parent="wordswap/inputlist"]
+position = Vector2(42, 235)
+scale = Vector2(3, 3)
+texture = ExtResource("11_vx37p")
 
 [node name="alteredLabel" type="CanvasLayer" parent="."]
 

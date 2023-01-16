@@ -22,8 +22,9 @@ const soundList = {
 }
 
 
-func playSound(soundName:String):
+func playSound(soundName:String,db=0.0):
 	var player=AudioStreamPlayer.new()
+	player.volume_db=db
 	player.stream=soundList[soundName]
 	player.connect('finished',func():player.queue_free())
 	add_child(player)

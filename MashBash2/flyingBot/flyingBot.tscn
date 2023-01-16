@@ -1,11 +1,66 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://c5tw6do8h3bl2"]
 
 [ext_resource type="Texture2D" uid="uid://bryllot8i386n" path="res://flyingBot/botbody.png" id="1_ujkue"]
 [ext_resource type="Script" path="res://flyingBot/flyingBot.gd" id="2_lrpjt"]
 [ext_resource type="Texture2D" uid="uid://by8gp385d08jh" path="res://flyingBot/botwing.png" id="3_w8gkr"]
 [ext_resource type="Texture2D" uid="uid://djji3pdr5wpo1" path="res://flyingBot/hoverparticle.png" id="4_w0ag8"]
 [ext_resource type="Texture2D" uid="uid://6ci634jsykc8" path="res://addons/MASHLOG/Textures/Mashicons/1.png" id="5_a4s2y"]
-dFloat32Array(1, 1, 1, 1),
+
+[sub_resource type="Gradient" id="Gradient_bdndb"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.25098)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5bxxy"]
+gradient = SubResource("Gradient_bdndb")
+width = 32
+
+[sub_resource type="Curve" id="Curve_dpwv7"]
+_data = [Vector2(0, 0.5), 0.0, 0.0308166, 0, 0, Vector2(1, 1), 3.6124e-07, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yu23i"]
+width = 32
+curve = SubResource("Curve_dpwv7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticlesMaterial_6pkbd"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 8.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_yu23i")
+color = Color(0.2, 4, 4, 1)
+color_ramp = SubResource("GradientTexture1D_5bxxy")
+
+[sub_resource type="Animation" id="Animation_l24ou"]
+resource_name = "hover"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.9, 1.1, 1.4, 1.5, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, -2), Vector2(0, 0), Vector2(0, 0), Vector2(0, 2), Vector2(0, 2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BotwingL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -0.261799, 0.0, -0.261799]
 }
@@ -32,13 +87,11 @@ scale = Vector2(0.666, 0.666)
 script = ExtResource("2_lrpjt")
 
 [node name="flyingBot" type="Sprite2D" parent="."]
-position = Vector2(0, -0.676079)
 texture = ExtResource("1_ujkue")
 
 [node name="BotwingL" type="Sprite2D" parent="flyingBot"]
 z_index = -1
 position = Vector2(-4, -2)
-rotation = -0.153948
 texture = ExtResource("3_w8gkr")
 offset = Vector2(-4, 2)
 
@@ -53,7 +106,6 @@ texture = ExtResource("4_w0ag8")
 [node name="BotwingR" type="Sprite2D" parent="flyingBot"]
 z_index = -1
 position = Vector2(4, -2)
-rotation = 0.153948
 texture = ExtResource("3_w8gkr")
 offset = Vector2(4, 2)
 flip_h = true

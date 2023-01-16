@@ -30,6 +30,8 @@ func loadNewSet(setContent,icons=null):
 	icon.modulate=icons.modulate
 	fullContents=setContent
 	_contentProgress=-1
+	$nextChar.stop()
+	$nextSet.stop()
 	$nextChar.start()
 	loadNextSet()
 

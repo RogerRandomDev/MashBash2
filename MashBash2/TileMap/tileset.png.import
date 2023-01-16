@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/tileset.png-6644405596c5940c5a9132977c4067e1.
 
 compress/mode=0
 compress/lossy_quality=0.7
-compress/hdr_compression=1
+compress/hdr_compression=0
 compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,7 +25,7 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
