@@ -1,0 +1,174 @@
+[gd_scene load_steps=10 format=3 uid="uid://cf1ubc1fmoogn"]
+
+[ext_resource type="Theme" uid="uid://bk7qnjewnebef" path="res://themes/Titletheme.tres" id="1_gbe0r"]
+[ext_resource type="Script" path="res://launchscreen/fadeIn.gd" id="2_kqiot"]
+
+[sub_resource type="GDScript" id="GDScript_max0x"]
+script/source = "extends CanvasLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$main.play(\"boot\")
+func finishBoot():
+	get_tree().change_scene_to_file(\"res://title/title.tscn\")
+"
+
+[sub_resource type="Animation" id="Animation_3g7dq"]
+resource_name = "FBLA"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("part1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("part1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_o1hn4"]
+resource_name = "logo"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("part2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("part2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jl21b"]
+_data = {
+"FBLA": SubResource("Animation_3g7dq"),
+"logo": SubResource("Animation_o1hn4")
+}
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_xr26g"]
+script = ExtResource("2_kqiot")
+
+[sub_resource type="Animation" id="Animation_p5cyx"]
+resource_name = "boot"
+length = 12.75
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("FBLA", "logo"),
+"times": PackedFloat32Array(0.1, 6.3)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(12.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finishBoot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rjh6w"]
+_data = {
+"boot": SubResource("Animation_p5cyx")
+}
+
+[node name="boot" type="CanvasLayer"]
+layer = 128
+script = SubResource("GDScript_max0x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -5.0
+offset_top = -62.0
+offset_right = 1160.0
+offset_bottom = 1103.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jl21b")
+}
+
+[node name="part1" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_gbe0r")
+
+[node name="FBLA" type="RichTextLabel" parent="part1"]
+clip_contents = false
+offset_left = 329.0
+offset_top = 175.0
+offset_right = 824.0
+offset_bottom = 1043.0
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[fadeIn speed=4 bounce=32 delay=0] FBLA[/fadeIn]
+[fadeIn speed=4 bounce=128 delay=1.25]22/23[/fadeIn]"
+custom_effects = [SubResource("RichTextEffect_xr26g")]
+
+[node name="part2" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_gbe0r")
+
+[node name="FBLA" type="RichTextLabel" parent="part2"]
+editor_description = "The spite is to you."
+clip_contents = false
+offset_left = 234.0
+offset_top = 175.0
+offset_right = 919.0
+offset_bottom = 1043.0
+theme_override_font_sizes/normal_font_size = 104
+bbcode_enabled = true
+text = " [fadeIn speed=6 bounce=32 delay=0]Made With
+Our Sanity[/fadeIn]"
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_xr26g")]
+
+[node name="main" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rjh6w")
+}

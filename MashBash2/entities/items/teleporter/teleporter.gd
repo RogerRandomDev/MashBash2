@@ -72,7 +72,7 @@ func animateTeleport(body):
 	
 	linked.get_node("ScriptHolder").triggerNow=false
 	teleporting=body
-	Sounds.playSound("teleport",-15)
+	Sounds.playSound("teleport",-18)
 	if body.name=="Player":body.locked=true
 	else:togglebodyPhysics(false)
 	body.position=global_position-Vector2(0,2.4*int(body.name=="Player"))
@@ -86,7 +86,7 @@ func animateTeleport(body):
 	#returns player
 	
 	tween.tween_interval(0.25);
-	tween.tween_callback(func():Sounds.playSound("teleport",-15))
+	tween.tween_callback(func():Sounds.playSound("teleport",-18))
 	tween.tween_method(tweenColor,1.,0.,0.5)
 	
 	if body.name=="Player":tween.tween_property(body,"locked",false,0.0)

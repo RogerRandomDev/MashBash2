@@ -8,3 +8,7 @@ func _ready():
 		load("res://addons/MASHLOG/dialogueSets/introTalk.tres"),
 		load("res://addons/MASHLOG/iconsets/MASH.tres"))
 	$split.play("link")
+
+
+func _input(event):
+	if Input.is_key_pressed(KEY_ESCAPE):Transitions.transitionScene("res://World/level0.tscn")

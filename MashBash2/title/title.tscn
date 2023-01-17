@@ -400,6 +400,7 @@ theme_override_font_sizes/font_size = 36
 text = "QUIT"
 
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
+visible = false
 material = SubResource("ShaderMaterial_vfos6")
 offset_left = -64.0
 offset_top = -44.0
@@ -481,3 +482,4 @@ libraries = {
 [connection signal="focus_entered" from="Menu/settings/credits" to="." method="play_focus" binds= ["settings/credits"]]
 [connection signal="focus_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
 [connection signal="mouse_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
+[connection signal="pressed" from="Menu/quit" to="." method="_on_quit_pressed"]

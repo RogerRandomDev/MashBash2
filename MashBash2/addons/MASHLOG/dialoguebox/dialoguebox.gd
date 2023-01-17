@@ -38,6 +38,11 @@ func loadNewSet(setContent,icons=null):
 
 
 
+#forcefully stops it immediately
+func forceStop():
+	$nextChar.stop()
+	$nextSet.stop()
+	visible=false
 
 
 #loads the next character in the text set

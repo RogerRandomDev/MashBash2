@@ -38,7 +38,7 @@ func pressPlay():
 
 func _on_settings_pressed():
 	$Menu/settings.queue_free()
-	Sound.play("no_man_voice")
+	#Sound.play("no_man_voice")
 
 
 func _on_fullscreen_toggled(button_pressed):
@@ -59,3 +59,6 @@ func drawRipple(location:Vector2):
 	
 
 
+
+
+func _on_quit_pressed():get_tree().quit()
