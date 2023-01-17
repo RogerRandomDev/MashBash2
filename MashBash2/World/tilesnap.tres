@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://pnh285kxfyva"]
+
+[ext_resource type="Shader" path="res://World/tilesnap.gdshader" id="1_4fwpo"]
+
+[resource]
+shader = ExtResource("1_4fwpo")

@@ -1,6 +1,124 @@
-[gd_scene load_steps=2 format=3 uid="uid://by2ve0cpw1kf6"]
+[gd_scene load_steps=7 format=3 uid="uid://by2ve0cpw1kf6"]
 
 [ext_resource type="Script" path="res://World/introScene.gd" id="1_y4h0v"]
+[ext_resource type="FontFile" uid="uid://dutpghayd3oqf" path="res://fonts/Retro Gaming.ttf" id="2_s6boi"]
+
+[sub_resource type="Animation" id="Animation_f1iqy"]
+resource_name = "link"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.2, 5.5, 6, 11, 11.5, 24, 24.2, 24.8, 27.5, 27.501, 27.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Initiating Link...", "Initiating Link...
+Link Established", "Initiating Link...
+Link Established
+Comparing Link Stability...", "Initiating Link...
+Link Established
+Comparing Link Stability...
+Link Stable", "Initiating Link...
+Link Established
+Comparing Link Stability...
+Link Stable
+Instantiating EXP_009_B...", "Initiating Link...
+Link Established
+Comparing Link Stability...
+Link Stable
+Instantiating EXP_009_B...
+Success", "Initiating Link...
+Link Established
+Comparing Link Stability...
+Link Stable
+Instantiating EXP_009_B...
+Success
+Forwarding link to instance...", "Initiating Link...
+Link Established
+Comparing Link Stability...
+Link Stable
+Instantiating EXP_009_B...
+Success
+Forwarding link to instance...
+Link interference detected", "Initiating Link...
+Link Established
+Comparing Link Stability...
+Link Stable
+Instantiating EXP_009_B...
+Success
+Forwarding link to instance...
+Link interference detected
+Altering instance link", "Initiating Link...
+Link Established
+Comparing Link Stability...
+Link Stable
+Instantiating EXP_009_B...
+Success
+Forwarding link to instance...
+Link interference detected
+Altering instance link
+Successfully altered", "Initiating Link...
+Link Established
+Comparing Link Stability...
+Link Stable
+Instantiating EXP_009_B...
+Success
+Forwarding link to instance...
+Link interference detected
+Altering instance link
+Successfully altered
+Instancing internal Activation trigger", "Initiating Link...
+Link Established
+Comparing Link Stability...
+Link Stable
+Instantiating EXP_009_B...
+Success
+Forwarding link to instance...
+Link interference detected
+Altering instance link
+Successfully altered
+Instancing internal Activation trigger", "Initiating Link...
+Link Established
+Comparing Link Stability...
+Link Stable
+Instantiating EXP_009_B...
+Success
+Forwarding link to instance...
+Link interference detected
+Altering instance link
+Successfully altered
+Instancing internal Activation trigger...
+Success"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3.19, 3.2, 5, 5.99, 6, 10, 11.49, 11.5, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.875, 1.0, 1.0, 0.963, 1.0, 1.0, 0.98, 1.0, 1.0, 0.98, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfxip"]
+_data = {
+"link": SubResource("Animation_f1iqy")
+}
+
+[sub_resource type="Animation" id="Animation_l0uv6"]
+resource_name = "intro"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6cah8"]
+_data = {
+"intro": SubResource("Animation_l0uv6")
+}
 
 [node name="introScene" type="Node2D"]
 script = ExtResource("1_y4h0v")
@@ -9,3 +127,27 @@ script = ExtResource("1_y4h0v")
 offset_right = 1153.0
 offset_bottom = 1153.0
 color = Color(0, 0, 0, 1)
+
+[node name="split" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xfxip")
+}
+
+[node name="combiner" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6cah8")
+}
+
+[node name="scene0" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="scene0"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0.439216, 0, 1)
+theme_override_fonts/font = ExtResource("2_s6boi")
+theme_override_font_sizes/font_size = 22
+text = "Initiating Link..."
+visible_characters = 0
+visible_ratio = 0.0

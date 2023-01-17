@@ -18,7 +18,9 @@ script/source = "extends Node
 const soundList = {
 	\"walk\":preload(\"res://sounds/walk.wav\"),
 	\"button\":preload(\"res://sounds/button.wav\"),
-	\"teleport\":preload(\"res://sounds/teleport.wav\")
+	\"teleport\":preload(\"res://sounds/teleport.wav\"),
+	\"vacuum\":preload(\"res://sounds/Vacuum.wav\"),
+	\"select\":preload(\"res://sounds/Select.wav\")
 }
 
 

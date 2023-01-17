@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://xgsbj7udvxps"]
+[gd_scene load_steps=8 format=3 uid="uid://xgsbj7udvxps"]
 
 [ext_resource type="TileSet" uid="uid://berok1m7cgn75" path="res://TileMap/MapGame.tres" id="1_6ar6p"]
 [ext_resource type="Script" path="res://World/endLevel.gd" id="1_7kmvn"]
+[ext_resource type="Material" uid="uid://pnh285kxfyva" path="res://World/tilesnap.tres" id="1_tr5us"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="3_tfhnl"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="4_idti3"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="5_e67pm"]
 [ext_resource type="PackedScene" uid="uid://c5tw6do8h3bl2" path="res://flyingBot/flyingBot.tscn" id="6_xq3s7"]
 
 [node name="endLevel" type="Node2D"]
+material = ExtResource("1_tr5us")
 script = ExtResource("1_7kmvn")
 
 [node name="TileMap" type="TileMap" parent="."]

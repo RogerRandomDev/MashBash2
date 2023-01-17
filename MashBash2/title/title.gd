@@ -23,14 +23,16 @@ func play_focus(node):
 	#hoverShader.visible=true
 	node="./Menu/%s"%node
 	hoverShader.size=get_node(node).size+Vector2(2,2)
-	hoverShader.position=get_node(node).position
+	hoverShader.global_position=get_node(node).global_position
 	get_node(node).grab_focus()
+#	Sounds.playSound("select",-20.0)
 
 
 func pressPlay():
-	Pausemenu.get_node("CanvasLayer").visible=true
+	
 	Pausemenu.beginGame=Time.get_unix_time_from_system()
 	Transitions.transitionScene("res://World/introScene.tscn")
+#	Transitions.transitionScene("res://World/level0.tscn")
 	
 
 
@@ -55,3 +57,5 @@ func drawRipple(location:Vector2):
 	tween.parallel().tween_property(rippleSprite,"modulate",Color(1,1,1,0),0.75)
 	tween.tween_callback(rippleSprite.queue_free)
 	
+
+

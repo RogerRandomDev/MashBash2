@@ -330,12 +330,11 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_left = 576.0
 offset_top = -215.235
@@ -344,7 +343,6 @@ offset_bottom = -215.235
 theme = ExtResource("1_faeks")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
-layout_mode = 0
 offset_left = -256.0
 offset_top = -250.0
 offset_right = 256.0
@@ -358,7 +356,6 @@ WOR(L)D[/shake][/center]"
 fit_content_height = true
 
 [node name="play" type="Button" parent="Menu"]
-layout_mode = 0
 offset_left = -64.0
 offset_top = -400.0
 offset_right = 64.0
@@ -369,26 +366,31 @@ theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
 [node name="settings" type="HBoxContainer" parent="Menu"]
-layout_mode = 0
 offset_left = 764.0
 offset_top = 42.0
 offset_right = 1124.0
 offset_bottom = 82.0
 pivot_offset = Vector2(180, 26)
+mouse_filter = 2
 theme_override_constants/separation = 12
 alignment = 1
 
 [node name="fullscreen" type="Button" parent="Menu/settings"]
-layout_mode = 2
+offset_left = 32.0
+offset_right = 201.0
+offset_bottom = 40.0
+mouse_filter = 1
 toggle_mode = true
 text = "Fullscreen"
 
 [node name="credits" type="Button" parent="Menu/settings"]
-layout_mode = 2
+offset_left = 213.0
+offset_right = 327.0
+offset_bottom = 40.0
+mouse_filter = 1
 text = "Credits"
 
 [node name="quit" type="Button" parent="Menu"]
-layout_mode = 0
 offset_left = -764.0
 offset_top = 112.0
 offset_right = -636.0
@@ -398,9 +400,7 @@ theme_override_font_sizes/font_size = 36
 text = "QUIT"
 
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
-visible = false
 material = SubResource("ShaderMaterial_vfos6")
-layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0
@@ -476,6 +476,8 @@ libraries = {
 [connection signal="focus_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="mouse_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="pressed" from="Menu/play" to="." method="pressPlay"]
+[connection signal="focus_entered" from="Menu/settings/fullscreen" to="." method="play_focus" binds= ["settings/fullscreen"]]
 [connection signal="toggled" from="Menu/settings/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="focus_entered" from="Menu/settings/credits" to="." method="play_focus" binds= ["settings/credits"]]
 [connection signal="focus_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
 [connection signal="mouse_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
