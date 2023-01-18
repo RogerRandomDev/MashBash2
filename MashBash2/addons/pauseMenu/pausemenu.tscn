@@ -42,23 +42,19 @@ offset_bottom = 445.0
 theme = ExtResource("1_oi0mr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "PAUSED"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "PRESS ESC 
 TO CONTINUE"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
 theme_override_font_sizes/font_size = 23
 text = "Press To
 Reset Level"
@@ -104,7 +100,6 @@ item_11/text = "0 or All inputs are ON"
 script = SubResource("GDScript_j2l6o")
 
 [node name="showgates" type="CheckButton" parent="logic"]
-layout_mode = 0
 offset_top = 490.0
 offset_right = 192.0
 offset_bottom = 514.0

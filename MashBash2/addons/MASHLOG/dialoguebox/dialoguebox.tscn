@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c500jets8d1xe"]
 
 [ext_resource type="Script" path="res://addons/MASHLOG/dialoguebox/dialoguebox.gd" id="1_sihhg"]
-[ext_resource type="Theme" path="res://addons/MASHLOG/dialoguebox/dialogueTheme.tres" id="2_3l11s"]
+[ext_resource type="Theme" uid="uid://b1t2yx05ctwy8" path="res://addons/MASHLOG/dialoguebox/dialogueTheme.tres" id="2_3l11s"]
 [ext_resource type="Shader" path="res://addons/MASHLOG/shaders/icon.gdshader" id="2_w7lo7"]
-[ext_resource type="Texture2D" path="res://icon.png" id="3_s3hvl"]
+[ext_resource type="Texture2D" uid="uid://cxm0exisbnw2t" path="res://icon.png" id="3_s3hvl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byr37"]
 shader = ExtResource("2_w7lo7")
@@ -32,8 +32,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="speech" type="RichTextLabel" parent="dialoguebox/contents"]
-offset_right = 987.0
-offset_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 bbcode_enabled = true
@@ -43,20 +41,12 @@ metadata/_edit_layout_mode = 1
 
 [node name="iconpanel" type="PanelContainer" parent="dialoguebox/contents"]
 custom_minimum_size = Vector2(136, 136)
-offset_left = 1016.0
-offset_top = 7.0
-offset_right = 1152.0
-offset_bottom = 143.0
 size_flags_horizontal = 10
 size_flags_vertical = 4
 
 [node name="icon" type="TextureRect" parent="dialoguebox/contents/iconpanel"]
 material = SubResource("ShaderMaterial_byr37")
 custom_minimum_size = Vector2(128, 128)
-offset_left = 8.0
-offset_top = 4.0
-offset_right = 136.0
-offset_bottom = 132.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_s3hvl")

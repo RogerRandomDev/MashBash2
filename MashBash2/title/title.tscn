@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://niq8wrdh7lx2"]
+[gd_scene load_steps=31 format=3 uid="uid://niq8wrdh7lx2"]
 
 [ext_resource type="Theme" uid="uid://bk7qnjewnebef" path="res://themes/Titletheme.tres" id="1_faeks"]
 [ext_resource type="Script" path="res://title/title.gd" id="1_ffxdt"]
@@ -27,6 +27,83 @@ shader_parameter/size = null
 shader_parameter/speed = 0.375
 shader_parameter/ySpread = null
 
+[sub_resource type="Shader" id="Shader_nrfp5"]
+code = "shader_type canvas_item;
+uniform float aspect = 2.0;
+uniform vec2 size = vec2(0.3);
+uniform float dataspeed = 0.7;
+uniform float ySpread = 1.6;
+uniform int numBlocks = 70;
+uniform float basePulse = 0.33;
+uniform vec4 color1 = vec4(0.0,0.3, 0.6, 1.0);
+uniform vec4 color2 = vec4(0.6, 0.0, 0.3, 1.0);
+uniform bool doInput=true;
+float rand(float x)
+{
+    return fract(sin(x) * 4358.5453123);
+}
+float rand2(vec2 co)
+{
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5357);
+}
+
+float pulseColor()
+{
+	float myPulse = basePulse + sin(TIME) * 0.1;
+	return myPulse < 1.0 ? myPulse : 1.0;
+}
+
+float box(vec2 p, vec2 b, float r)
+{
+  return length(max(abs(p)-b,0.0))-r;
+}
+
+void fragment() {
+	float pulse = pulseColor();
+	
+	vec2 uv = UV - 0.5;
+	vec4 baseColor = uv.x > 0.0 ? color1 : color2;
+	
+	vec4 color = pulse*baseColor*0.5*(0.9-cos(uv.x*8.0));
+	uv.x *= aspect;
+	
+	for (int i = 0; i < numBlocks; i++)
+	{
+		float z = 1.0-0.7*rand(float(i)*1.4333); // 0=far, 1=near
+		float tickTime = TIME*z*dataspeed + float(i)*1.23753;
+		float tick = floor(tickTime);
+		
+		vec2 pos = vec2(0.6*aspect*(rand(tick)-0.5), sign(uv.x)*ySpread*(0.5-fract(tickTime)));
+		pos.x += 0.24*sign(pos.x); // move aside
+		if (abs(pos.x) < 0.1) pos.x++; // stupid fix; sign sometimes returns 0
+		pos=round(pos*24.)/24.;
+		uv.y=round(uv.y*32.)/32.;
+		uv.x=round(uv.x*32.)/32.;
+		// vec2 size = 1.8*z*vec2(0.04, 0.04 + 0.1*rand(tick+0.2));
+		float b = box(uv-pos, size, 0.01);
+		float dust = z*smoothstep(0.22, 0.0, b)*pulse*0.5;
+		float block = 0.2*z*smoothstep(0.002, 0.0, b);
+		float shine = 0.6*z*pulse*smoothstep(-0.002, b, 0.007);
+		color += dust*baseColor + block*z + shine;
+	}
+	color -= rand2(uv)*0.04;
+	color*=0.75;
+	color=mix(texture(SCREEN_TEXTURE,SCREEN_UV),color,0.5);
+	COLOR=color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_54ktm"]
+shader = SubResource("Shader_nrfp5")
+shader_parameter/aspect = 8.0
+shader_parameter/basePulse = 2.0
+shader_parameter/color1 = Quaternion(0, 0.3, 0.6, 1)
+shader_parameter/color2 = Quaternion(0.6, 0, 0.3, 1)
+shader_parameter/dataspeed = 0.375
+shader_parameter/doInput = false
+shader_parameter/numBlocks = 32
+shader_parameter/size = Vector2(0.3, 0.3)
+shader_parameter/ySpread = 1.6
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfos6"]
 shader = ExtResource("5_d5uk3")
 shader_parameter/shake_block_size = 30.5
@@ -49,10 +126,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.9, 4.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": ["[center][shake level=8 rate=10]WOR(L)D
-SWAP[/shake][/center]", "[center][shake level=8 rate=10]SWAP
-WOR(L)D[/shake][/center]", "[center][shake level=8 rate=10]WOR(L)D
-SWAP[/shake][/center]"]
+"values": ["[center][shake level=8 rate=10]WOR(L)D SWAP[/shake][/center]", "[center][shake level=8 rate=10]SWAP WOR(L)D[/shake][/center]", "[center][shake level=8 rate=10]WOR(L)D SWAP[/shake][/center]"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -182,7 +256,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(0.554785, 3.24901, 1),
 "update": 0,
-"values": [Vector2(-256, -250), Vector2(-256, -200), Vector2(-256, -250)]
+"values": [Vector2(-62, -250), Vector2(-62, -200), Vector2(-62, -250)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -330,32 +404,44 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_54ktm")
+layout_mode = 1
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 576.0
-offset_top = -215.235
+offset_top = -324.0
 offset_right = 576.0
-offset_bottom = -215.235
+offset_bottom = -324.0
 theme = ExtResource("1_faeks")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
-offset_left = -256.0
+clip_contents = false
+layout_mode = 0
+offset_left = -62.0
 offset_top = -250.0
-offset_right = 256.0
-offset_bottom = -86.0
-pivot_offset = Vector2(256, 82)
+offset_right = 62.0
+offset_bottom = -102.0
+pivot_offset = Vector2(62, 82)
+theme_override_constants/line_separation = -24
 theme_override_fonts/normal_font = ExtResource("3_iy4j3")
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
-text = "[center][shake level=8 rate=10]SWAP
-WOR(L)D[/shake][/center]"
+text = "[center][shake level=8 rate=10]WOR(L)D SWAP[/shake][/center]"
 fit_content_height = true
+autowrap_mode = 2
+tab_size = 1
 
 [node name="play" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = -400.0
 offset_right = 64.0
@@ -366,6 +452,7 @@ theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
 [node name="settings" type="HBoxContainer" parent="Menu"]
+layout_mode = 0
 offset_left = 764.0
 offset_top = 42.0
 offset_right = 1124.0
@@ -376,21 +463,18 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="fullscreen" type="Button" parent="Menu/settings"]
-offset_left = 32.0
-offset_right = 201.0
-offset_bottom = 40.0
+layout_mode = 2
 mouse_filter = 1
 toggle_mode = true
 text = "Fullscreen"
 
 [node name="credits" type="Button" parent="Menu/settings"]
-offset_left = 213.0
-offset_right = 327.0
-offset_bottom = 40.0
+layout_mode = 2
 mouse_filter = 1
 text = "Credits"
 
 [node name="quit" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -764.0
 offset_top = 112.0
 offset_right = -636.0
@@ -402,6 +486,7 @@ text = "QUIT"
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
+layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0
@@ -429,13 +514,11 @@ scale = Vector2(4, 4)
 script = SubResource("GDScript_xcil1")
 
 [node name="flyingBot" type="Sprite2D" parent="mousefollow"]
-position = Vector2(0, 0.268184)
 texture = ExtResource("6_bxb8d")
 
 [node name="BotwingL" type="Sprite2D" parent="mousefollow/flyingBot"]
 z_index = -1
 position = Vector2(-4, -2)
-rotation = -0.0611858
 texture = ExtResource("7_42byj")
 offset = Vector2(-4, 2)
 
@@ -450,7 +533,6 @@ texture = ExtResource("8_ll4u6")
 [node name="BotwingR" type="Sprite2D" parent="mousefollow/flyingBot"]
 z_index = -1
 position = Vector2(4, -2)
-rotation = 0.0611858
 texture = ExtResource("7_42byj")
 offset = Vector2(4, 2)
 flip_h = true

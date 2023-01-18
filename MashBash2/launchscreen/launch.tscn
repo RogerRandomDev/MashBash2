@@ -137,6 +137,7 @@ theme = ExtResource("1_gbe0r")
 
 [node name="FBLA" type="RichTextLabel" parent="part1"]
 clip_contents = false
+layout_mode = 0
 offset_left = 329.0
 offset_top = 175.0
 offset_right = 824.0
@@ -149,7 +150,6 @@ custom_effects = [SubResource("RichTextEffect_xr26g")]
 
 [node name="part2" type="Control" parent="."]
 visible = false
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_gbe0r")
@@ -157,14 +157,15 @@ theme = ExtResource("1_gbe0r")
 [node name="FBLA" type="RichTextLabel" parent="part2"]
 editor_description = "The spite is to you."
 clip_contents = false
+layout_mode = 0
 offset_left = 234.0
 offset_top = 175.0
 offset_right = 919.0
 offset_bottom = 1043.0
 theme_override_font_sizes/normal_font_size = 104
 bbcode_enabled = true
-text = " [fadeIn speed=6 bounce=32 delay=0]Made With
-Our Sanity[/fadeIn]"
+text = " [fadeIn speed=6 bounce=32 delay=0.0]Made With
+     Spite[/fadeIn]"
 autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_xr26g")]
 
