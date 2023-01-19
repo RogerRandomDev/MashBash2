@@ -293,6 +293,7 @@ position = Vector2(40, 20)
 shape = SubResource("RectangleShape2D_horsc")
 
 [node name="Label" type="Label" parent="."]
+self_modulate = Color(0.847059, 0.847059, 0.847059, 1)
 offset_right = 88.0
 offset_bottom = 23.0
 theme = ExtResource("1_qemwp")

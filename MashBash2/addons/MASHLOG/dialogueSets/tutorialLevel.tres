@@ -25,6 +25,6 @@ ActionValues = [false]
 
 [resource]
 script = ExtResource("1_5gnij")
-dialogue = PackedStringArray("Alright, so I guess there isn\'t a built in tutorial...", "So I\'ll be the tutorial for you!", " ", "Ah, right. You still need the [b]CONTROLS[/b]!", "Try [color=#f00]WASD[/color] to move. I\'d do that if it were me.", " ", "AH! the player was locked in place! Let me fix that real quick...", "There! NOW you can move!")
+dialogue = PackedStringArray("Alright, so I guess there isn\'t a built in tutorial...", "So I\'ll be the tutorial for you!", " ", "Ah, right. You still need the [b]CONTROLS[/b]!", "Try [color=#f00]WASD[img=32]res://addons/pauseMenu/W.png[/img] [img=32]res://addons/pauseMenu/A.png[/img] [img=32]res://addons/pauseMenu/S.png[/img] [img=32]res://addons/pauseMenu/D.png[/img][/color] to move. I\'d do that if it were me.", " ", "AH! the player was locked in place! Let me fix that real quick...", "There! NOW you can move!")
 dialogueFaces = [2, 1, 0, 1, 1, 0, 1, 1]
 dialogueActions = [SubResource("Resource_wxxbp"), SubResource("Resource_b6h4u"), null, null, null, SubResource("Resource_0h627"), null, SubResource("Resource_315rh")]

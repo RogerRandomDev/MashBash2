@@ -6,6 +6,9 @@ var arrow=null
 var triggerNow=true
 var teleporting=null
 var area=null
+func _init():
+	if !Engine.is_editor_hint():
+		if !get_parent().Status.has("disabled")&&!get_parent().Status.has("active"):get_parent().Status.append("active")
 func _ready():
 	super._ready()
 	
@@ -27,8 +30,7 @@ func _ready():
 	makeArrow()
 	
 	if !Engine.is_editor_hint():
-		if !get_parent().Status.has("disabled")&&!get_parent().Status.has("inactive")&&!get_parent().Status.has("active"):get_parent().Status.append("active")
-		if get_parent().Status.has("inactive"):get_parent().Status.remove_at(get_parent().Status.find("inactive"))
+#		if !get_parent().Status.has("disabled")&&!get_parent().Status.has("active"):get_parent().Status.append("active")
 		get_parent().updateDescriptives()
 	arrow.look_at(linked.global_position+Vector2(4,4));arrow.rotation+=PI/2
 	

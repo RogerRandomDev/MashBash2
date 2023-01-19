@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_0fg64")
-dialogue = PackedStringArray("Alright! We reached the first level!", "It looks like we\'ll be using that [color=#f00]box[/color] in the middle a fair amount", "But WOW, they really like their lasers!")
-dialogueFaces = [1, 1, 3]
-dialogueActions = [null, null, null]
+dialogue = PackedStringArray("Alright! We reached the first level!", "It looks like we\'ll be using that [color=#f00]box[/color] in the middle a fair amount", "But WOW, they really like their lasers!", "Anyways, I just found that the [color=#0ff]VACCUM[/color] works through walls!")
+dialogueFaces = [1, 1, 3, 1]
+dialogueActions = [null, null, null, null]

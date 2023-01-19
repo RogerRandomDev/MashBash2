@@ -25,6 +25,7 @@ theme = ExtResource("2_3l11s")
 
 [node name="contents" type="HBoxContainer" parent="dialoguebox"]
 custom_minimum_size = Vector2(1152, 150)
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 150.0
 size_flags_horizontal = 3
@@ -32,21 +33,24 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="speech" type="RichTextLabel" parent="dialoguebox/contents"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 bbcode_enabled = true
-text = "testing testing"
+text = "And finally, The [color=#f00]DOOR[img=32]res://entities/items/door/closed.png[/img][/color] is open[img=32]res://addons/word/descriptiveIcons/open.png[/img] if not locked[img=32]res://addons/word/descriptiveIcons/locked.png[/img] when active"
 visible_characters_behavior = 1
 metadata/_edit_layout_mode = 1
 
 [node name="iconpanel" type="PanelContainer" parent="dialoguebox/contents"]
 custom_minimum_size = Vector2(136, 136)
+layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 
 [node name="icon" type="TextureRect" parent="dialoguebox/contents/iconpanel"]
 material = SubResource("ShaderMaterial_byr37")
 custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_s3hvl")

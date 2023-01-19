@@ -88,6 +88,7 @@ void fragment() {
 	}
 	color -= rand2(uv)*0.04;
 	color*=0.75;
+	color.rgb=min(color.rgb,vec3(1.5));
 	color=mix(texture(SCREEN_TEXTURE,SCREEN_UV),color,0.5);
 	COLOR=color;
 }"
@@ -404,18 +405,16 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_54ktm")
-layout_mode = 1
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_left = 576.0
 offset_top = -324.0
@@ -425,7 +424,6 @@ theme = ExtResource("1_faeks")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
 clip_contents = false
-layout_mode = 0
 offset_left = -62.0
 offset_top = -250.0
 offset_right = 62.0
@@ -441,7 +439,6 @@ autowrap_mode = 2
 tab_size = 1
 
 [node name="play" type="Button" parent="Menu"]
-layout_mode = 0
 offset_left = -64.0
 offset_top = -400.0
 offset_right = 64.0
@@ -452,7 +449,6 @@ theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
 [node name="settings" type="HBoxContainer" parent="Menu"]
-layout_mode = 0
 offset_left = 764.0
 offset_top = 42.0
 offset_right = 1124.0
@@ -463,18 +459,21 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="fullscreen" type="Button" parent="Menu/settings"]
-layout_mode = 2
+offset_left = 32.0
+offset_right = 201.0
+offset_bottom = 40.0
 mouse_filter = 1
 toggle_mode = true
 text = "Fullscreen"
 
 [node name="credits" type="Button" parent="Menu/settings"]
-layout_mode = 2
+offset_left = 213.0
+offset_right = 327.0
+offset_bottom = 40.0
 mouse_filter = 1
 text = "Credits"
 
 [node name="quit" type="Button" parent="Menu"]
-layout_mode = 0
 offset_left = -764.0
 offset_top = 112.0
 offset_right = -636.0
@@ -486,7 +485,6 @@ text = "QUIT"
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
-layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0

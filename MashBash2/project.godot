@@ -116,7 +116,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="AMM 2 idea testing"
+config/name="Wor(l)d Swap"
 run/main_scene="res://launchscreen/launch.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"

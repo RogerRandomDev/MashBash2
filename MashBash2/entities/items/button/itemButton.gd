@@ -7,11 +7,12 @@ var lastMode=false
 signal buttonPressed()
 signal buttonReleased()
 var pressedBy=[]
+const shader=preload("res://entities/items/button/buttonglow.tres")
 func _ready():
 	if Engine.is_editor_hint():return
 	root=get_parent();var _groups=root.get_groups()
 	toggle=root.Status.has("toggle")
-	
+	root.sprite.material=shader
 	await get_tree().process_frame
 	if get_child_count()!=0:
 		for body in check.get_overlapping_bodies():checkEntered(body);return
