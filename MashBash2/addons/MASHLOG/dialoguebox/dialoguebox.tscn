@@ -25,7 +25,6 @@ theme = ExtResource("2_3l11s")
 
 [node name="contents" type="HBoxContainer" parent="dialoguebox"]
 custom_minimum_size = Vector2(1152, 150)
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 150.0
 size_flags_horizontal = 3
@@ -33,7 +32,8 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="speech" type="RichTextLabel" parent="dialoguebox/contents"]
-layout_mode = 2
+offset_right = 987.0
+offset_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 bbcode_enabled = true
@@ -43,14 +43,20 @@ metadata/_edit_layout_mode = 1
 
 [node name="iconpanel" type="PanelContainer" parent="dialoguebox/contents"]
 custom_minimum_size = Vector2(136, 136)
-layout_mode = 2
+offset_left = 1016.0
+offset_top = 7.0
+offset_right = 1152.0
+offset_bottom = 143.0
 size_flags_horizontal = 10
 size_flags_vertical = 4
 
 [node name="icon" type="TextureRect" parent="dialoguebox/contents/iconpanel"]
 material = SubResource("ShaderMaterial_byr37")
 custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 136.0
+offset_bottom = 132.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_s3hvl")

@@ -62,3 +62,11 @@ func drawRipple(location:Vector2):
 
 
 func _on_quit_pressed():get_tree().quit()
+
+
+func _on_credits_pressed():
+	$itemsAnimations.play("toggleCredits")
+
+
+func _on_back():
+	$itemsAnimations.play_backwards("toggleCredits")

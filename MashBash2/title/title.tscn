@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://niq8wrdh7lx2"]
+[gd_scene load_steps=32 format=3 uid="uid://niq8wrdh7lx2"]
 
 [ext_resource type="Theme" uid="uid://bk7qnjewnebef" path="res://themes/Titletheme.tres" id="1_faeks"]
 [ext_resource type="Script" path="res://title/title.gd" id="1_ffxdt"]
@@ -284,10 +284,39 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_pd54p"]
+resource_name = "toggleCredits"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.25, 2, 0.25),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.8, 1),
+"transitions": PackedFloat32Array(0.25, 2, 0.25),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vwvg1"]
 _data = {
 "buttons": SubResource("Animation_cimj8"),
-"main": SubResource("Animation_gjeep")
+"main": SubResource("Animation_gjeep"),
+"toggleCredits": SubResource("Animation_pd54p")
 }
 
 [sub_resource type="GDScript" id="GDScript_xcil1"]
@@ -295,7 +324,12 @@ script/source = "extends Node2D
 
 func _ready():$AnimationPlayer.play(\"hover\")
 func _process(delta):
-	position+=(get_global_mouse_position()-global_position+Vector2(32,32))*delta*3
+	var moveDir=(get_global_mouse_position()+Vector2(32,32))-global_position
+	var angle=moveDir.distance_to(Vector2(0,0))*0.00025*PI*sign(moveDir.x)
+	if angle<-PI/4:angle=-PI/4
+	if angle>PI/4:angle=PI/4
+	rotation=lerp_angle(rotation,angle,delta*10)
+	position+=moveDir*delta*3
 "
 
 [sub_resource type="Gradient" id="Gradient_kqvo6"]
@@ -405,16 +439,18 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_54ktm")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 576.0
 offset_top = -324.0
@@ -424,6 +460,7 @@ theme = ExtResource("1_faeks")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
 clip_contents = false
+layout_mode = 0
 offset_left = -62.0
 offset_top = -250.0
 offset_right = 62.0
@@ -439,6 +476,7 @@ autowrap_mode = 2
 tab_size = 1
 
 [node name="play" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = -400.0
 offset_right = 64.0
@@ -449,6 +487,7 @@ theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
 [node name="settings" type="HBoxContainer" parent="Menu"]
+layout_mode = 0
 offset_left = 764.0
 offset_top = 42.0
 offset_right = 1124.0
@@ -459,21 +498,18 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="fullscreen" type="Button" parent="Menu/settings"]
-offset_left = 32.0
-offset_right = 201.0
-offset_bottom = 40.0
+layout_mode = 2
 mouse_filter = 1
 toggle_mode = true
 text = "Fullscreen"
 
 [node name="credits" type="Button" parent="Menu/settings"]
-offset_left = 213.0
-offset_right = 327.0
-offset_bottom = 40.0
+layout_mode = 2
 mouse_filter = 1
 text = "Credits"
 
 [node name="quit" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -764.0
 offset_top = 112.0
 offset_right = -636.0
@@ -485,6 +521,7 @@ text = "QUIT"
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
+layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0
@@ -554,12 +591,56 @@ libraries = {
 "": SubResource("AnimationLibrary_qi8aa")
 }
 
+[node name="Credits" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(576, 324)
+theme = ExtResource("1_faeks")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer"]
+custom_minimum_size = Vector2(1152, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Made By:"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+text = "Roger T. Grange-Programmer
+Logan Rubenstein-Designer"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Credits"]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 452.0
+offset_right = 595.0
+offset_bottom = 492.0
+scale = Vector2(1.5, 1.5)
+text = "BACK"
+
 [connection signal="focus_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="mouse_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="pressed" from="Menu/play" to="." method="pressPlay"]
 [connection signal="focus_entered" from="Menu/settings/fullscreen" to="." method="play_focus" binds= ["settings/fullscreen"]]
 [connection signal="toggled" from="Menu/settings/fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="focus_entered" from="Menu/settings/credits" to="." method="play_focus" binds= ["settings/credits"]]
+[connection signal="pressed" from="Menu/settings/credits" to="." method="_on_credits_pressed"]
 [connection signal="focus_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
 [connection signal="mouse_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
 [connection signal="pressed" from="Menu/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits/Button" to="." method="_on_back"]

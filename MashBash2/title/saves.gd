@@ -2,11 +2,11 @@ extends Node
 
 
 const defaultSave=[
-	["Roger",903.275],
-	["Also Roger",1200.356],
-	["Still Roger",1434.694],
-	["Yep, Still Roger",2693.734],
-	["You know who",4893.987]
+	["Roger",1203.275],
+	["Logan",1234.356],
+	["Dylan",2334.694],
+	["Louis",4893.987],
+	["Trent",9999.999],
 ]
 var curSave=[]
 const saveLocation="user://Save.dat"

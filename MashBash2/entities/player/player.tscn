@@ -175,7 +175,6 @@ debug_color = Color(1, 1, 1, 0.768627)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="holdingItem/vaccuum"]
 position = Vector2(10, 0)
 scale = Vector2(0.997834, 1)
-emitting = false
 amount = 32
 speed_scale = 3.0
 process_material = SubResource("ParticlesMaterial_3rgib")

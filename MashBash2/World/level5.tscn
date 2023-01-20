@@ -63,7 +63,7 @@ HiddenStatus = PackedStringArray()
 
 [node name="itemResource10" type="Marker2D" parent="items"]
 z_index = 2
-position = Vector2(136, 96)
+position = Vector2(136, 103)
 rotation = 1.5708
 script = ExtResource("4_nbukf")
 HeldResource = ExtResource("8_0oxqy")
