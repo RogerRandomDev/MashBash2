@@ -18,7 +18,6 @@ const dir={'90':Vector2(1,0),'180':Vector2(0,1),'0':Vector2(0,1)}
 #the janky wheels of my integration go square and square
 #all through the town
 #but i altered the laws of the universe so squares roll now
-
 func _physics_process(_delta):
 	if locked:return
 	var direction = Vector2(Input.get_axis("left", "right"),Input.get_axis("up", "down"))

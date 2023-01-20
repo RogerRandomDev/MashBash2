@@ -1,6 +1,9 @@
 extends Area2D
 
 var lastSound=0
+func _ready():
+	await get_tree().process_frame
+	$GPUParticles2D.emitting=false
 #uses the vacuum
 func doVacuum(_delta):
 	
