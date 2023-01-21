@@ -52,7 +52,8 @@ metadata/_edit_group_ = true
 
 [node name="Label" type="RichTextLabel" parent="LEADERBOARD"]
 clip_contents = false
-layout_mode = 2
+offset_right = 185.0
+offset_bottom = 56.0
 theme = ExtResource("5_e67pm")
 theme_override_font_sizes/normal_font_size = 44
 bbcode_enabled = true
@@ -63,7 +64,10 @@ autowrap_mode = 0
 
 [node name="Label2" type="RichTextLabel" parent="LEADERBOARD"]
 clip_contents = false
-layout_mode = 2
+offset_left = 92.0
+offset_top = 56.0
+offset_right = 92.0
+offset_bottom = 84.0
 size_flags_horizontal = 4
 theme = ExtResource("5_e67pm")
 theme_override_font_sizes/normal_font_size = 22
@@ -75,7 +79,10 @@ autowrap_mode = 0
 
 [node name="Label3" type="RichTextLabel" parent="LEADERBOARD"]
 clip_contents = false
-layout_mode = 2
+offset_left = 92.0
+offset_top = 84.0
+offset_right = 92.0
+offset_bottom = 112.0
 size_flags_horizontal = 4
 theme = ExtResource("5_e67pm")
 theme_override_font_sizes/normal_font_size = 22
@@ -87,7 +94,10 @@ autowrap_mode = 0
 
 [node name="Label4" type="RichTextLabel" parent="LEADERBOARD"]
 clip_contents = false
-layout_mode = 2
+offset_left = 92.0
+offset_top = 112.0
+offset_right = 92.0
+offset_bottom = 140.0
 size_flags_horizontal = 4
 theme = ExtResource("5_e67pm")
 theme_override_font_sizes/normal_font_size = 22
@@ -99,7 +109,10 @@ autowrap_mode = 0
 
 [node name="Label5" type="RichTextLabel" parent="LEADERBOARD"]
 clip_contents = false
-layout_mode = 2
+offset_left = 92.0
+offset_top = 140.0
+offset_right = 92.0
+offset_bottom = 168.0
 size_flags_horizontal = 4
 theme = ExtResource("5_e67pm")
 theme_override_font_sizes/normal_font_size = 22
@@ -111,7 +124,10 @@ autowrap_mode = 0
 
 [node name="Label6" type="RichTextLabel" parent="LEADERBOARD"]
 clip_contents = false
-layout_mode = 2
+offset_left = 92.0
+offset_top = 168.0
+offset_right = 92.0
+offset_bottom = 196.0
 size_flags_horizontal = 4
 theme = ExtResource("5_e67pm")
 theme_override_font_sizes/normal_font_size = 22
@@ -132,19 +148,24 @@ theme_override_constants/separation = 0
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="yourscore"]
-layout_mode = 2
+offset_right = 168.0
+offset_bottom = 31.0
 theme_override_font_sizes/font_size = 22
 text = "YOU SCORED:"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="yourscore"]
-layout_mode = 2
+offset_top = 31.0
+offset_right = 168.0
+offset_bottom = 62.0
 theme_override_font_sizes/font_size = 22
 text = "1000:59.999"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="yourscore"]
-layout_mode = 2
+offset_top = 62.0
+offset_right = 168.0
+offset_bottom = 79.0
 text = "I've seen worse..."
 horizontal_alignment = 1
 autowrap_mode = 2
