@@ -14,11 +14,16 @@ func _ready():
 	Pausemenu.get_node("Controls/ClosePause").visible=false
 	Pausemenu.get_node("Controls/Vacuum").visible=false
 	$Menu/AnimationPlayer.play("titleAnimation")
+
+
+#used to draw a ripple wherever the mouse is clicked
 func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			drawRipple(get_global_mouse_position())
 
+
+#not used much, moves the hovered rect over the hovered button
 func play_focus(node):
 	#hoverShader.visible=true
 	node="./Menu/%s"%node
@@ -47,6 +52,8 @@ func _on_fullscreen_toggled(button_pressed):
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
+
+#ripple effect for when you click that dissapears after a few moments
 const rippleTexture=preload("res://flyingBot/hoverparticle.png")
 func drawRipple(location:Vector2):
 	var rippleSprite=Sprite2D.new()
@@ -70,3 +77,11 @@ func _on_credits_pressed():
 
 func _on_back():
 	$itemsAnimations.play_backwards("toggleCredits")
+
+
+func _on_info_pressed():
+	$itemsAnimations.play("toggleControls")
+
+
+func _on_backControls_pressed():
+	$itemsAnimations.play_backwards("toggleControls")

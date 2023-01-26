@@ -1,20 +1,24 @@
 extends Node2D
 
 
+
 var alreadyTeleported=0
 func _ready():
+	
 	Pausemenu.get_node("CanvasLayer").visible=true
 	Pausemenu.dontTime=true
 	Sound.playSong("song0",-20)
+	
 	await get_tree().process_frame
 	Mashlogue.load_dialogue(
 		load("res://addons/MASHLOG/dialogueSets/tutorialLevel.tres"),
 		load("res://addons/MASHLOG/iconsets/MASH.tres"))
 	#stops the generation signal from causing trouble
 	await get_tree().process_frame
+	#resets game timer
 	Pausemenu.dontTime=true
 	Pausemenu.runningFor=0.0;
-	#checks if it was the player teleporting
+	#sets the text that the A.I. will say based on current level progress
 	$items/itemResource2.get_child(0).connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportFirst())
 	$items/itemResource6.get_child(0).connect("use_item",func(ent,action):if(ent==Word.player&&action=="teleporter"):teleportSecond())
 	$items/Area2D.connect("body_entered",func(ent):if(ent.name=="Player"):doorFirst())

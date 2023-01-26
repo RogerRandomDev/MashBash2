@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://niq8wrdh7lx2"]
+[gd_scene load_steps=33 format=3 uid="uid://niq8wrdh7lx2"]
 
 [ext_resource type="Theme" uid="uid://bk7qnjewnebef" path="res://themes/Titletheme.tres" id="1_faeks"]
 [ext_resource type="Script" path="res://title/title.gd" id="1_ffxdt"]
@@ -205,7 +205,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.9, 1.1, 1.3),
 "transitions": PackedFloat32Array(1, 1, 0.75, 2.5),
 "update": 0,
-"values": [Vector2(764, 42), Vector2(764, 42), Vector2(-180, 42), Vector2(-180, 42)]
+"values": [Vector2(764, 22), Vector2(764, 22), Vector2(-264, 22), Vector2(-221, 22)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -284,6 +284,34 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_x6sar"]
+resource_name = "toggleControls"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.25, 2, 0.25),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Controls:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.8, 1.1),
+"transitions": PackedFloat32Array(0.25, 2, 0.25),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_pd54p"]
 resource_name = "toggleCredits"
 length = 1.1
@@ -316,6 +344,7 @@ tracks/1/keys = {
 _data = {
 "buttons": SubResource("Animation_cimj8"),
 "main": SubResource("Animation_gjeep"),
+"toggleControls": SubResource("Animation_x6sar"),
 "toggleCredits": SubResource("Animation_pd54p")
 }
 
@@ -485,24 +514,40 @@ text = "PLAY"
 [node name="settings" type="HBoxContainer" parent="Menu"]
 offset_left = 764.0
 offset_top = 42.0
-offset_right = 1124.0
+offset_right = 1206.0
 offset_bottom = 82.0
 pivot_offset = Vector2(180, 26)
 mouse_filter = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="fullscreen" type="Button" parent="Menu/settings"]
-offset_left = 32.0
-offset_right = 201.0
+[node name="Control" type="Control" parent="Menu/settings"]
+custom_minimum_size = Vector2(166, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 75.0
+offset_right = 241.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="fullscreen" type="Button" parent="Menu/settings/Control"]
+offset_right = 169.0
 offset_bottom = 40.0
 mouse_filter = 1
 toggle_mode = true
 text = "Fullscreen"
 
+[node name="controls" type="Button" parent="Menu/settings/Control"]
+custom_minimum_size = Vector2(128, 0)
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 208.0
+offset_bottom = 80.0
+text = "Info"
+
 [node name="credits" type="Button" parent="Menu/settings"]
-offset_left = 213.0
-offset_right = 327.0
+offset_left = 253.0
+offset_right = 367.0
 offset_bottom = 40.0
 mouse_filter = 1
 text = "Credits"
@@ -633,14 +678,40 @@ offset_bottom = 492.0
 scale = Vector2(1.5, 1.5)
 text = "BACK"
 
+[node name="Controls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(576, 324)
+theme = ExtResource("1_faeks")
+
+[node name="Label" type="Label" parent="Controls"]
+custom_minimum_size = Vector2(1152, 0)
+offset_top = 8.0
+offset_right = 1152.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 64
+text = "|Controls|              |OBJECTS|"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Controls"]
+offset_left = 519.0
+offset_top = 516.0
+offset_right = 595.0
+offset_bottom = 556.0
+scale = Vector2(1.5, 1.5)
+text = "BACK"
+
 [connection signal="focus_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="mouse_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="pressed" from="Menu/play" to="." method="pressPlay"]
-[connection signal="focus_entered" from="Menu/settings/fullscreen" to="." method="play_focus" binds= ["settings/fullscreen"]]
-[connection signal="toggled" from="Menu/settings/fullscreen" to="." method="_on_fullscreen_toggled"]
-[connection signal="focus_entered" from="Menu/settings/credits" to="." method="play_focus" binds= ["settings/credits"]]
+[connection signal="toggled" from="Menu/settings/Control/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="Menu/settings/Control/controls" to="." method="_on_info_pressed"]
 [connection signal="pressed" from="Menu/settings/credits" to="." method="_on_credits_pressed"]
 [connection signal="focus_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
 [connection signal="mouse_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
 [connection signal="pressed" from="Menu/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Credits/Button" to="." method="_on_back"]
+[connection signal="pressed" from="Controls/Button" to="." method="_on_backControls_pressed"]

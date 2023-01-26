@@ -46,7 +46,7 @@ func _physics_process(_delta):
 
 
 
-
+#lets you vaccuum when given the power
 func _input(_event):
 	if locked:return
 	

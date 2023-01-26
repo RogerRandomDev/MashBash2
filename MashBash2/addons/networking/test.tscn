@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7iv6okp2mpwa"]
+
+[ext_resource type="Script" path="res://addons/networking/main.gd" id="1_mngkm"]
+
+[node name="test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_mngkm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+offset_right = 44.0
+offset_bottom = 40.0
+text = "Host"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+offset_left = 48.0
+offset_right = 120.0
+offset_bottom = 40.0
+text = "Connect"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_client_button_pressed"]

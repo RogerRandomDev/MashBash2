@@ -8,7 +8,7 @@ func _ready():
 	add_child(music)
 
 
-
+#plays audio file with modified decibel DB
 func play(sound,db=0.):
 	if sound=="no_man_voice":return
 	var player=AudioStreamPlayer.new()

@@ -23,7 +23,7 @@ func _ready():
 	else:
 		root.collision_layer=25
 
-
+#checks if it is on top of a button, then tells the button to re-check if it is pushed
 func checkButtons():
 	var check=PhysicsShapeQueryParameters2D.new()
 	check.shape=RectangleShape2D.new();check.collide_with_areas=true

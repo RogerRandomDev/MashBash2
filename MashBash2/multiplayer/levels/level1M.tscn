@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cimegayykgs5o"]
+
+[ext_resource type="Script" path="res://multiplayer/levels/level1M.gd" id="1_ehoa6"]
+[ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_nmaln"]
+[ext_resource type="PackedScene" uid="uid://c5tw6do8h3bl2" path="res://flyingBot/flyingBot.tscn" id="2_op2aa"]
+
+[node name="level1M" type="Node2D"]
+script = ExtResource("1_ehoa6")
+
+[node name="Player" parent="." instance=ExtResource("1_nmaln")]
+
+[node name="flyingBotPosition" parent="." instance=ExtResource("2_op2aa")]
+z_index = 3

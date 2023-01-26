@@ -1,6 +1,6 @@
 extends Node2D
 
-
+#ends the level timer and saves the new time to the leaderboard
 func _ready():
 	Pausemenu.dontTime=true;
 	Saves.addNewTime(Pausemenu.runningFor)
@@ -15,6 +15,8 @@ func fillLeaderBoard():
 		if(i==-1):
 			i+=1;continue
 		child.text=formatSave(i);i+=1
+
+
 func formatSave(i):
 	var add="%s"
 	if Saves.curSave[i][0]=="YOU":add="[color=#0f0]%s[/color]"
@@ -22,6 +24,7 @@ func formatSave(i):
 	for a in 12-Saves.curSave[i][0].length():toAdd+=" "
 	toAdd+=formatTime(Saves.curSave[i][1])
 	return add%toAdd
+
 func formatTime(time):
 	#convert to minutes and seconds
 	var minutes=int(time/60)
@@ -32,6 +35,8 @@ func formatTime(time):
 	while !secondsString.split(".")[1].length()==3:secondsString+="0"
 	var outputTime=("0" if minutes<10 else "")+str(minutes)+":"+("0" if seconds < 10 else "")+secondsString
 	return outputTime
+
+
 const timeMessages={
 	900:"The speediest runner!",
 	1500:"A speedrunner, I see.",
@@ -40,6 +45,7 @@ const timeMessages={
 	3600:"Could be better...",
 	4800:"Wanna try again?"
 }
+
 #shows user time and message based on how long they took
 func showCelebratorMessages():
 	var message="Maybe find a playthrough first?"

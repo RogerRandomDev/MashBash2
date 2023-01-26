@@ -10,6 +10,6 @@ ActionValues = ["level0"]
 
 [resource]
 script = ExtResource("2_5usib")
-dialogue = PackedStringArray("Alright, then that should do it...", "Ah! Sorry for not noticing you! I\'ve been trying to figure out where I am and think i finally figured it out!", "I was originally in an old game of sorts, mostly because I was designed for them...", "But somehow got here after they beat it, and now whatever indeterminable amount of time later for me, here we are!", "Anyway, I found the switch to force the game to load the main level, so let\'s enjoy!", "")
-dialogueFaces = [2, 1, 2, 2, 1, 1]
+dialogue = PackedStringArray("Alright, then that should do it...", "Ah! Sorry for not noticing you! I\'ve been trying to figure out where I am and think i finally figured it out!", "This game involves You, as the player, grabbing words off of one object to put on another", "to solve puzzles blocking your path!", "And although i know as little as you, since i didn\'t make this, we can just figure it out along the way!", "")
+dialogueFaces = [2, 1, 1, 1, 1, 1]
 dialogueActions = [null, null, null, null, null, SubResource("Resource_5nt3h")]
