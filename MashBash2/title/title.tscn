@@ -468,18 +468,16 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_54ktm")
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_left = 576.0
 offset_top = -324.0
@@ -489,7 +487,6 @@ theme = ExtResource("1_faeks")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
 clip_contents = false
-layout_mode = 0
 offset_left = -62.0
 offset_top = -250.0
 offset_right = 62.0
@@ -505,7 +502,6 @@ autowrap_mode = 2
 tab_size = 1
 
 [node name="play" type="Button" parent="Menu"]
-layout_mode = 0
 offset_left = -64.0
 offset_top = -400.0
 offset_right = 64.0
@@ -516,7 +512,6 @@ theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
 [node name="settings" type="HBoxContainer" parent="Menu"]
-layout_mode = 1
 offset_left = 764.0
 offset_top = 52.0
 offset_right = 1199.0
@@ -526,11 +521,14 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="Control" type="Control" parent="Menu/settings"]
-layout_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 163.0
+offset_right = 163.0
+offset_bottom = 40.0
 
 [node name="credits" type="Button" parent="Menu/settings/Control"]
 custom_minimum_size = Vector2(136, 0)
-layout_mode = 0
 offset_left = 100.0
 offset_top = -32.0
 offset_right = 236.0
@@ -539,7 +537,6 @@ mouse_filter = 1
 text = "Credits"
 
 [node name="fullscreen" type="Button" parent="Menu/settings/Control"]
-layout_mode = 0
 offset_left = -84.0
 offset_top = -32.0
 offset_right = 85.0
@@ -550,11 +547,12 @@ text = "Fullscreen"
 
 [node name="controls" type="Button" parent="Menu/settings"]
 custom_minimum_size = Vector2(96, 0)
-layout_mode = 2
+offset_left = 175.0
+offset_right = 271.0
+offset_bottom = 40.0
 text = "Info"
 
 [node name="quit" type="Button" parent="Menu"]
-layout_mode = 0
 offset_left = -764.0
 offset_top = 112.0
 offset_right = -636.0
@@ -566,7 +564,6 @@ text = "QUIT"
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
-layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0
@@ -637,7 +634,7 @@ libraries = {
 }
 
 [node name="Credits" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -646,31 +643,34 @@ pivot_offset = Vector2(576, 324)
 theme = ExtResource("1_faeks")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Label" type="Label" parent="Credits/VBoxContainer"]
 custom_minimum_size = Vector2(1152, 0)
-layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 85.0
 theme_override_font_sizes/font_size = 64
 text = "Credits"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Credits/VBoxContainer"]
-layout_mode = 2
+offset_top = 89.0
+offset_right = 1152.0
+offset_bottom = 133.0
 theme_override_font_sizes/font_size = 32
 text = "Made By:"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Credits/VBoxContainer"]
-layout_mode = 2
+offset_top = 137.0
+offset_right = 1152.0
+offset_bottom = 205.0
 text = "Roger T. Grange-Programmer
 Logan Rubenstein-Designer"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Credits"]
-layout_mode = 0
 offset_left = 519.0
 offset_top = 452.0
 offset_right = 595.0
@@ -679,7 +679,7 @@ scale = Vector2(1.5, 1.5)
 text = "BACK"
 
 [node name="Controls" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -689,7 +689,6 @@ theme = ExtResource("1_faeks")
 
 [node name="Label" type="Label" parent="Controls"]
 custom_minimum_size = Vector2(1152, 0)
-layout_mode = 0
 offset_top = 8.0
 offset_right = 1152.0
 offset_bottom = 93.0
@@ -698,7 +697,6 @@ text = "|Controls|              |OBJECTS|"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Controls"]
-layout_mode = 0
 offset_left = 519.0
 offset_top = 516.0
 offset_right = 595.0
