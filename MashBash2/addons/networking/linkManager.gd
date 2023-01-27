@@ -1,9 +1,10 @@
 extends Node
 
 var link_root:baseNet=null
-
+var host_ip:=""
 #establishes the link node between the host and the client
-func create_link(as_host:bool=false):
+func create_link(as_host:bool=false,newIP=""):
+	if newIP!="":host_ip=newIP
 	if link_root!=null:return ERR_ALREADY_EXISTS
 	if as_host:link_root=host.new()
 	else:link_root=client.new()

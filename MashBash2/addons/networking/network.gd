@@ -36,8 +36,8 @@ func establish_link(_args=null):
 	change_level("res://multiplayer/levels/level1M.tscn")
 
 @rpc(any_peer)
-func update_parameter(param,newValue):
-	target.set(param,newValue);
+func update_parameter(param,newValue,targeting=target):
+	targeting.set(param,newValue);
 @rpc(authority)
 func change_level(param):
 	Transitions.transitionScene(param)

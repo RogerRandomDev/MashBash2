@@ -91,7 +91,7 @@ func getbouncedBeam(laser_coll_point,laser_coll_normal):
 
 #builds the beam base
 func prepBeam():
-	beamLine.collision_mask=16
+	beamLine.collision_mask=80
 	beam.texture_mode=Line2D.LINE_TEXTURE_TILE
 	beam.top_level=true;beam.width=8;beam.default_color=Color.RED
 	beam.add_point(global_position)

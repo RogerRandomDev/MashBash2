@@ -1,13 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://cimegayykgs5o"]
+[gd_scene load_steps=8 format=3 uid="uid://cimegayykgs5o"]
 
 [ext_resource type="Script" path="res://multiplayer/levels/level1M.gd" id="1_ehoa6"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_nmaln"]
 [ext_resource type="PackedScene" uid="uid://c5tw6do8h3bl2" path="res://flyingBot/flyingBot.tscn" id="2_op2aa"]
+[ext_resource type="Script" path="res://addons/word/resources/itemResource.gd" id="4_14itk"]
+[ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="4_auame"]
+[ext_resource type="Script" path="res://multiplayer/Client.gd" id="5_lg7x8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnxia"]
+size = Vector2(8, 8)
 
 [node name="level1M" type="Node2D"]
 script = ExtResource("1_ehoa6")
 
 [node name="Player" parent="." instance=ExtResource("1_nmaln")]
+canVacuum = true
+is_multiplayer = true
 
-[node name="flyingBotPosition" parent="." instance=ExtResource("2_op2aa")]
+[node name="itemResource" type="Marker2D" parent="."]
+z_index = 2
+position = Vector2(66, 0)
+script = ExtResource("4_14itk")
+HeldResource = ExtResource("4_auame")
+Status = PackedStringArray("active")
+HiddenStatus = PackedStringArray()
+
+[node name="Client" type="CharacterBody2D" parent="."]
+position = Vector2(56, 3)
+scale = Vector2(0.666, 0.666)
+collision_layer = 72
+collision_mask = 80
+slide_on_ceiling = false
+platform_floor_layers = 4294901760
+script = ExtResource("5_lg7x8")
+
+[node name="flyingBotPosition" parent="Client" instance=ExtResource("2_op2aa")]
 z_index = 3
+scale = Vector2(1, 1)
+is_multiplayer = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Client"]
+shape = SubResource("RectangleShape2D_tnxia")
