@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://niq8wrdh7lx2"]
+[gd_scene load_steps=35 format=3 uid="uid://niq8wrdh7lx2"]
 
 [ext_resource type="Theme" uid="uid://bk7qnjewnebef" path="res://themes/Titletheme.tres" id="1_faeks"]
 [ext_resource type="Script" path="res://title/title.gd" id="1_ffxdt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://by8gp385d08jh" path="res://flyingBot/botwing.png" id="7_42byj"]
 [ext_resource type="Texture2D" uid="uid://djji3pdr5wpo1" path="res://flyingBot/hoverparticle.png" id="8_ll4u6"]
 [ext_resource type="Texture2D" uid="uid://6ci634jsykc8" path="res://addons/MASHLOG/Textures/Mashicons/1.png" id="10_fg40m"]
+[ext_resource type="PackedScene" uid="uid://b7iv6okp2mpwa" path="res://addons/networking/test.tscn" id="10_youvk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4m5i"]
 shader = ExtResource("2_ult1y")
@@ -160,6 +161,18 @@ tracks/0/keys = {
 "clips": PackedStringArray("main", "buttons"),
 "times": PackedFloat32Array(0.3, 1.6)
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MouseBlocker:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_olfib"]
 _data = {
@@ -205,7 +218,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.9, 1.1, 1.3),
 "transitions": PackedFloat32Array(1, 1, 0.75, 2.5),
 "update": 0,
-"values": [Vector2(764, 52), Vector2(764, 52), Vector2(-256, 52), Vector2(-221, 52)]
+"values": [Vector2(764, 24), Vector2(764, 24), Vector2(-256, 24), Vector2(-221, 24)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -340,12 +353,41 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(1.25, 1.25), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_b5lbe"]
+resource_name = "toggleMultiplayer"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.25, 2, 0.25),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("multiplayer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.8, 1),
+"transitions": PackedFloat32Array(0.25, 2, 0.25),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vwvg1"]
 _data = {
 "buttons": SubResource("Animation_cimj8"),
 "main": SubResource("Animation_gjeep"),
 "toggleControls": SubResource("Animation_x6sar"),
-"toggleCredits": SubResource("Animation_pd54p")
+"toggleCredits": SubResource("Animation_pd54p"),
+"toggleMultiplayer": SubResource("Animation_b5lbe")
 }
 
 [sub_resource type="GDScript" id="GDScript_xcil1"]
@@ -463,21 +505,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_force_pass_scroll_events = false
 theme = ExtResource("1_faeks")
 script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_54ktm")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 576.0
 offset_top = -324.0
@@ -487,6 +532,7 @@ theme = ExtResource("1_faeks")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
 clip_contents = false
+layout_mode = 0
 offset_left = -62.0
 offset_top = -250.0
 offset_right = 62.0
@@ -502,57 +548,58 @@ autowrap_mode = 2
 tab_size = 1
 
 [node name="play" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -64.0
-offset_top = -401.0
+offset_top = -400.0
 offset_right = 64.0
-offset_bottom = -347.0
+offset_bottom = -346.0
 rotation = -50.2655
 pivot_offset = Vector2(64, 27)
 theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
-[node name="settings" type="HBoxContainer" parent="Menu"]
+[node name="settings" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
 offset_left = 764.0
-offset_top = 55.0
+offset_top = 24.0
 offset_right = 1199.0
-offset_bottom = 95.0
+offset_bottom = 98.0
 pivot_offset = Vector2(180, 26)
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Control" type="Control" parent="Menu/settings"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 163.0
-offset_right = 163.0
-offset_bottom = 40.0
+[node name="Control" type="HBoxContainer" parent="Menu/settings"]
+layout_mode = 2
+alignment = 1
 
 [node name="credits" type="Button" parent="Menu/settings/Control"]
 custom_minimum_size = Vector2(136, 0)
-offset_left = 100.0
-offset_top = -34.0
-offset_right = 236.0
-offset_bottom = 6.0
+layout_mode = 2
 mouse_filter = 1
 text = "Credits"
 
 [node name="fullscreen" type="Button" parent="Menu/settings/Control"]
-offset_left = -84.0
-offset_top = -34.0
-offset_right = 85.0
-offset_bottom = 6.0
+layout_mode = 2
 mouse_filter = 1
 toggle_mode = true
 text = "Fullscreen"
 
-[node name="controls" type="Button" parent="Menu/settings"]
+[node name="Control2" type="HBoxContainer" parent="Menu/settings"]
+layout_mode = 2
+alignment = 1
+
+[node name="Multiplayer" type="Button" parent="Menu/settings/Control2"]
 custom_minimum_size = Vector2(96, 0)
-offset_left = 175.0
-offset_right = 271.0
-offset_bottom = 40.0
+layout_mode = 2
+text = "Multiplayer"
+
+[node name="controls" type="Button" parent="Menu/settings/Control2"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
 text = "Info"
 
 [node name="quit" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -764.0
 offset_top = 112.0
 offset_right = -636.0
@@ -564,6 +611,7 @@ text = "QUIT"
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
+layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0
@@ -634,7 +682,7 @@ libraries = {
 }
 
 [node name="Credits" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -643,34 +691,31 @@ pivot_offset = Vector2(576, 324)
 theme = ExtResource("1_faeks")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Label" type="Label" parent="Credits/VBoxContainer"]
 custom_minimum_size = Vector2(1152, 0)
-offset_right = 1152.0
-offset_bottom = 85.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Credits"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Credits/VBoxContainer"]
-offset_top = 89.0
-offset_right = 1152.0
-offset_bottom = 133.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Made By:"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Credits/VBoxContainer"]
-offset_top = 137.0
-offset_right = 1152.0
-offset_bottom = 205.0
+layout_mode = 2
 text = "Roger T. Grange-Programmer
 Logan Rubenstein-Designer"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Credits"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 452.0
 offset_right = 595.0
@@ -679,7 +724,7 @@ scale = Vector2(1.5, 1.5)
 text = "BACK"
 
 [node name="Controls" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -689,6 +734,7 @@ theme = ExtResource("1_faeks")
 
 [node name="Label" type="Label" parent="Controls"]
 custom_minimum_size = Vector2(1152, 0)
+layout_mode = 0
 offset_top = 8.0
 offset_right = 1152.0
 offset_bottom = 93.0
@@ -697,6 +743,7 @@ text = "|Controls|              |OBJECTS|"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Controls"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 516.0
 offset_right = 595.0
@@ -704,12 +751,33 @@ offset_bottom = 556.0
 scale = Vector2(1.5, 1.5)
 text = "BACK"
 
+[node name="multiplayer" parent="." instance=ExtResource("10_youvk")]
+layout_mode = 1
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(576, 324)
+
+[node name="MouseBlocker" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchor_left = -0.059
+anchor_top = -0.096
+offset_left = -136.032
+offset_top = -95.792
+offset_right = 1310.0
+offset_bottom = 822.0
+
 [connection signal="focus_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="mouse_entered" from="Menu/play" to="." method="play_focus" binds= ["play"]]
 [connection signal="pressed" from="Menu/play" to="." method="pressPlay"]
 [connection signal="pressed" from="Menu/settings/Control/credits" to="." method="_on_credits_pressed"]
+[connection signal="toggled" from="Menu/settings/Control/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="Menu/settings/Control2/Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="Menu/settings/Control2/controls" to="." method="_on_controls_pressed"]
 [connection signal="focus_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
 [connection signal="mouse_entered" from="Menu/quit" to="." method="play_focus" binds= ["quit"]]
 [connection signal="pressed" from="Menu/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Credits/Button" to="." method="_on_back"]
 [connection signal="pressed" from="Controls/Button" to="." method="_on_backControls_pressed"]
+[connection signal="pressed" from="multiplayer/Button" to="." method="_on_multiplayerBack_pressed"]
+
+[editable path="multiplayer"]

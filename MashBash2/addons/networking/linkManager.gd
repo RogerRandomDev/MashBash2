@@ -8,13 +8,16 @@ func create_link(as_host:bool=false,newIP=""):
 	if link_root!=null:return ERR_ALREADY_EXISTS
 	if as_host:link_root=host.new()
 	else:link_root=client.new()
+	link_root.name="LINKROOT"
 	link_root.link_node=link_root
 	add_child(link_root)
 
 func is_linked():return link_root!=null
 #removes the link node when no longer needed
 func delete_link():
+	if link_root==null:return
 	if link_root.is_host:link_root.send("server_closed",[],self)
+	link_root.endSelf()
 	link_root.queue_free();link_root=null
 #received if the host ends the game
 @rpc(authority)

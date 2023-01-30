@@ -68,6 +68,5 @@ func _on_button_2_pressed():
 	visible=false
 	#tells the client, if in multiplayer, to return to title as the host is gone
 	Link.delete_link()
-	
 	Transitions.transitionScene("res://title/title.tscn")
 	

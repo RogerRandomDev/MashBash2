@@ -29,12 +29,22 @@ func OnConnectedToServer(_args=null):
 func _on_disconnect(_args=null):
 	if !is_host:Link.server_closed()
 
+#resets netlink for when you cancel hosting or joining
+func endSelf():
+	get_tree().get_multiplayer(get_path()).multiplayer_peer=null
+
+
+#level name for connecting client after they leave
+var curLevel:String="res://multiplayer/levels/level1M.tscn"
+var inGame=false
 #tells server and peers that the connection is now established
 @rpc(any_peer)
 func establish_link(_args=null):
 	is_connected=true
-	send("change_level",["res://multiplayer/levels/level1M.tscn"],self)
-	change_level("res://multiplayer/levels/level1M.tscn")
+	send("change_level",[curLevel],self)
+	if !inGame:
+		change_level("res://multiplayer/levels/level1M.tscn")
+		inGame=true
 
 @rpc(any_peer)
 func update_parameter(param,newValue,targeting=target):
@@ -42,7 +52,7 @@ func update_parameter(param,newValue,targeting=target):
 @rpc(authority)
 func change_level(param):
 	Transitions.transitionScene(param)
-
+	curLevel=param
 
 func _process(_delta):
 	if !is_connected||local==null:return

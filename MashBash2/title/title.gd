@@ -41,12 +41,12 @@ func pressPlay():
 #	Transitions.transitionScene("res://World/level0.tscn")
 	
 
-
+#originally a joke, just ignore it
 func _on_settings_pressed():
 	$Menu/settings.queue_free()
 	#Sound.play("no_man_voice")
 
-
+#toggles fullscreen for the game
 func _on_fullscreen_toggled(button_pressed):
 	if !button_pressed:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -79,10 +79,21 @@ func _on_credits_pressed():
 func _on_back():
 	$itemsAnimations.play_backwards("toggleCredits")
 
-
-func _on_info_pressed():
+func _on_controls_pressed():
 	$itemsAnimations.play("toggleControls")
-
 
 func _on_backControls_pressed():
 	$itemsAnimations.play_backwards("toggleControls")
+
+
+func _on_multiplayer_pressed():
+	$itemsAnimations.play("toggleMultiplayer")
+
+
+func _on_multiplayerBack_pressed():
+	$itemsAnimations.play_backwards("toggleMultiplayer")
+	$multiplayer.resetMode()
+	
+
+
+

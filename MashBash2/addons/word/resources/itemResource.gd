@@ -86,6 +86,7 @@ func updateDescriptives():
 	descriptiveLabel.text+=HeldResource.Name
 	descriptiveLabel.size.x=0
 	call_deferred("update_label")
+	
 
 func update_label():
 	await("idle_frame")
@@ -238,8 +239,9 @@ func update_position(pos:Vector2=Vector2.ZERO,sender:bool=true):
 func sync_words(wordList:PackedStringArray=PackedStringArray(),sender:bool=true):
 	if sender:
 		Link.link_root.send("sync_words",[Status,false],self)
+		applyScripts(Status)
 		return
 	Status=wordList
 	updateDescriptives()
-	applyScripts(Status)
+	applyScripts(Status,true)
 

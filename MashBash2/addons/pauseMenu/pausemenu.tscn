@@ -35,19 +35,23 @@ offset_bottom = 445.0
 theme = ExtResource("1_oi0mr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "PAUSED"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "PRESS ESC 
 TO CONTINUE"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 23
 text = "Press To
 Reset Level"
@@ -93,6 +97,7 @@ item_11/text = "0 or All inputs are ON"
 script = SubResource("GDScript_j2l6o")
 
 [node name="showgates" type="CheckButton" parent="logic"]
+layout_mode = 0
 offset_top = 490.0
 offset_right = 192.0
 offset_bottom = 514.0
@@ -218,6 +223,28 @@ text = "                        Change Face"
 position = Vector2(1015, 48)
 scale = Vector2(4, 4)
 texture = ExtResource("13_yldi2")
+
+[node name="Label2" type="Label" parent="Controls/Client"]
+offset_left = 858.0
+offset_right = 1130.0
+offset_bottom = 14.0
+theme = ExtResource("1_oi0mr")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/line_spacing = 0
+text = "
+
+
+
+
+
+
+        Mark Point"
+
+[node name="ArrowKeys2" type="Sprite2D" parent="Controls/Client"]
+position = Vector2(929, 135)
+scale = Vector2(4, 4)
+texture = ExtResource("15_wq3co")
 
 [node name="Button2" type="Button" parent="."]
 offset_left = 907.0
