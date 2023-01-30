@@ -30,11 +30,21 @@ func _input(_event):
 		next._on_area_2d_body_entered(get_tree().get_first_node_in_group("player"));
 		
 
-
+#resets level normally or if you are a host in multiplayer
 func _on_button_pressed():
+	if Link.link_root!=null&&!Link.link_root.is_host:return
 	Word.storedWords=[]
 	Transitions.transitionScene("")
 	visible=false
+	Link.link_root.send("reset_level",[],self)
+
+#multiplayer link so only the host can reset a level
+@rpc(authority)
+func reset_level():
+	Word.storedWords=[]
+	Transitions.transitionScene("")
+	visible=false
+
 
 func getTime():
 	var time=runningFor;
@@ -49,9 +59,15 @@ func updateTimer():
 	var outputTime=getTime()
 	$CanvasLayer/Label.text=outputTime
 
-
+#takes you back to the title screen
 func _on_button_2_pressed():
+	if Link.link_root!=null&&!Link.link_root.is_host:return
+	
 	Mashlogue._dialogueBox.forceStop()
 	$CanvasLayer.visible=false
 	visible=false
+	#tells the client, if in multiplayer, to return to title as the host is gone
+	Link.delete_link()
+	
 	Transitions.transitionScene("res://title/title.tscn")
+	

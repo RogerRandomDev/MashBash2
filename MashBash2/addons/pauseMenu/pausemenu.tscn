@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bcybu8d6mkcul"]
+[gd_scene load_steps=18 format=3 uid="uid://bcybu8d6mkcul"]
 
 [ext_resource type="Script" path="res://addons/pauseMenu/pausemenu.gd" id="1_8qwra"]
 [ext_resource type="Theme" uid="uid://o84qd3m5qvf3" path="res://themes/basetheme.tres" id="1_oi0mr"]
 [ext_resource type="Texture2D" uid="uid://emqogxwdbxuk" path="res://entities/items/logicGate/and.png" id="1_qpuxs"]
 [ext_resource type="Texture2D" uid="uid://b4dxdxp4l23wv" path="res://entities/items/logicGate/nand.png" id="2_0ofru"]
+[ext_resource type="StyleBox" uid="uid://biakac75jibs6" path="res://addons/pauseMenu/empty.tres" id="3_04xeg"]
 [ext_resource type="Texture2D" uid="uid://bs38gaf8oea14" path="res://entities/items/logicGate/or.png" id="3_og0ry"]
 [ext_resource type="Texture2D" uid="uid://i7uujvpvr2u2" path="res://entities/items/logicGate/nor.png" id="4_i5165"]
 [ext_resource type="Texture2D" uid="uid://di6rs5vyyagqm" path="res://entities/items/logicGate/xor.png" id="5_imvbf"]
@@ -15,14 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://c5auingyiedd1" path="res://addons/pauseMenu/E.png" id="13_yldi2"]
 [ext_resource type="Texture2D" uid="uid://f8lptteno8cj" path="res://addons/pauseMenu/ESC.png" id="14_a42r0"]
 [ext_resource type="Texture2D" uid="uid://bu75rooymcgto" path="res://addons/pauseMenu/Lmouse.png" id="15_wq3co"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgrgk"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3hfxg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yemlc"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqm02"]
 
 [sub_resource type="GDScript" id="GDScript_j2l6o"]
 script/source = "extends ItemList;func _ready():for item_idx in item_count:set_item_tooltip_enabled(item_idx, false)
@@ -73,10 +66,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/guide_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 12
-theme_override_styles/selected = SubResource("StyleBoxEmpty_tgrgk")
-theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_3hfxg")
-theme_override_styles/cursor = SubResource("StyleBoxEmpty_yemlc")
-theme_override_styles/cursor_unfocused = SubResource("StyleBoxEmpty_nqm02")
+theme_override_styles/selected = ExtResource("3_04xeg")
+theme_override_styles/selected_focus = ExtResource("3_04xeg")
+theme_override_styles/cursor = ExtResource("3_04xeg")
+theme_override_styles/cursor_unfocused = ExtResource("3_04xeg")
 item_count = 12
 icon_scale = 4.0
 item_0/text = "And"
@@ -207,6 +200,24 @@ text = "
 position = Vector2(928, 136)
 scale = Vector2(4, 4)
 texture = ExtResource("15_wq3co")
+
+[node name="Client" type="Node2D" parent="Controls"]
+visible = false
+
+[node name="Label" type="Label" parent="Controls/Client"]
+offset_left = 858.0
+offset_right = 1130.0
+offset_bottom = 14.0
+theme = ExtResource("1_oi0mr")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/line_spacing = 0
+text = "                        Change Face"
+
+[node name="ArrowKeys" type="Sprite2D" parent="Controls/Client"]
+position = Vector2(1015, 48)
+scale = Vector2(4, 4)
+texture = ExtResource("13_yldi2")
 
 [node name="Button2" type="Button" parent="."]
 offset_left = 907.0

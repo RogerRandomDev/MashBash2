@@ -19,7 +19,7 @@ func _ready():
 
 
 func _input(_event):
-	
+	if Link.link_root!=null&&!Link.link_root.is_host:return
 	var dir=int(Input.is_action_just_pressed("left"))-int(Input.is_action_just_pressed("right"))
 	if Input.is_action_just_pressed("up")||Input.is_action_just_pressed("down"):
 		activeSet=1-activeSet

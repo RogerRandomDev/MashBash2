@@ -13,27 +13,20 @@ func _process(delta):
 
 func _on_client_button_pressed():
 	if Link.is_linked():return
-	Link.create_link(false,$HBoxContainer/connectIP.text)
-	$HBoxContainer.visible=false
+	Link.create_link(false,$VBoxContainer/connectIP.text)
+	$VBoxContainer/HBoxContainer.visible=false
 
 
 func _on_host_button_pressed():
 	if Link.is_linked():return
 	Link.create_link(true)
-	$HBoxContainer.visible=false
-	$Label.text="Hosting Game. IP:"+getIP()
+	$VBoxContainer/HBoxContainer.visible=false
+	$Label.text="Hosting Game IP:"+getIP()
 
 
 func getIP():
-	var ip_adress :String
-	
-	if OS.has_feature("windows"):
-		if OS.has_environment("COMPUTERNAME"):
-			ip_adress =  IP.resolve_hostname(str(OS.get_environment("COMPUTERNAME")),1)
-	elif OS.has_feature("x11"):
-		if OS.has_environment("HOSTNAME"):
-			ip_adress =  IP.resolve_hostname(str(OS.get_environment("HOSTNAME")),1)
-	elif OS.has_feature("OSX"):
-		if OS.has_environment("HOSTNAME"):
-			ip_adress =  IP.resolve_hostname(str(OS.get_environment("HOSTNAME")),1)
-	return ip_adress
+	var ip
+	for address in IP.get_local_addresses():
+		if (address.split('.').size() == 4&&address!="127.0.0.1"):
+			ip=address
+	return ip

@@ -13,6 +13,7 @@ func _ready():
 	Pausemenu.get_node("Controls/Interact").visible=false
 	Pausemenu.get_node("Controls/ClosePause").visible=false
 	Pausemenu.get_node("Controls/Vacuum").visible=false
+	Pausemenu.get_node("Controls/Client").visible=false
 	$Menu/AnimationPlayer.play("titleAnimation")
 
 

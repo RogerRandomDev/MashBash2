@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cimegayykgs5o"]
+[gd_scene load_steps=9 format=3 uid="uid://3o1rc0kgqc6u"]
 
 [ext_resource type="Script" path="res://multiplayer/levels/level1M.gd" id="1_ehoa6"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_nmaln"]
 [ext_resource type="PackedScene" uid="uid://c5tw6do8h3bl2" path="res://flyingBot/flyingBot.tscn" id="2_op2aa"]
 [ext_resource type="Script" path="res://addons/word/resources/itemResource.gd" id="4_14itk"]
 [ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="4_auame"]
-[ext_resource type="Script" path="res://multiplayer/Client.gd" id="5_lg7x8"]
+[ext_resource type="Script" path="res://multiplayer/GameClient.gd" id="5_lg7x8"]
+[ext_resource type="Material" uid="uid://bvprq0rj5a3ji" path="res://addons/pauseMenu/charLink.tres" id="7_ydnl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnxia"]
 size = Vector2(8, 8)
@@ -41,3 +42,9 @@ is_multiplayer = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Client"]
 shape = SubResource("RectangleShape2D_tnxia")
+
+[node name="characterLink" type="Line2D" parent="."]
+material = ExtResource("7_ydnl4")
+points = PackedVector2Array(0, 0, 73, 34)
+width = 6.0
+texture_mode = 1

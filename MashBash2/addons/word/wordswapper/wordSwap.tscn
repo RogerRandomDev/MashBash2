@@ -184,17 +184,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m4for")
 script = ExtResource("1_iothb")
 
 [node name="labels" type="VBoxContainer" parent="wordswap"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 4.0
 offset_right = 500.0
 offset_bottom = 380.0
 
 [node name="Label2" type="Label" parent="wordswap/labels"]
-offset_right = 488.0
-offset_bottom = 29.0
+layout_mode = 2
 text = "Door"
 
 [node name="swapsleft" type="Label" parent="wordswap/labels/Label2"]
+layout_mode = 0
 offset_right = 488.0
 offset_bottom = 29.0
 text = "Swaps Left: 3"
@@ -202,22 +203,19 @@ horizontal_alignment = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="wordswap/labels"]
 clip_contents = false
-offset_top = 33.0
-offset_right = 488.0
-offset_bottom = 186.0
+layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
 text = "testing testing 1 2 3"
 custom_effects = [ExtResource("2_34jdx")]
 
 [node name="Label" type="Label" parent="wordswap/labels"]
-offset_top = 190.0
-offset_right = 488.0
-offset_bottom = 219.0
+layout_mode = 2
 text = "Inventory"
 
 [node name="cantputin" type="Label" parent="wordswap/labels/Label"]
 modulate = Color(1, 0, 0, 0)
+layout_mode = 0
 offset_right = 488.0
 offset_bottom = 29.0
 text = "WORD CLASHES WITH OTHER"
@@ -225,15 +223,14 @@ horizontal_alignment = 2
 
 [node name="Owned" type="RichTextLabel" parent="wordswap/labels"]
 clip_contents = false
-offset_top = 223.0
-offset_right = 488.0
-offset_bottom = 376.0
+layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
 custom_effects = [ExtResource("2_34jdx")]
 
 [node name="inputlist" type="RichTextLabel" parent="wordswap"]
 clip_contents = false
+layout_mode = 0
 offset_left = 516.0
 offset_top = 5.0
 offset_right = 597.0

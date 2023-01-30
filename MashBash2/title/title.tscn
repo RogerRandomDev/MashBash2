@@ -503,9 +503,9 @@ tab_size = 1
 
 [node name="play" type="Button" parent="Menu"]
 offset_left = -64.0
-offset_top = -400.0
+offset_top = -401.0
 offset_right = 64.0
-offset_bottom = -346.0
+offset_bottom = -347.0
 rotation = -50.2655
 pivot_offset = Vector2(64, 27)
 theme_override_font_sizes/font_size = 36
@@ -513,9 +513,9 @@ text = "PLAY"
 
 [node name="settings" type="HBoxContainer" parent="Menu"]
 offset_left = 764.0
-offset_top = 52.0
+offset_top = 55.0
 offset_right = 1199.0
-offset_bottom = 92.0
+offset_bottom = 95.0
 pivot_offset = Vector2(180, 26)
 theme_override_constants/separation = 12
 alignment = 1
@@ -530,17 +530,17 @@ offset_bottom = 40.0
 [node name="credits" type="Button" parent="Menu/settings/Control"]
 custom_minimum_size = Vector2(136, 0)
 offset_left = 100.0
-offset_top = -32.0
+offset_top = -34.0
 offset_right = 236.0
-offset_bottom = 8.0
+offset_bottom = 6.0
 mouse_filter = 1
 text = "Credits"
 
 [node name="fullscreen" type="Button" parent="Menu/settings/Control"]
 offset_left = -84.0
-offset_top = -32.0
+offset_top = -34.0
 offset_right = 85.0
-offset_bottom = 8.0
+offset_bottom = 6.0
 mouse_filter = 1
 toggle_mode = true
 text = "Fullscreen"

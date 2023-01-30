@@ -26,7 +26,8 @@ func OnConnectedToServer(_args=null):
 	is_connected=true
 
 #runs when server disconnects with the client and vice versa
-func _on_disconnect(_args=null):print("DISCONNECTED")
+func _on_disconnect(_args=null):
+	if !is_host:Link.server_closed()
 
 #tells server and peers that the connection is now established
 @rpc(any_peer)

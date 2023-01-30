@@ -149,7 +149,7 @@ func modifyTo(_descriptives):
 	updateDescriptives()
 	applyScripts(Status)
 	emit_signal("changedStatus",Status)
-	if Link.link_root.is_host:sync_words();
+	if Link.link_root!=null&&Link.link_root.is_host:sync_words();
 
 const opposites=[
 	"open",
@@ -241,4 +241,5 @@ func sync_words(wordList:PackedStringArray=PackedStringArray(),sender:bool=true)
 		return
 	Status=wordList
 	updateDescriptives()
+	applyScripts(Status)
 

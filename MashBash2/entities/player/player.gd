@@ -9,6 +9,7 @@ var vacuum:bool=false
 @export var canVacuum:bool=false
 const freeze=false
 
+
 @export var is_multiplayer:bool=false
 func _ready():
 	add_to_group("player")
@@ -21,7 +22,7 @@ const dir={'90':Vector2(1,0),'180':Vector2(0,1),'0':Vector2(0,1)}
 #all through the town
 #but i altered the laws of the universe so squares roll now
 func _physics_process(_delta):
-	if locked||is_multiplayer&&!Link.link_root.is_host:return
+	if locked||is_multiplayer&&(Link.link_root!=null&&!Link.link_root.is_host):return
 	var direction = Vector2(Input.get_axis("left", "right"),Input.get_axis("up", "down"))
 	
 	if direction:
@@ -87,4 +88,4 @@ func updateAnimations(changeTo:String="",flip_h:bool=false):
 			chosenAnimation="walk"
 	$Sprite2D.animation=chosenAnimation
 	#handles making sure multiplayer tells the players what animation the other player has at any given moment
-	if is_multiplayer&&Link.link_root.is_host:Link.link_root.send("updateAnimations",[chosenAnimation,$Sprite2D.flip_h],self)
+	if is_multiplayer&&(Link.link_root!=null&&Link.link_root.is_host):Link.link_root.send("updateAnimations",[chosenAnimation,$Sprite2D.flip_h],self)

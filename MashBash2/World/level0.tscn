@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c5tw6do8h3bl2" path="res://flyingBot/flyingBot.tscn" id="13_vomrx"]
 [ext_resource type="PackedScene" uid="uid://dyhsk57dr4nwt" path="res://World/nextLEvel.tscn" id="14_vaxsb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgbpr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc5ki"]
 size = Vector2(8, 9)
 
 [node name="level0" type="Node2D"]
@@ -354,7 +354,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="items/Area2D"]
 position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_mgbpr")
+shape = SubResource("RectangleShape2D_vc5ki")
 
 [node name="itemResource20" type="Marker2D" parent="items" groups=["teleporter5B"]]
 z_index = 2

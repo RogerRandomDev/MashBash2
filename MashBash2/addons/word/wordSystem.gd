@@ -29,6 +29,7 @@ func loadDescriptives():
 
 
 func _input(event):
+	if Link.link_root!=null&&!Link.link_root.is_host:return
 	if !canChange||Pausemenu.visible:return
 	if player==null||player.locked:return
 	#opens the hovered item

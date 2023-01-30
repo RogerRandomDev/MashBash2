@@ -32,7 +32,7 @@ _global_script_classes=[{
 "base": "baseNet",
 "class": &"client",
 "language": &"GDScript",
-"path": "res://addons/networking/client.gd"
+"path": "res://addons/networking/netclient.gd"
 }, {
 "base": "Resource",
 "class": &"dialogueResource",
@@ -52,7 +52,7 @@ _global_script_classes=[{
 "base": "baseNet",
 "class": &"host",
 "language": &"GDScript",
-"path": "res://addons/networking/host.gd"
+"path": "res://addons/networking/nethost.gd"
 }, {
 "base": "Resource",
 "class": &"iconSet",
@@ -168,6 +168,10 @@ shapes/canvas_textures/default_texture_repeat=0
 
 window/stretch/mode="viewport"
 
+[editor]
+
+export/convert_text_resources_to_binary=false
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/MASHLOG/plugin.cfg", "res://addons/settings/plugin.cfg", "res://addons/word/plugin.cfg")
@@ -211,6 +215,7 @@ ui_up={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":16777232,"physical_keycode":0,"unicode":16777232,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":-1.0,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"unicode":0,"echo":false,"script":null)
 ]
 }
 ui_down={
@@ -218,6 +223,7 @@ ui_down={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":16777234,"physical_keycode":0,"unicode":16777234,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"unicode":0,"echo":false,"script":null)
 ]
 }
 left={
