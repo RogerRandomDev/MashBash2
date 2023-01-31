@@ -21,8 +21,7 @@ func play(sound,db=0.,fromRPC=false):
 	player.stream=load("res://addons/Sound/Sounds/World/%s.wav"%sound)
 	player.connect("finished",func(e=player):removeSound(e))
 	player.play()
-	print("a")
-	if !fromRPC:Link.link_root.send("play",[sound,db,true],self)
+	if !fromRPC&&Link.link_root!=null:Link.link_root.send("play",[sound,db,true],self)
 #plays song
 func playSong(song,db=0.):
 	if lastMusic!=null:
