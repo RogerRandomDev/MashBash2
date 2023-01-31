@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://3o1rc0kgqc6u"]
+[gd_scene load_steps=10 format=3 uid="uid://3o1rc0kgqc6u"]
 
 [ext_resource type="Script" path="res://multiplayer/levels/level1M.gd" id="1_ehoa6"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_nmaln"]
+[ext_resource type="Texture2D" uid="uid://begcenk17t12t" path="res://entities/items/teleporter/teleporter.png" id="2_25qhy"]
 [ext_resource type="PackedScene" uid="uid://c5tw6do8h3bl2" path="res://flyingBot/flyingBot.tscn" id="2_op2aa"]
 [ext_resource type="Script" path="res://addons/word/resources/itemResource.gd" id="4_14itk"]
 [ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="4_auame"]
@@ -13,6 +14,7 @@ size = Vector2(8, 8)
 
 [node name="level1M" type="Node2D"]
 script = ExtResource("1_ehoa6")
+markerTexture = ExtResource("2_25qhy")
 
 [node name="Player" parent="." instance=ExtResource("1_nmaln")]
 canVacuum = true

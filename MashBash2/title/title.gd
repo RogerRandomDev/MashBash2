@@ -87,6 +87,7 @@ func _on_backControls_pressed():
 
 
 func _on_multiplayer_pressed():
+	$multiplayer/VBoxContainer/connectIP.text=""
 	$itemsAnimations.play("toggleMultiplayer")
 
 

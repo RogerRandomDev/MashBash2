@@ -38,10 +38,11 @@ text = "LAN ONLY
 horizontal_alignment = 1
 
 [node name="connectIP" type="TextEdit" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 36)
+custom_minimum_size = Vector2(0, 43)
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Connect IP:"
+scroll_fit_content_height = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

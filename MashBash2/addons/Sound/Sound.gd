@@ -9,7 +9,9 @@ func _ready():
 
 
 #plays audio file with modified decibel DB
-func play(sound,db=0.):
+#rpc is for if in multiplayer, to play it on other user as well
+@rpc(any_peer)
+func play(sound,db=0.,fromRPC=false):
 	if sound=="no_man_voice":return
 	var player=AudioStreamPlayer.new()
 	add_child(player)
@@ -19,7 +21,8 @@ func play(sound,db=0.):
 	player.stream=load("res://addons/Sound/Sounds/World/%s.wav"%sound)
 	player.connect("finished",func(e=player):removeSound(e))
 	player.play()
-	
+	print("a")
+	if !fromRPC:Link.link_root.send("play",[sound,db,true],self)
 #plays song
 func playSong(song,db=0.):
 	if lastMusic!=null:

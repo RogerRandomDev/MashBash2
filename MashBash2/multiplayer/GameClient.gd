@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+
 var freeze:bool=false
 @export var max_range:int=64
 @onready var root=$flyingBotPosition
@@ -19,6 +18,8 @@ func _ready():
 		Pausemenu.get_node("Controls/Client").visible=true
 		Pausemenu.get_node("Controls/Vacuum").visible=false
 		Pausemenu.get_node("Controls/Interact").visible=false
+		Pausemenu.get_node("Controls/Movement").visible=true
+		Pausemenu.get_node("Controls/ClosePause").visible=true
 #controlled by client side
 func _physics_process(delta):
 	$CollisionShape2D.global_position=global_position
@@ -27,10 +28,10 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Vector2(Input.get_axis("left","right"),Input.get_axis("up","down"));
-	velocity=direction*64
+	velocity=direction*48
 	
 	move_and_slide()
-	root.rotateTowardMotion(delta,velocity/32)
+	root.rotateTowardMotion(delta,velocity/24)
 	# after calling move_and_slide()
 	#pushing of objects in your way
 	var vel=velocity*0.5

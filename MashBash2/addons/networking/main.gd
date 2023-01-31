@@ -13,6 +13,10 @@ func _process(delta):
 
 func _on_client_button_pressed():
 	if Link.is_linked():return
+	#checks ip is valid, if it isn't, it sets it to empty
+	if !is_valid_ip($VBoxContainer/connectIP.text):
+		$VBoxContainer/connectIP.text=""
+		return
 	Link.create_link(false,$VBoxContainer/connectIP.text)
 	$VBoxContainer/HBoxContainer.visible=false
 
@@ -46,3 +50,8 @@ func _on_connect_ip_text_changed():
 	if ip.text.contains("\n"):
 		ip.text=ip.text.replace("\n","")
 		_on_client_button_pressed()
+
+#checks that given string is a valid ip address
+func is_valid_ip(text:String):
+	var ipREGEX=RegEx.create_from_string("^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$")
+	return ipREGEX.search_all(text).size()>0||text=="localhost"

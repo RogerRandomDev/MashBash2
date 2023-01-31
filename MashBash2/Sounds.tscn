@@ -22,15 +22,17 @@ const soundList = {
 	\"vacuum\":preload(\"res://sounds/Vacuum.wav\"),
 	\"select\":preload(\"res://sounds/Select.wav\")
 }
-
-
-func playSound(soundName:String,db=0.0):
+#rpc for syncing sound between users
+@rpc(any_peer)
+func playSound(soundName:String,db=0.0,fromRPC:bool=false):
 	var player=AudioStreamPlayer.new()
 	player.volume_db=db
 	player.stream=soundList[soundName]
 	player.connect('finished',func():player.queue_free())
 	add_child(player)
 	player.play()
+	#syncs sounds in multiplayer
+	if !fromRPC&&Link.link_root!=null:Link.link_root.send(\"playSound\",[soundName,db,true],self)
 "
 
 [node name="sound" type="Node"]

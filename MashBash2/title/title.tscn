@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://niq8wrdh7lx2"]
+[gd_scene load_steps=36 format=3 uid="uid://cubt3mpjnxd1u"]
 
 [ext_resource type="Theme" uid="uid://bk7qnjewnebef" path="res://themes/Titletheme.tres" id="1_faeks"]
 [ext_resource type="Script" path="res://title/title.gd" id="1_ffxdt"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bryllot8i386n" path="res://flyingBot/botbody.png" id="6_bxb8d"]
 [ext_resource type="Texture2D" uid="uid://by8gp385d08jh" path="res://flyingBot/botwing.png" id="7_42byj"]
 [ext_resource type="Texture2D" uid="uid://djji3pdr5wpo1" path="res://flyingBot/hoverparticle.png" id="8_ll4u6"]
+[ext_resource type="Theme" uid="uid://3xsjkp0yfrtk" path="res://themes/controlsTheme.tres" id="10_7rt5p"]
 [ext_resource type="Texture2D" uid="uid://6ci634jsykc8" path="res://addons/MASHLOG/Textures/Mashicons/1.png" id="10_fg40m"]
 [ext_resource type="PackedScene" uid="uid://b7iv6okp2mpwa" path="res://addons/networking/test.tscn" id="10_youvk"]
 
@@ -395,7 +396,11 @@ script/source = "extends Node2D
 
 func _ready():$AnimationPlayer.play(\"hover\")
 func _process(delta):
-	var moveDir=(get_global_mouse_position()+Vector2(32,32))-global_position
+	#clamps movement when in controls so it won't obstruct your view
+	var mPos=get_global_mouse_position()
+	mPos.x=max(min(mPos.x,1152-(int(get_parent().get_node(\"Controls\").scale.x>0.5)*512)),(int(get_parent().get_node(\"Controls\").scale.x>0.5)*448))
+	#moves
+	var moveDir=(mPos+Vector2(32,32))-global_position
 	var angle=moveDir.distance_to(Vector2(0,0))*0.00025*PI*sign(moveDir.x)
 	if angle<-PI/4:angle=-PI/4
 	if angle>PI/4:angle=PI/4
@@ -511,18 +516,16 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_54ktm")
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_left = 576.0
 offset_top = -324.0
@@ -532,7 +535,6 @@ theme = ExtResource("1_faeks")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
 clip_contents = false
-layout_mode = 0
 offset_left = -62.0
 offset_top = -250.0
 offset_right = 62.0
@@ -548,7 +550,6 @@ autowrap_mode = 2
 tab_size = 1
 
 [node name="play" type="Button" parent="Menu"]
-layout_mode = 0
 offset_left = -64.0
 offset_top = -400.0
 offset_right = 64.0
@@ -559,7 +560,6 @@ theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
 [node name="settings" type="VBoxContainer" parent="Menu"]
-layout_mode = 0
 offset_left = 764.0
 offset_top = 24.0
 offset_right = 1199.0
@@ -569,37 +569,47 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="Control" type="HBoxContainer" parent="Menu/settings"]
-layout_mode = 2
+offset_right = 435.0
+offset_bottom = 31.0
 alignment = 1
 
 [node name="credits" type="Button" parent="Menu/settings/Control"]
 custom_minimum_size = Vector2(136, 0)
-layout_mode = 2
+offset_left = 63.0
+offset_right = 199.0
+offset_bottom = 31.0
 mouse_filter = 1
 text = "Credits"
 
 [node name="fullscreen" type="Button" parent="Menu/settings/Control"]
-layout_mode = 2
+offset_left = 203.0
+offset_right = 372.0
+offset_bottom = 31.0
 mouse_filter = 1
 toggle_mode = true
 text = "Fullscreen"
 
 [node name="Control2" type="HBoxContainer" parent="Menu/settings"]
-layout_mode = 2
+offset_top = 43.0
+offset_right = 435.0
+offset_bottom = 74.0
 alignment = 1
 
 [node name="Multiplayer" type="Button" parent="Menu/settings/Control2"]
 custom_minimum_size = Vector2(96, 0)
-layout_mode = 2
+offset_left = 81.0
+offset_right = 253.0
+offset_bottom = 31.0
 text = "Multiplayer"
 
 [node name="controls" type="Button" parent="Menu/settings/Control2"]
 custom_minimum_size = Vector2(96, 0)
-layout_mode = 2
+offset_left = 257.0
+offset_right = 353.0
+offset_bottom = 31.0
 text = "Info"
 
 [node name="quit" type="Button" parent="Menu"]
-layout_mode = 0
 offset_left = -764.0
 offset_top = 112.0
 offset_right = -636.0
@@ -611,7 +621,6 @@ text = "QUIT"
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
-layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0
@@ -682,7 +691,7 @@ libraries = {
 }
 
 [node name="Credits" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -691,31 +700,34 @@ pivot_offset = Vector2(576, 324)
 theme = ExtResource("1_faeks")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Label" type="Label" parent="Credits/VBoxContainer"]
 custom_minimum_size = Vector2(1152, 0)
-layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 85.0
 theme_override_font_sizes/font_size = 64
 text = "Credits"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Credits/VBoxContainer"]
-layout_mode = 2
+offset_top = 89.0
+offset_right = 1152.0
+offset_bottom = 133.0
 theme_override_font_sizes/font_size = 32
 text = "Made By:"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Credits/VBoxContainer"]
-layout_mode = 2
-text = "Roger T. Grange-Programmer
+offset_top = 137.0
+offset_right = 1152.0
+offset_bottom = 205.0
+text = "Roger T. Grange-Programmer / Songwriter
 Logan Rubenstein-Designer"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Credits"]
-layout_mode = 0
 offset_left = 519.0
 offset_top = 452.0
 offset_right = 595.0
@@ -724,7 +736,7 @@ scale = Vector2(1.5, 1.5)
 text = "BACK"
 
 [node name="Controls" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -734,7 +746,6 @@ theme = ExtResource("1_faeks")
 
 [node name="Label" type="Label" parent="Controls"]
 custom_minimum_size = Vector2(1152, 0)
-layout_mode = 0
 offset_top = 8.0
 offset_right = 1152.0
 offset_bottom = 93.0
@@ -742,8 +753,131 @@ theme_override_font_sizes/font_size = 64
 text = "|Controls|              |OBJECTS|"
 horizontal_alignment = 1
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls"]
+offset_top = 88.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("10_7rt5p")
+theme_override_constants/separation = 64
+
+[node name="controls" type="RichTextLabel" parent="Controls/HBoxContainer"]
+custom_minimum_size = Vector2(448, 0)
+offset_right = 448.0
+offset_bottom = 560.0
+size_flags_horizontal = 2
+bbcode_enabled = true
+text = "
+
+
+
+
+
+[img=48]res://addons/pauseMenu/W.png[/img][img=48]res://addons/pauseMenu/A.png[/img][img=48]res://addons/pauseMenu/S.png[/img][img=48]res://addons/pauseMenu/D.png[/img]           MOVEMENT
+[img=48]res://addons/pauseMenu/E.png[/img]       INTERACT/SWAP FACE
+[img=96]res://addons/pauseMenu/ESC.png[/img]        BACK/PAUSE MENU
+[img=48]res://addons/pauseMenu/Lmouse.png[/img]                VACUUM/MARKER
+"
+fit_content_height = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="objects" type="RichTextLabel" parent="Controls/HBoxContainer"]
+custom_minimum_size = Vector2(448, 0)
+offset_left = 704.0
+offset_right = 1152.0
+offset_bottom = 560.0
+size_flags_horizontal = 10
+bbcode_enabled = true
+text = "[img=48]res://entities/items/box/box.png[/img] BOX
+	PUSHES [color=#0ff]BUTTONS[/color]
+	CAN BE MOVED
+	[color=#f00]HEAVY[/color]
+		PUSHES [color=#f00]HEAVY[/color] [color=#0ff]BUTTONS[/color]
+		Can't be moved
+	[color=#f00]REFLECTIVE[/color]
+		REFLECTS [color=#0ff]LASER BEAMS[/color]
+	[color=#f00]LIGHT[/color]
+		ONLY PUSHES [color=#f00]LIGHT[/color]
+		[color=#0ff]BUTTONS[/color]
+_______________________________
+[img=48]res://entities/items/door/closed.png[/img] DOOR
+	BLOCKS [color=#0ff]PLAYER[/color] AND
+	[color=#0ff]OBJECTS[/color]
+	[color=#f00]LOCKED[/color]
+		CAN'T GO THROUGH
+	[color=#f00]OPEN[/color]
+		ALLOWS PASSAGE
+	[color=#f00]BROKEN[/color]
+		ALLOWS PASSAGE
+_______________________________
+[img=48]res://entities/items/button/released.png[/img] BUTTON
+	ACTIVATES CONNECTED 
+	[color=#0ff]OBJECTS[/color]
+	[color=#f00]TOGGLE[/color]
+		STAYS [color=#0ff]ON[/color] UNTIL
+		PRESSED AGAIN
+	[color=#f00]HEAVY[/color]
+		ONLY PRESSABLE BY
+		[color=#f00]HEAVY[/color] [color=#0ff]Boxes[/color] and
+		the [color=#0ff]PLAYER[/color]
+_______________________________
+[img=48]res://entities/items/teleporter/teleporter.png[/img] TELEPORTER
+	TELEPORTS [color=#0ff]PLAYER[/color] AND
+	[color=#0ff]OBJECTS[/color]
+	MUST BE [color=#0f0]ACTIVE[/color] TO WORK
+	MUST CONNECT TO
+	[color=#0f0]ACTIVE[/color] [color=#0ff]TELEPORTER[/color]	
+	MUST CONNECT TO
+	[color=#f00]NON-BROKEN[/color] [color=#0ff]TELEPORTER[/color]
+	[color=#0f0]ACTIVE[/color]
+		ALLOWS TELEPORTATION
+	[color=#f00]DISABLED[/color]
+		WILL NOT ALLOW
+		TELEPORTATION	
+	[color=#f00]WEAK[/color]
+		WILL [color=#f00]BREAK[/color] AFTER USE
+	[color=#f00]BROKEN[/color]
+		WILL NOT ALLOW
+		TELEPORTATION
+_______________________________
+[img=48]res://entities/items/logicGate/off.png[/img] LOGIC GATE
+	HAS LOGIC FUNTIONS
+	TURNS ON WHEN:
+	[color=#f00]AND[/color]
+		ALL [color=#0ff]INPUTS[/color] ARE [color=#0f0]ON[/color]
+	[color=#f00]NAND[/color]
+		AT LEAST 1 [color=#0ff]INPUT[/color] IS
+		[color=#f00]OFF[/color]
+	[color=#f00]OR[/color]
+		AT LEAST 1 [color=#0ff]INPUT[/color] IS [color=#0f0]ON[/color]
+	[color=#f00]NOR[/color]
+		ALL [color=#0ff]INPUTS[/color] ARE [color=#f00]OFF[/color]
+	[color=#f00]XOR[/color]
+		AT LEAST 1 BUT NOT ALL
+		[color=#0ff]INPUTS[/color] ARE [color=#0f0]ON[/color]
+	[color=#f00]XNOR[/color]
+		ALL OR NO [color=#0ff]INPUTS[/color] ARE
+		[color=#f00]OFF[/color]
+_______________________________
+[img=48]res://entities/items/laserShooter/laserShooter.png[/img] LASER SHOOTER
+	MUST BE [color=#0f0]ACTIVE[/color] TO EMIT
+	[color=#0ff]LASER[/color]
+	[color=#0f0]ACTIVE[/color]
+		EMITS A [color=#0ff]LASER BEAM
+		LASER BEAM[/color] BLOCKS
+		[color=#0ff]PLAYER[/color] AND [color=#0ff]OBJECTS[/color]
+		DOES NOT BLOCK [color=#0ff]DRONE[/color]
+	[color=#f00]DISABLED[/color]
+		EMITS NO [color=#0ff]LASER BEAM[/color]
+_______________________________
+[img=48]res://entities/items/laserButton/laserbuttonoff.png[/img] LASER RECEIVER
+	TURNS ON WHEN HIT BY
+	[color=#0ff]LASER[/color]
+_______________________________
+[img=48]res://entities/items/toy/toy.png[/img] TOY
+	IS A TOY"
+
 [node name="Button" type="Button" parent="Controls"]
-layout_mode = 0
 offset_left = 519.0
 offset_top = 516.0
 offset_right = 595.0
@@ -752,13 +886,57 @@ scale = Vector2(1.5, 1.5)
 text = "BACK"
 
 [node name="multiplayer" parent="." instance=ExtResource("10_youvk")]
-layout_mode = 1
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(576, 324)
 
+[node name="VBoxContainer" parent="multiplayer" index="0"]
+layout_mode = 3
+
+[node name="Label" parent="multiplayer/VBoxContainer" index="0"]
+layout_mode = 3
+offset_right = 450.0
+offset_bottom = 104.0
+
+[node name="Label2" parent="multiplayer/VBoxContainer" index="1"]
+layout_mode = 3
+offset_top = 108.0
+offset_right = 450.0
+offset_bottom = 152.0
+
+[node name="connectIP" parent="multiplayer/VBoxContainer" index="2"]
+layout_mode = 3
+offset_top = 156.0
+offset_right = 450.0
+offset_bottom = 199.0
+
+[node name="HBoxContainer" parent="multiplayer/VBoxContainer" index="3"]
+layout_mode = 3
+offset_top = 203.0
+offset_right = 450.0
+offset_bottom = 234.0
+
+[node name="Button" parent="multiplayer/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 3
+offset_left = 115.0
+offset_right = 186.0
+offset_bottom = 31.0
+
+[node name="Button2" parent="multiplayer/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 3
+offset_left = 206.0
+offset_right = 334.0
+offset_bottom = 31.0
+
+[node name="space" parent="multiplayer/VBoxContainer" index="4"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Button" parent="multiplayer" index="1"]
+layout_mode = 3
+
 [node name="MouseBlocker" type="Control" parent="."]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchor_left = -0.059
 anchor_top = -0.096
 offset_left = -136.032
