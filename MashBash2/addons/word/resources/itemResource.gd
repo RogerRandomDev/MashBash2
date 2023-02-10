@@ -44,7 +44,7 @@ func _ready():
 	descriptives.theme=descriptiveLabel.theme
 	descriptives.position=Vector2(4,4)
 	descriptives.position-=(size+Vector2(4,4)).rotated(-rotation)*0.5
-	updateDescriptives.call_deferred()
+	
 	if !Engine.is_editor_hint():
 		#loads the area check around itself
 		var check=CollisionShape2D.new()
@@ -59,14 +59,17 @@ func _ready():
 		hold.position+=size/2.
 	descriptiveLabel.visible=false
 	descriptiveScript.name="ScriptHolder"
+	await get_tree().process_frame
+	updateDescriptives()
 	if !Engine.is_editor_hint():Status.append_array(HiddenStatus)
 
 
 func makeMeRigid():
 	var body=movingBody2D.new()
-	body.collision_layer=89
+	body.collision_layer=25
 	body.set_collision_layer_value(7,true)
-	body.collision_mask=73
+	body.collision_mask=9
+	
 	if makeRigid:body.rotation=rotation
 	get_parent().add_child(body)
 	get_parent().remove_child(self);body.add_child(self)
@@ -225,11 +228,12 @@ func canPull():
 #triggers multiplayer update if it is in multiplayer on being moved
 func onMove():
 	await get_tree().physics_frame;
-	if Link.link_root!=null:update_position()
-	get_parent().velocity=Vector2.ZERO
+	if Link.link_root!=null:
+		update_position(get_parent().position)
+		get_parent().velocity=Vector2.ZERO
 
 #multiplayer functionality
-@rpc(any_peer)
+@rpc(authority)
 func update_position(pos:Vector2=Vector2.ZERO,sender:bool=true):
 	if sender:
 		Link.link_root.send("update_position",[get_parent().position,false],self)

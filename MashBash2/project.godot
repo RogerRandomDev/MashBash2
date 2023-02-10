@@ -141,8 +141,9 @@ _global_script_class_icons={
 [application]
 
 config/name="Wor(l)d Swap"
-run/main_scene="res://launchscreen/launch.tscn"
+run/main_scene="res://title/title.tscn"
 config/features=PackedStringArray("4.0")
+run/max_fps=30
 config/icon="res://icon.png"
 
 [autoload]
@@ -282,6 +283,7 @@ lMouse={
 
 [physics]
 
+common/physics_ticks_per_second=30
 2d/solver/solver_iterations=8
 2d/default_gravity=0.0
 

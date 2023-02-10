@@ -6,11 +6,13 @@ var freeze:bool=false
 @export var max_range:int=64
 @onready var root=$flyingBotPosition
 @export var player:Node2D
+var pushed_by_player=0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 const dir={'90':Vector2(1,0),'180':Vector2(0,1),'0':Vector2(0,1)}
-
+#allows boxes to push it
+var movingBody=true
 #removes basic bug for host in multiplayer
 func _ready():
 	player=get_parent().get_node("Player")
@@ -22,6 +24,7 @@ func _ready():
 		Pausemenu.get_node("Controls/ClosePause").visible=true
 #controlled by client side
 func _physics_process(delta):
+	pushed_by_player=3
 	$CollisionShape2D.global_position=global_position
 	#prevents host controlling them
 	if (Link.link_root!=null&&Link.link_root.is_host):return
@@ -38,9 +41,10 @@ func _physics_process(delta):
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index);var col=collision.get_collider()
 		var vel2=dir[str(closestAngle(round(rad_to_deg(collision.get_angle()))))]*vel
-		if col.get_class()=="CharacterBody2D":
+		if col.get("movingBody"):
 			if !col.freeze:
 				col.velocity+=vel2
+				col.position+=vel2*delta*2
 			#else:position-=vel*0.25*_delta
 			col.get_child(0).onMove()
 	if abs((position-player.position).length())>max_range:

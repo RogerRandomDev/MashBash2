@@ -15,7 +15,6 @@ func _ready():
 		$Player.remove_child(camera)
 		$Client/flyingBotPosition.add_child(camera)
 	Word.storedWords.append("open")
-	
 	Link.link_root.enteredGame()
 
 func _process(delta):

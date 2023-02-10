@@ -37,11 +37,12 @@ func _physics_process(_delta):
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index);var col=collision.get_collider()
 		var vel2=dir[str(closestAngle(round(rad_to_deg(collision.get_angle()))))]*vel
-		if col.get_class()=="CharacterBody2D"&&col.name!="Client":
+		if col.get("movingBody"):
 			if !col.freeze:
-				col.velocity+=vel2
+				col.velocity+=vel2*(int(Link.link_root!=null)*2+1)
 			#else:position-=vel*0.25*_delta
-			col.get_child(0).onMove()
+				if col.get_child(0).has_method("onMove"):col.get_child(0).onMove()
+				col.pushed_by_player=8
 	
 	if vacuum:
 		$holdingItem/vaccuum.rotateVacuum(_delta*10.0)

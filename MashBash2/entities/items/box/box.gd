@@ -37,3 +37,6 @@ func checkButtons():
 			shape.collider.checkExited(self)
 			shape.collider.forceUpdate()
 			
+
+func _process(delta):
+	if Link.link_root&&Link.link_root.is_host:root.onMove()
