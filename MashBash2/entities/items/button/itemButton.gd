@@ -54,6 +54,7 @@ itemStat.Status.has("light")&&!root.Status.has("light"))||(
 func forceUpdate():for body in check.get_overlapping_bodies():checkEntered(body)
 
 func triggerPressed():
+	var alreadyPressed=pressed
 	#this set is to make sure that it stays pressed as long as something is still there to do so
 	var isPressed=false
 	if pressedBy.size()==0:isPressed=false
@@ -64,9 +65,9 @@ func triggerPressed():
 	
 	#pressed logic
 	if toggle&&!justPressed:
-		pressed=!pressed;Sounds.playSound("button")
+		pressed=!pressed;if alreadyPressed!=pressed:Sounds.playSound("button")
 	if !toggle:
-		pressed=isPressed;Sounds.playSound("button")
+		pressed=isPressed;if alreadyPressed!=pressed:Sounds.playSound("button")
 	if !isPressed&&!toggle&&!justPressed:pressed=false
 	
 	if pressed&&!justPressed:emit_signal('buttonPressed')

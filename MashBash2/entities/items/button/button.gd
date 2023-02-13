@@ -47,6 +47,7 @@ func checkValidBody(body,entering=true):
 
 
 func triggerPressed(isPressed):
+	
 	if toggle&&!justPressed:pressed=!pressed
 	if !toggle:pressed=isPressed
 	if !isPressed&&!toggle&&!justPressed:pressed=false

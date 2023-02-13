@@ -9,7 +9,12 @@ signal swappedWord(start,end)
 signal changedStatus(status)
 signal use_item(usedBy,action)
 
-@export var HeldResource=itemContents.new()
+@export var HeldResource=itemContents.new():
+	set(value):
+		HeldResource=value
+		updateDescriptives()
+	get:
+		return HeldResource
 
 @export var Status:PackedStringArray
 @export var HiddenStatus:PackedStringArray
@@ -66,9 +71,9 @@ func _ready():
 
 func makeMeRigid():
 	var body=movingBody2D.new()
-	body.collision_layer=25
+	body.collision_layer=281
 	body.set_collision_layer_value(7,true)
-	body.collision_mask=9
+	body.collision_mask=265
 	
 	if makeRigid:body.rotation=rotation
 	get_parent().add_child(body)
@@ -233,13 +238,13 @@ func onMove():
 		get_parent().velocity=Vector2.ZERO
 
 #multiplayer functionality
-@rpc(authority)
+@rpc(any_peer)
 func update_position(pos:Vector2=Vector2.ZERO,sender:bool=true):
 	if sender:
 		Link.link_root.send("update_position",[get_parent().position,false],self)
 		return
 	get_parent().position=pos
-@rpc(any_peer)
+@rpc(authority)
 func sync_words(wordList:PackedStringArray=PackedStringArray(),sender:bool=true):
 	if sender:
 		Link.link_root.send("sync_words",[Status,false],self)

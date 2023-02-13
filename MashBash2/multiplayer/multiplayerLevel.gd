@@ -45,6 +45,7 @@ func _input(_event):
 #handles placing markers for client to host when client attempts it
 @rpc(any_peer)
 func createMarker(markerPos:Vector2):
+	if !Link.link_root.is_host:return
 	var marker=Sprite2D.new()
 	marker.texture=markerTexture
 	add_child(marker)

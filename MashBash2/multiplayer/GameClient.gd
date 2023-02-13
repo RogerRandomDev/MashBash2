@@ -44,7 +44,7 @@ func _physics_process(delta):
 		if col.get("movingBody"):
 			if !col.freeze:
 				col.velocity+=vel2
-				col.position+=vel2*delta*2
+				col.move_and_slide()
 			#else:position-=vel*0.25*_delta
 			col.get_child(0).onMove()
 	if abs((position-player.position).length())>max_range:

@@ -78,17 +78,19 @@ func connectInputs():
 
 func activateInput(_input):
 	if activeInputs.has(_input)||_input.get_class()!="Marker2D":return
+	if logic==-1:return
 	activeInputs.append(_input)
 	checkLogic(activeInputs.size(),inputs.size())
 func releaseInput(_input):
 	activeInputs.erase(_input)
+	if logic==-1:return
 	checkLogic(activeInputs.size(),inputs.size())
 	
 
 func updateSelf(isPressed):
 	if isPressed:root.sprite.texture=states.ON
 	else:root.sprite.texture=states.OFF
-	if(particleEmitter!=null):particleEmitter.emitting=isPressed
+	if(particleEmitter!=null):particleEmitter.emitting=isPressed!=false
 
 
 #deals with output handling
@@ -116,7 +118,6 @@ func updateOutputs():
 #checsk based on logic gates
 func checkLogic(_in,_allIn):
 	var checked=false
-	
 	#the gate types
 	match logic:
 		-1:checked=false
@@ -130,9 +131,9 @@ func checkLogic(_in,_allIn):
 	if root.Status.has("active"):active=true
 	if checked&&!active:
 		emit_signal("buttonPressed");updateOutputs();active=true
-	else:if !checked&&active:
+	elif !checked&&active:
 		emit_signal("buttonReleased");updateOutputs();active=false
-
+	
 
 	call_deferred("update_label")
 

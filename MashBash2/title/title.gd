@@ -74,27 +74,39 @@ func _on_quit_pressed():get_tree().quit()
 
 func _on_credits_pressed():
 	$itemsAnimations.play("toggleCredits")
+	$Credits/Button.grab_focus()
 
 
 func _on_back():
 	$itemsAnimations.play_backwards("toggleCredits")
+	$Menu/settings/Control/credits.grab_focus()
 
 func _on_controls_pressed():
 	$itemsAnimations.play("toggleControls")
+	$Controls/Button.grab_focus()
 
 func _on_backControls_pressed():
 	$itemsAnimations.play_backwards("toggleControls")
+	$Menu/settings/Control2/controls.grab_focus()
 
 
 func _on_multiplayer_pressed():
 	$multiplayer/VBoxContainer/connectIP.text=""
 	$itemsAnimations.play("toggleMultiplayer")
+	$multiplayer/Button.grab_focus()
 
 
 func _on_multiplayerBack_pressed():
 	$itemsAnimations.play_backwards("toggleMultiplayer")
 	$multiplayer.resetMode()
+	$Menu/settings/Control2/Multiplayer.grab_focus()
 	
+
+
+#moves mouse to prevent issues inside of console mode
+func _process(delta):
+	if Inputs.usingController:
+		get_viewport().warp_mouse(Vector2(576,16))
 
 
 

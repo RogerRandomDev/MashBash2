@@ -13,7 +13,7 @@ func _ready():
 	for child in root.get_children():if child.get_class()=="StaticBody2D":child.queue_free()
 	if get_parent().Status.has("reflective"):
 		#removes from the check for lasers so it can check just the mirror below
-		root.collision_layer=9
+		root.collision_layer=265
 		var reflect = StaticBody2D.new()
 		var shape=RectangleShape2D.new();var col=CollisionShape2D.new()
 		reflect.add_child(col);col.shape=shape;shape.extents=Vector2(3,3)
@@ -21,7 +21,7 @@ func _ready():
 		root.add_child(reflect);reflect.rotation=PI/4
 		reflect.add_to_group("mirror")
 	else:
-		root.collision_layer=25
+		root.collision_layer=281
 
 #checks if it is on top of a button, then tells the button to re-check if it is pushed
 func checkButtons():
