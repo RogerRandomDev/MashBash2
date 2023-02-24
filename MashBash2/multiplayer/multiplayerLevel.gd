@@ -25,31 +25,34 @@ func _process(delta):
 	#bot force to player
 	var pullForce=($Client.position-$Player.position).length()-$Client.max_range
 	updateLinkCord(pullForce)
-
+	lastMarker-=delta
 
 #updates link cord based on pull force to the bot towards player
 func updateLinkCord(pullForce:float):
 	pullForce=max(0,pullForce*0.1)+1
 	(linkCord.material as ShaderMaterial).set_shader_parameter("thickness",0.3*(1/((pullForce))))
 
+var lastMarker=0.0
 #only needed to deal with markers for client side
 func _input(_event):
 	#returns if not the client
-	if Link.link_root==null||Link.link_root.is_host:return
+	if Link.link_root==null||Link.link_root.is_host||lastMarker>0.0:return
 	if !Input.is_action_just_pressed("lMouse"):return
 	var mPos=get_global_mouse_position()
-	createMarker(mPos)
+	createMarker(mPos,true)
+	lastMarker=0.5
 	Link.link_root.send("createMarker",[mPos],self)
 
 
 #handles placing markers for client to host when client attempts it
 @rpc(any_peer)
-func createMarker(markerPos:Vector2):
-	if !Link.link_root.is_host:return
+func createMarker(markerPos:Vector2,ignore:bool=false):
+	if !Link.link_root.is_host&&!ignore:return
+	var tween=create_tween()
 	var marker=Sprite2D.new()
 	marker.texture=markerTexture
 	add_child(marker)
 	marker.global_position=markerPos
-	await get_tree().create_timer(5.0).timeout
-	marker.queue_free()
+	tween.tween_interval(5.0)
+	tween.tween_callback(marker.queue_free)
 	

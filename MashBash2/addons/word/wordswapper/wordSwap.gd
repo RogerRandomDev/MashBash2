@@ -7,7 +7,7 @@ var BaseText=""
 var selectedWord=0
 var activeSet=0
 var activeObject
-
+var inVR=false;
 func _ready():
 	Owned=$labels/Owned
 	Words=$labels/RichTextLabel
@@ -80,7 +80,7 @@ func cantAnim():
 func updateSelectedWord():
 	var _splitWords=BaseText.split(" ")
 	Words.text=buildPhrase(_splitWords)
-	$labels/Label2/swapsleft.text="ALTERCATIONS REMAINING: %s"%Word.swapsLeft
+	$labels/Label2/swapsleft.text="PULLS REMAINING: %s"%Word.swapsLeft
 
 
 #removes currently chosen word and returns it for you

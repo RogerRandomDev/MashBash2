@@ -95,6 +95,10 @@ func updateSelf(isPressed):
 
 #deals with output handling
 func updateOutputs():
+	#blocks client updates
+	if Link.link_root!=null&&!Link.link_root.is_host:return
+	
+	
 	Word.swapped=true
 	for output in outputs:
 		if(output.get_class()=="Marker2D"):

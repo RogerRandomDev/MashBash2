@@ -22,11 +22,12 @@ var link_node_in_game:bool=false
 func send(method:String='receive',data:Array=[],sendNode:Node=target):
 	#stops you if not in_game connected
 	if sendNode!=self&&!(in_game&&link_node_in_game):return
-	get_tree().get_multiplayer(get_path()).rpc(0,sendNode,method,data)
+	#get_tree().get_multiplayer(get_path()).rpc(0,sendNode,method,data)
+	get_tree().get_multiplayer(sendNode.get_path()).rpc(0,sendNode,method,data)
 #recieves data from client/server
 @rpc(any_peer)
-func receive(data=null,_arg=null):
-	print(data)
+func receive(data=null):
+	return
 
 #prints connected when you successfully link to the server host
 func OnConnectedToServer(_args=null):

@@ -23,7 +23,6 @@ var descriptives=HBoxContainer.new()
 var descriptiveLabel=Label.new()
 var size=Vector2.ZERO
 var descriptiveScript=Node2D.new()
-
 @export var makeRigid:bool=false
 #prepares basic setup for items
 func _ready():
@@ -67,7 +66,6 @@ func _ready():
 	await get_tree().process_frame
 	updateDescriptives()
 	if !Engine.is_editor_hint():Status.append_array(HiddenStatus)
-
 
 func makeMeRigid():
 	var body=movingBody2D.new()
@@ -246,11 +244,11 @@ func update_position(pos:Vector2=Vector2.ZERO,sender:bool=true):
 	get_parent().position=pos
 @rpc(authority)
 func sync_words(wordList:PackedStringArray=PackedStringArray(),sender:bool=true):
-	if sender:
+	if Link.link_root.is_host&&sender:
 		Link.link_root.send("sync_words",[Status,false],self)
-		applyScripts(Status)
+		applyScripts.call_deferred(Status)
 		return
 	Status=wordList
 	updateDescriptives()
-	applyScripts(Status,true)
+	applyScripts.call_deferred(Status,true)
 

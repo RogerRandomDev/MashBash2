@@ -32,7 +32,9 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Vector2(Input.get_axis("left","right"),Input.get_axis("up","down"));
 	velocity=direction*48
-	
+	if abs((position-player.position).length())>max_range:
+		var pullForce=abs((position-player.position).length()-max_range)/delta * 0.1
+		velocity+=(Vector2(-pullForce,0).rotated((position-player.position).angle()))
 	move_and_slide()
 	root.rotateTowardMotion(delta,velocity/24)
 	# after calling move_and_slide()
@@ -47,8 +49,6 @@ func _physics_process(delta):
 				col.move_and_slide()
 			#else:position-=vel*0.25*_delta
 			col.get_child(0).onMove()
-	if abs((position-player.position).length())>max_range:
-		var pullForce=abs((position-player.position).length()-max_range)*0.1
-		position+=(Vector2(-pullForce,0).rotated((position-player.position).angle()))
+
 
 func closestAngle(angle):return int(abs(angle-90)<min(abs(angle-180),abs(angle)))*90

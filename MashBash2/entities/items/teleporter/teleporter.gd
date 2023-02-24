@@ -6,9 +6,9 @@ var arrow=null
 var triggerNow=true
 var teleporting=null
 var area=null
-func _init():
-	if !Engine.is_editor_hint():
-		if !get_parent().Status.has("disabled")&&!get_parent().Status.has("active"):get_parent().Status.append("active")
+#func _init():
+#	if !Engine.is_editor_hint():
+#		if !get_parent().Status.has("disabled")&&!get_parent().Status.has("active"):get_parent().Status.append("active")
 func _ready():
 	super._ready()
 	
@@ -120,9 +120,9 @@ func tweenColor(col):
 #teleports the object
 func teleportobject(object=teleporting):
 	#if its a player, moves the camera so it stays on the previous teleporter before moving to the new one
-	if(object.name=="Player"):object.get_node("Camera2D").position+=(global_position-linked.global_position)
+	if(object.get_node_or_null("Camera2D")):object.get_node("Camera2D").position+=(global_position-linked.global_position)
 	object.position=linked.global_position+linked.size/2
-	object.position.y=round(object.position.y)-2.4*int(object.name=="Player")
+	object.position.y=round(object.position.y)-2.4*int(object.get_node_or_null("Camera2D")!=null)
 
 #replaces weak with broken if it is weak
 func updateStatus():

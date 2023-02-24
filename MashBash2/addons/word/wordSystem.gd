@@ -9,7 +9,7 @@ var swapsLeft=3
 var tiles
 var player
 var hoveringObjects=[]
-var canChange=true
+var canChange=true;
 var alldescriptives=[]
 func _ready():
 	await get_tree().process_frame
