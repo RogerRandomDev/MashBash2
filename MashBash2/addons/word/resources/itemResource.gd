@@ -252,3 +252,5 @@ func sync_words(wordList:PackedStringArray=PackedStringArray(),sender:bool=true)
 	updateDescriptives()
 	applyScripts.call_deferred(Status,true)
 
+func _process(delta):
+	if descriptiveScript.has_method("updateSelf2"):descriptiveScript.updateSelf2(delta)

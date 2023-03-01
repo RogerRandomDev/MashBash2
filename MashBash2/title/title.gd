@@ -104,7 +104,7 @@ func _on_multiplayerBack_pressed():
 
 
 #moves mouse to prevent issues inside of console mode
-func _process(delta):
+func _process(_delta):
 	if Inputs.usingController:
 		get_viewport().warp_mouse(Vector2(576,16))
 

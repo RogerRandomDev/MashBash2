@@ -516,16 +516,18 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_54ktm")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 576.0
 offset_top = -324.0
@@ -535,6 +537,7 @@ theme = ExtResource("1_faeks")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
 clip_contents = false
+layout_mode = 0
 offset_left = -62.0
 offset_top = -250.0
 offset_right = 62.0
@@ -550,6 +553,7 @@ autowrap_mode = 2
 tab_size = 1
 
 [node name="play" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = -400.0
 offset_right = 64.0
@@ -561,6 +565,7 @@ theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
 [node name="settings" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
 offset_left = 764.0
 offset_top = 24.0
 offset_right = 1199.0
@@ -570,15 +575,12 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="Control" type="HBoxContainer" parent="Menu/settings"]
-offset_right = 435.0
-offset_bottom = 31.0
+layout_mode = 2
 alignment = 1
 
 [node name="credits" type="Button" parent="Menu/settings/Control"]
 custom_minimum_size = Vector2(136, 0)
-offset_left = 63.0
-offset_right = 199.0
-offset_bottom = 31.0
+layout_mode = 2
 focus_neighbor_left = NodePath("../fullscreen")
 focus_neighbor_top = NodePath("../../../play")
 focus_neighbor_right = NodePath("../fullscreen")
@@ -587,9 +589,7 @@ mouse_filter = 1
 text = "Credits"
 
 [node name="fullscreen" type="Button" parent="Menu/settings/Control"]
-offset_left = 203.0
-offset_right = 372.0
-offset_bottom = 31.0
+layout_mode = 2
 focus_neighbor_left = NodePath("../credits")
 focus_neighbor_top = NodePath("../../../play")
 focus_neighbor_right = NodePath("../credits")
@@ -598,16 +598,12 @@ toggle_mode = true
 text = "Fullscreen"
 
 [node name="Control2" type="HBoxContainer" parent="Menu/settings"]
-offset_top = 43.0
-offset_right = 435.0
-offset_bottom = 74.0
+layout_mode = 2
 alignment = 1
 
 [node name="Multiplayer" type="Button" parent="Menu/settings/Control2"]
 custom_minimum_size = Vector2(96, 0)
-offset_left = 81.0
-offset_right = 253.0
-offset_bottom = 31.0
+layout_mode = 2
 focus_neighbor_left = NodePath("../controls")
 focus_neighbor_top = NodePath("../../Control/credits")
 focus_neighbor_right = NodePath("../controls")
@@ -616,9 +612,7 @@ text = "Multiplayer"
 
 [node name="controls" type="Button" parent="Menu/settings/Control2"]
 custom_minimum_size = Vector2(96, 0)
-offset_left = 257.0
-offset_right = 353.0
-offset_bottom = 31.0
+layout_mode = 2
 focus_neighbor_left = NodePath("../Multiplayer")
 focus_neighbor_top = NodePath("../../Control/fullscreen")
 focus_neighbor_right = NodePath("../Multiplayer")
@@ -626,6 +620,7 @@ focus_neighbor_bottom = NodePath("../../../quit")
 text = "Info"
 
 [node name="quit" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -764.0
 offset_top = 112.0
 offset_right = -636.0
@@ -638,6 +633,7 @@ text = "QUIT"
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
+layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0
@@ -708,7 +704,7 @@ libraries = {
 }
 
 [node name="Credits" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -717,34 +713,31 @@ pivot_offset = Vector2(576, 324)
 theme = ExtResource("1_faeks")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Label" type="Label" parent="Credits/VBoxContainer"]
 custom_minimum_size = Vector2(1152, 0)
-offset_right = 1152.0
-offset_bottom = 85.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Credits"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Credits/VBoxContainer"]
-offset_top = 89.0
-offset_right = 1152.0
-offset_bottom = 133.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Made By:"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Credits/VBoxContainer"]
-offset_top = 137.0
-offset_right = 1152.0
-offset_bottom = 199.0
+layout_mode = 2
 text = "Roger T. Grange-Programmer / Songwriter
 Logan Rubenstein-Designer"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Credits"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 452.0
 offset_right = 595.0
@@ -753,16 +746,16 @@ scale = Vector2(1.5, 1.5)
 text = "BACK"
 
 [node name="Controls" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(576, 324)
 theme = ExtResource("1_faeks")
 
 [node name="Label" type="Label" parent="Controls"]
 custom_minimum_size = Vector2(1152, 0)
+layout_mode = 0
 offset_top = 8.0
 offset_right = 1152.0
 offset_bottom = 93.0
@@ -771,6 +764,7 @@ text = "|Controls|              |OBJECTS|"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Controls"]
+layout_mode = 0
 offset_top = 88.0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -779,8 +773,7 @@ theme_override_constants/separation = 64
 
 [node name="controls" type="RichTextLabel" parent="Controls/HBoxContainer"]
 custom_minimum_size = Vector2(448, 0)
-offset_right = 448.0
-offset_bottom = 560.0
+layout_mode = 2
 size_flags_horizontal = 2
 bbcode_enabled = true
 text = "
@@ -800,9 +793,7 @@ autowrap_mode = 0
 
 [node name="objects" type="RichTextLabel" parent="Controls/HBoxContainer"]
 custom_minimum_size = Vector2(448, 0)
-offset_left = 704.0
-offset_right = 1152.0
-offset_bottom = 560.0
+layout_mode = 2
 size_flags_horizontal = 10
 bbcode_enabled = true
 text = "[img=48]res://entities/items/box/box.png[/img] BOX
@@ -891,10 +882,26 @@ _______________________________
 	TURNS ON WHEN HIT BY
 	[color=#0ff]LASER[/color]
 _______________________________
+[img=48]res://entities/items/fan/fan.png[/img] FAN
+	PUSHES [color=#0ff]PLAYER[/color] AND [color=#0ff]OBJECTS[/color]
+	[color=#0f0]ACTIVE[/color]
+		PUSHES  [color=#0ff]PLAYER[/color] AND [color=#0ff]OBJECTS[/color]
+	[color=#f00]DISABLED[/color]
+		DOES NOT PUSH  [color=#0ff]PLAYER[/color] OR [color=#0ff]OBJECTS[/color]
+	[color=#f00]WEAK[/color]
+		HALVES [color=#0ff]FAN[/color] RANGE
+	[color=#0f0]HEAVY[/color]
+		PUSHES [color=#0f0]HEAVY[/color] [color=#0ff]BOXES[/color]
+	[color=#f00]LIGHT[/color]
+		ONLY PUSHES [color=#f00]LIGHT[/color] [color=#0ff]OBJECTS[/color]
+	
+	
+_______________________________
 [img=48]res://entities/items/toy/toy.png[/img] TOY
 	IS A TOY"
 
 [node name="Button" type="Button" parent="Controls"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 516.0
 offset_right = 595.0
@@ -903,58 +910,19 @@ scale = Vector2(1.5, 1.5)
 text = "BACK"
 
 [node name="multiplayer" parent="." instance=ExtResource("10_youvk")]
+layout_mode = 1
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(576, 324)
 
 [node name="VBoxContainer" parent="multiplayer" index="0"]
 layout_mode = 3
 
-[node name="Label" parent="multiplayer/VBoxContainer" index="0"]
-layout_mode = 3
-offset_right = 450.0
-offset_bottom = 104.0
-
-[node name="Label2" parent="multiplayer/VBoxContainer" index="1"]
-layout_mode = 3
-offset_top = 108.0
-offset_right = 450.0
-offset_bottom = 152.0
-
-[node name="connectIP" parent="multiplayer/VBoxContainer" index="2"]
-layout_mode = 3
-offset_top = 156.0
-offset_right = 450.0
-offset_bottom = 199.0
-
-[node name="HBoxContainer" parent="multiplayer/VBoxContainer" index="3"]
-layout_mode = 3
-offset_top = 203.0
-offset_right = 450.0
-offset_bottom = 234.0
-
-[node name="Button" parent="multiplayer/VBoxContainer/HBoxContainer" index="0"]
-layout_mode = 3
-offset_left = 115.0
-offset_right = 186.0
-offset_bottom = 31.0
-
-[node name="Button2" parent="multiplayer/VBoxContainer/HBoxContainer" index="1"]
-layout_mode = 3
-offset_left = 206.0
-offset_right = 334.0
-offset_bottom = 31.0
-
-[node name="space" parent="multiplayer/VBoxContainer" index="4"]
-layout_mode = 3
-anchors_preset = 0
-offset_bottom = 31.0
-
 [node name="Button" parent="multiplayer" index="1"]
 layout_mode = 3
 
 [node name="MouseBlocker" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchor_left = -0.059
 anchor_top = -0.096
 offset_left = -136.032

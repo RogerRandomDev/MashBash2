@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://rmixql5wbq8s"]
+[gd_scene load_steps=17 format=3 uid="uid://rmixql5wbq8s"]
 
 [ext_resource type="Script" path="res://World/levelmain.gd" id="1_0ho5g"]
 [ext_resource type="PackedScene" uid="uid://lsni7bco1t7t" path="res://entities/player/player.tscn" id="1_hyipm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/word/resources/itemResource.gd" id="3_n54hw"]
 [ext_resource type="Resource" uid="uid://tjgcx51yrthv" path="res://entities/items/door/door.tres" id="4_b4gcv"]
 [ext_resource type="Resource" uid="uid://bbgx4p42i6pqh" path="res://entities/items/teleporter/teleporter.tres" id="6_ho341"]
+[ext_resource type="Resource" uid="uid://c04n4x3m385b7" path="res://entities/items/fan/fan.tres" id="9_t2itn"]
 [ext_resource type="Resource" uid="uid://dxmu6bmob77dy" path="res://entities/items/box/box.tres" id="10_avjfs"]
 [ext_resource type="Resource" uid="uid://6qr0sgssb658" path="res://entities/items/laserShooter/laserShooter.tres" id="10_t8r86"]
 [ext_resource type="Resource" uid="uid://di350a3t2nt7y" path="res://entities/items/laserButton/LaserButton.tres" id="11_igfsw"]
@@ -104,6 +105,22 @@ HeldResource = ExtResource("10_avjfs")
 Status = PackedStringArray("heavy", "reflective")
 HiddenStatus = PackedStringArray()
 makeRigid = true
+
+[node name="itemResource41" type="Marker2D" parent="items"]
+z_index = 2
+position = Vector2(8, 16)
+script = ExtResource("3_n54hw")
+HeldResource = ExtResource("9_t2itn")
+Status = PackedStringArray("active")
+HiddenStatus = PackedStringArray()
+
+[node name="itemResource42" type="Marker2D" parent="items"]
+z_index = 2
+position = Vector2(8, 56)
+script = ExtResource("3_n54hw")
+HeldResource = ExtResource("9_t2itn")
+Status = PackedStringArray("broken")
+HiddenStatus = PackedStringArray()
 
 [node name="itemResource31" type="Marker2D" parent="items" groups=["INP_itemResource36"]]
 z_index = 2
@@ -280,7 +297,7 @@ z_index = 2
 position = Vector2(134, 32)
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("6_ho341")
-Status = PackedStringArray("weak")
+Status = PackedStringArray("weak", "active")
 HiddenStatus = PackedStringArray()
 
 [node name="itemResource3" type="Marker2D" parent="items" groups=["teleporterB"]]
@@ -288,7 +305,7 @@ z_index = 2
 position = Vector2(216, 31)
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("6_ho341")
-Status = PackedStringArray()
+Status = PackedStringArray("active")
 HiddenStatus = PackedStringArray()
 
 [node name="itemResource4" type="Marker2D" parent="items" groups=["teleporter0B"]]
@@ -312,7 +329,7 @@ z_index = 2
 position = Vector2(352, 72)
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("6_ho341")
-Status = PackedStringArray("weak")
+Status = PackedStringArray("weak", "active")
 HiddenStatus = PackedStringArray()
 
 [node name="itemResource10" type="Marker2D" parent="items" groups=["teleporter1B"]]
@@ -320,7 +337,7 @@ z_index = 2
 position = Vector2(168, 96)
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("6_ho341")
-Status = PackedStringArray()
+Status = PackedStringArray("active")
 HiddenStatus = PackedStringArray()
 
 [node name="itemResource13" type="Marker2D" parent="items" groups=["teleporter5A"]]
@@ -328,7 +345,7 @@ z_index = 2
 position = Vector2(120, 272)
 script = ExtResource("3_n54hw")
 HeldResource = ExtResource("6_ho341")
-Status = PackedStringArray("weak")
+Status = PackedStringArray("weak", "active")
 HiddenStatus = PackedStringArray()
 
 [node name="itemResource7" type="Marker2D" parent="items"]

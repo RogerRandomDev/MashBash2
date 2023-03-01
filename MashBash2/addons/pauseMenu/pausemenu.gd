@@ -36,7 +36,7 @@ func _on_button_pressed():
 	Word.storedWords=[]
 	Transitions.transitionScene("")
 	visible=false
-	Link.link_root.send("reset_level",[],self)
+	if Link.link_root!=null:Link.link_root.send("reset_level",[],self)
 
 #multiplayer link so only the host can reset a level
 @rpc(authority)

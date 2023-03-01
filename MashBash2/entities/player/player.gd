@@ -32,17 +32,7 @@ func _physics_process(_delta):
 		velocity.y = move_toward(velocity.y,0, SPEED)
 	updateAnimations()
 	move_and_slide()
-	# after calling move_and_slide()
-	var vel=velocity
-	for index in get_slide_collision_count():
-		var collision = get_slide_collision(index);var col=collision.get_collider()
-		var vel2=dir[str(closestAngle(round(rad_to_deg(collision.get_angle()))))]*vel
-		if col.get("movingBody"):
-			if !col.freeze:
-				col.velocity+=vel2*(int(Link.link_root!=null)*2+1)
-			#else:position-=vel*0.25*_delta
-				if col.get_child(0).has_method("onMove"):col.get_child(0).onMove()
-				col.pushed_by_player=8
+	pushObjects()
 	
 	if vacuum:
 		$holdingItem/vaccuum.rotateVacuum(_delta*10.0)
@@ -90,3 +80,17 @@ func updateAnimations(changeTo:String="",flip_h:bool=false):
 	$Sprite2D.animation=chosenAnimation
 	#handles making sure multiplayer tells the players what animation the other player has at any given moment
 	if is_multiplayer&&(Link.link_root!=null&&Link.link_root.is_host):Link.link_root.send("updateAnimations",[chosenAnimation,$Sprite2D.flip_h],self)
+
+
+func pushObjects():
+	# after calling move_and_slide()
+	var vel=velocity
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index);var col=collision.get_collider()
+		var vel2=dir[str(closestAngle(round(rad_to_deg(collision.get_angle()))))]*vel
+		if col.get("movingBody"):
+			if !col.freeze:
+				col.velocity+=vel2*(int(Link.link_root!=null)*2+1)
+			#else:position-=vel*0.25*_delta
+				if col.get_child(0).has_method("onMove"):col.get_child(0).onMove()
+				col.pushed_by_player=8

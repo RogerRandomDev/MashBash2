@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c04n4x3m385b7"]
+
+[ext_resource type="Script" path="res://entities/items/fan/defaultFan.gd" id="1_eokbq"]
+[ext_resource type="Script" path="res://addons/word/resources/itemContents.gd" id="1_haggg"]
+[ext_resource type="Texture2D" uid="uid://bt5dtgwis5ses" path="res://entities/items/fan/fan.png" id="2_1hkmw"]
+[ext_resource type="Texture2D" uid="uid://80hpgube608r" path="res://entities/items/fan/brokenfan.png" id="3_b5243"]
+
+[resource]
+script = ExtResource("1_haggg")
+Name = "Fan"
+Sprites = {
+"broken": ExtResource("3_b5243"),
+"default": ExtResource("2_1hkmw")
+}
+Scripts = {
+"default": ExtResource("1_eokbq")
+}
+logicOff = "disabled"
+logicOn = "active"

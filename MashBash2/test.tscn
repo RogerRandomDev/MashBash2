@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://dg6suvfty6r86"]
+[gd_scene load_steps=2 format=3 uid="uid://dg6suvfty6r86"]
+
+[ext_resource type="Material" uid="uid://bklxi0mfku83e" path="res://entities/items/fan/fanParticles.tres" id="1_us00u"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 32
+lifetime = 0.5
+process_material = ExtResource("1_us00u")

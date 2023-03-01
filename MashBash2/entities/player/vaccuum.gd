@@ -11,7 +11,7 @@ func doVacuum(_delta):
 	for object in get_overlapping_bodies():
 		if !object.get("movingBody")||object.name=="Client"||object.get("velocity")==null:continue
 		var moveDir=(global_position-object.global_position)
-		var imp=(moveDir.normalized()*get_parent().get_parent().push)*(1/max(pow(48-max(moveDir.length(),1),0.125),1))
+		var imp=(moveDir.normalized()*get_parent().get_parent().push)*(1/max(pow(32-max(moveDir.length(),1),0.25),1))
 		#makes sure you dont apply force when so far it just yeets it into oblivion
 		#not a real fan of bethesda suing me for sending a random pixelart item
 		#into their games
