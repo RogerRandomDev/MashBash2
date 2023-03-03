@@ -750,6 +750,7 @@ layout_mode = 1
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(576, 324)
 theme = ExtResource("1_faeks")
 

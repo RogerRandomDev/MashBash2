@@ -39,7 +39,7 @@ func resetMode():
 func getIP():
 	var ip='localhost'
 	for address in IP.get_local_addresses():
-		if (address.split('.').size() == 4&&address!="127.0.0.1"):
+		if (address.split('.').size() == 4&&address!="127.0.0.1"&&address.begins_with("192.")):
 			ip=address
 	return ip
 
