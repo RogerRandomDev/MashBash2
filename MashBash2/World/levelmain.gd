@@ -10,9 +10,9 @@ func _ready():
 	Sound.playSong("song0",-20)
 	
 	await get_tree().process_frame
-#	Mashlogue.load_dialogue(
-#		load("res://addons/MASHLOG/dialogueSets/tutorialLevel.tres"),
-#		load("res://addons/MASHLOG/iconsets/MASH.tres"))
+	Mashlogue.load_dialogue(
+		load("res://addons/MASHLOG/dialogueSets/tutorialLevel.tres"),
+		load("res://addons/MASHLOG/iconsets/MASH.tres"))
 	#stops the generation signal from causing trouble
 	await get_tree().process_frame
 	#resets game timer

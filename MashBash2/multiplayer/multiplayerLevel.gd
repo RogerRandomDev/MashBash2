@@ -16,6 +16,7 @@ func _ready():
 		$Client/flyingBotPosition.add_child(camera)
 	Word.storedWords.append("open")
 	Link.link_root.enteredGame()
+	linkCord.global_position=Vector2(0,0);
 
 func _process(delta):
 	if Link.link_root==null:return
