@@ -22,6 +22,7 @@ var link_node_in_game:bool=false
 func send(method:String='receive',data:Array=[],sendNode:Node=target):
 	#stops you if not in_game connected
 	if sendNode!=self&&!(in_game&&link_node_in_game):return
+	if(!sendNode.is_inside_tree()):return;
 	#get_tree().get_multiplayer(get_path()).rpc(0,sendNode,method,data)
 	get_tree().get_multiplayer(sendNode.get_path()).rpc(0,sendNode,method,data)
 #recieves data from client/server

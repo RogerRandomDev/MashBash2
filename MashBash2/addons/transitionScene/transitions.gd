@@ -4,6 +4,7 @@ var toScene=""
 func transitionScene(target):
 	toScene=target
 	get_tree().paused=true;Pausemenu.canPause=false
+	Pausemenu.visible=false
 	$AnimationPlayer.play("load")
 
 func _process(delta):if toScene!="":Pausemenu.pausedFor+=delta
