@@ -12,6 +12,7 @@ func _ready():
 	emptyScript()
 	root=get_parent()
 	var col=addCollision(0.5);
+	await get_tree().process_frame
 	col.get_child(0).shape.extents=Vector2(2,4);
 	col.position=Vector2(-1,-1)
 	weak=root.Status.has("weak")
@@ -19,8 +20,8 @@ func _ready():
 	active=root.Status.has("active")
 	broken=root.Status.has("broken")
 	addPushRange()
-	flatDir.x=int(rotation==0)-int(rotation==180)
-	flatDir.y=int(rotation==90)-int(rotation==270)
+	flatDir.x=int(root.rotation==0)-int(root.rotation==3.14159)
+	flatDir.y=int(root.rotation==1.5708)-int(root.rotation==4.71239)
 	particleEmitter.emitting=active&&!broken
 
 #adds the pushing bounding box for the fan

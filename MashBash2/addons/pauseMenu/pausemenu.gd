@@ -22,6 +22,7 @@ func _input(_event):
 		updateTimer()
 		
 	if visible && Input.is_key_pressed(KEY_U):
+		if(Link.link_root!=null&&!Link.link_root.is_host):return
 		#skipping level adds a solid 5 minutes to your time
 		pausedFor-=900.0
 		runningFor+=900.0

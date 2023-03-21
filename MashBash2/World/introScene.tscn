@@ -149,8 +149,8 @@ theme_override_colors/font_color = Color(0, 0.439216, 0, 1)
 theme_override_fonts/font = ExtResource("2_s6boi")
 theme_override_font_sizes/font_size = 22
 text = "Initiating Link..."
-visible_characters = 0
-visible_ratio = 0.0
+visible_characters = 15
+visible_ratio = 0.875
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 1000.0

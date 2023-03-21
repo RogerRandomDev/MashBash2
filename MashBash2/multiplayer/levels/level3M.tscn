@@ -76,19 +76,20 @@ makeRigid = true
 
 [node name="itemResource27" type="Marker2D" parent="items"]
 z_index = 2
-position = Vector2(111, 144)
+position = Vector2(106, 146)
 script = ExtResource("7_5osps")
 HeldResource = ExtResource("8_bo6br")
-Status = PackedStringArray("heavy")
+Status = PackedStringArray("heavy", "reflective")
 HiddenStatus = PackedStringArray()
 makeRigid = true
 
 [node name="itemResource28" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(144, 184)
+rotation = -0.0223779
 script = ExtResource("7_5osps")
 HeldResource = ExtResource("8_bo6br")
-Status = PackedStringArray("heavy")
+Status = PackedStringArray("heavy", "reflective")
 HiddenStatus = PackedStringArray()
 makeRigid = true
 

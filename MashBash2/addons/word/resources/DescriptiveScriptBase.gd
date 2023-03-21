@@ -29,8 +29,8 @@ func addCollision(scaled:float=1.0,ignore=true):
 	shape.shape.extents=get_parent().size*scaled
 	collision.collision_layer=17
 	if !get_parent().makeRigid||ignore:
-		collision.add_child(shape)
-		add_child(collision)
+		collision.add_child.call_deferred(shape)
+		add_child.call_deferred(collision)
 	else:collision=shape
 	pushPlayer()
 	return collision
