@@ -159,3 +159,5 @@ layer_2/tile_data = PackedInt32Array(524287, 458754, 0, 589823, 65538, 0, 655359
 z_index = 5
 position = Vector2(3, 70)
 nextlvl = "res://multiplayer/levels/level3M.tscn"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

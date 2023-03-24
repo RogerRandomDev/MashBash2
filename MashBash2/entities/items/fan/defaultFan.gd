@@ -13,6 +13,7 @@ func _ready():
 	root=get_parent()
 	var col=addCollision(0.5);
 	await get_tree().process_frame
+	if(!col):return
 	col.get_child(0).shape.extents=Vector2(2,4);
 	col.position=Vector2(-1,-1)
 	weak=root.Status.has("weak")
@@ -52,11 +53,10 @@ func pushItems(_delta):
 		var objLast=object.velocity;
 		if imp.length_squared()<10240:object.velocity= imp*16
 		object.move_and_slide()
-		
 		if object.name=="Player":
 			object.pushObjects()
-		object.velocity=objLast
 		if object.get_child(0)&&object.get_child(0).has_method("onMove"):object.get_child(0).onMove()
+		object.velocity=objLast
 #	lastSound-=_delta
 #	if lastSound<0:
 #		Sounds.playSound("vacuum",-20.0);lastSound=0.1

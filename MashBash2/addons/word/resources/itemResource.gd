@@ -230,18 +230,17 @@ func canPull():
 
 #triggers multiplayer update if it is in multiplayer on being moved
 func onMove():
-	await get_tree().physics_frame;
-	if Link.link_root!=null:
+	if Link.link_root!=null&&Link.link_root.is_host:
 		update_position(get_parent().position)
-		get_parent().velocity=Vector2.ZERO
+		
 
 #multiplayer functionality
 @rpc(any_peer)
 func update_position(pos:Vector2=Vector2.ZERO,sender:bool=true):
-	if Link.link_root.is_host&&sender:
+	if Link.link_root.is_host:
 		Link.link_root.send("update_position",[get_parent().position,false],self)
-		return
-	get_parent().position=pos
+	else:
+		get_parent().position=pos
 @rpc(authority)
 func sync_words(wordList:PackedStringArray=PackedStringArray(),sender:bool=true):
 	if Link.link_root.is_host&&sender:

@@ -37,6 +37,10 @@ func checkButtons():
 			shape.collider.checkExited(self)
 			shape.collider.forceUpdate()
 			
-
-func _process(delta):
+var cycleNum=0;
+func _process(_delta):
+	if cycleNum<15:
+		cycleNum+=1
+		return
 	if Link.link_root&&Link.link_root.is_host:root.onMove()
+	cycleNum=0

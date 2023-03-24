@@ -162,6 +162,7 @@ scale = Vector2(0.5, 0.5)
 theme = ExtResource("12_s76bk")
 
 [node name="Control" type="Label" parent="text"]
+layout_mode = 0
 offset_left = 54.0
 offset_top = -96.0
 offset_right = 230.0
@@ -169,6 +170,7 @@ offset_bottom = -56.0
 text = "FLY THROUGH"
 
 [node name="Control2" type="Label" parent="text"]
+layout_mode = 0
 offset_left = 336.0
 offset_top = -32.0
 offset_right = 438.0

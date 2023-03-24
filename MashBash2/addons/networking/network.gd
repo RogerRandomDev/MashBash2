@@ -78,7 +78,7 @@ func update_parameter(param,newValue,targeting=target):
 	targeting.set(param,newValue);
 @rpc(authority)
 func change_level(param:String):
-	Transitions.transitionScene(param)
+	Transitions.transitionScene(param,true)
 	curLevel=param
 
 

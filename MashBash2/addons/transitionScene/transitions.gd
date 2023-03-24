@@ -1,7 +1,9 @@
 extends CanvasLayer
 var toScene=""
-
-func transitionScene(target):
+@rpc(authority)
+func transitionScene(target,sent=false):
+	if(Link.link_root&&Link.link_root.is_host):Link.link_root.send("transitionScene",[target,true],self)
+	elif(Link.link_root&&!sent):return
 	toScene=target
 	get_tree().paused=true;Pausemenu.canPause=false
 	Pausemenu.visible=false

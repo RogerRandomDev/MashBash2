@@ -85,8 +85,8 @@ makeRigid = true
 
 [node name="itemResource28" type="Marker2D" parent="items"]
 z_index = 2
-position = Vector2(144, 184)
-rotation = -0.0223779
+position = Vector2(146, 226)
+rotation = -0.0226893
 script = ExtResource("7_5osps")
 HeldResource = ExtResource("8_bo6br")
 Status = PackedStringArray("heavy", "reflective")
@@ -117,7 +117,7 @@ position = Vector2(152, 163)
 rotation = 1.5708
 script = ExtResource("7_5osps")
 HeldResource = ExtResource("9_4tbgp")
-Status = PackedStringArray()
+Status = PackedStringArray("active")
 HiddenStatus = PackedStringArray()
 
 [node name="itemResource26" type="Marker2D" parent="items"]
@@ -350,3 +350,5 @@ layer_2/tile_data = PackedInt32Array()
 z_index = 5
 position = Vector2(163, 104)
 nextlvl = "res://multiplayer/levels/level2M.tscn"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

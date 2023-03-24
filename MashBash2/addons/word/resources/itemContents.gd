@@ -12,6 +12,7 @@ class_name itemContents
 @export var Scripts:Dictionary={"default":null}
 @export var logicOff:String="locked"
 @export var logicOn:String="open"
+@export var syncPos:bool=false
 #checks if it has a valid sprite for the given descriptive
 func has_sprite(descriptive):
 	return Sprites.has(descriptive)

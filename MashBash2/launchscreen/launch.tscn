@@ -137,7 +137,6 @@ theme = ExtResource("1_gbe0r")
 
 [node name="FBLA" type="RichTextLabel" parent="part1"]
 clip_contents = false
-layout_mode = 0
 offset_left = 329.0
 offset_top = 175.0
 offset_right = 824.0
@@ -157,7 +156,6 @@ theme = ExtResource("1_gbe0r")
 [node name="FBLA" type="RichTextLabel" parent="part2"]
 editor_description = "The spite is to you."
 clip_contents = false
-layout_mode = 0
 offset_left = 234.0
 offset_top = 175.0
 offset_right = 919.0
