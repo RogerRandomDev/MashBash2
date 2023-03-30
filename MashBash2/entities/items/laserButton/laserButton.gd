@@ -29,8 +29,14 @@ var toggle=false
 var justPressed=false
 var lastMode=false
 func toggleActive(isPressed):
+	#if you have problems, this is why
+	if(root.Status.has("disabled")):
+		isPressed=false
+		justPressed=false
+		lastMode=false
 	if lastMode==isPressed:return
 	#pressed logic
+
 	if toggle&&!justPressed:_active=!_active
 	if !toggle:_active=isPressed
 	if !isPressed&&!toggle&&!justPressed:_active=false

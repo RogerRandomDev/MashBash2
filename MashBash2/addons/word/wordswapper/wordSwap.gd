@@ -143,6 +143,9 @@ func insertWord(_word):
 func updateFromInput(inWord):
 	if(inWord=="KEY"&&Word.hoveringObject.Status.has("locked")):
 		BaseText=BaseText.replace("locked","open").replace("KEY","")
+	if(inWord=="light"&&Word.hoveringObject.Status.has("heavy")||inWord=="heavy"&&Word.hoveringObject.Status.has("light")):
+		BaseText=BaseText.replace("light","").replace("heavy","")
+	
 
 
 #animated the addedword text

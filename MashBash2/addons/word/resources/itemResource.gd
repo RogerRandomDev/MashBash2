@@ -163,8 +163,6 @@ const opposites=[
 	"locked",
 	"broken",
 	"weak",
-	"light",
-	"heavy",
 	"active",
 	"disabled"
 ]

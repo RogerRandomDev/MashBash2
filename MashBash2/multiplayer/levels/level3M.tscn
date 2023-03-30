@@ -305,4 +305,4 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Area2D" parent="." instance=ExtResource("15_115ej")]
 z_index = 5
 position = Vector2(163, 104)
-nextlvl = "res://multiplayer/levels/level2M.tscn"
+nextlvl = "res://multiplayer/levels/level4M.tscn"
