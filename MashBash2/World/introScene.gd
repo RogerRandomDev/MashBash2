@@ -10,5 +10,5 @@ func _ready():
 	$split.play("link")
 
 
-func _input(event):
+func _input(_event):
 	if Input.is_key_pressed(KEY_ESCAPE):Transitions.transitionScene("res://World/level0.tscn")

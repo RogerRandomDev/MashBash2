@@ -23,7 +23,7 @@ const soundList = {
 	\"select\":preload(\"res://sounds/Select.wav\")
 }
 #rpc for syncing sound between users
-@rpc(any_peer)
+@rpc(\"any_peer\")
 func playSound(soundName:String,db=0.0,fromRPC:bool=false):
 	var player=AudioStreamPlayer.new()
 	player.volume_db=db

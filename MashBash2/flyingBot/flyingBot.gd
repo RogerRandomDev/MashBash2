@@ -35,7 +35,7 @@ func userControl(_delta):
 #	rotateTowardMotion(delta,moveDir*4)
 	return
 var curFace:int=0
-func _input(event):
+func _input(_event):
 	if Link.link_root==null||Link.link_root.is_host:return
 	curFace+=int(Input.is_action_just_pressed("confirm"))
 	curFace=curFace%7
@@ -43,7 +43,7 @@ func _input(event):
 	Link.link_root.send("updateAnimations",[curFace],self)
 
 var velocity=Vector2.ZERO
-@rpc(any_peer)
+@rpc("any_peer")
 func updateAnimations(face:int=0):
 	$flyingBot/face.texture=load("res://addons/MASHLOG/Textures/Mashicons/%s.png"%str(face))
 	

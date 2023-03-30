@@ -26,7 +26,7 @@ func rotateVacuum(rotBy):
 	get_parent().rotation=lerp_angle(get_parent().rotation,get_parent().global_position.angle_to_point(get_global_mouse_position()),rotBy)
 	
 #multiplayer functionality
-@rpc(any_peer)
+@rpc("any_peer")
 func update_active(active:bool=false,rot:float=0.0):
 	$GPUParticles2D.emitting=active
 	get_parent().rotation=rot

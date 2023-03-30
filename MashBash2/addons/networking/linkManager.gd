@@ -20,7 +20,7 @@ func delete_link():
 	link_root.endSelf()
 	link_root.queue_free();link_root=null
 #received if the host ends the game
-@rpc(authority)
+@rpc("authority")
 func server_closed():
 	delete_link()
 	Transitions.transitionScene("res://title/title.tscn")

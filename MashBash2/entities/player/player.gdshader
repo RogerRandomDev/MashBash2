@@ -12,10 +12,13 @@ Thanks for shader and I'm a newbie with shaders
 shader_type canvas_item;
 
 uniform float line_scale : hint_range(0, 20) = 0.875;    // thickness of the line
-
+uniform sampler2D screenTex:hint_screen_texture;
+void vertex(){
+	//VERTEX+=vec2(float(int(VERTEX_ID<2)*2-1),float(int(VERTEX_ID==0||VERTEX_ID==3)*2-1));
+}
 void fragment() {
 	
-	vec4 line_color=vec4(vec3(1.)-texture(SCREEN_TEXTURE,SCREEN_UV).rgb,1.);
+	vec4 line_color=vec4(vec3(1.)-texture(screenTex,SCREEN_UV).rgb,1.);
 	vec2 size = TEXTURE_PIXEL_SIZE * line_scale;
 	
 	float outline = texture(TEXTURE, UV + vec2(-size.x, 0)).a;

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bgkcea6ovjvxa"]
+[gd_resource type="Resource" script_class="dialogueResource" load_steps=2 format=3 uid="uid://bgkcea6ovjvxa"]
 
 [ext_resource type="Script" path="res://addons/MASHLOG/resources/dialogueResource.gd" id="1_hhd1v"]
 

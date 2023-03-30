@@ -1,6 +1,6 @@
 extends CanvasLayer
 var toScene=""
-@rpc(authority)
+@rpc("authority")
 func transitionScene(target,sent=false):
 	if(Link.link_root&&Link.link_root.is_host):Link.link_root.send("transitionScene",[target,true],self)
 	elif(Link.link_root&&!sent):return

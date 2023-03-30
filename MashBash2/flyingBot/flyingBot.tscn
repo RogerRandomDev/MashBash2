@@ -70,9 +70,9 @@ offset = Vector2(-4, 2)
 z_index = -1
 position = Vector2(-4, 3)
 amount = 4
-lifetime = 0.5
 process_material = ExtResource("4_ea483")
 texture = ExtResource("4_w0ag8")
+lifetime = 0.5
 
 [node name="BotwingR" type="Sprite2D" parent="flyingBot"]
 z_index = -1
@@ -85,9 +85,9 @@ flip_h = true
 z_index = -1
 position = Vector2(5, 3)
 amount = 4
-lifetime = 0.5
 process_material = ExtResource("4_ea483")
 texture = ExtResource("4_w0ag8")
+lifetime = 0.5
 
 [node name="face" type="Sprite2D" parent="flyingBot"]
 modulate = Color(0, 0.780392, 0, 1)

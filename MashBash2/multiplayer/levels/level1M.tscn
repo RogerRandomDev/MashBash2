@@ -67,15 +67,12 @@ rotation = 1.5708
 script = ExtResource("4_14itk")
 HeldResource = ExtResource("4_auame")
 Status = PackedStringArray("active")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource2" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(240, -16)
 script = ExtResource("4_14itk")
 HeldResource = ExtResource("5_fniya")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 makeRigid = true
 
 [node name="itemResource3" type="Marker2D" parent="items"]
@@ -83,24 +80,18 @@ z_index = 2
 position = Vector2(240, -32)
 script = ExtResource("4_14itk")
 HeldResource = ExtResource("10_eqjsr")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource9" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(224, -32)
 script = ExtResource("4_14itk")
 HeldResource = ExtResource("10_eqjsr")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource4" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(168, -32)
 script = ExtResource("4_14itk")
 HeldResource = ExtResource("10_eqjsr")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource5" type="Marker2D" parent="items" groups=["INP_itemResource3", "INP_itemResource4", "INP_itemResource9"]]
 z_index = 2
@@ -108,7 +99,6 @@ position = Vector2(96, -32)
 script = ExtResource("4_14itk")
 HeldResource = ExtResource("11_31s1o")
 Status = PackedStringArray("and")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource6" type="Marker2D" parent="items" groups=["INP_itemResource5", "INP_itemResource7"]]
 z_index = 2
@@ -116,7 +106,6 @@ position = Vector2(88, -32)
 script = ExtResource("4_14itk")
 HeldResource = ExtResource("11_31s1o")
 Status = PackedStringArray("or")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource7" type="Marker2D" parent="items" groups=["INP_itemResource5", "INP_itemResource6", "OUT_itemResource8"]]
 z_index = 2
@@ -124,15 +113,12 @@ position = Vector2(80, -32)
 script = ExtResource("4_14itk")
 HeldResource = ExtResource("11_31s1o")
 Status = PackedStringArray("or")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource8" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(208, 40)
 script = ExtResource("4_14itk")
 HeldResource = ExtResource("12_y6kt1")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="TileMap" type="TileMap" parent="."]
 material = ExtResource("9_rs6od")

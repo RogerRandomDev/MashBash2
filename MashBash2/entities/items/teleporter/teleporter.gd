@@ -49,9 +49,11 @@ func makeArrow():
 
 #checks if the new object to enter is the player, and if so, it teleports it
 func checkTeleport(body):
+	#these make sure that both linked and self are active and functional
 	if !get_parent().Status.has("active")||!linked.Status.has("active"):return
 	if get_parent().Status.has("broken")||linked.Status.has("broken"):return
 	if get_parent().Status.has("disabled")||linked.Status.has("disabled"):return
+	#this prevents accidental double-teleportation, where you teleport mid-teleport. i don't like infinite loops
 	if teleporting!=null:return
 	if body.name=="playerchest":
 		#checks if you were just teleported to it
@@ -99,6 +101,8 @@ func animateTeleport(body):
 
 #finishes the teleport
 func finishTeleport():
+	#emits the signal that the user used this teleporter
+	#and then will finish the teleport and mark the user/object as normal once again
 	get_parent().emit_signal("use_item",teleporting,"teleporter")
 	updateStatus()
 	teleporting=null

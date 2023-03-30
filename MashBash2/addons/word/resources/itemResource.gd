@@ -235,13 +235,13 @@ func onMove():
 		
 
 #multiplayer functionality
-@rpc(any_peer)
+@rpc("any_peer")
 func update_position(pos:Vector2=Vector2.ZERO,sender:bool=true):
 	if Link.link_root.is_host:
 		Link.link_root.send("update_position",[get_parent().position,false],self)
 	else:
 		get_parent().position=pos
-@rpc(authority)
+@rpc("authority")
 func sync_words(wordList:PackedStringArray=PackedStringArray(),sender:bool=true):
 	if Link.link_root.is_host&&sender:
 		Link.link_root.send("sync_words",[Status,false],self)

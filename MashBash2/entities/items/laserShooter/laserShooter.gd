@@ -82,10 +82,10 @@ func updateBeam():
 #i take no credit for the this part, i just made it better for my uses, beyond that
 #i got it from others. thank you random coders
 func getbouncedBeam(laser_coll_point,laser_coll_normal):
-	var out=Transform2D(0,laser_coll_point)
+	
 	var forward = laser_coll_point+laser_coll_normal*0.1 - beamLine.from
 	var reflection = -forward.reflect(laser_coll_normal)
-	out.set_rotation(reflection.angle())
+	var out=Transform2D(reflection.angle(),laser_coll_point)
 	return out
 
 

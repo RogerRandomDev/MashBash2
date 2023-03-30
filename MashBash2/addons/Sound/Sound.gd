@@ -10,7 +10,7 @@ func _ready():
 
 #plays audio file with modified decibel DB
 #rpc is for if in multiplayer, to play it on other user as well
-@rpc(any_peer)
+@rpc("any_peer")
 func play(sound,db=0.,fromRPC=false):
 	if sound=="no_man_voice":return
 	var player=AudioStreamPlayer.new()

@@ -21,8 +21,9 @@ func formatSave(i):
 	var add="%s"
 	if Saves.curSave[i][0]=="YOU":add="[color=#0f0]%s[/color]"
 	var toAdd=Saves.curSave[i][0]+":"
-	for a in 12-Saves.curSave[i][0].length():toAdd+=" "
 	toAdd+=formatTime(Saves.curSave[i][1])
+	for a in 24-toAdd.length():toAdd.insert(Saves.curSave[i][0].length(),' ')
+	
 	return add%toAdd
 
 func formatTime(time):

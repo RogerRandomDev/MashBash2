@@ -46,7 +46,7 @@ func _input(_event):
 
 
 #handles placing markers for client to host when client attempts it
-@rpc(any_peer)
+@rpc("any_peer")
 func createMarker(markerPos:Vector2,ignore:bool=false):
 	if !Link.link_root.is_host&&!ignore:return
 	var tween=create_tween()

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=6 format=3 uid="uid://tjgcx51yrthv"]
+[gd_resource type="Resource" script_class="itemContents" load_steps=6 format=3 uid="uid://tjgcx51yrthv"]
 
 [ext_resource type="Texture2D" uid="uid://dwswqcsisf86c" path="res://entities/items/door/closed.png" id="1_072fw"]
 [ext_resource type="Script" path="res://entities/items/door/defaultDoor.gd" id="1_tlvmq"]
@@ -20,3 +20,4 @@ Scripts = {
 }
 logicOff = "locked"
 logicOn = "open"
+syncPos = false

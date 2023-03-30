@@ -26,7 +26,7 @@ func send(method:String='receive',data:Array=[],sendNode:Node=target):
 	#get_tree().get_multiplayer(get_path()).rpc(0,sendNode,method,data)
 	get_tree().get_multiplayer(sendNode.get_path()).rpc(0,sendNode,method,data)
 #recieves data from client/server
-@rpc(any_peer)
+@rpc("any_peer")
 func receive(data=null):
 	return
 
@@ -43,7 +43,7 @@ func enteredGame(_args=null):
 	in_game=true;
 	if(!is_host):link_node_in_game=true
 	send("clientInGame",[],self)
-@rpc(any_peer)
+@rpc("any_peer")
 func clientInGame(_args=null):
 	link_node_in_game=true
 	if client_already_connected:reset_object_positions()
@@ -64,7 +64,7 @@ func endSelf():
 var curLevel:String="res://multiplayer/levels/level1M.tscn"
 var inGame=false
 #tells server and peers that the connection is now established
-@rpc(any_peer)
+@rpc("any_peer")
 func establish_link(_args=null):
 	is_connected=true
 	send("change_level",[curLevel],self)
@@ -72,11 +72,11 @@ func establish_link(_args=null):
 		change_level("res://multiplayer/levels/level1M.tscn")
 		inGame=true
 
-@rpc(any_peer)
+@rpc("any_peer")
 func update_parameter(param,newValue,targeting=target):
 	if(targeting==null):return
 	targeting.set(param,newValue);
-@rpc(authority)
+@rpc("authority")
 func change_level(param:String):
 	Transitions.transitionScene(param,true)
 	curLevel=param

@@ -15,19 +15,19 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t4m5i"]
 shader = ExtResource("2_ult1y")
 shader_parameter/aspect = 8.0
+shader_parameter/size = Vector2(0.3, 0.3)
+shader_parameter/dataspeed = 0.375
+shader_parameter/ySpread = 1.6
+shader_parameter/numBlocks = 32
 shader_parameter/basePulse = 2.0
-shader_parameter/bg_color = null
 shader_parameter/color1 = Quaternion(0, 0.3, 0.6, 1)
 shader_parameter/color2 = Quaternion(0.6, 0, 0.3, 1)
-shader_parameter/dataspeed = 0.375
 shader_parameter/doInput = true
-shader_parameter/height = 0.5
 shader_parameter/line_freq = 3.0
-shader_parameter/numBlocks = 32
-shader_parameter/scale = Vector2(0.013, 0.025)
-shader_parameter/size = null
+shader_parameter/height = 0.5
 shader_parameter/speed = 0.375
-shader_parameter/ySpread = null
+shader_parameter/scale = Vector2(0.013, 0.025)
+shader_parameter/bg_color = null
 
 [sub_resource type="Shader" id="Shader_nrfp5"]
 code = "shader_type canvas_item;
@@ -40,6 +40,7 @@ uniform float basePulse = 0.33;
 uniform vec4 color1 = vec4(0.0,0.3, 0.6, 1.0);
 uniform vec4 color2 = vec4(0.6, 0.0, 0.3, 1.0);
 uniform bool doInput=true;
+uniform sampler2D screenTex:hint_screen_texture;
 float rand(float x)
 {
     return fract(sin(x) * 4358.5453123);
@@ -91,29 +92,29 @@ void fragment() {
 	color -= rand2(uv)*0.04;
 	color*=0.75;
 	color.rgb=min(color.rgb,vec3(1.5));
-	color=mix(texture(SCREEN_TEXTURE,SCREEN_UV),color,0.5);
+	color=mix(texture(screenTex,SCREEN_UV),color,0.5);
 	COLOR=color;
 }"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_54ktm"]
 shader = SubResource("Shader_nrfp5")
 shader_parameter/aspect = 8.0
+shader_parameter/size = Vector2(0.3, 0.3)
+shader_parameter/dataspeed = 0.375
+shader_parameter/ySpread = 1.6
+shader_parameter/numBlocks = 32
 shader_parameter/basePulse = 2.0
 shader_parameter/color1 = Quaternion(0, 0.3, 0.6, 1)
 shader_parameter/color2 = Quaternion(0.6, 0, 0.3, 1)
-shader_parameter/dataspeed = 0.375
 shader_parameter/doInput = false
-shader_parameter/numBlocks = 32
-shader_parameter/size = Vector2(0.3, 0.3)
-shader_parameter/ySpread = 1.6
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfos6"]
 shader = ExtResource("5_d5uk3")
-shader_parameter/shake_block_size = 30.5
-shader_parameter/shake_color_rate = 0.025
-shader_parameter/shake_power = 0.013
-shader_parameter/shake_rate = 0.25
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
 shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
 
 [sub_resource type="Animation" id="Animation_hltm1"]
 resource_name = "titleAnimation"
@@ -516,16 +517,18 @@ script = ExtResource("1_ffxdt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_t4m5i")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_54ktm")
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Menu" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 576.0
 offset_top = -324.0
@@ -535,6 +538,7 @@ theme = ExtResource("1_faeks")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
 clip_contents = false
+layout_mode = 0
 offset_left = -62.0
 offset_top = -250.0
 offset_right = 62.0
@@ -545,11 +549,11 @@ theme_override_fonts/normal_font = ExtResource("3_iy4j3")
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[center][shake level=8 rate=10]WOR(L)D SWAP[/shake][/center]"
-fit_content_height = true
 autowrap_mode = 2
 tab_size = 1
 
 [node name="play" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = -400.0
 offset_right = 64.0
@@ -561,6 +565,7 @@ theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
 [node name="settings" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
 offset_left = 764.0
 offset_top = 24.0
 offset_right = 1199.0
@@ -570,10 +575,12 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="Control" type="HBoxContainer" parent="Menu/settings"]
+layout_mode = 2
 alignment = 1
 
 [node name="credits" type="Button" parent="Menu/settings/Control"]
 custom_minimum_size = Vector2(136, 0)
+layout_mode = 2
 focus_neighbor_left = NodePath("../fullscreen")
 focus_neighbor_top = NodePath("../../../play")
 focus_neighbor_right = NodePath("../fullscreen")
@@ -582,6 +589,7 @@ mouse_filter = 1
 text = "Credits"
 
 [node name="fullscreen" type="Button" parent="Menu/settings/Control"]
+layout_mode = 2
 focus_neighbor_left = NodePath("../credits")
 focus_neighbor_top = NodePath("../../../play")
 focus_neighbor_right = NodePath("../credits")
@@ -590,10 +598,12 @@ toggle_mode = true
 text = "Fullscreen"
 
 [node name="Control2" type="HBoxContainer" parent="Menu/settings"]
+layout_mode = 2
 alignment = 1
 
 [node name="Multiplayer" type="Button" parent="Menu/settings/Control2"]
 custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
 focus_neighbor_left = NodePath("../controls")
 focus_neighbor_top = NodePath("../../Control/credits")
 focus_neighbor_right = NodePath("../controls")
@@ -602,6 +612,7 @@ text = "Multiplayer"
 
 [node name="controls" type="Button" parent="Menu/settings/Control2"]
 custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
 focus_neighbor_left = NodePath("../Multiplayer")
 focus_neighbor_top = NodePath("../../Control/fullscreen")
 focus_neighbor_right = NodePath("../Multiplayer")
@@ -609,6 +620,7 @@ focus_neighbor_bottom = NodePath("../../../quit")
 text = "Info"
 
 [node name="quit" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = -764.0
 offset_top = 112.0
 offset_right = -636.0
@@ -621,6 +633,7 @@ text = "QUIT"
 [node name="hoveredShader" type="ColorRect" parent="Menu"]
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
+layout_mode = 0
 offset_left = -64.0
 offset_top = -44.0
 offset_right = 64.0
@@ -660,9 +673,9 @@ offset = Vector2(-4, 2)
 z_index = -1
 position = Vector2(-4, 3)
 amount = 4
-lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_h5l70")
 texture = ExtResource("8_ll4u6")
+lifetime = 0.5
 
 [node name="BotwingR" type="Sprite2D" parent="mousefollow/flyingBot"]
 z_index = -1
@@ -675,9 +688,9 @@ flip_h = true
 z_index = -1
 position = Vector2(5, 3)
 amount = 4
-lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_wjkd0")
 texture = ExtResource("8_ll4u6")
+lifetime = 0.5
 
 [node name="face" type="Sprite2D" parent="mousefollow/flyingBot"]
 modulate = Color(0, 0.780392, 0, 1)
@@ -691,7 +704,7 @@ libraries = {
 }
 
 [node name="Credits" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -700,26 +713,31 @@ pivot_offset = Vector2(576, 324)
 theme = ExtResource("1_faeks")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Label" type="Label" parent="Credits/VBoxContainer"]
 custom_minimum_size = Vector2(1152, 0)
+layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Credits"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Made By:"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
 text = "Roger T. Grange-Programmer / Songwriter
 Logan Rubenstein-Designer"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Credits"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 452.0
 offset_right = 595.0
@@ -728,7 +746,7 @@ scale = Vector2(1.5, 1.5)
 text = "BACK"
 
 [node name="Controls" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -738,6 +756,7 @@ theme = ExtResource("1_faeks")
 
 [node name="Label" type="Label" parent="Controls"]
 custom_minimum_size = Vector2(1152, 0)
+layout_mode = 0
 offset_top = 8.0
 offset_right = 1152.0
 offset_bottom = 93.0
@@ -746,6 +765,7 @@ text = "|Controls|              |OBJECTS|"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Controls"]
+layout_mode = 0
 offset_top = 88.0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -754,6 +774,7 @@ theme_override_constants/separation = 64
 
 [node name="controls" type="RichTextLabel" parent="Controls/HBoxContainer"]
 custom_minimum_size = Vector2(448, 0)
+layout_mode = 2
 size_flags_horizontal = 2
 bbcode_enabled = true
 text = "
@@ -762,17 +783,17 @@ text = "
 
 
 
-[img=48]res://addons/pauseMenu/W.png[/img][img=48]res://addons/pauseMenu/A.png[/img][img=48]res://addons/pauseMenu/S.png[/img][img=48]res://addons/pauseMenu/D.png[/img]           MOVEMENT
-[img=48]res://addons/pauseMenu/E.png[/img]       INTERACT/SWAP FACE
-[img=96]res://addons/pauseMenu/ESC.png[/img]        BACK/PAUSE MENU
-[img=48]res://addons/pauseMenu/Lmouse.png[/img]                VACUUM/MARKER
+[img=48]res://addons/pauseMenu/W.png[/img][img=48]res://addons/pauseMenu/A.png[/img][img=48]res://addons/pauseMenu/S.png[/img][img=48]res://addons/pauseMenu/D.png[/img] / LSTICK          MOVEMENT
+[img=48]res://addons/pauseMenu/E.png[/img] / A                        INTERACT/SWAP FACE
+[img=96]res://addons/pauseMenu/ESC.png[/img] / B                      BACK/PAUSE MENU
+[img=48]res://addons/pauseMenu/Lmouse.png[/img] / RSTICK+RTIGGER/Y   VACUUM/MARKER
 "
-fit_content_height = true
 scroll_active = false
 autowrap_mode = 0
 
 [node name="objects" type="RichTextLabel" parent="Controls/HBoxContainer"]
 custom_minimum_size = Vector2(448, 0)
+layout_mode = 2
 size_flags_horizontal = 10
 bbcode_enabled = true
 text = "[img=48]res://entities/items/box/box.png[/img] BOX
@@ -880,6 +901,7 @@ _______________________________
 	IS A TOY"
 
 [node name="Button" type="Button" parent="Controls"]
+layout_mode = 0
 offset_left = 519.0
 offset_top = 516.0
 offset_right = 595.0
@@ -888,40 +910,19 @@ scale = Vector2(1.5, 1.5)
 text = "BACK"
 
 [node name="multiplayer" parent="." instance=ExtResource("10_youvk")]
+layout_mode = 1
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(576, 324)
 
 [node name="VBoxContainer" parent="multiplayer" index="0"]
 layout_mode = 3
 
-[node name="Label" parent="multiplayer/VBoxContainer" index="0"]
-layout_mode = 3
-
-[node name="Label2" parent="multiplayer/VBoxContainer" index="1"]
-layout_mode = 3
-
-[node name="connectIP" parent="multiplayer/VBoxContainer" index="2"]
-layout_mode = 3
-
-[node name="HBoxContainer" parent="multiplayer/VBoxContainer" index="3"]
-layout_mode = 3
-
-[node name="Button" parent="multiplayer/VBoxContainer/HBoxContainer" index="0"]
-layout_mode = 3
-
-[node name="Button2" parent="multiplayer/VBoxContainer/HBoxContainer" index="1"]
-layout_mode = 3
-
-[node name="space" parent="multiplayer/VBoxContainer" index="4"]
-layout_mode = 3
-anchors_preset = 0
-
 [node name="Button" parent="multiplayer" index="1"]
 layout_mode = 3
 
 [node name="MouseBlocker" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchor_left = -0.059
 anchor_top = -0.096
 offset_left = -136.032

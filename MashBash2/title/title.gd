@@ -9,11 +9,15 @@ func _ready():
 	$AnimationPlayer.play("load")
 	Sound.playSong("song1")
 	#focuses on the play button
+	
+	#this hides all the nodes used in the game to show the user controls
 	Pausemenu.get_node("Controls/Movement").visible=false
 	Pausemenu.get_node("Controls/Interact").visible=false
 	Pausemenu.get_node("Controls/ClosePause").visible=false
 	Pausemenu.get_node("Controls/Vacuum").visible=false
 	Pausemenu.get_node("Controls/Client").visible=false
+	
+	#fancy fancy title animancy
 	$Menu/AnimationPlayer.play("titleAnimation")
 
 

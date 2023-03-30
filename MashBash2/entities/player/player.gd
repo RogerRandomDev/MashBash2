@@ -66,7 +66,7 @@ func _left_object(body):
 
 
 #deals with animating the player
-@rpc(any_peer)
+@rpc("any_peer")
 func updateAnimations(changeTo:String="",flip_h:bool=false):
 	var chosenAnimation="idle"
 	if changeTo!="":
@@ -77,7 +77,7 @@ func updateAnimations(changeTo:String="",flip_h:bool=false):
 			$Sprite2D.flip_h=velocity.x<0
 		if velocity!=Vector2.ZERO:
 			chosenAnimation="walk"
-	$Sprite2D.animation=chosenAnimation
+	if(chosenAnimation!=$Sprite2D.animation):$Sprite2D.play(chosenAnimation);
 	#handles making sure multiplayer tells the players what animation the other player has at any given moment
 	if is_multiplayer&&(Link.link_root!=null&&Link.link_root.is_host):Link.link_root.send("updateAnimations",[chosenAnimation,$Sprite2D.flip_h],self)
 
