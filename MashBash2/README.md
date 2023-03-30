@@ -60,31 +60,31 @@ The action that is called is a function, which will call with the parameters pro
 
 #### DEFAULT EVENTS
 
-SetCell
-ShakeCamera
-MoveCamera
-ResetCamera
-ChangeSpeaker
-toggleplayerlock
-toggleEditor
-changeScene
-showLogic
-showControls
+	SetCell
+	ShakeCamera
+	MoveCamera
+	ResetCamera
+	ChangeSpeaker
+	toggleplayerlock
+	toggleEditor
+	changeScene
+	showLogic
+	showControls
 
 
 #### DEFAULT FACES
 
-Default
-Smile
-Frown
-MadDefault
-MadSmile
-MadFrown
-SquintNeutral
-SquintSmile
-SquintFrown
-GrinSquint
-SquintSmallFrown
+	Default
+	Smile
+	Frown
+	MadDefault
+	MadSmile
+	MadFrown
+	SquintNeutral
+	SquintSmile
+	SquintFrown
+	GrinSquint
+	SquintSmallFrown
 
 
 #### INVOKING DIALOGUE
