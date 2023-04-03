@@ -50,8 +50,7 @@ z_index = 2
 position = Vector2(144, 8)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("5_i1kxc")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
+Status = PackedStringArray("active")
 
 [node name="itemResource7" type="Marker2D" parent="items"]
 z_index = 2
@@ -59,15 +58,12 @@ position = Vector2(144, 24)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_b721w")
 Status = PackedStringArray("locked")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource10" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(72, 72)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_b721w")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource3" type="Marker2D" parent="items"]
 z_index = 2
@@ -75,7 +71,6 @@ position = Vector2(84, 64)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_kgeb3")
 Status = PackedStringArray("heavy")
-HiddenStatus = PackedStringArray()
 makeRigid = true
 
 [node name="itemResource5" type="Marker2D" parent="items"]
@@ -83,8 +78,6 @@ z_index = 2
 position = Vector2(84, 8)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_rh7fu")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource9" type="Marker2D" parent="items"]
 z_index = 2
@@ -93,7 +86,6 @@ rotation = -1.5708
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_rh7fu")
 Status = PackedStringArray("heavy", "active")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource8" type="Marker2D" parent="items" groups=["INP_itemResource5", "OUT_itemResource7"]]
 editor_description = "gates are out of sight, but needed to link things"
@@ -102,7 +94,6 @@ position = Vector2(0, -160)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_jpgdp")
 Status = PackedStringArray("and")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource11" type="Marker2D" parent="items" groups=["INP_itemResource9", "OUT_itemResource10"]]
 editor_description = "gates are out of sight, but needed to link things"
@@ -111,7 +102,6 @@ position = Vector2(8, -160)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_jpgdp")
 Status = PackedStringArray("and")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource4" type="Marker2D" parent="items"]
 z_index = 2
@@ -120,7 +110,6 @@ rotation = -1.5708
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
 Status = PackedStringArray("active")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource14" type="Marker2D" parent="items"]
 z_index = 2
@@ -129,7 +118,6 @@ rotation = 3.14159
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
 Status = PackedStringArray("active")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource15" type="Marker2D" parent="items"]
 z_index = 2
@@ -137,31 +125,27 @@ position = Vector2(66, 24)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
 Status = PackedStringArray("active")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource6" type="Marker2D" parent="items" groups=["teleporter0A"]]
 z_index = 2
 position = Vector2(56, 8)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("5_i1kxc")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
+Status = PackedStringArray("active")
 
 [node name="itemResource12" type="Marker2D" parent="items" groups=["teleporter1A"]]
 z_index = 2
 position = Vector2(72, 120)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("5_i1kxc")
-Status = PackedStringArray("broken")
-HiddenStatus = PackedStringArray()
+Status = PackedStringArray("broken", "active")
 
 [node name="itemResource13" type="Marker2D" parent="items" groups=["teleporter1B"]]
 z_index = 2
 position = Vector2(16, 8)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("5_i1kxc")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
+Status = PackedStringArray("active")
 
 [node name="WordSwapCharger" type="Marker2D" parent="items"]
 position = Vector2(61, 100)

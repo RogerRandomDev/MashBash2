@@ -63,7 +63,6 @@ rotation = 1.5708
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
 Status = PackedStringArray("active")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource15" type="Marker2D" parent="items"]
 z_index = 2
@@ -71,8 +70,6 @@ position = Vector2(176, 144)
 rotation = 3.14159
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource19" type="Marker2D" parent="items"]
 z_index = 2
@@ -80,8 +77,6 @@ position = Vector2(109, 107)
 rotation = 3.14159
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_78tmm")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource4" type="Marker2D" parent="items"]
 z_index = 2
@@ -89,24 +84,18 @@ position = Vector2(72, 16)
 rotation = -1.5708
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_4un7n")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource13" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(168, 48)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_4un7n")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource9" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(104, 48)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_4un7n")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource8" type="Marker2D" parent="items"]
 z_index = 2
@@ -114,7 +103,6 @@ position = Vector2(96, 8)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_tqe0v")
 Status = PackedStringArray("toggle")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource5" type="Marker2D" parent="items" groups=["INP_itemResource4", "OUT_itemResource6"]]
 z_index = 2
@@ -122,7 +110,6 @@ position = Vector2(0, -192)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_a4qpx")
 Status = PackedStringArray("and")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource11" type="Marker2D" parent="items" groups=["INP_itemResource8", "OUT_itemResource7"]]
 z_index = 2
@@ -130,7 +117,6 @@ position = Vector2(8, -192)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_a4qpx")
 Status = PackedStringArray("and")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource12" type="Marker2D" parent="items" groups=["INP_itemResource9", "OUT_itemResource10"]]
 z_index = 2
@@ -138,7 +124,6 @@ position = Vector2(16, -192)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_a4qpx")
 Status = PackedStringArray("and")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource17" type="Marker2D" parent="items" groups=["INP_itemResource13", "OUT_itemResource16", "OUT_itemResource18"]]
 z_index = 2
@@ -146,7 +131,6 @@ position = Vector2(24, -192)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_a4qpx")
 Status = PackedStringArray("and")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource20" type="Marker2D" parent="items" groups=["INP_itemResource17", "OUT_itemResource19"]]
 z_index = 2
@@ -154,7 +138,6 @@ position = Vector2(32, -192)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("7_a4qpx")
 Status = PackedStringArray("nor")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource2" type="Marker2D" parent="items"]
 z_index = 2
@@ -162,7 +145,6 @@ position = Vector2(4, 48)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_2c7ik")
 Status = PackedStringArray("reflective", "heavy")
-HiddenStatus = PackedStringArray()
 makeRigid = true
 
 [node name="itemResource6" type="Marker2D" parent="items"]
@@ -170,16 +152,12 @@ z_index = 2
 position = Vector2(88, 40)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_rab1d")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource7" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(88, 48)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_rab1d")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource10" type="Marker2D" parent="items"]
 z_index = 2
@@ -187,15 +165,12 @@ position = Vector2(106, 72)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_rab1d")
 Status = PackedStringArray("locked")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource16" type="Marker2D" parent="items"]
 z_index = 2
 position = Vector2(120, 27)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_rab1d")
-Status = PackedStringArray()
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource18" type="Marker2D" parent="items"]
 z_index = 2
@@ -203,7 +178,6 @@ position = Vector2(88, 96)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("9_rab1d")
 Status = PackedStringArray("locked")
-HiddenStatus = PackedStringArray()
 
 [node name="itemResource3" type="Marker2D" parent="items"]
 z_index = 2
@@ -211,7 +185,6 @@ position = Vector2(36, 40)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_2c7ik")
 Status = PackedStringArray("reflective")
-HiddenStatus = PackedStringArray()
 makeRigid = true
 
 [node name="itemResource14" type="Marker2D" parent="items"]
@@ -220,7 +193,6 @@ position = Vector2(128, 48)
 script = ExtResource("4_kvbxv")
 HeldResource = ExtResource("6_2c7ik")
 Status = PackedStringArray("reflective", "heavy")
-HiddenStatus = PackedStringArray()
 makeRigid = true
 
 [node name="WordSwapCharger" type="Marker2D" parent="items"]

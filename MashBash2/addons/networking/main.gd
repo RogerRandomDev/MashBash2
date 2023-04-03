@@ -27,6 +27,7 @@ func _on_host_button_pressed():
 	$VBoxContainer/HBoxContainer.visible=false
 	$VBoxContainer/space.visible=true
 	$VBoxContainer/Label.text="Hosting Game\nIP:"+getIP()
+	$Button.grab_focus()
 #resets hosting or joining to neither
 func resetMode():
 	Link.delete_link()

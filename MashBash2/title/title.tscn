@@ -634,10 +634,9 @@ text = "QUIT"
 visible = false
 material = SubResource("ShaderMaterial_vfos6")
 layout_mode = 0
-offset_left = -64.0
-offset_top = -44.0
-offset_right = 64.0
-offset_bottom = 10.0
+offset_left = -100.0
+offset_right = 28.0
+offset_bottom = 54.0
 mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu"]
